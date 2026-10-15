@@ -2163,7 +2163,7 @@ const originalHost=window.hostEvent;window.hostEvent=function(data){let message=
 const originalMarket=window.requestMarket;window.requestMarket=function(){const result=originalMarket.apply(this,arguments);market();return result};
 const view=$('#v');if(view)new MutationObserver(records=>{for(const r of records){const el=r.target;if(!el.matches)continue;const selected=el.matches('td.c.sel,td.realCell.realSelected');if(selected&&!/(^|\s)(sel|realSelected)(\s|$)/.test(r.oldValue||''))anim(el,'fx-sel',450)}}).observe(view,{subtree:true,attributes:true,attributeFilter:['class'],attributeOldValue:true});
 motion.addEventListener('change',()=>{if(motion.matches)for(const el of $$('[class*="fx-"],.kfx-bar,.kfx-holding-detail')){for(const a of el.getAnimations())a.cancel();for(const c of [...el.classList])if(c.startsWith('fx-'))el.classList.remove(c)}});
-window.KASHVisualEffects={version:'0.675',reducedMotion:()=>motion.matches};
+window.KASHVisualEffects={version:'0.676',reducedMotion:()=>motion.matches};
 if(D){FX.last.project=null;post(null)}
 })();
 

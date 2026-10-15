@@ -1,6 +1,12 @@
-KA$H v0.675 — Funciones incluidas
+KA$H v0.676 — Funciones incluidas
 
-NOVEDADES v0.675 — GRÁFICOS Y AVISOS DE AYUDA
+NOVEDADES v0.676 — FILTROS MÁS LEGIBLES
+- Campos de búsqueda y filtros de Gastos con altura de 44 px y letra de 15 px.
+- Etiquetas de 13 px y totales de 14 px, distribuidos a lo ancho del panel.
+- Búsqueda flexible, desplegables a la derecha y reordenamiento al faltar ancho.
+- Se conserva el zoom de la tabla, los filtros, los importes y los cálculos.
+
+SE CONSERVA DESDE v0.675 — GRÁFICOS Y AVISOS DE AYUDA
 - El cotizador aparece primero en la columna derecha de Resumen.
 - Moneda de los gráficos queda debajo del cotizador, encima de los gráficos.
   Esta selección afecta a los gráficos, no a las monedas del cotizador.

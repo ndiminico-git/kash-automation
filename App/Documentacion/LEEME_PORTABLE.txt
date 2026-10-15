@@ -1,4 +1,4 @@
-KA$H v0.675 — Portable para Windows de 64 bits
+KA$H v0.676 — Portable para Windows de 64 bits
 
 ACTUALIZAR TU CARPETA ACTUAL
 1. Cerrá KA$H antes de copiar.
@@ -42,5 +42,6 @@ Para una instalación nueva, Windows debe tener WebView2 disponible.
 Abrí o creá tu proyecto desde la app. Guardar escribe en el .kash abierto.
 Conservá tu copia de respaldo habitual antes de reemplazar una versión.
 
-Esta entrega empaqueta la versión v0.675 aprobada en PS. Mantiene los
+Esta entrega incorpora filtros de Gastos más legibles sobre la base estable
+v0.675. Mantiene los
 cálculos, históricos, monedas, tarjetas compactas y orden guardado.

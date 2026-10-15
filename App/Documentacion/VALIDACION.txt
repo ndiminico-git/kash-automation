@@ -1,30 +1,37 @@
-KA$H v0.675 — Validación del portable organizado
+KA$H v0.676 — Validación de filtros de Gastos más legibles
 
-Compilación Windows x64 autocontenida, .NET incluido, sin .pdb.
-Interfaz idéntica por SHA-256 a la versión 0.675 aprobada en PS.
-Archivos internos bajo App; datos en Data y Proyectos junto al EXE.
+Cambios visuales limitados a búsqueda, período, moneda y resumen de filtros.
+Campos de 44 px, letra de 15 px, etiquetas de 13 px y totales de 14 px.
+La búsqueda ocupa el espacio flexible; los desplegables llegan al extremo
+derecho del panel. Los totales se distribuyen a lo ancho, también al envolver.
+El zoom de la tabla se conserva independiente de esta franja.
 
-PRUEBAS EN CARPETAS AISLADAS
-- Apertura del EXE publicado sin PowerShell, SDK ni variables de prueba.
-- Instalación nueva: carga de proyecto, interfaz, icono, imágenes y perfil.
-- Actualización simulada desde la estructura anterior: mismo EXE y URL interna,
-  recuperación del último proyecto, tema y preferencias locales conservados.
-- Archivos antiguos conocidos trasladados a App/Archivos_anteriores: contenido
-  comprobado por SHA-256, sin sobreescrituras y con nota del respaldo.
-- Data, Proyectos, .actualizaciones, proyectos .kash y archivos personales
-  de nombre desconocido conservados. No se usó la instalación del usuario.
-- Segunda apertura sin argumentos: proyecto guardado y preferencias recuperados;
-  sin duplicar la carpeta del respaldo ni volver a trasladar archivos.
-- Las veinte piezas de interfaz coinciden con el código aprobado en PS.
-- Seis vistas, catorce subsecciones de ajustes y funciones verificadas previamente
-  en v0.675; pruebas dirigidas del ejecutable portable en las seis vistas.
-- Guardado y reapertura en formato 19; gasto MXN, cierre manual separado de la
-  tenencia calculada y orden de tarjetas persistido.
-- Arrastre visible, tooltip temático y selector sobre los gráficos comprobados
-  en WebView2 nativo. Zoom y opciones de Ajustes conservados.
-- Cuotas y Notas: 120 cuadros consecutivos con geometría estable, sin temblor.
-- Sin errores JavaScript durante las pruebas del portable.
+PRUEBAS
+- 48 combinaciones: temas claro/oscuro, anchos 980/1366/1920/2560,
+  zoom 80/125% y una/tres/cinco monedas activas con histórico conservado.
+- Medidas, fuentes, alineación de controles, borde derecho de filtros y
+  totales, y centrado del botón X comprobados en todas las combinaciones.
+- Búsqueda, limpiar, filtros combinados de mes y moneda y sumas filtradas.
+- Sin cambios en el objeto del proyecto al buscar, filtrar o redimensionar.
+- Cabecera y franja fija sin superponerse al desplazarse.
+- Sin desbordes nuevos. Se conserva el ancho mínimo existente de la app.
+- Cálculos y JavaScript de negocio idénticos a v0.675; cambio nativo sólo
+  de número de versión. Formato de proyecto 19 conservado.
 
-El paquete no incluye proyectos, sesiones, preferencias ni cachés de prueba.
-ZIP comprobado por CRC y SHA-256 de todos los archivos, con rutas relativas
-confinadas al paquete. Windows 64 bits y Edge WebView2 requerido, como antes.
+Portable Windows x64 autocontenido con .NET incluido; WebView2 requerido.
+EXE, App y .kash-portable en raíz; documentación dentro de App/Documentacion.
+Sin datos, proyectos, sesiones, cachés ni archivos de diagnóstico en el ZIP.
+
+EJECUTABLE PUBLICADO
+- Apertura limpia y actualización simulada con proyectos propios de prueba.
+- Mismos datos, perfil WebView2, tema, preferencias y último proyecto abierto.
+- Archivos antiguos conocidos archivados por la estructura existente.
+- Seis vistas, guardado formato19, gasto MXN, cierre manual separado, Ajustes,
+  opciones, zoom, filtros FX, tarjetas y avisos temáticos comprobados.
+- Cuotas y Notas: 120 cuadros consecutivos con geometría estable.
+- Filtros ampliados comprobados en WebView2: letra15px, altura44px, ambos
+  extremos derechos alineados y X centrada; búsqueda y filtro por moneda
+  funcionan sin cambiar los datos del proyecto.
+- Sólo datos de prueba; ninguna instalación del usuario modificada.
+
+El ZIP se comprueba por CRC y SHA-256 de todos los archivos al empaquetar.

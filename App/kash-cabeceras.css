@@ -46,5 +46,31 @@ body.kashModern #v#v#v#v#v .kashExpenseEntry{
 body.kashModern #v#v#v#v#v .kashExpenseEntry>.mockExpenseFormPanel{margin:0!important}
 body.kashModern #v#v#v#v#v :is(tr,.settingsSectionCard){scroll-margin-top:calc(var(--kash-header-height) + 12px)}
 html{scroll-padding-top:var(--kash-header-height,0px)}
+/* v0.676: larger expense filters use the entire pane, independently of table zoom. */
+body.kashModern #v#v#v#v#v .expenseFiltersBar{
+ width:calc(100% + var(--kash-page-left) + var(--kash-page-right))!important;max-width:none!important;
+ box-sizing:border-box;grid-template-columns:minmax(280px,1fr) minmax(220px,.25fr) minmax(220px,.25fr)!important;
+ gap:16px!important;align-items:end!important;
+}
+body.kashModern #v#v#v#v#v .expenseFiltersBar :is(.expenseSearchField,.expenseFilterLabel){width:100%!important;min-width:0!important;max-width:none!important;gap:7px!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar :is(.expenseSearchField>span,.expenseFilterLabel){font-size:13px!important;font-weight:600!important;line-height:1.45!important;color:var(--mut)!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .expenseSearchInputWrap{height:44px!important;min-height:44px!important;width:100%!important;max-width:none!important;box-sizing:border-box}
+body.kashModern #v#v#v#v#v .expenseFiltersBar :is(input,select){font-size:15px!important;font-weight:400!important;line-height:1.4!important;box-sizing:border-box}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .expenseSearchInputWrap input{height:42px!important;min-height:0!important;padding-block:0!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .expenseFilterLabel select{height:44px!important;min-height:44px!important;padding:0 30px 0 12px!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .searchClear{width:38px!important;min-width:38px!important;height:38px!important;flex-shrink:0!important;margin:2px!important;display:grid!important;place-items:center!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .searchClear svg{width:18px!important;height:18px!important;display:block!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .kashSearchIcon{flex-basis:32px!important;margin-left:7px!important}
+body.kashModern #v#v#v#v#v .expenseFiltersBar .kashSearchIcon svg{width:18px!important;height:18px!important}
+body.kashModern #v#v#v#v#v .expenseFilterSummary{
+ display:flex!important;flex-wrap:wrap!important;justify-content:space-between!important;align-items:baseline!important;
+ gap:10px 24px!important;width:100%!important;max-width:none!important;min-width:0!important;
+ margin:0 0 22px!important;min-height:22px!important;font-size:14px!important;line-height:1.55!important;color:var(--mut)!important;
+}
+body.kashModern #v#v#v#v#v .expenseFilterSummary>span{display:flex;align-items:baseline;justify-content:flex-end;flex:1 1 auto;flex-wrap:wrap;gap:4px 6px;max-width:100%;min-width:0}
+body.kashModern #v#v#v#v#v .expenseFilterSummary>span:first-child{flex:0 0 auto;justify-content:flex-start}
+body.kashModern #v#v#v#v#v .expenseFilterSummary strong{font-size:14px!important;font-weight:700!important;color:var(--ink)!important;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:1150px){body.kashModern #v#v#v#v#v .expenseFiltersBar{grid-template-columns:repeat(2,minmax(0,1fr))!important}body.kashModern #v#v#v#v#v .expenseFiltersBar .expenseSearchField{grid-column:1/-1}}
+@media(max-width:650px){body.kashModern #v#v#v#v#v .expenseFiltersBar{grid-template-columns:minmax(0,1fr)!important}body.kashModern #v#v#v#v#v .expenseFilterSummary{gap:9px 16px!important}}
 @media(max-width:1200px){body.kashModern #v#v#v#v#v .kashPageTitle h2{font-size:21px!important}}
 @media(max-width:720px){body.kashModern #v#v#v#v#v .kashPageHeader{grid-template:none!important;min-height:0!important;gap:10px;padding:10px 0!important}body.kashModern #v#v#v#v#v .kashPageTitle{flex-basis:auto!important}body.kashModern #v#v#v#v#v .kashPageTools{width:auto!important}body.kashModern #v#v#v#v#v .kashPageHeader>.monthNav{border:0!important;padding-left:0!important}body.kashModern #v#v#v#v#v .kashPageHeader>.summaryPeriodNav{flex-basis:100%}}
