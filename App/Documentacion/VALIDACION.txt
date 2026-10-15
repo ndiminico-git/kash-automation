@@ -1,0 +1,30 @@
+KA$H v0.675 — Validación del portable organizado
+
+Compilación Windows x64 autocontenida, .NET incluido, sin .pdb.
+Interfaz idéntica por SHA-256 a la versión 0.675 aprobada en PS.
+Archivos internos bajo App; datos en Data y Proyectos junto al EXE.
+
+PRUEBAS EN CARPETAS AISLADAS
+- Apertura del EXE publicado sin PowerShell, SDK ni variables de prueba.
+- Instalación nueva: carga de proyecto, interfaz, icono, imágenes y perfil.
+- Actualización simulada desde la estructura anterior: mismo EXE y URL interna,
+  recuperación del último proyecto, tema y preferencias locales conservados.
+- Archivos antiguos conocidos trasladados a App/Archivos_anteriores: contenido
+  comprobado por SHA-256, sin sobreescrituras y con nota del respaldo.
+- Data, Proyectos, .actualizaciones, proyectos .kash y archivos personales
+  de nombre desconocido conservados. No se usó la instalación del usuario.
+- Segunda apertura sin argumentos: proyecto guardado y preferencias recuperados;
+  sin duplicar la carpeta del respaldo ni volver a trasladar archivos.
+- Las veinte piezas de interfaz coinciden con el código aprobado en PS.
+- Seis vistas, catorce subsecciones de ajustes y funciones verificadas previamente
+  en v0.675; pruebas dirigidas del ejecutable portable en las seis vistas.
+- Guardado y reapertura en formato 19; gasto MXN, cierre manual separado de la
+  tenencia calculada y orden de tarjetas persistido.
+- Arrastre visible, tooltip temático y selector sobre los gráficos comprobados
+  en WebView2 nativo. Zoom y opciones de Ajustes conservados.
+- Cuotas y Notas: 120 cuadros consecutivos con geometría estable, sin temblor.
+- Sin errores JavaScript durante las pruebas del portable.
+
+El paquete no incluye proyectos, sesiones, preferencias ni cachés de prueba.
+ZIP comprobado por CRC y SHA-256 de todos los archivos, con rutas relativas
+confinadas al paquete. Windows 64 bits y Edge WebView2 requerido, como antes.

@@ -1,0 +1,86 @@
+/* Tanda 2. Explicit typography and subtle surfaces; no financial behavior. */
+:root{--kash-raised:#17263c;--kash-soft:#133340;--kash-shadow:rgba(0,0,0,.18);--kash-edge:rgba(255,255,255,.025)}
+html:not([data-kash-theme=light]){--bg:#0a1322;--pn:#101d30;--sb:#080f1b;--ink:#e8f0fc;--mut:#a4b8d2;--ln:#2a3c55;--ac:#39d2d5}
+html[data-kash-theme=light]{--kash-raised:#edf1f4;--kash-soft:#e2edef;--kash-shadow:rgba(37,52,62,.045);--kash-edge:rgba(255,255,255,.75)}
+body,button,input,select,textarea{font-family:'Segoe UI Variable Text','Segoe UI',system-ui,sans-serif}
+body.kashModern #v#v#v#v{padding-top:22px!important;transition:none!important}
+body.kashModern #v#v#v#v .kashPageHeader{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:66px;margin:0 0 14px;padding:0 0 14px;border:0;background:transparent;position:relative;min-width:0;z-index:2}
+body.kashModern #v#v#v#v .kashPageTitle{display:flex;align-items:center;gap:12px;margin:0!important;padding:0!important;min-width:0;flex:1;position:static!important}
+body.kashModern #v#v#v#v .kashPageTitle h2{font-size:23px!important;font-weight:650!important;line-height:1.25;letter-spacing:-.4px;margin:0!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v .kashPageTitle>.sub,body.kashModern #v#v#v#v .kashPageTitle .pageHeadingSub{display:none!important}
+body.kashModern #v#v#v#v .kashPageTools{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex:none;min-width:0}
+body.kashModern #v#v#v#v .kashPageTools .zoomControls{position:static!important;right:auto!important;top:auto!important;margin:0!important;display:flex;align-items:center;gap:3px;padding:3px!important;min-height:37px;height:37px;background:var(--pn)!important;border:1px solid var(--ln)!important;border-radius:9px!important;box-shadow:none!important;z-index:auto}
+body.kashModern #v#v#v#v .kashPageTools .zoomControls button{width:28px;height:28px;padding:0;background:var(--kash-raised)!important;border:1px solid transparent!important;font-size:14px;font-weight:500;border-radius:6px;color:var(--ink)!important}
+body.kashModern #v#v#v#v .kashPageTools .zoomControls button:disabled{opacity:.4;cursor:default}
+body.kashModern #v#v#v#v .kashPageTools .zpct{min-width:40px;font-size:11px;color:var(--mut)!important;font-variant-numeric:tabular-nums}
+body.kashModern #v#v#v#v .kashHelpButton{display:inline-flex;gap:7px;align-items:center;justify-content:center;position:static!important;min-height:37px;height:37px;padding:6px 11px;border-radius:9px;background:var(--pn)!important;border:1px solid var(--ln)!important;color:var(--ink)!important;font-size:12px;white-space:nowrap}
+.kashHelpGlyph{display:inline-grid;place-items:center;width:15px;height:15px;border:1.3px solid currentColor;border-radius:50%;font-size:11px;font-weight:600;line-height:1;flex:none}
+.kashHelpButton kbd{font:10px 'Segoe UI',sans-serif;color:var(--mut);background:none;border:0;box-shadow:none}
+body.kashModern #v#v#v#v :is(.kashTitleIcon,.pageHeadingIcon,.settingsPageIcon){display:grid;place-items:center;flex:none;width:42px;height:42px;background:var(--kash-soft)!important;border:1px solid var(--ln)!important;border-radius:11px;color:var(--ac)!important;box-shadow:inset 0 1px 0 var(--kash-edge)!important}
+.kashTitleIcon .navIconSvg{width:22px;height:22px}
+body.kashModern #v#v#v#v .kashPageTitle :is(.kashTitleIcon,.pageHeadingIcon,.settingsPageIcon){min-width:42px!important;max-width:42px!important;min-height:42px!important;max-height:42px!important;flex-basis:42px!important}
+body.kashModern #v#v#v#v .kashPageHeader,body.kashModern #v#v#v#v .kashPageHeader *{transition:none!important;animation:none!important}
+@media(min-width:721px){body.kashModern #v#v#v#v .kashPageHeader{height:66px!important;max-height:66px!important}body.kashModern #v#v#v#v .kashPageTitle{height:42px!important;min-height:42px!important;max-height:42px!important}}
+body.kashModern #v#v#v#v .fxSticky{padding:0!important;margin-inline:0!important;background:var(--bg)!important;box-shadow:none!important}
+body.kashModern #v#v#v#v .monthNav{grid-template-columns:auto auto auto minmax(0,1fr);margin-inline:0!important;padding-inline:0!important;background:var(--bg)!important;border-color:var(--ln);box-shadow:none!important;gap:9px}
+body.kashModern #v#v#v#v .summaryHeaderWide{margin:0 0 14px!important;padding:0!important}
+body.kashModern #v#v#v#v .summaryPeriodNav{margin:0;gap:8px}
+/* Only static explanations are hidden. Dates, results, validation and statuses stay. */
+body.kashModern #v#v#v#v :is(.summarySectionSub,.settingsSummarySub,.financeCardSub,.settingsSectionHead .sub,.settingsSectionSub,.settingsPageHeader .sub,.mockPanelHeading .sub,.monthlyCreationRow .sub,.newMonthlyReminder .sub,.financeTip,.serviceDatesHint){display:none!important}
+body.kashModern #v#v#v#v .kashDisplayChoices :is(.learnNote,.learnOptions small){display:none!important}
+body.kashModern #v#v#v#v .expenseSingleHint{visibility:hidden}
+body.kashModern #v#v#v#v :is(.summarySectionCard,.summarySidePanel,.quickConverter,.settingsFinanceCard,.settingsCardChoice,.mockExpenseFormPanel,.mockExpenseTablePanel,.kashDisplayChoices){border-radius:12px!important;background:var(--pn)!important;border-color:var(--ln)!important;box-shadow:0 3px 12px var(--kash-shadow),inset 0 1px 0 var(--kash-edge)!important}
+body.kashModern #v#v#v#v .panel{border-color:var(--ln)!important;box-shadow:0 3px 12px var(--kash-shadow)!important}
+body.kashModern #v#v#v#v :is(.summarySectionTitle,.settingsSummaryTitle,.financeCardTitle,.settingsSectionHead h3,.expenseCurrencyTitle h2){font-weight:650!important;letter-spacing:-.2px;line-height:1.3}
+body.kashModern #v#v#v#v .summarySectionTitle{font-size:17px}
+body.kashModern #v#v#v#v .mockPanelHeading b{font-size:15px!important;font-weight:600!important}
+body.kashModern #v#v#v#v :is(.marketHead .sub,.newReminderPanel>.sub){display:none!important}
+body.kashModern #v#v#v#v .marketHead b{font-size:15px;font-weight:600}
+body.kashModern #v#v#v#v :is(.summarySectionIconBox,.miniPanelIcon,.settingsSummaryIcon,.settingsSectionIcon,.financeIcon){background:var(--kash-soft)!important;border-color:var(--ln)!important;box-shadow:inset 0 1px 0 var(--kash-edge)!important}
+body.kashModern #v#v#v#v .holdingTileNew{background:var(--kash-soft)!important;border-color:var(--ln)!important;padding:14px!important;min-height:86px;border-radius:10px!important;gap:11px}
+body.kashModern #v#v#v#v .holdingTileNew .flagSvg{width:38px;height:38px;flex:none}
+body.kashModern #v#v#v#v .holdingText strong{font-size:26px!important;font-weight:650!important;letter-spacing:-.6px;line-height:1.25;font-variant-numeric:tabular-nums lining-nums}
+body.kashModern #v#v#v#v .holdingText span:first-child{font-size:12px!important;font-weight:600!important}
+body.kashModern #v#v#v#v .holdingText .minor{font-size:11px;color:var(--mut)!important}
+body.kashModern #v#v#v#v .flowText strong{font-weight:600!important;letter-spacing:-.2px;font-variant-numeric:tabular-nums lining-nums}
+body.kashModern #v#v#v#v .flowTile{border-radius:9px!important}
+body.kashModern #v#v#v#v .holdingsApproxBox{background:var(--pn)!important;border-color:var(--ln)!important}
+body.kashModern #v#v#v#v .holdingsApproxBox :is(.approxText span,.approxValue,.summarySectionIconBox){position:static!important;left:auto!important;top:auto!important}
+body.kashModern #v#v#v#v .approxText span{font-size:14px!important;font-weight:500!important}
+body.kashModern #v#v#v#v .approxValue{font-size:23px!important;font-weight:650!important;letter-spacing:-.4px;line-height:1.3;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+body.kashModern #v#v#v#v :is(.rankValue,.expenseTable td:nth-child(3),.fxTable td,.holdingBreakdown td:last-child){font-variant-numeric:tabular-nums lining-nums;font-weight:500}
+body.kashModern #v#v#v#v .rankTrack{height:9px;border-radius:7px;background:var(--kash-raised)}
+body.kashModern #v#v#v#v .rankTrack i{border-radius:7px}
+body.kashModern #v#v#v#v .rankCircle{font-weight:500;border-color:var(--ln);background:var(--kash-raised);color:var(--mut)}
+body.kashModern #v#v#v#v .monthtable{font-variant-numeric:tabular-nums lining-nums}
+body.kashModern #v#v#v#v .monthtable :is(th:not(:first-child),td:not(:first-child)){border-left-width:1px!important;border-left-color:var(--ln)!important}
+body.kashModern #v#v#v#v .monthtable :is(th:first-child,td:first-child){border-right-width:1px;border-right-color:var(--ln)}
+body.kashModern #v#v#v#v .monthtable th .mh1{font-weight:600;letter-spacing:0;color:var(--ink)}
+body.kashModern #v#v#v#v .monthtable :is(.val,.valw){font-weight:500!important;font-variant-numeric:tabular-nums lining-nums}
+body.kashModern #v#v#v#v .monthtable tr.rs :is(.val,.valw){font-weight:650!important}
+body.kashModern #v#v#v#v .monthtable tr.summaryStart td{border-top-width:1px}
+body.kashModern #v#v#v#v .monthtable :is(tr.g td:first-child,tr.sg td:first-child){font-size:11px;font-weight:600;letter-spacing:.4px}
+body.kashModern #v#v#v#v .rubroMain{font-weight:500}
+body.kashModern #v#v#v#v .expenseTable :is(td,th){border-color:var(--ln)}
+body.kashModern #v#v#v#v .expenseTable td.noteCell{text-align:left!important;color:var(--mut)!important}
+body.kashModern #v#v#v#v .expenseTable td:nth-child(3){text-align:right!important}
+body.kashModern #v#v#v#v :is(.expenseForm,.tenAdjForm,.fxSticky .form)>label{color:var(--mut);font-weight:400}
+body.kashModern #v#v#v#v input[type=month]{min-width:0}
+body.kashModern #v#v#v#v .btn{font-weight:600;transition:background .16s ease,box-shadow .16s ease}
+body.kashModern #v#v#v#v .btn:hover:not(:disabled){box-shadow:0 2px 8px var(--kash-shadow)}
+body.kashModern #v#v#v#v .expenseForm{grid-template-columns:165px minmax(180px,1.25fr) 140px minmax(180px,1fr) auto}
+body.kashModern #nav#nav .lbl{font-weight:400}
+body.kashModern #nav#nav button.on .lbl{font-weight:600}
+@media(max-width:1750px){body.kashModern #v#v#v#v .expenseForm{grid-template-columns:165px minmax(0,1fr) 140px minmax(0,1fr)}body.kashModern #v#v#v#v .holdingText strong{font-size:23px!important}}
+@media(max-width:1100px){body.kashModern #v#v#v#v .expenseForm{grid-template-columns:repeat(2,minmax(0,1fr))}body.kashModern #v#v#v#v .expenseForm>label:first-child{grid-column:1/-1}body.kashModern #v#v#v#v .holdingText strong{font-size:22px!important}}
+@media(max-width:720px){body.kashModern #v#v#v#v .kashPageHeader{align-items:flex-start;flex-wrap:wrap;gap:12px;min-height:108px}body.kashModern #v#v#v#v .kashPageTitle{flex-basis:100%}body.kashModern #v#v#v#v .kashPageTools{width:100%;gap:8px}body.kashModern #v#v#v#v .kashPageTitle h2{font-size:21px!important}body.kashModern #v#v#v#v .monthNav{grid-template-columns:auto auto auto}.kashModern #v#v#v#v .monthNav .marketTicker{grid-column:1/-1}}
+@media(max-width:480px){body.kashModern #v#v#v#v .kashPageTitle :is(.kashTitleIcon,.pageHeadingIcon,.settingsPageIcon){display:none}body.kashModern #v#v#v#v .kashPageTitle h2{font-size:20px!important}.kashModern #v#v#v#v .kashHelpButton kbd{display:none}}
+@media(prefers-reduced-motion:reduce){body.kashModern #v .btn{transition:none}}
+@media(max-width:720px){body.kashModern #v#v#v#v .kashPageHeader{display:grid;grid-template-rows:60px 37px;grid-template-columns:minmax(0,1fr);gap:10px;height:121px;min-height:121px;align-content:start}body.kashModern #v#v#v#v .kashPageTitle{height:60px;align-items:center}body.kashModern #v#v#v#v .kashPageTools{height:37px}}
+
+/* v0.663: the project options title has its own space above the controls. */
+body.kashModern #v#v#v#v .kashDisplayChoices{padding:18px!important}
+body.kashModern #v#v#v#v .kashDisplayChoices>h3{margin:0 0 16px!important;font-size:15px!important;font-weight:600!important;line-height:1.4!important}
+body.kashModern #v#v#v#v .kashDisplayChoices>.learnOptions{margin:0!important;gap:12px!important}
+body.kashModern #v#v#v#v .kashDisplayChoices .learnOptions>label{min-height:48px;padding:12px 14px!important;align-items:center}
+body.kashModern #v#v#v#v .kashDisplayChoices .learnOptions input{margin:0!important}

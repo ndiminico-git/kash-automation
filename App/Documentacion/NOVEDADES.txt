@@ -1,0 +1,91 @@
+KA$H v0.675 — Funciones incluidas
+
+NOVEDADES v0.675 — GRÁFICOS Y AVISOS DE AYUDA
+- El cotizador aparece primero en la columna derecha de Resumen.
+- Moneda de los gráficos queda debajo del cotizador, encima de los gráficos.
+  Esta selección afecta a los gráficos, no a las monedas del cotizador.
+- Los avisos de texto al pasar el mouse usan los colores, bordes y tipografía
+  de la app, tanto en tema claro como oscuro. Incluye la variación mensual,
+  botones, controles y elementos que aparecen dinámicamente.
+- Los avisos también se muestran al enfocar controles con el teclado.
+  Escape los cierra; desaparecen al salir, desplazarse o iniciar una acción.
+- Se conservan los paneles de ayuda detallados de movimientos y fechas.
+- El detalle de variación identifica el mes anterior, sin nombres bimestrales.
+
+SE CONSERVA DESDE v0.674 — ARRASTRE VISIBLE
+- Al mover una tarjeta de Resumen, una copia visible acompaña al cursor.
+- El lugar original queda tenue y la tarjeta de destino se ilumina.
+- Soltar sobre otra tarjeta intercambia sus posiciones. El orden se conserva
+  al guardar el proyecto, igual que antes.
+- Escape o soltar fuera de una tarjeta cancela el movimiento sin cambiar el orden.
+- La tarjeta flotante conserva los textos, importes y proporciones de la original.
+  Al soltar o cancelar desaparece por completo.
+- El clic para ver el detalle y Alt + flechas siguen disponibles.
+
+SE CONSERVA DESDE v0.673 — TARJETAS PROPORCIONALES
+- Menos espacio interno y altura general para una, dos o tres monedas.
+- Con cuatro o cinco, las tarjetas adoptan proporciones más compactas.
+- Se conservan la bandera, el nombre, la variación y los dos bloques de saldo.
+- Si el ancho disponible alcanza, cuatro o cinco tarjetas ocupan una sola fila.
+  En el resto de los casos se mantienen distribuciones cómodas en dos filas.
+- Los importes siguen destacados y los nombres largos pueden ocupar más de una línea.
+- En los tamaños probados, cinco monedas ocupan entre 29% y 34% menos altura
+  que en v0.672. El resultado depende del ancho y los valores mostrados.
+- Se conserva el arrastre, el orden guardado, los cálculos y los históricos.
+
+TENENCIA, REMANENTE Y CIERRE
+- Tenencia calculada: lo que deberías tener según movimientos confirmados.
+  Parte del saldo inicial o del último cierre comprobado de un mes anterior.
+  Suma ingresos cobrados y divisas recibidas, resta pagos confirmados, divisas
+  entregadas y sus comisiones; incluye los ajustes de esa moneda.
+- Remanente estimado: conserva la proyección que incluye gastos pendientes.
+- Saldo comprobado: el saldo real que verificás y cargás al cerrar un mes.
+  Equivale al antiguo remanente real. No reemplaza la tenencia calculada
+  del mismo mes; queda separado y sirve como referencia para meses siguientes.
+
+No hace falta cargar todos los cierres ni todas las monedas todos los meses.
+Un guion significa que no hay cierre registrado. Un cero ingresado es un cierre
+válido. Los ceros antiguos sin confirmación no se presentan como nuevos cierres
+ni cortan la proyección. Sus datos guardados se conservan.
+Saldo comprobado se edita con doble clic o Enter en Consumos Mensuales.
+Confirmar un campo vacío elimina ese cierre manual. Abrir el editor y salir
+sin editar no registra un saldo ni marca cambios.
+La fila Saldo comprobado ahora está arriba de Tenencia calculada.
+El detalle de la tarjeta muestra los movimientos y, si existe, el cierre manual
+por separado con su diferencia. Las monedas no se convierten ni se suman entre sí.
+
+TARJETAS DE RESUMEN
+Arrastrá una tarjeta activa sobre otra para intercambiar posiciones.
+También podés enfocarla y usar Alt + flechas. Escape cancela el arrastre.
+El orden se guarda en el proyecto; los selectores y Ajustes siguen de A a Z.
+Las distribuciones de una a cinco monedas conservan sus tamaños y estructura.
+
+CORRECCIONES EN AJUSTES
+- Los botones de Servicios configurados seleccionan el servicio y cargan
+  sus fechas arriba. El servicio elegido queda marcado.
+- Cada servicio y período conserva su propio borrador: no se mezclan fechas.
+- Navegar no crea cambios pendientes ni guarda fechas. Guardar fechas aplica
+  la edición; Guardar proyecto conserva el resultado en el archivo .kash.
+- El zoom 80–125% modifica todo el panel de Ajustes. La cabecera queda fija.
+- Este proyecto identifica opciones guardadas dentro del .kash.
+  Esta PC identifica preferencias locales; la etiqueta tiene una explicación
+  al dejar el puntero encima.
+
+SE CONSERVA DESDE v0.671
+Menú de Ajustes por secciones: Monedas y saldos, Servicios mensuales,
+Fechas y recordatorios, Funciones visibles, Apariencia, Ayuda y guías.
+Selector de veinte monedas con banderas locales y máximo cinco activas.
+Servicios y recordatorios con búsqueda y edición individual.
+Consumos Mensuales, Gastos, Cambio de divisas, Resumen/saldos, historial,
+guardado, Ajustes y F1 siempre disponibles.
+Cuotas y Notas y los extras de Resumen se pueden ocultar sin borrar datos.
+La configuración de fechas sigue accesible aunque ocultes los avisos.
+Tema, tamaño de controles, guías y conexión son preferencias de esta PC.
+Desactivar servicios online evita nuevas cotizaciones; las operaciones con
+ tasa manual siguen disponibles. No cancela una solicitud ya en curso.
+
+COMPATIBILIDAD
+Se mantiene el formato 19 y los movimientos e históricos existentes.
+El cotizador automático conserva sus referencias ARS/USD/EUR actuales.
+Los demás pares admiten tasa manual; no se inventan conversiones automáticas.
+La futura revisión del estimador queda pendiente. El portable usa la estructura App.

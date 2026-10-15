@@ -1,0 +1,46 @@
+KA$H v0.675 — Portable para Windows de 64 bits
+
+ACTUALIZAR TU CARPETA ACTUAL
+1. Cerrá KA$H antes de copiar.
+2. Extraé este ZIP en otra carpeta.
+3. Copiá TODO su contenido (KASH.App.exe, App y .kash-portable) a tu carpeta
+   habitual de KA$H. Aceptá reemplazar los archivos cuando Windows lo pida.
+   Copiá el contenido del ZIP, no una carpeta contenedora adicional.
+4. Abrí KASH.App.exe desde tu carpeta habitual. Tus accesos directos al mismo
+   EXE siguen funcionando.
+
+El ZIP no contiene Data, Proyectos, .actualizaciones ni proyectos .kash.
+Así podés pegarlo sobre una versión anterior conservando tus archivos y
+preferencias. Para trasladar toda la instalación a otra ubicación, copiá
+la carpeta completa y los proyectos que tengas guardados fuera de ella.
+
+ESTRUCTURA MÁS LIMPIA
+KASH.App.exe         El archivo que abrís.
+App/                 Interfaz, imágenes y archivos internos necesarios.
+  Documentacion/     Estas instrucciones y notas de la versión.
+.kash-portable       Marca que activa el guardado junto al EXE.
+Data/                Sesión y preferencias. Se conserva o se crea al abrir.
+Proyectos/           Carpeta sugerida para tus proyectos. Se conserva o se crea.
+
+No hace falta abrir ni mover los archivos internos. Mantené App junto al EXE.
+No se incluye el archivo de diagnóstico .pdb, ni código fuente, ni cachés.
+
+ARCHIVOS SUELTOS DE LA VERSIÓN ANTERIOR
+Al iniciar correctamente, la app traslada únicamente sus archivos antiguos
+conocidos de la raíz (index, estilos, scripts, icono, logo, .pdb e instrucciones)
+a App/Archivos_anteriores/ dentro de una subcarpeta con fecha e identificador.
+Es un respaldo: conserva el contenido original, sin borrarlo. La nueva app
+usa los archivos que vienen dentro de App. Si algún archivo antiguo está
+bloqueado o no tiene permiso para moverse, queda donde estaba sin impedir
+el uso de la nueva estructura. Carpetas de usuario, .actualizaciones,
+archivos .kash y archivos no reconocidos permanecen en su lugar.
+
+REQUISITOS Y USO
+No requiere instalador, PowerShell ni SDK de .NET: el entorno .NET está
+incluido. Usa Microsoft Edge WebView2, igual que la versión anterior.
+Para una instalación nueva, Windows debe tener WebView2 disponible.
+Abrí o creá tu proyecto desde la app. Guardar escribe en el .kash abierto.
+Conservá tu copia de respaldo habitual antes de reemplazar una versión.
+
+Esta entrega empaqueta la versión v0.675 aprobada en PS. Mantiene los
+cálculos, históricos, monedas, tarjetas compactas y orden guardado.
