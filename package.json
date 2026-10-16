@@ -11,5 +11,5 @@
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
     "report": "playwright show-report"
   },
-  "devDependencies": { "@playwright/test": "1.62.1" }
+  "devDependencies": { "@playwright/test": "^1.45.0" }
 }
