@@ -10,7 +10,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 - **Verificado:** se ejecutó y pasó.
 - **Con incidencia:** hay un fallo pendiente de revisar.
 
-## Bloque actual: 01-onboarding.spec.js
+## Bloque 01: 01-onboarding.spec.js
 
 | ID | Caso | Estado |
 |---|---|---|
@@ -27,11 +27,29 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-011 | Iniciar sin movimientos de ejemplo | Verificado |
 | TC-012 | Mantener estimador fuera del wizard y desactivado | Verificado |
 
+## Bloque 02: 02-language.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-013 | Cambiar de inglés a español desde Ajustes | Verificado |
+| TC-014 | Cambiar de español a inglés desde Ajustes | Verificado |
+| TC-015 | Conservar el idioma después de recargar | Verificado |
+| TC-016 | No repetir la selección inicial en otra pestaña | Verificado |
+| TC-017 | Traducir los nombres de las secciones | Verificado |
+| TC-018 | Actualizar meses y nombres de monedas | Verificado |
+| TC-019 | Traducir validaciones y confirmaciones | Verificado |
+| TC-020 | Integración: traducir ayuda F1 abierta | Verificado |
+| TC-021 | Integración: traducir guía activa conservando el paso | Verificado |
+| TC-022 | Alternar repetidamente ambos idiomas | Verificado |
+| TC-023 | Conservar nombres, notas y comentarios propios | Verificado |
+| TC-024 | Conservar importes y saldos en dos monedas | Verificado |
+| TC-025 | No generar cambios pendientes al traducir | Verificado |
+| TC-026 | Conservar formulario parcial sin registrarlo | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 02 | `02-language.spec.js` | TC-013–TC-026 | Pendiente |
 | 03 | `03-currencies.spec.js` | TC-027–TC-036 | Pendiente |
 | 04 | `04-expenses.spec.js` | TC-037–TC-054 | Pendiente |
 | 05 | `05-expense-filters.spec.js` | TC-055–TC-064 | Pendiente |
@@ -54,7 +72,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 - En el EXE, recuperar una sesión anterior es distinto de iniciar desde cero. Esta suite usa contextos de navegador limpios; no borra sesiones de la instalación personal.
 - No se ha modificado la app para hacer pasar estos casos.
 
-## Verificación de este bloque
+## Verificación original del bloque 01
 
 - Fecha local: **15/10/2026, 22:36:40**, America/Buenos_Aires.
 - Resultado: **12/12 aprobados**, 0 fallidos, 0 omitidos, 0 inestables y 0 reintentos.
@@ -63,9 +81,33 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 - TC-008 también pasó ejecutado solo, sin correr los casos anteriores.
 - Los 24 archivos de la interfaz de la app conservan sus hashes originales.
 - Evidencia resumida: **validation.json**. El reporte completo local está en **playwright-report**.
-- Avance general: **12 de 195 verificados; 183 pendientes; sin incidencias abiertas**.
-- Siguiente bloque: **02-language.spec.js**, TC-013 a TC-026. Aún no implementado.
+- Avance al entregar aquel bloque: **12 de 195 verificados; 183 pendientes; sin incidencias abiertas**.
+- En aquella entrega quedó pendiente el bloque **02-language.spec.js**, implementado en la segunda tanda.
 
 El primer intento tuvo un selector con capitalización incorrecta en TC-003.
 Se corrigió el selector de la prueba; no se cambió la app ni se debilitó la verificación.
 Después se ejecutó el bloque completo de nuevo con el resultado indicado arriba.
+
+## Verificación conjunta de las tandas 01 y 02
+
+- Fecha local de inicio: **16/10/2026, 00:08:55**, America/Buenos_Aires.
+- Resultado conjunto: **26/26 aprobados** en **125.8 segundos**.
+- Bloque 02: **14/14 aprobados**, con 12 pruebas de UI y 2 de integración de componentes.
+- 0 fallidos, 0 omitidos, 0 inestables y 0 reintentos. Sin errores JavaScript.
+- TC-024 también pasó ejecutado solo, preparando sus propios saldos y gastos.
+- Los 24 archivos de la interfaz conservan sus hashes originales.
+- Evidencias resumidas: validation-language.json y validation-all.json.
+- **Avance actual: 26 de 195 verificados; 169 pendientes; sin incidencias abiertas.**
+- Próximo bloque: **03-currencies.spec.js**, TC-027 a TC-036, todavía pendiente.
+
+La primera ejecución del bloque 02 detectó dos errores de preparación: acceso
+a localStorage desde about:blank en una pestaña nueva, y capitalización incorrecta
+en un texto de la ayuda española. Se corrigieron en las pruebas, manteniendo
+los asserts y la captura de errores. Después se ejecutaron ambos bloques completos.
+No se modificó la aplicación para hacer pasar la suite.
+
+TC-020 y TC-021 utilizan únicamente la API pública de idioma para actualizar
+una ayuda o guía que permanece abierta. No se presentan como una interacción
+de usuario con un selector tapado por un modal. Los datos de los demás casos
+se preparan mediante la UI; la exportación pública del proyecto se usa sólo
+para lectura y comparación de datos.

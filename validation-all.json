@@ -1,0 +1,256 @@
+{
+  "appVersion": "0.677",
+  "browser": "Microsoft Edge (Chromium)",
+  "playwrightVersion": "1.62.1",
+  "mode": "Interfaz web por HTTP local; no ejecuta el EXE",
+  "verifiedAt": "16/10/2026, 00:08:55",
+  "timezone": "America/Buenos_Aires",
+  "workers": 1,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "unchangedAppAssets": 24,
+  "suites": [
+    "tests/01-onboarding.spec.js",
+    "tests/02-language.spec.js"
+  ],
+  "passed": 26,
+  "durationSeconds": 125.8,
+  "cases": [
+    {
+      "id": "TC-001",
+      "title": "TC-001 [P] Mostrar el selector de idioma en una instalación limpia",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 2143,
+      "retry": 0
+    },
+    {
+      "id": "TC-002",
+      "title": "TC-002 [P] Elegir inglés y continuar",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 1647,
+      "retry": 0
+    },
+    {
+      "id": "TC-003",
+      "title": "TC-003 [P] Elegir español y continuar",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 1945,
+      "retry": 0
+    },
+    {
+      "id": "TC-004",
+      "title": "TC-004 [P] Crear un proyecto vacío",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 2714,
+      "retry": 0
+    },
+    {
+      "id": "TC-005",
+      "title": "TC-005 [P] Completar todos los pasos de bienvenida",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 7112,
+      "retry": 0
+    },
+    {
+      "id": "TC-006",
+      "title": "TC-006 [P] Omitir la bienvenida y acceder a la aplicación",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 3932,
+      "retry": 0
+    },
+    {
+      "id": "TC-007",
+      "title": "TC-007 [N] Impedir continuar con un nombre de proyecto vacío",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4039,
+      "retry": 0
+    },
+    {
+      "id": "TC-008",
+      "title": "TC-008 [B] Conservar caracteres especiales en el nombre del proyecto",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 3809,
+      "retry": 0
+    },
+    {
+      "id": "TC-009",
+      "title": "TC-009 [P] Seleccionar varias monedas durante la bienvenida",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 2870,
+      "retry": 0
+    },
+    {
+      "id": "TC-010",
+      "title": "TC-010 [B] Permitir cinco monedas e impedir agregar una sexta",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 3064,
+      "retry": 0
+    },
+    {
+      "id": "TC-011",
+      "title": "TC-011 [R] Omitir la bienvenida sin cargar movimientos de ejemplo",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 2337,
+      "retry": 0
+    },
+    {
+      "id": "TC-012",
+      "title": "TC-012 [R] Mantener el estimador fuera de la bienvenida y desactivado",
+      "file": "01-onboarding.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 3767,
+      "retry": 0
+    },
+    {
+      "id": "TC-013",
+      "title": "TC-013 [P] Cambiar de inglés a español desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5333,
+      "retry": 0
+    },
+    {
+      "id": "TC-014",
+      "title": "TC-014 [P] Cambiar de español a inglés desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4188,
+      "retry": 0
+    },
+    {
+      "id": "TC-015",
+      "title": "TC-015 [R] Conservar el idioma elegido después de recargar",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 6039,
+      "retry": 0
+    },
+    {
+      "id": "TC-016",
+      "title": "TC-016 [R] No repetir la selección inicial al abrir otra pestaña de la misma sesión",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4262,
+      "retry": 0
+    },
+    {
+      "id": "TC-017",
+      "title": "TC-017 [R] Traducir los nombres de las secciones de navegación",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4027,
+      "retry": 0
+    },
+    {
+      "id": "TC-018",
+      "title": "TC-018 [R] Actualizar meses y nombres de monedas",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5411,
+      "retry": 0
+    },
+    {
+      "id": "TC-019",
+      "title": "TC-019 [R] Traducir mensajes de validación y confirmaciones",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 8352,
+      "retry": 0
+    },
+    {
+      "id": "TC-020",
+      "title": "TC-020 [R] Integración: actualizar la ayuda F1 mientras sigue abierta",
+      "file": "02-language.spec.js",
+      "kind": "component-integration",
+      "status": "passed",
+      "durationMs": 4532,
+      "retry": 0
+    },
+    {
+      "id": "TC-021",
+      "title": "TC-021 [R] Integración: actualizar una guía activa sin reiniciarla",
+      "file": "02-language.spec.js",
+      "kind": "component-integration",
+      "status": "passed",
+      "durationMs": 5490,
+      "retry": 0
+    },
+    {
+      "id": "TC-022",
+      "title": "TC-022 [B] Alternar repetidamente entre ambos idiomas",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5043,
+      "retry": 0
+    },
+    {
+      "id": "TC-023",
+      "title": "TC-023 [R] Conservar nombres, notas y comentarios del usuario",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 6373,
+      "retry": 0
+    },
+    {
+      "id": "TC-024",
+      "title": "TC-024 [R] Mantener importes y saldos al cambiar de idioma",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 13688,
+      "retry": 0
+    },
+    {
+      "id": "TC-025",
+      "title": "TC-025 [R] No generar cambios pendientes por cambiar sólo el idioma",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4479,
+      "retry": 0
+    },
+    {
+      "id": "TC-026",
+      "title": "TC-026 [B] Conservar un formulario parcial al cambiar el idioma desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5226,
+      "retry": 0
+    }
+  ]
+}

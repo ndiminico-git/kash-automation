@@ -1,0 +1,151 @@
+{
+  "appVersion": "0.677",
+  "browser": "Microsoft Edge (Chromium)",
+  "playwrightVersion": "1.62.1",
+  "mode": "Interfaz web por HTTP local; no ejecuta el EXE",
+  "verifiedAt": "16/10/2026, 00:08:55",
+  "timezone": "America/Buenos_Aires",
+  "workers": 1,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "unchangedAppAssets": 24,
+  "suite": "tests/02-language.spec.js",
+  "passed": 14,
+  "uiCases": 12,
+  "componentIntegrationCases": 2,
+  "isolatedCase": {
+    "id": "TC-024",
+    "status": "passed",
+    "previousCasesExecuted": false
+  },
+  "cases": [
+    {
+      "id": "TC-013",
+      "title": "TC-013 [P] Cambiar de inglés a español desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5333,
+      "retry": 0
+    },
+    {
+      "id": "TC-014",
+      "title": "TC-014 [P] Cambiar de español a inglés desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4188,
+      "retry": 0
+    },
+    {
+      "id": "TC-015",
+      "title": "TC-015 [R] Conservar el idioma elegido después de recargar",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 6039,
+      "retry": 0
+    },
+    {
+      "id": "TC-016",
+      "title": "TC-016 [R] No repetir la selección inicial al abrir otra pestaña de la misma sesión",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4262,
+      "retry": 0
+    },
+    {
+      "id": "TC-017",
+      "title": "TC-017 [R] Traducir los nombres de las secciones de navegación",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4027,
+      "retry": 0
+    },
+    {
+      "id": "TC-018",
+      "title": "TC-018 [R] Actualizar meses y nombres de monedas",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5411,
+      "retry": 0
+    },
+    {
+      "id": "TC-019",
+      "title": "TC-019 [R] Traducir mensajes de validación y confirmaciones",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 8352,
+      "retry": 0
+    },
+    {
+      "id": "TC-020",
+      "title": "TC-020 [R] Integración: actualizar la ayuda F1 mientras sigue abierta",
+      "file": "02-language.spec.js",
+      "kind": "component-integration",
+      "status": "passed",
+      "durationMs": 4532,
+      "retry": 0
+    },
+    {
+      "id": "TC-021",
+      "title": "TC-021 [R] Integración: actualizar una guía activa sin reiniciarla",
+      "file": "02-language.spec.js",
+      "kind": "component-integration",
+      "status": "passed",
+      "durationMs": 5490,
+      "retry": 0
+    },
+    {
+      "id": "TC-022",
+      "title": "TC-022 [B] Alternar repetidamente entre ambos idiomas",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5043,
+      "retry": 0
+    },
+    {
+      "id": "TC-023",
+      "title": "TC-023 [R] Conservar nombres, notas y comentarios del usuario",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 6373,
+      "retry": 0
+    },
+    {
+      "id": "TC-024",
+      "title": "TC-024 [R] Mantener importes y saldos al cambiar de idioma",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 13688,
+      "retry": 0
+    },
+    {
+      "id": "TC-025",
+      "title": "TC-025 [R] No generar cambios pendientes por cambiar sólo el idioma",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 4479,
+      "retry": 0
+    },
+    {
+      "id": "TC-026",
+      "title": "TC-026 [B] Conservar un formulario parcial al cambiar el idioma desde Ajustes",
+      "file": "02-language.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5226,
+      "retry": 0
+    }
+  ]
+}
