@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 73 implementados; 72 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 122 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 88 implementados; 87 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 107 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -121,11 +121,30 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-072 | Rechazar mover una repetición a un mes ocupado sin alterar datos ni IDs | Verificado |
 | TC-073 | Recargar y reactivar conserva la serie original sin duplicar gastos ni perder pagos | Verificado |
 
+## Bloque 07: 07-monthly-budget.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-074 | Abrir planilla vacía con doce meses y totales cero sin movimientos inventados | Verificado |
+| TC-075 | Crear rubros y servicios de ingreso y egreso separando importes ARS y USD | Verificado |
+| TC-076 | Rechazar rubro vacío y duplicado sin impedir el mismo nombre en otra sección | Verificado |
+| TC-077 | Rechazar servicio sin rubro o sin nombre sin crear filas ni celdas | Verificado |
+| TC-078 | Cargar decimales con doble clic y reemplazarlos por teclado sin duplicar datos | Verificado |
+| TC-079 | Escape descarta el borrador y salir del campo confirma una única modificación | Verificado |
+| TC-080 | Confirmar y desmarcar pago cambia la tenencia calculada sin alterar el importe ni la proyección | Verificado |
+| TC-081 | Poner cero o pulsar Delete limpia el importe y su pago conservando el servicio | Verificado |
+| TC-082 | Conservar un egreso negativo como devolución y reflejar su signo en los totales | Verificado |
+| TC-083 | Navegar con flechas respeta fila, mes y límites sin modificar movimientos | Verificado |
+| TC-084 | Copiar y pegar una celda conserva importe y pago sin crear otro servicio | Verificado |
+| TC-085 | Fila automática de Gastos conserva su nota y bloquea edición directa; el check paga todos sus ítems | Verificado |
+| TC-086 | Detalle de pagos permite cancelar o guardar una selección parcial sin cambiar importes ni notas | Verificado |
+| TC-087 | Renombrar el servicio trata símbolos como texto y conserva importes y pagos en todos los meses | Verificado |
+| TC-088 | Navegar años y recargar conserva estructura, celdas e IDs sin repetir el wizard | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 07 | `07-monthly-budget.spec.js` | TC-074–TC-088 | Pendiente |
 | 08 | `08-balances.spec.js` | TC-089–TC-102 | Pendiente |
 | 09 | `09-balance-adjustments.spec.js` | TC-103–TC-110 | Pendiente |
 | 10 | `10-currency-exchange.spec.js` | TC-111–TC-122 | Pendiente |
@@ -254,3 +273,17 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Evidencia: **validation-recurring-expenses.json**. No se reejecutaron juntos los 73 casos del catálogo; los resultados previos son históricos.
 - Avance sobre la base con parche: **73 implementados, 72 verificados, 1 con incidencia (TC-035) y 122 pendientes**.
 - Próxima implementación: **07-monthly-budget.spec.js**, TC-074–TC-088; pendiente.
+
+## Verificación de la tanda 07 · Consumos Mensuales
+
+- Inicio local: **16/10/2026, 15:44:19**, America/Buenos_Aires. App **v0.677 con parche TC-054**, sin modificaciones adicionales.
+- **15/15 aprobados** en **158.6 s** con Playwright real **1.45.0** y Chromium **127.0.6533.17**, build 1124. Cero fallos, omitidos, inestables, reintentos y errores JavaScript.
+- **TC-084, TC-086 y TC-088 también pasaron en ejecución separada** con Edge y las dependencias existentes **1.64.1**, en **43.5 s**. El repositorio del usuario se usó sólo para lectura de esas dependencias; no se modificó.
+- Cubre planilla vacía, rubros/servicios, entradas inválidas, decimales, confirmar/cancelar/blur, pagos, cero/Delete, devolución negativa, flechas y límites, copiar/pegar, filas automáticas, detalle de pagos parciales, renombrado y recarga/navegación anual.
+- Los datos se crean por UI después del wizard. Las expectativas de importes y totales son explícitas. El clipboard se prepara con Ctrl+C real y permiso de navegador aislado; no se escribe el estado interno de la app. Se compara la persistencia y se preservan los IDs existentes.
+- Fixture **60 s propios**, caso **60 s**, acciones/expectativas **5 s**. Sin pausas fijas, force, skips, fallos esperados ni retries.
+- Se agregan `tests/07-monthly-budget.spec.js`, `helpers/monthly-budget.js` y `validation-monthly-budget.json`. Dos scripts npm opcionales; dependencia exacta declarada **^1.45.0**, sin lockfile nuevo.
+- Los 24 assets de la app con parche y los specs/helpers/evidencias de las primeras seis tandas conservan sus bytes. Integrar sólo los dos archivos nuevos y conservar la ruta ya configurada en `app-server.js`.
+- No se reejecutaron juntos los 88 casos: los resultados previos son históricos. Incidencia TC-035 independiente conservada.
+- Avance sobre la base con parche: **88 implementados, 87 verificados, 1 con incidencia y 107 pendientes**, de 195.
+- Próxima implementación: **08-balances.spec.js**, TC-089–TC-102; pendiente.
