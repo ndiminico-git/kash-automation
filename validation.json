@@ -1,0 +1,108 @@
+{
+  "appVersion": "0.677",
+  "suite": "tests/01-onboarding.spec.js",
+  "browser": "Microsoft Edge (Chromium)",
+  "playwrightVersion": "1.62.1",
+  "mode": "Interfaz web por HTTP local; no ejecuta el EXE",
+  "verifiedAt": "15/10/2026, 22:36:40",
+  "timezone": "America/Buenos_Aires",
+  "workers": 1,
+  "durationSeconds": 43.9,
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "isolatedCase": {
+    "id": "TC-008",
+    "status": "passed",
+    "previousCasesExecuted": false
+  },
+  "unchangedAppAssets": 24,
+  "cases": [
+    {
+      "id": "TC-001",
+      "title": "TC-001 [P] Mostrar el selector de idioma en una instalación limpia",
+      "status": "passed",
+      "durationMs": 2380,
+      "retry": 0
+    },
+    {
+      "id": "TC-002",
+      "title": "TC-002 [P] Elegir inglés y continuar",
+      "status": "passed",
+      "durationMs": 1626,
+      "retry": 0
+    },
+    {
+      "id": "TC-003",
+      "title": "TC-003 [P] Elegir español y continuar",
+      "status": "passed",
+      "durationMs": 1654,
+      "retry": 0
+    },
+    {
+      "id": "TC-004",
+      "title": "TC-004 [P] Crear un proyecto vacío",
+      "status": "passed",
+      "durationMs": 3123,
+      "retry": 0
+    },
+    {
+      "id": "TC-005",
+      "title": "TC-005 [P] Completar todos los pasos de bienvenida",
+      "status": "passed",
+      "durationMs": 3611,
+      "retry": 0
+    },
+    {
+      "id": "TC-006",
+      "title": "TC-006 [P] Omitir la bienvenida y acceder a la aplicación",
+      "status": "passed",
+      "durationMs": 2984,
+      "retry": 0
+    },
+    {
+      "id": "TC-007",
+      "title": "TC-007 [N] Impedir continuar con un nombre de proyecto vacío",
+      "status": "passed",
+      "durationMs": 3456,
+      "retry": 0
+    },
+    {
+      "id": "TC-008",
+      "title": "TC-008 [B] Conservar caracteres especiales en el nombre del proyecto",
+      "status": "passed",
+      "durationMs": 5226,
+      "retry": 0
+    },
+    {
+      "id": "TC-009",
+      "title": "TC-009 [P] Seleccionar varias monedas durante la bienvenida",
+      "status": "passed",
+      "durationMs": 4671,
+      "retry": 0
+    },
+    {
+      "id": "TC-010",
+      "title": "TC-010 [B] Permitir cinco monedas e impedir agregar una sexta",
+      "status": "passed",
+      "durationMs": 5726,
+      "retry": 0
+    },
+    {
+      "id": "TC-011",
+      "title": "TC-011 [R] Omitir la bienvenida sin cargar movimientos de ejemplo",
+      "status": "passed",
+      "durationMs": 3231,
+      "retry": 0
+    },
+    {
+      "id": "TC-012",
+      "title": "TC-012 [R] Mantener el estimador fuera de la bienvenida y desactivado",
+      "status": "passed",
+      "durationMs": 3101,
+      "retry": 0
+    }
+  ]
+}
