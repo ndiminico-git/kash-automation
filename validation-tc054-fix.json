@@ -1,0 +1,136 @@
+{
+  "baseVersion": "0.677",
+  "fix": "QA-EXP-001 / TC-054",
+  "verifiedAtUTC": "2026-10-16T14:34:30.552851+00:00",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (build 1124)",
+  "appChangedFiles": [
+    "App/index.html"
+  ],
+  "originalHtmlSHA256": "a5403248f71729d34c6349a5a8180540c574df7eb08511987f82b11285844a70",
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "originalPortableUnchanged": true,
+  "originalExpenseTestsUnchanged": true,
+  "expenses": {
+    "passed": 18,
+    "failed": 0,
+    "retries": 0,
+    "durationSeconds": 121.14,
+    "cases": [
+      {
+        "name": "TC-037 [P] Iniciar Gastos sin registros ni importes de ejemplo",
+        "status": "passed"
+      },
+      {
+        "name": "TC-038 [P] Agregar un gasto ARS pendiente y reflejarlo una sola vez en la planilla",
+        "status": "passed"
+      },
+      {
+        "name": "TC-039 [R] Registrar ARS, EUR y USD sin mezclar importes ni monedas",
+        "status": "passed"
+      },
+      {
+        "name": "TC-040 [B] Conservar acentos, símbolos y etiquetas como texto literal",
+        "status": "passed"
+      },
+      {
+        "name": "TC-041 [P] Permitir notas vacías y recortar espacios externos del concepto",
+        "status": "passed"
+      },
+      {
+        "name": "TC-042 [N] Rechazar concepto vacío o compuesto únicamente por espacios",
+        "status": "passed"
+      },
+      {
+        "name": "TC-043 [N] Rechazar un gasto sin monto y conservar el borrador",
+        "status": "passed"
+      },
+      {
+        "name": "TC-044 [N] Rechazar un gasto sin mes sin crear filas automáticas",
+        "status": "passed"
+      },
+      {
+        "name": "TC-045 [N] Rechazar monto cero sin generar movimientos",
+        "status": "passed"
+      },
+      {
+        "name": "TC-046 [N] Rechazar texto e importes no finitos",
+        "status": "passed"
+      },
+      {
+        "name": "TC-047 [B] Conservar un gasto negativo como devolución y su efecto en los saldos",
+        "status": "passed"
+      },
+      {
+        "name": "TC-048 [B] Conservar varios decimales en los datos y redondear sólo su visualización",
+        "status": "passed"
+      },
+      {
+        "name": "TC-049 [R] Marcar y desmarcar pagado actualizando el saldo calculado",
+        "status": "passed"
+      },
+      {
+        "name": "TC-050 [R] Editar concepto, monto y nota conservando el ID sin duplicar",
+        "status": "passed"
+      },
+      {
+        "name": "TC-051 [R] Cancelar una edición conserva el registro y su estado de pago",
+        "status": "passed"
+      },
+      {
+        "name": "TC-052 [R] Cambiar el mes mueve el gasto y actualiza ambas columnas sin duplicar",
+        "status": "passed"
+      },
+      {
+        "name": "TC-053 [R] Cancelar y confirmar el borrado conserva o elimina el gasto correctamente",
+        "status": "passed"
+      },
+      {
+        "name": "TC-054 [R] Recargar conserva gastos y proyecto sin insertar recordatorios predeterminados",
+        "status": "passed"
+      }
+    ]
+  },
+  "compatibility": {
+    "passed": 8,
+    "failed": 0,
+    "retries": 0,
+    "durationSeconds": 36.07,
+    "cases": [
+      {
+        "name": "Modern explicit empty configuration remains empty",
+        "status": "passed"
+      },
+      {
+        "name": "Modern empty configuration preserves existing history without enabling reminders",
+        "status": "passed"
+      },
+      {
+        "name": "Legacy missing configuration without history creates no reminders",
+        "status": "passed"
+      },
+      {
+        "name": "Legacy null configuration without history creates no reminders",
+        "status": "passed"
+      },
+      {
+        "name": "Legacy history MUNICIPAL / PATENTE BIMESTRAL keeps dates, states and Excel conversion",
+        "status": "passed"
+      },
+      {
+        "name": "Legacy history Municipal / Patente Bimestral keeps dates, states and Excel conversion",
+        "status": "passed"
+      },
+      {
+        "name": "Legacy history Municipal Belgrano / Patente keeps dates, states and Excel conversion",
+        "status": "passed"
+      },
+      {
+        "name": "Configured active and inactive reminders preserve history and normalize as before",
+        "status": "passed"
+      }
+    ]
+  },
+  "scope": "Isolated web UI validation on patched v0.677; native EXE not rebuilt or retested. Existing reminders are not deleted. Unrelated TC-035 is outside this fix."
+}

@@ -1,11 +1,12 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las cuatro primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las cinco primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
 - **`tests/03-currencies.spec.js`**: TC-027 a TC-036, catálogo, activación e históricos.
 - **`tests/04-expenses.spec.js`**: TC-037 a TC-054, Gastos y su efecto en la planilla.
+- **`tests/05-expense-filters.spec.js`**: TC-055 a TC-064, búsquedas, filtros y acciones sobre resultados.
 
 ## Qué hay en esta carpeta
 
@@ -15,10 +16,12 @@ qa-automation/
   tests/02-language.spec.js     Los 14 casos de idiomas, en orden.
   tests/03-currencies.spec.js   Los 10 casos de monedas, en orden.
   tests/04-expenses.spec.js     Los 18 casos de Gastos, en orden.
+  tests/05-expense-filters.spec.js Los 10 casos de filtros, en orden.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
   helpers/expenses.js          Formularios, filas, guardado y totales de Gastos.
+  helpers/expense-filters.js   Filas visibles, filtros y comprobaciones de sólo lectura.
   helpers/app-server.js        Sirve únicamente la interfaz en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -27,7 +30,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Copiá los cuatro archivos `spec.js` a tu carpeta `tests`. Si ya tenés las tres tandas anteriores con la revisión 3 de Monedas, agregá solamente `04-expenses.spec.js` y `helpers/expenses.js`.
+1. Si ya tenés las tandas 01–04 y la revisión 3 de Monedas, agregá solamente `tests/05-expense-filters.spec.js` y `helpers/expense-filters.js`. El ZIP es acumulativo; para una instalación nueva incluye los cinco specs y sus helpers.
 2. Copiá la carpeta `helpers` a la raíz del mismo proyecto. Debe quedar al lado de `tests`.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. En la terminal de PowerShell de VS Code, indicá la ruta de la carpeta **App** del portable:
@@ -44,6 +47,9 @@ npx playwright test tests/03-currencies.spec.js
 
 # Cuarta tanda solamente.
 npx playwright test tests/04-expenses.spec.js
+
+# Quinta tanda solamente.
+npx playwright test tests/05-expense-filters.spec.js
 ```
 
 Reemplazá la ruta del ejemplo por la real. Esa carpeta debe contener `index.html` y `kash-i18n.js`.
@@ -78,8 +84,9 @@ npm run test:onboarding
 npm run test:language
 npm run test:currencies
 npm run test:expenses
+npm run test:expense-filters
 
-# Las cuatro tandas, en orden.
+# Las cinco tandas, en orden.
 npm test
 ```
 
@@ -159,7 +166,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite será `05-expense-filters.spec.js`, TC-055 a TC-064.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `06-recurring-expenses.spec.js`, TC-065 a TC-073.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -270,3 +277,45 @@ Cada caso crea los datos que necesita por UI. Por ejemplo, TC-050 crea su propio
 **Archivos para integrar:** agregá `tests/04-expenses.spec.js` y `helpers/expenses.js`, conservando los helpers y la suite 03 de la revisión 3. Si querés usar los comandos npm, incorporá los scripts `test:expenses` del package incluido; la dependencia se mantiene exactamente en **`^1.45.0`**. El ZIP acumulativo también trae las tandas anteriores. No copies este proyecto sobre la carpeta de la app o sus datos.
 
 Las evidencias de la tanda 04 van en `validation-expenses.json`; las validaciones anteriores conservan sus resultados históricos y no significan que se hayan vuelto a ejecutar todos los casos del catálogo.
+
+## Tanda 05 · Búsqueda y filtros de Gastos · TC-055 a TC-064
+
+| ID | Caso |
+|---|---|
+| TC-055 | Inicio vacío, cero resultados, opciones disponibles y ausencia de datos inventados |
+| TC-056 | Coincidencias parciales y mayúsculas; las notas no se buscan como conceptos |
+| TC-057 | Tildes, ñ y espacios externos; conservar el texto registrado |
+| TC-058 | Símbolos, etiquetas y caracteres de regex tratados como texto literal |
+| TC-059 | Mes y año exactos; separar enero de dos años diferentes y ordenar períodos |
+| TC-060 | Monedas A–Z, totales separados e histórico USD después de desactivarlo |
+| TC-061 | Intersección de texto, período y moneda, sin resultados de otros filtros |
+| TC-062 | Cero coincidencias, mensaje y total cero, conservando filtros y registros |
+| TC-063 | Limpiar texto manteniendo dropdowns; restablecer todos los filtros sin duplicados |
+| TC-064 | Editar y borrar la fila filtrada correcta, conservar IDs y filas ocultas, actualizar totales y planilla |
+
+### Incorporación y ejecución
+
+Si ya tenés la tanda 04, copiá únicamente `tests/05-expense-filters.spec.js` y `helpers/expense-filters.js`. Necesitan tus helpers anteriores `expenses.js`, `language.js`, `onboarding.js`, `app-server.js` y `currencies.js` de la revisión 3, incluidos sin cambios en el ZIP. Conservá tu configuración y tu archivo de bloqueo. Los scripts npm nuevos son opcionales; `package.json` sigue declarando exactamente `"@playwright/test": "^1.45.0"`.
+
+Desde tu carpeta de automation, con la app en `App`:
+
+```powershell
+$env:KASH_APP_DIR = Join-Path (Get-Location) 'App'
+npx playwright test tests/05-expense-filters.spec.js
+
+# Practicar un caso por separado, con todos sus datos preparados por él mismo.
+npx playwright test tests/05-expense-filters.spec.js --grep 'TC-064 '
+npx playwright test tests/05-expense-filters.spec.js --grep 'TC-061 ' --headed
+```
+
+La fixture automática recorre idioma, bienvenida y guías en cada contexto limpio; tiene **60 segundos propios**. Cada caso dispone de **60 segundos** para registrar por UI solamente los gastos/monedas que necesita y ejecutar sus verificaciones. Acciones y expectativas: **5 segundos**. No depende de ejecutar casos anteriores ni de tener gastos personales, archivos importados o servicios online. No se inyectan registros en el almacenamiento ni se llama al motor interno de filtrado.
+
+Los filtros sólo ocultan filas: el helper cuenta `tr[data-expense-index]:visible`, verifica los conceptos exactos, el contador de resultados y cada total por moneda. Contar todas las filas del DOM no alcanzaría para validar el resultado. Los importes esperados son valores explícitos, sin obtenerlos de la función de suma de la app. Se comprueba el proyecto completo en memoria y persistido después de filtrar; TC-064 cambia datos deliberadamente por las acciones de edición y borrado, y verifica qué registros deben quedar intactos. Incluye una devolución negativa y estados pagado/pendiente.
+
+**Base usada para verificar:** v0.677 con el parche separado TC-054 aplicado. El ZIP de QA contiene pruebas y documentación; no trae ni reemplaza `App/index.html`. TC-054 y sus evidencias originales se conservan: ejecutar todas las suites contra el HTML original todavía detectará esa incidencia. La nueva tanda no implementa una sexta suite ni corrige la incidencia independiente TC-035 de Chromium 127.
+
+`expense-filters-setup-timing` informa el tiempo del wizard. Ante un fallo se adjunta `expense-filters-diagnostic` con filtros, conceptos visibles, resumen y proyecto de prueba, además del trace y la captura de la configuración incluida. Los errores JavaScript también hacen fallar el caso. No se agregan `skip`, fallos esperados ni reintentos.
+
+Resultados de esta tanda: `validation-expense-filters.json`. Las evidencias de tandas anteriores son históricas; no equivalen a una nueva ejecución de los 64 casos.
+
+**Validación de la tanda 05:** 10/10 aprobados con Playwright **1.45.0** y Chromium **127.0.6533.17**, en **94.8 s**, sin reintentos, omitidos ni errores JavaScript. TC-064 también pasó solo con Edge y las dependencias existentes **1.64.1** en **13.1 s**. Esto no cambia la dependencia declarada `^1.45.0`. Los 24 archivos de la app con parche y todas las suites/helpers anteriores conservaron sus hashes.

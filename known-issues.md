@@ -56,6 +56,8 @@ La corrección separa los presupuestos para que ese tiempo de preparación no se
 
 ## QA-EXP-001 · Recargar crea tres recordatorios no ingresados
 
+**Actualización 16/10/2026:** corregida y verificada en el parche independiente `KASH_v0.677_PATCH_TC054.zip`. La distribución v0.677 original conserva el defecto hasta reemplazar su `App/index.html`. TC-054 permanece sin modificaciones. En la copia corregida pasaron los 18 casos de Gastos y ocho comprobaciones de importación/recarga de recordatorios con Playwright 1.45.0 y Chromium 127. No se eliminan recordatorios ya existentes. Evidencia: `validation-tc054-fix.json`; los resultados históricos siguientes corresponden a la app original.
+
 - Caso: **TC-054**, `tests/04-expenses.spec.js`.
 - App: **KA$H v0.677**, interfaz web con proyecto creado desde cero por su wizard.
 - Resultado esperado: al recargar se conservan gastos, notas, pagos, IDs y configuración del proyecto. Un proyecto sin recordatorios debe seguir sin recordatorios.

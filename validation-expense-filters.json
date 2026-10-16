@@ -1,0 +1,181 @@
+{
+  "appVersion": "0.677 + TC-054 patch",
+  "suite": "tests/05-expense-filters.spec.js",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "verifiedAt": "16/10/2026, 12:17:00",
+  "timezone": "America/Buenos_Aires",
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 94.8,
+  "preparationTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChangesForThisBatch": [],
+  "sourceHashes": {
+    "tests/05-expense-filters.spec.js": "91edb179d7c88ac060833d4a1a75560f300fff5f2b3ba949828ab03ff682ea9b",
+    "helpers/expense-filters.js": "9734c16fe139955421904f4ec2a90bc9900dc814d51baac3afcc54e96a267ac4"
+  },
+  "contrast": {
+    "browser": "Microsoft Edge installed",
+    "playwrightVersion": "1.64.1",
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 13.1,
+    "independentExecution": true,
+    "cases": [
+      {
+        "id": "TC-064",
+        "title": "TC-064 [R] Editar y borrar bajo filtros afecta sólo al gasto visible y actualiza los totales",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 7665,
+        "retry": 0,
+        "setupDurationMs": 3224,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      }
+    ],
+    "note": "Existing user dependencies used read-only. No repository files or dependency versions changed."
+  },
+  "scope": "Only batch05 executed as a suite; independent TC064 contrast. Previous validation files are historical. No app changes or native portable rebuild.",
+  "catalog": {
+    "implemented": 64,
+    "verifiedOnPatchedBase": 63,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 131
+  },
+  "cases": [
+    {
+      "id": "TC-055",
+      "title": "TC-055 [P] Iniciar filtros vacíos con cero resultados y sin crear datos",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 2555,
+      "retry": 0,
+      "setupDurationMs": 4717,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-056",
+      "title": "TC-056 [P] Buscar coincidencias parciales sin distinguir mayúsculas ni buscar en notas",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 5607,
+      "retry": 0,
+      "setupDurationMs": 2917,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-057",
+      "title": "TC-057 [B] Buscar con tildes, ñ y espacios externos manteniendo el texto original",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 4509,
+      "retry": 0,
+      "setupDurationMs": 3069,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-058",
+      "title": "TC-058 [B] Tratar símbolos y etiquetas como búsqueda literal sin regex ni HTML",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 4325,
+      "retry": 0,
+      "setupDurationMs": 3539,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-059",
+      "title": "TC-059 [P] Filtrar por mes y año sin mezclar períodos de distinto año",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 3962,
+      "retry": 0,
+      "setupDurationMs": 2891,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-060",
+      "title": "TC-060 [R] Filtrar monedas A–Z y consultar USD inactivo conservando sus totales",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 10492,
+      "retry": 0,
+      "setupDurationMs": 3552,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-061",
+      "title": "TC-061 [P] Combinar texto, período y moneda con intersección de resultados",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 8678,
+      "retry": 0,
+      "setupDurationMs": 2955,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-062",
+      "title": "TC-062 [N] Mostrar cero y estado vacío sin borrar gastos cuando no hay coincidencias",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 2712,
+      "retry": 0,
+      "setupDurationMs": 2826,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-063",
+      "title": "TC-063 [R] Limpiar búsqueda conserva los dropdowns y restablecerlos recupera todos los gastos",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 7554,
+      "retry": 0,
+      "setupDurationMs": 2744,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-064",
+      "title": "TC-064 [R] Editar y borrar bajo filtros afecta sólo al gasto visible y actualiza los totales",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 9289,
+      "retry": 0,
+      "setupDurationMs": 2776,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    }
+  ]
+}

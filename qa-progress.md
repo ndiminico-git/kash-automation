@@ -5,7 +5,9 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 54 implementados; 52 verificados, 2 con incidencia y 141 pendientes, de 195.**
+**Avance vigente: 64 implementados; 63 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 131 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+
+**Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
 ## Estados
 
@@ -88,13 +90,27 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-051 | Cancelar una edición conserva el registro y su estado de pago | Verificado |
 | TC-052 | Cambiar el mes mueve el gasto y actualiza ambas columnas sin duplicar | Verificado |
 | TC-053 | Cancelar y confirmar el borrado conserva o elimina el gasto correctamente | Verificado |
-| TC-054 | Recargar conserva gastos y proyecto sin insertar recordatorios predeterminados | Con incidencia · QA-EXP-001 |
+| TC-054 | Recargar conserva gastos y proyecto sin insertar recordatorios predeterminados | Verificado con parche TC-054; falla en HTML original |
+
+## Bloque 05: 05-expense-filters.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-055 | Iniciar filtros vacíos con cero resultados y sin crear datos | Verificado |
+| TC-056 | Buscar coincidencias parciales sin distinguir mayúsculas ni buscar en notas | Verificado |
+| TC-057 | Buscar con tildes, ñ y espacios externos manteniendo el texto original | Verificado |
+| TC-058 | Tratar símbolos y etiquetas como búsqueda literal sin regex ni HTML | Verificado |
+| TC-059 | Filtrar por mes y año sin mezclar períodos de distinto año | Verificado |
+| TC-060 | Filtrar monedas A–Z y consultar USD inactivo conservando sus totales | Verificado |
+| TC-061 | Combinar texto, período y moneda con intersección de resultados | Verificado |
+| TC-062 | Mostrar cero y estado vacío sin borrar gastos cuando no hay coincidencias | Verificado |
+| TC-063 | Limpiar búsqueda conserva los dropdowns y restablecerlos recupera todos los gastos | Verificado |
+| TC-064 | Editar y borrar bajo filtros afecta sólo al gasto visible y actualiza los totales | Verificado |
 
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 05 | `05-expense-filters.spec.js` | TC-055–TC-064 | Pendiente |
 | 06 | `06-recurring-expenses.spec.js` | TC-065–TC-073 | Pendiente |
 | 07 | `07-monthly-budget.spec.js` | TC-074–TC-088 | Pendiente |
 | 08 | `08-balances.spec.js` | TC-089–TC-102 | Pendiente |
@@ -200,3 +216,15 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - 24 archivos de interfaz con hashes intactos. Las suites y helpers de tandas anteriores no cambian. Evidencia: validation-expenses.json; known-issues.md; evidence/TC-054-default-reminders.*.
 - No se reejecutaron todos los 54 casos; los resultados de tandas previas son históricos. Catálogo: **54 implementados, 52 verificados, 2 con incidencia y 141 pendientes**.
 - Siguiente implementación: **05-expense-filters.spec.js**, TC-055–TC-064; no iniciada.
+
+## Verificación de la tanda 05 · Búsqueda y filtros de Gastos
+
+- Inicio local: **16/10/2026, 12:17:00**, America/Buenos_Aires. App **v0.677 con parche TC-054**, sin cambios adicionales en la app.
+- **10/10 aprobados** en **94.8 s**, Playwright real **1.45.0**, Chromium **127.0.6533.17**, build 1124. 0 fallidos, omitidos, inestables, reintentos y errores JavaScript.
+- **TC-064 también pasó por separado** en Edge, con las dependencias existentes del usuario **1.64.1**, en **13.1 s** de ejecución completa. El repositorio del usuario sólo se leyó para usar esas dependencias; no se modificó.
+- Los datos de cada caso se crean por UI después de recorrer idioma y wizard. Se verifican filas visibles, conceptos, contador y totales independientes por moneda; los filtros de consulta conservan el proyecto completo. TC-064 comprueba edición y borrado sobre índices de filas filtradas y los totales en la planilla.
+- Preparación: **60 s propios**. Caso: **60 s**. Acciones/expectativas: **5 s**. Sin pausas fijas, preinyección de gastos, skips, fallos esperados ni retries.
+- Las suites 01–04, sus helpers y sus evidencias conservan sus bytes anteriores. Los 24 archivos de la app corregida también permanecen sin cambios. El paquete nuevo agrega `tests/05-expense-filters.spec.js` y `helpers/expense-filters.js`; los scripts npm son opcionales.
+- Evidencia nueva: **validation-expense-filters.json**. La evidencia del parche TC-054 se incluye como **validation-tc054-fix.json**. No se reejecutaron los 64 casos juntos.
+- Catálogo sobre la base con parche: **64 implementados, 63 verificados, 1 con incidencia (TC-035) y 131 pendientes**. El HTML original sigue afectado por TC-054.
+- Próxima implementación: **06-recurring-expenses.spec.js**, TC-065–TC-073; pendiente.
