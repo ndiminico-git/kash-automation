@@ -5,6 +5,8 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
+**Avance vigente: 54 implementados; 52 verificados, 2 con incidencia y 141 pendientes, de 195.**
+
 ## Estados
 
 - **Pendiente:** todavía no hay código.
@@ -64,11 +66,34 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-035 | Sustituir una moneda al límite de cinco sin convertir su histórico | Con incidencia · QA-CUR-001 |
 | TC-036 | Conservar monedas activas e histórico después de recargar | Verificado |
 
+
+## Bloque 04: 04-expenses.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-037 | Iniciar Gastos sin registros ni importes de ejemplo | Verificado |
+| TC-038 | Agregar un gasto ARS pendiente y reflejarlo una sola vez en la planilla | Verificado |
+| TC-039 | Registrar ARS, EUR y USD sin mezclar importes ni monedas | Verificado |
+| TC-040 | Conservar acentos, símbolos y etiquetas como texto literal | Verificado |
+| TC-041 | Permitir notas vacías y recortar espacios externos del concepto | Verificado |
+| TC-042 | Rechazar concepto vacío o compuesto únicamente por espacios | Verificado |
+| TC-043 | Rechazar un gasto sin monto y conservar el borrador | Verificado |
+| TC-044 | Rechazar un gasto sin mes sin crear filas automáticas | Verificado |
+| TC-045 | Rechazar monto cero sin generar movimientos | Verificado |
+| TC-046 | Rechazar texto e importes no finitos | Verificado |
+| TC-047 | Conservar un gasto negativo como devolución y su efecto en los saldos | Verificado |
+| TC-048 | Conservar varios decimales en los datos y redondear sólo su visualización | Verificado |
+| TC-049 | Marcar y desmarcar pagado actualizando el saldo calculado | Verificado |
+| TC-050 | Editar concepto, monto y nota conservando el ID sin duplicar | Verificado |
+| TC-051 | Cancelar una edición conserva el registro y su estado de pago | Verificado |
+| TC-052 | Cambiar el mes mueve el gasto y actualiza ambas columnas sin duplicar | Verificado |
+| TC-053 | Cancelar y confirmar el borrado conserva o elimina el gasto correctamente | Verificado |
+| TC-054 | Recargar conserva gastos y proyecto sin insertar recordatorios predeterminados | Con incidencia · QA-EXP-001 |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 04 | `04-expenses.spec.js` | TC-037–TC-054 | Pendiente |
 | 05 | `05-expense-filters.spec.js` | TC-055–TC-064 | Pendiente |
 | 06 | `06-recurring-expenses.spec.js` | TC-065–TC-073 | Pendiente |
 | 07 | `07-monthly-budget.spec.js` | TC-074–TC-088 | Pendiente |
@@ -144,3 +169,34 @@ para lectura y comparación de datos.
 - Próxima tanda de implementación: **04-expenses.spec.js**, TC-037 a TC-054.
 
 Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el runner 1.45.0 en esta PC. Se instaló Chromium compatible en un entorno aislado y se agregó la opción documentada KASH_BROWSER_CHANNEL=bundled. Los registros históricos de las tandas previas se conservan con su runtime original; la nueva ejecución conjunta sí usa 1.45.0.
+
+## Revisión 2 de TC-033: presupuesto y diagnóstico
+
+- Reporte del usuario: TC-033 agotó 30 segundos; TC-035 pasó en su entorno. No atribuir este timeout a Chromium.
+- Sólo TC-033 pasa a presupuesto total de 60 segundos y siete pasos con nombre. Se mantienen los asserts originales y su espera de 5 segundos; no se agregan reintentos ni pausas fijas.
+- Verificación individual local: **16/10/2026, 02:27:32**, America/Buenos_Aires, Playwright **1.45.0**, Chromium 127.0.6533.17. **1/1 aprobado** en **18.7 segundos** de caso.
+- No se reprodujo la causa exacta del timeout del usuario. Evidencia: validation-tc033-rev2.json.
+- No se reejecutaron los otros 35 casos para esta revisión. Los resultados conjuntos previos son históricos; el avance del catálogo no cambia.
+- 24 archivos de interfaz sin cambios; package.json conserva ^1.45.0. Para integrar, reemplazar sólo tests/03-currencies.spec.js.
+
+## Revisión 3: presupuesto de preparación y esperas de monedas
+
+- Reporte del usuario: TC-033 pasó con la revisión 2; después TC-030 agotó 30 s al preparar USD, antes de verificar duplicados.
+- Se sustituye el beforeEach de la tanda 03 por una fixture automática con 60 s propios. Cada prueba conserva 30 s, incluido TC-033; expectativas y acciones del caso: 5 s.
+- Se eliminan los expect.poll anidados en helpers/currencies.js para monedas y saldo inicial; se conserva la comprobación de persistencia. Se agregan pasos y diagnósticos.
+- Ejecución de toda la tanda: **16/10/2026, 02:40:47**, America/Buenos_Aires, **Playwright 1.45.0**, Chromium 127.0.6533.17. **9 aprobados y 1 fallidos**, sin reintentos ni omitidos, en 258.5 s.
+- TC-030 y TC-033 pasaron. TC-035 conserva la incidencia separada QA-CUR-001 de visibilidad.
+- TC-030 también pasó **3/3** con interacciones ralentizadas **500 ms** por acción; son repeticiones independientes con contexto limpio, no retries.
+- Evidencia: validation-currencies-rev3.json. No se reejecutaron las tandas 01 ni 02. 24 archivos de interfaz con hashes intactos.
+- Reemplazar juntos tests/03-currencies.spec.js y helpers/currencies.js. package.json sigue exactamente en ^1.45.0.
+
+## Verificación de la tanda 04 · Gastos
+
+- Inicio local: **16/10/2026, 03:11:30**, America/Buenos_Aires. App v0.677. **Playwright 1.45.0** real y Chromium 127.0.6533.17. Dependencia declarada **^1.45.0**.
+- **17 aprobados y 1 fallido de 18** en **116.2 s**. 0 reintentos, omitidos, inestables y errores JavaScript.
+- TC-054 conserva el fallo real QA-EXP-001: al recargar aparecen tres recordatorios no ingresados. Los gastos existentes conservan IDs, importes, notas, pagos y totales. No confundir contador de próximos IDs con IDs de gastos.
+- TC-052 pasó y TC-054 reprodujo el mismo fallo ejecutados aparte con **Edge** y las dependencias existentes **1.64.1**. No se cambió ese repositorio ni la dependencia requerida.
+- La preparación limpia dispone de 60 s separados; cada caso de CRUD tiene un presupuesto común de 60 s. Acciones y expects: 5 s. No se precargan registros ni se omite la bienvenida mediante código interno.
+- 24 archivos de interfaz con hashes intactos. Las suites y helpers de tandas anteriores no cambian. Evidencia: validation-expenses.json; known-issues.md; evidence/TC-054-default-reminders.*.
+- No se reejecutaron todos los 54 casos; los resultados de tandas previas son históricos. Catálogo: **54 implementados, 52 verificados, 2 con incidencia y 141 pendientes**.
+- Siguiente implementación: **05-expense-filters.spec.js**, TC-055–TC-064; no iniciada.

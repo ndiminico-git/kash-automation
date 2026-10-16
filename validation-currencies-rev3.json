@@ -1,0 +1,194 @@
+{
+  "appVersion": "0.677",
+  "revision": 3,
+  "suite": "tests/03-currencies.spec.js",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (build 1124)",
+  "verifiedAt": "16/10/2026, 02:40:47",
+  "timezone": "America/Buenos_Aires",
+  "passed": 9,
+  "failed": 1,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 258.5,
+  "unchangedAppAssets": 24,
+  "preparationTimeoutMs": 60000,
+  "testTimeoutMs": 30000,
+  "expectTimeoutMs": 5000,
+  "actionTimeoutMs": 5000,
+  "setupMethod": "Automatic per-test fixture; fresh browser context and UI wizard, no seeded project",
+  "stress": {
+    "case": "TC-030",
+    "repeatEach": 3,
+    "slowMoMs": 500,
+    "passed": 3,
+    "retries": 0,
+    "durationSeconds": 106.2,
+    "runs": [
+      {
+        "case": "TC-030",
+        "bodyDurationMs": 11355,
+        "status": "passed",
+        "setupDurationMs": 15954,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 30000,
+        "freshProject": true
+      },
+      {
+        "case": "TC-030",
+        "bodyDurationMs": 10743,
+        "status": "passed",
+        "setupDurationMs": 20146,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 30000,
+        "freshProject": true
+      },
+      {
+        "case": "TC-030",
+        "bodyDurationMs": 8701,
+        "status": "passed",
+        "setupDurationMs": 16506,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 30000,
+        "freshProject": true
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "TC-027",
+      "title": "TC-027 [P] Ofrecer 20 códigos con nombre y bandera local cargada",
+      "status": "passed",
+      "bodyDurationMs": 14667,
+      "setupDurationMs": 13100,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-028",
+      "title": "TC-028 [R] Ordenar códigos A–Z en Ajustes, Resumen y nuevas operaciones",
+      "status": "passed",
+      "bodyDurationMs": 15444,
+      "setupDurationMs": 7170,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-029",
+      "title": "TC-029 [P] Agregar USD y habilitar sus campos sin crear movimientos",
+      "status": "passed",
+      "bodyDurationMs": 11144,
+      "setupDurationMs": 4727,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-030",
+      "title": "TC-030 [N] Impedir duplicados y no alterar datos al agregar sin selección",
+      "status": "passed",
+      "bodyDurationMs": 3324,
+      "setupDurationMs": 4794,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-031",
+      "title": "TC-031 [B] Permitir cinco monedas y bloquear la incorporación de una sexta",
+      "status": "passed",
+      "bodyDurationMs": 18916,
+      "setupDurationMs": 4760,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-032",
+      "title": "TC-032 [B] Rechazar la desactivación de la última moneda",
+      "status": "passed",
+      "bodyDurationMs": 4154,
+      "setupDurationMs": 6678,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-033",
+      "title": "TC-033 [R] Desactivar USD conservando gastos, saldo e histórico consultable",
+      "status": "passed",
+      "bodyDurationMs": 21478,
+      "setupDurationMs": 5233,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-034",
+      "title": "TC-034 [R] Reactivar USD recuperando edición y saldo sin duplicar gastos",
+      "status": "passed",
+      "bodyDurationMs": 14087,
+      "setupDurationMs": 4473,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-035",
+      "title": "TC-035 [B] Sustituir una moneda al límite de cinco sin convertir su histórico",
+      "status": "failed",
+      "bodyDurationMs": 24578,
+      "setupDurationMs": 4315,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0,
+      "issue": "QA-CUR-001"
+    },
+    {
+      "id": "TC-036",
+      "title": "TC-036 [R] Conservar monedas activas e histórico después de recargar",
+      "status": "passed",
+      "bodyDurationMs": 17160,
+      "setupDurationMs": 4764,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 30000,
+      "freshProject": true,
+      "retry": 0
+    }
+  ],
+  "scope": "Tanda 03 completa y tres repeticiones adicionales de TC-030 ralentizado. No reejecuta tandas 01 ni 02.",
+  "sourceHashes": {
+    "tests/03-currencies.spec.js": "66f68574ddcbee259e171bd7d452eca66b6e6846100259dbdb23e6830f3f2f9f",
+    "helpers/currencies.js": "23cb8b433793782b84528bb4cf672964a6d369def6fde465d12882a3b940f727"
+  },
+  "userTimeoutCause": {
+    "case": "TC-030",
+    "source": "Lectura del reporte y trace de la ejecución del usuario; no se modificó su repositorio",
+    "reportedRuntime": "1.64.1",
+    "declaredDependency": "^1.45.0",
+    "timeoutMs": 30000,
+    "reportedDurationMs": 37730,
+    "beforeHooksDurationMs": 25516.04,
+    "timeRemainingAfterPreparationMs": 4483.96,
+    "usdVisibleAssertionCompletedAtMs": 29999.119,
+    "savePollStartedAtMs": 30001.963,
+    "savePollDurationMs": 1.864,
+    "browserStorageReadsDuringFailedPoll": 0,
+    "traceSha256": "a7ce8636e370d46e8f2d07b22e18a1b4bde3d1cb4f8dd18d333914f4f0469d18",
+    "conclusion": "El presupuesto compartido de 30 s se agotó; la espera del guardado comenzó después del límite y no llegó a evaluar localStorage. No fue una comparación fallida de persistencia ni de duplicados."
+  }
+}

@@ -1132,8 +1132,9 @@ function migrate(x){
  ensureProjectGroups(x);
  ensureExpenseHistory(x);normalizeExpensePayments(x);normalizeExpenseRecurrences(x);
  x.fx=x.fx||[];x.cu=x.cu||[];x.rec=x.rec||[];x.recMonthly=x.recMonthly||{};
- if(x.recConfig&&Object.keys(x.recConfig).length){
-   const cfg={};for(const [n,c0] of Object.entries(x.recConfig)){const c={...c0,on:c0?.on!==false,kind:c0?.kind||(/patente/i.test(n)?'patente':'status')};if(c.on)c.to=null;cfg[n]=c;x.recMonthly[n]=x.recMonthly[n]||{}}x.recConfig=cfg;
+ // An explicit empty configuration is intentional. Only history without a configuration needs the legacy conversion.
+ if(x.recConfig||!Object.keys(x.recMonthly).length){
+   const cfg={};for(const [n,c0] of Object.entries(x.recConfig||{})){const c={...c0,on:c0?.on!==false,kind:c0?.kind||(/patente/i.test(n)?'patente':'status')};if(c.on)c.to=null;cfg[n]=c;x.recMonthly[n]=x.recMonthly[n]||{}}x.recConfig=cfg;
  }else{
    const oldMun=x.recMonthly['MUNICIPAL']||x.recMonthly['Municipal']||x.recMonthly['Municipal Belgrano']||{};
    const oldPat=x.recMonthly['PATENTE BIMESTRAL']||x.recMonthly['Patente Bimestral']||x.recMonthly['Patente']||{};

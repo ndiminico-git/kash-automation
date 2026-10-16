@@ -1,0 +1,16 @@
+{
+  "case": "TC-030",
+  "source": "Lectura del reporte y trace de la ejecución del usuario; no se modificó su repositorio",
+  "reportedRuntime": "1.64.1",
+  "declaredDependency": "^1.45.0",
+  "timeoutMs": 30000,
+  "reportedDurationMs": 37730,
+  "beforeHooksDurationMs": 25516.04,
+  "timeRemainingAfterPreparationMs": 4483.96,
+  "usdVisibleAssertionCompletedAtMs": 29999.119,
+  "savePollStartedAtMs": 30001.963,
+  "savePollDurationMs": 1.864,
+  "browserStorageReadsDuringFailedPoll": 0,
+  "traceSha256": "a7ce8636e370d46e8f2d07b22e18a1b4bde3d1cb4f8dd18d333914f4f0469d18",
+  "conclusion": "El presupuesto compartido de 30 s se agotó; la espera del guardado comenzó después del límite y no llegó a evaluar localStorage. No fue una comparación fallida de persistencia ni de duplicados."
+}

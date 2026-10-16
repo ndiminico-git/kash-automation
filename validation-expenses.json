@@ -1,0 +1,309 @@
+{
+  "appVersion": "0.677",
+  "suite": "tests/04-expenses.spec.js",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "verifiedAt": "16/10/2026, 03:11:30",
+  "timezone": "America/Buenos_Aires",
+  "passed": 17,
+  "failed": 1,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 116.2,
+  "preparationTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "expectTimeoutMs": 5000,
+  "actionTimeoutMs": 5000,
+  "unchangedAppAssets": 24,
+  "issue": {
+    "id": "QA-EXP-001",
+    "case": "TC-054",
+    "status": "open",
+    "beforeReminderNames": [],
+    "afterReminderNames": [
+      "Municipal Belgrano",
+      "Municipal Alsina",
+      "Patente"
+    ],
+    "expenseIdsBefore": [
+      1792131201233,
+      1792131201900
+    ],
+    "expenseIdsAfter": [
+      1792131201233,
+      1792131201900
+    ],
+    "nextIdCounterBefore": 51,
+    "nextIdCounterAfter": 102
+  },
+  "contrast": {
+    "browser": "Microsoft Edge instalado",
+    "playwrightVersion": "1.64.1",
+    "note": "Dependencias existentes del usuario utilizadas para lectura y ejecución aislada. No se modifica el repositorio ni su package.json.",
+    "cases": [
+      {
+        "id": "TC-052",
+        "status": "passed",
+        "durationMs": 2568,
+        "independentFreshProject": true
+      },
+      {
+        "id": "TC-054",
+        "status": "failed",
+        "durationMs": 4894,
+        "independentFreshProject": true
+      }
+    ]
+  },
+  "initialReview": [
+    "Se sustituyó 1e309 por 310 dígitos para probar overflow: la máscara elimina e y deja 1309 antes del guardado.",
+    "Se distingue el contador interno del próximo ID de los IDs de gastos; se admite su normalización sin perder comprobaciones de gastos y recordatorios.",
+    "La incidencia real de recordatorios permanece activa; no hay skip, fallo esperado ni cambios en la app."
+  ],
+  "sourceHashes": {
+    "tests/04-expenses.spec.js": "4f37fb6edf946c0222f19eb1d4bc61350f7ddb16c02279d671e7441e2f7186a1",
+    "helpers/expenses.js": "cfd7da48b08d24bda48a628be8e5e290c1bfc68a67ef2213af665ef1e45f9c7c"
+  },
+  "scope": "Tanda 04 completa y contraste independiente de TC-052/TC-054. No se reejecutan las tandas 01–03.",
+  "cases": [
+    {
+      "id": "TC-037",
+      "title": "TC-037 [P] Iniciar Gastos sin registros ni importes de ejemplo",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2619,
+      "setupDurationMs": 2874,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-038",
+      "title": "TC-038 [P] Agregar un gasto ARS pendiente y reflejarlo una sola vez en la planilla",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2715,
+      "setupDurationMs": 2628,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-039",
+      "title": "TC-039 [R] Registrar ARS, EUR y USD sin mezclar importes ni monedas",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 8724,
+      "setupDurationMs": 2809,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-040",
+      "title": "TC-040 [B] Conservar acentos, símbolos y etiquetas como texto literal",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2060,
+      "setupDurationMs": 2741,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-041",
+      "title": "TC-041 [P] Permitir notas vacías y recortar espacios externos del concepto",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 1699,
+      "setupDurationMs": 2847,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-042",
+      "title": "TC-042 [N] Rechazar concepto vacío o compuesto únicamente por espacios",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 3212,
+      "setupDurationMs": 3648,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-043",
+      "title": "TC-043 [N] Rechazar un gasto sin monto y conservar el borrador",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2148,
+      "setupDurationMs": 2584,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-044",
+      "title": "TC-044 [N] Rechazar un gasto sin mes sin crear filas automáticas",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2139,
+      "setupDurationMs": 2789,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-045",
+      "title": "TC-045 [N] Rechazar monto cero sin generar movimientos",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2416,
+      "setupDurationMs": 3301,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-046",
+      "title": "TC-046 [N] Rechazar texto e importes no finitos",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 4482,
+      "setupDurationMs": 2863,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-047",
+      "title": "TC-047 [B] Conservar un gasto negativo como devolución y su efecto en los saldos",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2455,
+      "setupDurationMs": 2898,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-048",
+      "title": "TC-048 [B] Conservar varios decimales en los datos y redondear sólo su visualización",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 2993,
+      "setupDurationMs": 2853,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-049",
+      "title": "TC-049 [R] Marcar y desmarcar pagado actualizando el saldo calculado",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 5084,
+      "setupDurationMs": 2788,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-050",
+      "title": "TC-050 [R] Editar concepto, monto y nota conservando el ID sin duplicar",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 4117,
+      "setupDurationMs": 2782,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-051",
+      "title": "TC-051 [R] Cancelar una edición conserva el registro y su estado de pago",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 3077,
+      "setupDurationMs": 2821,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-052",
+      "title": "TC-052 [R] Cambiar el mes mueve el gasto y actualiza ambas columnas sin duplicar",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 3853,
+      "setupDurationMs": 2510,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-053",
+      "title": "TC-053 [R] Cancelar y confirmar el borrado conserva o elimina el gasto correctamente",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "passed",
+      "bodyDurationMs": 4092,
+      "setupDurationMs": 2725,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0
+    },
+    {
+      "id": "TC-054",
+      "title": "TC-054 [R] Recargar conserva gastos y proyecto sin insertar recordatorios predeterminados",
+      "kind": "ui",
+      "file": "04-expenses.spec.js",
+      "status": "failed",
+      "bodyDurationMs": 4666,
+      "setupDurationMs": 2353,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true,
+      "retry": 0,
+      "issue": "QA-EXP-001",
+      "failure": "Recargar agrega tres recordatorios no ingresados"
+    }
+  ]
+}

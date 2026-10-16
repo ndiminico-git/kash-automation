@@ -1,0 +1,21 @@
+{
+  "appVersion": "0.677",
+  "revision": 2,
+  "case": "TC-033",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (build 1124)",
+  "verifiedAt": "16/10/2026, 02:27:32",
+  "timezone": "America/Buenos_Aires",
+  "status": "passed",
+  "timeoutMs": 60000,
+  "durationMs": 18748,
+  "totalDurationMs": 26278.900999999998,
+  "skipped": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "unchangedAppAssets": 24,
+  "testFileSha256": "ebfe6a30602700dfaef73ce50b7fb7a81d045207872bb7bcf2298f7dc2cc4e69",
+  "scope": "Sólo TC-033, ejecutado individualmente. No es una nueva corrida de los 36 casos.",
+  "userTimeoutCause": "No determinada con el mensaje y captura recibidos"
+}
