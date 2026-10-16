@@ -1,2 +1,3 @@
-2026/10/14-23:37:06.897 16e4 Creating DB C:\Nico\Misc\Ka$h\Data\webview\EBWebView\Default\shared_proto_db\metadata since it was missing.
-2026/10/14-23:37:06.908 16e4 Reusing MANIFEST C:\Nico\Misc\Ka$h\Data\webview\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2026/10/15-22:30:29.512 4810 Reusing MANIFEST C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default\shared_proto_db\metadata/MANIFEST-000001
+2026/10/15-22:30:29.513 4810 Recovering log #3
+2026/10/15-22:30:29.513 4810 Reusing old log C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default\shared_proto_db\metadata/000003.log 

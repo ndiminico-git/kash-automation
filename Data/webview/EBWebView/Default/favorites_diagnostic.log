@@ -16,3 +16,23 @@
 2026-10-15 03:24:20.921: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-10-15 03:24:20.921: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
 2026-10-15 03:53:32.696: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-16 01:27:47.529: [INFO] CurrentProfilePath: C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default
+2026-10-16 01:27:47.529: [INFO] Profiles total count: 1
+2026-10-16 01:27:47.530: [INFO] Profile: name=Perfil 1 path=C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default lastActive=2026-10-15T03:53:30.801Z
+2026-10-16 01:27:47.530: [INFO] LastUsedProfileDir: C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default
+2026-10-16 01:27:47.530: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default lastActive=2026-10-15T03:53:30.801Z
+2026-10-16 01:27:47.530: [INFO] OnDoneLoading sync enabled: 0
+2026-10-16 01:27:47.530: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-16 01:27:47.530: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-16 01:27:47.530: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-16 01:28:03.377: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-16 01:30:29.507: [INFO] CurrentProfilePath: C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default
+2026-10-16 01:30:29.507: [INFO] Profiles total count: 1
+2026-10-16 01:30:29.508: [INFO] Profile: name=Perfil 1 path=C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default lastActive=2026-10-16T01:28:01.091Z
+2026-10-16 01:30:29.508: [INFO] LastUsedProfileDir: C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default
+2026-10-16 01:30:29.508: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Nico\Misc\kash-automation\Data\webview\EBWebView\Default lastActive=2026-10-16T01:28:01.091Z
+2026-10-16 01:30:29.508: [INFO] OnDoneLoading sync enabled: 0
+2026-10-16 01:30:29.508: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-16 01:30:29.508: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-16 01:30:29.508: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-16 01:30:44.177: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
