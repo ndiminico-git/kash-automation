@@ -81,3 +81,9 @@ El caso prepara sus propios datos y funciona ejecutado solo. Se adjunta `reload-
 **Permanece activo y fallará mientras la app inserte esos recordatorios.** No se agregan `skip`, `test.fail`, reintentos ni una recarga anticipada en la fixture para ocultarlo. El job de CI puede quedar en rojo por esta incidencia. No se modificó la app al preparar las pruebas.
 
 Evidencia y entornos ejecutados: `validation-expenses.json`. La captura se entrega en `evidence/TC-054-default-reminders.png`. Los traces completos se generan localmente y no se incluyen en el ZIP.
+
+## QA-BAL-TIME-001 · TC-090 agota el presupuesto durante la preparación/verificación
+
+El trace aportado por el usuario registra 6,2 s para agregar USD y 28,0 s para EUR. Ambos pasos compartían los 60 s del caso con la carga y verificación de bases en tres recorridos de Ajustes, Planilla y Resumen. El timeout se produjo durante la verificación EUR, sin una comparación de saldo fallida registrada. El diagnóstico de proyecto contiene ARS 1.000, USD 200 y EUR 50,25, sin ingresos/gastos/cierres agregados. Algunas operaciones terminaron durante la limpieza: el resultado original continúa siendo fallido por timeout.
+
+REV2 organiza la preparación de monedas en una fixture UI no automática, exclusiva de TC-090 y con 60 s propios, y agrupa las entradas/verificaciones por pantalla. El cuerpo conserva sus 60 s, acciones/expectativas 5 s, y todos los controles originales. Los otros trece casos y la app no cambian. Validación nueva en `validation-balances-rev2.json`; diagnóstico resumido en `diagnosis-tc090-user.json`. La causa de la latencia del equipo no está determinada: no se atribuye a un defecto de Chromium. No se usan reintentos, esperas fijas ni omisiones para ocultar el fallo.

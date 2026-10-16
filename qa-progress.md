@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 102 implementados; 101 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 93 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 110 implementados; 109 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 85 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -160,11 +160,23 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-101 | Desactivar USD conserva saldo inicial, cierre e histórico y bloquea editar su cierre | Verificado |
 | TC-102 | Recargar conserva bases, cierre ARS cero, cierre USD y saldos por moneda sin duplicar datos | Verificado |
 
+## Bloque 09: 09-balance-adjustments.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-103 | Abrir ajustes vacíos muestra formulario y tabla sin crear movimientos | Verificado |
+| TC-104 | Ajuste a favor con decimales y nota literal aumenta ARS sin crear ingresos ni cierres | Verificado |
+| TC-105 | Tipo del ajuste define el signo aun con monto negativo y separa monedas y meses | Verificado |
+| TC-106 | Rechazar fecha o monto ausente, cero y texto no numérico sin guardar el borrador | Verificado |
+| TC-107 | Editar fecha, moneda, signo y nota del registro correcto conserva ID y recalcula ambos meses | Verificado |
+| TC-108 | Cancelar una edición descarta fecha, moneda, importe y nota sin cambiar IDs ni saldos | Verificado |
+| TC-109 | Cancelar y confirmar borrado en tabla ordenada elimina sólo el ajuste elegido y revierte su efecto | Verificado |
+| TC-110 | Recargar conserva ajustes e IDs y un cierre anterior evita volver a sumar ajustes ya conciliados | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 09 | `09-balance-adjustments.spec.js` | TC-103–TC-110 | Pendiente |
 | 10 | `10-currency-exchange.spec.js` | TC-111–TC-122 | Pendiente |
 | 11 | `11-summary.spec.js` | TC-123–TC-134 | Pendiente |
 | 12 | `12-dates-notifications.spec.js` | TC-135–TC-146 | Pendiente |
@@ -319,3 +331,25 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - No se reejecutaron juntos los 102 casos; las evidencias anteriores son históricas. La incidencia independiente TC-035 sigue documentada.
 - Catálogo: **102 implementados, 101 verificados sobre la base con parche, 1 con incidencia y 93 pendientes**, de 195.
 - Próxima implementación: **09-balance-adjustments.spec.js**, TC-103–TC-110; pendiente.
+
+## Revisión 2 · Timeout TC-090
+
+- Se examinó el reporte y trace del usuario, sólo para lectura. Runtime reportado: 1.64.1. Habilitar USD/EUR consumió 34,2 s del caso; el timeout ocurrió durante la comprobación EUR, sin un error de comparación de saldo registrado.
+- Se modifica únicamente el spec 08: fixture UI de monedas exclusiva de TC-090, 60 s propios; entradas y verificaciones agrupadas por sección. El caso sigue en 60 s, acciones/expectativas en 5 s. Todos los controles financieros originales se conservan y los otros trece cuerpos de casos permanecen intactos.
+- Nueva ejecución: **14/14 aprobados en 232.9 s**, Playwright real 1.45.0 y Chromium 127.0.6533.17. TC-090 independiente con slowMo 500 ms: **1/1 aprobado en 36.8 s**. Sin retries, skips, fallos esperados o errores JavaScript.
+- Evidencia nueva: `validation-balances-rev2.json`, `diagnosis-tc090-user.json`. No se sobrescriben las evidencias históricas. Los 24 assets de app, todos los helpers y package mantienen sus bytes anteriores; dependencia declarada ^1.45.0.
+- Integración sobre tanda 08: **reemplazar sólo tests/08-balances.spec.js**. No se toca el proyecto del usuario, su app-server ni la app. El catálogo sigue en 102 implementados / 101 verificados sobre la base con parche / 1 incidencia TC-035 / 93 pendientes; no se reejecutaron los 102 juntos. Tanda 09 pendiente.
+
+## Verificación de la tanda 09 · Ajustes de saldo
+
+- Inicio UTC: **2026-10-16T19:52:48.294Z**. App **v0.677 con parche TC-054**, sin modificaciones adicionales.
+- **8/8 aprobados en 118.2 s**, Playwright real **1.45.0**, Chromium **127.0.6533.17**, build 1124. Cero fallos, omitidos, inestables, reintentos y errores JavaScript.
+- TC-107 y TC-110 también pasaron por separado con Edge y las dependencias existentes **1.64.1**, en **31.8 s**. El repositorio del usuario sólo se leyó para usar esas dependencias; no se modificó.
+- Cada caso arranca vacío por idioma/wizard y crea sus datos por UI. La fixture de proyecto limpio tiene 60 s propios. Habilitar USD es otra fixture opcional, también de 60 s propios; únicamente la solicitan los casos que la necesitan. Cuerpo del caso: 60 s; acciones y expectativas: 5 s. Sin sleeps, force, skips, fallos esperados ni retries.
+- Se verifican filas visibles, IDs, importes explícitos en Planilla/Resumen, persistencia y conservación de los campos ajenos a los ajustes. Cambiar el signo del texto no duplica el signo: manda el selector Increase/Decrease. Cancelar o rechazar un ajuste conserva el proyecto completo.
+- TC-107 y TC-109 preparan fechas cuyo orden visual difiere del array de registros. TC-110 combina ajuste anterior al cierre, ajuste posterior, gasto pendiente USD, recarga y continuidad mensual (incluido diciembre/enero si corresponde).
+- Recargar admite que el contador interno del próximo ID se normalice; se exige conservar todos los IDs existentes y el resto del proyecto financiero, tanto en memoria como persistido.
+- Agrega sólo `tests/09-balance-adjustments.spec.js`, `helpers/balance-adjustments.js` y `validation-balance-adjustments.json`. Dos scripts npm opcionales; dependencia declarada exacta **^1.45.0**. No se entrega lockfile.
+- Los 24 assets de la app corregida y todos los specs/helpers/evidencias de las primeras ocho tandas conservan sus bytes, incluida la corrección TC-090 REV2. Conservar el `app-server.js` configurado por el usuario. No se cambia la app ni el EXE.
+- Catálogo: **110 implementados, 109 verificados sobre la base con parche, 1 incidencia independiente TC-035 y 85 pendientes**, de 195. No se reejecutaron los 110 juntos; las evidencias anteriores son históricas.
+- Próxima implementación: **10-currency-exchange.spec.js**, TC-111–TC-122; pendiente.

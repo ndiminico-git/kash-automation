@@ -1,0 +1,33 @@
+{
+  "case": "TC-090",
+  "source": "User JSON report and trace, read-only inspection",
+  "reportedRuntime": "1.64.1",
+  "testTimeoutMs": 60000,
+  "recordedError": "Test timeout of 60000ms exceeded.",
+  "usdCurrencySetupMs": 6214.8,
+  "eurCurrencySetupMs": 28024.25,
+  "combinedCurrencySetupMs": 34239.05,
+  "timeoutPhase": "EUR balances verification; teardown begins before that step finishes",
+  "failedBalanceAssertionRecorded": false,
+  "observedProject": {
+    "base": 1000,
+    "enabledCurrencies": [
+      "ARS",
+      "EUR",
+      "USD"
+    ],
+    "currencyOpeningBalances": {
+      "USD": 200,
+      "EUR": 50.25
+    },
+    "C": {},
+    "rub": [],
+    "expenses": [],
+    "real": {},
+    "realByCurrency": {}
+  },
+  "interpretation": "Currency setup and repeated Settings/Grid/Summary navigation consumed the shared case budget. Some remaining assertions completed during teardown, not within the case budget. The original case failed.",
+  "unknown": "The trace does not establish why EUR setup was slow on the user machine; it does not establish a Chromium defect.",
+  "correction": "Non-auto UI currency fixture with its own 60s, then grouped opening-balance input, grid checks and Summary checks. Case remains 60s, actions/expects 5s. Original financial assertions retained.",
+  "appChanged": false
+}

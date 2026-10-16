@@ -1,0 +1,274 @@
+{
+  "suite": "tests/09-balance-adjustments.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-16T19:52:48.294Z",
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 118.2,
+  "cleanProjectFixtureTimeoutMs": 60000,
+  "optionalCurrencyFixtureTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "sourceHashes": {
+    "tests/09-balance-adjustments.spec.js": "d48a2b01bd38b17bd311821ecafbbea0bc438411f95933d001ffadd127938817",
+    "helpers/balance-adjustments.js": "8abc0513e9fd6dc0a3bbd7e0470c36abde62d61af2588867a8da5bd2be46b9cc"
+  },
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 2,
+    "failed": 0,
+    "durationSeconds": 31.8,
+    "independentCleanExecution": true,
+    "cases": [
+      {
+        "id": "TC-107",
+        "title": "TC-107 [R] Editar fecha, moneda, signo y nota del registro correcto conserva ID y recalcula ambos meses",
+        "status": "passed",
+        "executionDurationMs": 8040,
+        "retry": 0,
+        "timings": {
+          "adjustments-setup-timing": {
+            "setupDurationMs": 3918,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "adjustments-currency-timing": {
+            "setupDurationMs": 873,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          }
+        }
+      },
+      {
+        "id": "TC-110",
+        "title": "TC-110 [R] Recargar conserva ajustes e IDs y un cierre anterior evita volver a sumar ajustes ya conciliados",
+        "status": "passed",
+        "executionDurationMs": 12769,
+        "retry": 0,
+        "timings": {
+          "adjustments-setup-timing": {
+            "setupDurationMs": 3300,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "adjustments-currency-timing": {
+            "setupDurationMs": 810,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          }
+        }
+      }
+    ],
+    "note": "User-installed dependencies read only. No changes to the user repository or declared dependency."
+  },
+  "coverage": [
+    "Empty adjustments",
+    "Positive ARS with decimal and literal note",
+    "Negative amount normalization by selected direction and independent currencies",
+    "Invalid/missing date or amount, zero and nonnumeric text",
+    "Edit by original ID despite visual sorting, change date/currency/direction",
+    "Cancel edit without persisted changes",
+    "Cancel/confirm sorted-row deletion and reverse its effect",
+    "Reload preserves records/IDs and reconciled adjustments are not counted twice after a close"
+  ],
+  "expectations": "Explicit monetary amounts; no calls to internal balance calculators. UI input only; public export and storage used for read-only verification.",
+  "catalog": {
+    "implemented": 110,
+    "verifiedOnPatchedBase": 109,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 85,
+    "total": 195
+  },
+  "scope": "Only batch09 plus independent TC107/TC110 contrast. Prior suite evidence remains historical, including batch08 REV2. No app, native portable, configuration or personal project changes.",
+  "cases": [
+    {
+      "id": "TC-103",
+      "title": "TC-103 [P] Abrir ajustes vacíos muestra formulario y tabla sin crear movimientos",
+      "status": "passed",
+      "executionDurationMs": 4142,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 4488,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-104",
+      "title": "TC-104 [P] Ajuste a favor con decimales y nota literal aumenta ARS sin crear ingresos ni cierres",
+      "status": "passed",
+      "executionDurationMs": 8827,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 4371,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-105",
+      "title": "TC-105 [B] Tipo del ajuste define el signo aun con monto negativo y separa monedas y meses",
+      "status": "passed",
+      "executionDurationMs": 7368,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3674,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "adjustments-currency-timing": {
+          "setupDurationMs": 693,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-106",
+      "title": "TC-106 [N] Rechazar fecha o monto ausente, cero y texto no numérico sin guardar el borrador",
+      "status": "passed",
+      "executionDurationMs": 8385,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3074,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-107",
+      "title": "TC-107 [R] Editar fecha, moneda, signo y nota del registro correcto conserva ID y recalcula ambos meses",
+      "status": "passed",
+      "executionDurationMs": 10670,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3346,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "adjustments-currency-timing": {
+          "setupDurationMs": 962,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-108",
+      "title": "TC-108 [N] Cancelar una edición descarta fecha, moneda, importe y nota sin cambiar IDs ni saldos",
+      "status": "passed",
+      "executionDurationMs": 6527,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3265,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "adjustments-currency-timing": {
+          "setupDurationMs": 648,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-109",
+      "title": "TC-109 [R] Cancelar y confirmar borrado en tabla ordenada elimina sólo el ajuste elegido y revierte su efecto",
+      "status": "passed",
+      "executionDurationMs": 10069,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3584,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "adjustments-currency-timing": {
+          "setupDurationMs": 778,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-110",
+      "title": "TC-110 [R] Recargar conserva ajustes e IDs y un cierre anterior evita volver a sumar ajustes ya conciliados",
+      "status": "passed",
+      "executionDurationMs": 25398,
+      "retry": 0,
+      "timings": {
+        "adjustments-setup-timing": {
+          "setupDurationMs": 3129,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "adjustments-currency-timing": {
+          "setupDurationMs": 774,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "revision": 2,
+  "suite": "tests/08-balances.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-16T19:30:51.674Z",
+  "passed": 14,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 232.9,
+  "wizardFixtureTimeoutMs": 60000,
+  "tc090CurrencyFixtureTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "slowExecution": {
+    "independentCleanExecution": true,
+    "slowMoMs": 500,
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 36.8,
+    "cases": [
+      {
+        "id": "TC-090",
+        "status": "passed",
+        "executionDurationMs": 16773,
+        "retries": 0,
+        "timings": {
+          "balances-setup-timing": {
+            "setupDurationMs": 9909,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "opening-balance-currencies-timing": {
+            "setupDurationMs": 7368,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      }
+    ],
+    "note": "Slower actions validate the revised organization; this is not a reproduction of the user hardware latency."
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "otherThirteenCaseBodiesUnchanged": true,
+  "helpersAndPackageUnchanged": true,
+  "sourceHashes": {
+    "tests/08-balances.spec.js": "a3daaba2c45b54f46c36d81300459cd845f7c076135408ec3fd9aa30b0e3bfc8",
+    "helpers/balances.js": "ec428035b2c4f47af67ec782b427c48ca9614e68902b0f504a2163b06ec4e831",
+    "package.json": "09703c475a568d27d2a95f1b79e7ce0baa5623a9a679412245437ecc750e0ff6"
+  },
+  "scope": "Revised batch08 only; earlier reports remain historical. User repository read only. No app files, runtime dependencies or configured app-server path changed.",
+  "cases": [
+    {
+      "id": "TC-089",
+      "status": "passed",
+      "executionDurationMs": 8412,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 4852,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-090",
+      "status": "passed",
+      "executionDurationMs": 7790,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 4912,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "opening-balance-currencies-timing": {
+          "setupDurationMs": 2430,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-091",
+      "status": "passed",
+      "executionDurationMs": 14243,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 4546,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-092",
+      "status": "passed",
+      "executionDurationMs": 13033,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3564,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-093",
+      "status": "passed",
+      "executionDurationMs": 16107,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 13845,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-094",
+      "status": "passed",
+      "executionDurationMs": 18821,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 4975,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-095",
+      "status": "passed",
+      "executionDurationMs": 10659,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3753,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-096",
+      "status": "passed",
+      "executionDurationMs": 7162,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 4247,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-097",
+      "status": "passed",
+      "executionDurationMs": 9560,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3594,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-098",
+      "status": "passed",
+      "executionDurationMs": 12365,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3324,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-099",
+      "status": "passed",
+      "executionDurationMs": 8372,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3138,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-100",
+      "status": "passed",
+      "executionDurationMs": 6658,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3311,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-101",
+      "status": "passed",
+      "executionDurationMs": 10949,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3662,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-102",
+      "status": "passed",
+      "executionDurationMs": 16823,
+      "retries": 0,
+      "timings": {
+        "balances-setup-timing": {
+          "setupDurationMs": 3352,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    }
+  ]
+}
