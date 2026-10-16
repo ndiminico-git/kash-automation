@@ -1,12 +1,13 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las cinco primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las seis primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
 - **`tests/03-currencies.spec.js`**: TC-027 a TC-036, catálogo, activación e históricos.
 - **`tests/04-expenses.spec.js`**: TC-037 a TC-054, Gastos y su efecto en la planilla.
 - **`tests/05-expense-filters.spec.js`**: TC-055 a TC-064, búsquedas, filtros y acciones sobre resultados.
+- **`tests/06-recurring-expenses.spec.js`**: TC-065 a TC-073, generación, edición, detención y persistencia de recurrencias.
 
 ## Qué hay en esta carpeta
 
@@ -17,11 +18,13 @@ qa-automation/
   tests/03-currencies.spec.js   Los 10 casos de monedas, en orden.
   tests/04-expenses.spec.js     Los 18 casos de Gastos, en orden.
   tests/05-expense-filters.spec.js Los 10 casos de filtros, en orden.
+  tests/06-recurring-expenses.spec.js Los 9 casos de recurrencias, en orden.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
   helpers/expenses.js          Formularios, filas, guardado y totales de Gastos.
   helpers/expense-filters.js   Filas visibles, filtros y comprobaciones de sólo lectura.
+  helpers/recurring-expenses.js Series y repeticiones por UI, persistencia y recarga.
   helpers/app-server.js        Sirve únicamente la interfaz en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -30,7 +33,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–04 y la revisión 3 de Monedas, agregá solamente `tests/05-expense-filters.spec.js` y `helpers/expense-filters.js`. El ZIP es acumulativo; para una instalación nueva incluye los cinco specs y sus helpers.
+1. Si ya tenés las tandas 01–05 y la revisión 3 de Monedas, agregá solamente `tests/06-recurring-expenses.spec.js` y `helpers/recurring-expenses.js`. El ZIP es acumulativo; para una instalación nueva incluye los seis specs y sus helpers. Conservá tu `app-server.js` si ya ajustaste su ruta a `../App`.
 2. Copiá la carpeta `helpers` a la raíz del mismo proyecto. Debe quedar al lado de `tests`.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. En la terminal de PowerShell de VS Code, indicá la ruta de la carpeta **App** del portable:
@@ -50,6 +53,9 @@ npx playwright test tests/04-expenses.spec.js
 
 # Quinta tanda solamente.
 npx playwright test tests/05-expense-filters.spec.js
+
+# Sexta tanda solamente.
+npx playwright test tests/06-recurring-expenses.spec.js
 ```
 
 Reemplazá la ruta del ejemplo por la real. Esa carpeta debe contener `index.html` y `kash-i18n.js`.
@@ -85,8 +91,9 @@ npm run test:language
 npm run test:currencies
 npm run test:expenses
 npm run test:expense-filters
+npm run test:recurring-expenses
 
-# Las cinco tandas, en orden.
+# Las seis tandas, en orden.
 npm test
 ```
 
@@ -166,7 +173,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `06-recurring-expenses.spec.js`, TC-065 a TC-073.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `07-monthly-budget.spec.js`, TC-074 a TC-088.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -319,3 +326,49 @@ Los filtros sólo ocultan filas: el helper cuenta `tr[data-expense-index]:visibl
 Resultados de esta tanda: `validation-expense-filters.json`. Las evidencias de tandas anteriores son históricas; no equivalen a una nueva ejecución de los 64 casos.
 
 **Validación de la tanda 05:** 10/10 aprobados con Playwright **1.45.0** y Chromium **127.0.6533.17**, en **94.8 s**, sin reintentos, omitidos ni errores JavaScript. TC-064 también pasó solo con Edge y las dependencias existentes **1.64.1** en **13.1 s**. Esto no cambia la dependencia declarada `^1.45.0`. Los 24 archivos de la app con parche y todas las suites/helpers anteriores conservaron sus hashes.
+
+## Tanda 06 · Gastos recurrentes · TC-065 a TC-073
+
+| ID | Caso |
+|---|---|
+| TC-065 | Switch desactivado: un gasto, sin serie ni gastos futuros |
+| TC-066 | Copias pendientes hasta diciembre, incluso con origen pagado; importes, notas e IDs |
+| TC-067 | Inicio en diciembre sin enero automático; series idénticas separadas en ARS y USD |
+| TC-068 | Editar sólo un mes conservando plantilla, demás meses e IDs |
+| TC-069 | Editar este y siguientes pendientes, respetando anteriores, pagos y excepciones |
+| TC-070 | Detener: cancelar, rechazar mes vacío/anterior al inicio, confirmar y conservar histórico, pagos y excepciones |
+| TC-071 | Borrar sólo un mes, cancelar/confirmar y evitar que reaparezca al guardar la serie |
+| TC-072 | Rechazar mover una repetición a un mes ocupado, sin mutar datos ni IDs |
+| TC-073 | Recargar serie detenida, reactivar la misma y recargar sin duplicados ni pérdida de pagos |
+
+### Incorporación y ejecución
+
+Con las tandas anteriores ya instaladas, agregá solamente `tests/06-recurring-expenses.spec.js` y `helpers/recurring-expenses.js`. Se reutilizan los helpers anteriores, incluido `expense-filters.js` de la tanda 05; no se reemplazan. Conservá la ruta de `App` ya configurada en tu `helpers/app-server.js`, tu configuración, dependencias y archivo de bloqueo.
+
+Desde la terminal del proyecto, con la ruta de la app ya resuelta:
+
+```powershell
+npx playwright test tests/06-recurring-expenses.spec.js
+
+# Un caso independiente, incluyendo su preparación desde cero.
+npx playwright test tests/06-recurring-expenses.spec.js --grep 'TC-070 '
+npx playwright test tests/06-recurring-expenses.spec.js --grep 'TC-073 ' --headed
+```
+
+Si todavía no configuraste la ubicación de la app, `KASH_APP_DIR` sigue siendo una alternativa. No hace falta volver a configurarla por cada caso en la misma terminal. Los scripts npm `test:recurring-expenses` y `test:recurring-expenses:headed` son opcionales. `package.json` mantiene exactamente `"@playwright/test": "^1.45.0"`; el ZIP no trae un lockfile nuevo.
+
+### Preparación y verificaciones
+
+Cada caso inicia con navegador limpio, elige inglés y recorre el wizard por UI. La fixture tiene **60 s propios**; cada caso otros **60 s**, con acciones y expectativas de **5 s**. Sólo se crean las monedas y los gastos que requiere ese caso; no depende de pruebas anteriores, archivos personales ni servicios online. Se pulsa el switch visible y se usan filtros reales para elegir cada repetición por **moneda, mes y concepto**, evitando confundir filas con el mismo nombre.
+
+Los meses se construyen con el año del formulario y meses explícitos de agosto a diciembre. Así se verifican las mismas cantidades y excepciones aunque se ejecute en enero o diciembre, sin alterar el reloj del sistema. Diciembre no crea enero del año siguiente: la política actual genera hasta diciembre del año de inicio. Las copias son pendientes; el estado pagado del origen no se propaga.
+
+Las expectativas usan meses, importes y estados explícitos, sin invocar el generador interno para obtener lo esperado. Se comparan registros completos e IDs antes/después de cada operación, vínculo con la serie, meses omitidos, configuración persistida y totales de planilla. TC-069 reserva meses distintos para un pago y una excepción individual: ninguno debe sobrescribirse al aplicar una tarifa futura. TC-070 conserva ambos y elimina sólo las copias automáticas pendientes elegibles. TC-071 verifica el mes omitido y que volver a guardar no lo regenere. TC-073 comprueba que reaparecen sólo las copias retiradas y que dos recargas conservan los IDs existentes.
+
+La recarga puede normalizar `nid`, contador para IDs nuevos; se admite ese contador mayor o igual, pero se exige que los IDs de gastos existentes y el resto del proyecto no cambien. La app usada para validar incluye el parche separado TC-054. La tanda 06 no modifica la app ni vuelve a distribuir su HTML.
+
+Ante fallos se adjunta `recurring-expenses-diagnostic` con proyecto de prueba en memoria y persistido, filtros y modal; el reporte conserva el trace y la captura cuando tu configuración los habilita. `recurring-expenses-setup-timing` registra el wizard. Los errores JavaScript hacen fallar el caso. Sin `skip`, `test.fail`, retries ni pausas fijas.
+
+La evidencia de esta tanda se entrega en `validation-recurring-expenses.json`. Las otras validaciones conservan su alcance histórico; no significan que se haya vuelto a ejecutar todo el catálogo.
+
+**Validación de la tanda 06:** 9/9 aprobados con Playwright **1.45.0** y Chromium **127.0.6533.17**, en **134.5 s**. TC-070 y TC-073 también pasaron en una ejecución separada con Edge y las dependencias existentes **1.64.1**, en **31.0 s**. Cero fallos, omisiones, reintentos y errores JavaScript en ambas ejecuciones. Los 24 archivos de la app con parche y las suites/helpers anteriores no se modificaron. La dependencia del proyecto continúa en **`^1.45.0`**.

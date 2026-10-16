@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 64 implementados; 63 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 131 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 73 implementados; 72 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 122 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -107,11 +107,24 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-063 | Limpiar búsqueda conserva los dropdowns y restablecerlos recupera todos los gastos | Verificado |
 | TC-064 | Editar y borrar bajo filtros afecta sólo al gasto visible y actualiza los totales | Verificado |
 
+## Bloque 06: 06-recurring-expenses.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-065 | Repetición desactivada crea sólo el gasto elegido sin series ni meses futuros | Verificado |
+| TC-066 | Crear copias pendientes hasta diciembre aunque el gasto inicial esté pagado | Verificado |
+| TC-067 | Iniciar en diciembre respeta el límite anual y separa series ARS y USD idénticas | Verificado |
+| TC-068 | Editar sólo una repetición conserva la plantilla, los otros meses y todos los IDs | Verificado |
+| TC-069 | Editar este y siguientes actualiza pendientes sin tocar anteriores, pagados ni excepciones | Verificado |
+| TC-070 | Detener exige mes válido y confirmación; conserva histórico, pagos y excepciones | Verificado |
+| TC-071 | Borrar un mes conserva la serie y no regenera esa repetición al volver a guardar | Verificado |
+| TC-072 | Rechazar mover una repetición a un mes ocupado sin alterar datos ni IDs | Verificado |
+| TC-073 | Recargar y reactivar conserva la serie original sin duplicar gastos ni perder pagos | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 06 | `06-recurring-expenses.spec.js` | TC-065–TC-073 | Pendiente |
 | 07 | `07-monthly-budget.spec.js` | TC-074–TC-088 | Pendiente |
 | 08 | `08-balances.spec.js` | TC-089–TC-102 | Pendiente |
 | 09 | `09-balance-adjustments.spec.js` | TC-103–TC-110 | Pendiente |
@@ -228,3 +241,16 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Evidencia nueva: **validation-expense-filters.json**. La evidencia del parche TC-054 se incluye como **validation-tc054-fix.json**. No se reejecutaron los 64 casos juntos.
 - Catálogo sobre la base con parche: **64 implementados, 63 verificados, 1 con incidencia (TC-035) y 131 pendientes**. El HTML original sigue afectado por TC-054.
 - Próxima implementación: **06-recurring-expenses.spec.js**, TC-065–TC-073; pendiente.
+
+## Verificación de la tanda 06 · Gastos recurrentes
+
+- Inicio local: **16/10/2026, 12:37:00**, America/Buenos_Aires. App **v0.677 con parche TC-054**. No hay cambios nuevos en la app.
+- **9/9 aprobados** en **134.5 s**, con Playwright real **1.45.0** y Chromium **127.0.6533.17**, build 1124. 0 fallos, omisiones, inestables, reintentos y errores JavaScript.
+- **TC-070 y TC-073 pasaron también en ejecución separada** con Edge y las dependencias existentes **1.64.1**, en **31.0 s**. Se usaron esas dependencias sólo para lectura y ejecución aislada; no se modificó el repositorio del usuario.
+- Cada caso arranca limpio y crea sus datos por UI. Se verifica el límite anual, copias pendientes, separación de monedas, alcance de edición, conservación de pagos/excepciones, cancelaciones, cutoff inválido, borrado de un solo mes, colisión de meses, reactivación y dos recargas sin duplicar IDs.
+- Preparación **60 s propios**; caso **60 s**; acciones y expects **5 s**. No se llama al generador interno para crear datos ni obtener expectativas. Sin pausas fijas, skips, fallos esperados ni retries.
+- Se agregan sólo `tests/06-recurring-expenses.spec.js`, `helpers/recurring-expenses.js` y la evidencia nueva. El package suma dos scripts opcionales; mantiene exactamente **^1.45.0**. Las suites/helpers/evidencias anteriores permanecen sin cambios.
+- 24 archivos de la app corregida con hashes intactos. No se cambia el EXE ni el `app-server.js` configurado por el usuario. Integrar sólo los dos archivos nuevos.
+- Evidencia: **validation-recurring-expenses.json**. No se reejecutaron juntos los 73 casos del catálogo; los resultados previos son históricos.
+- Avance sobre la base con parche: **73 implementados, 72 verificados, 1 con incidencia (TC-035) y 122 pendientes**.
+- Próxima implementación: **07-monthly-budget.spec.js**, TC-074–TC-088; pendiente.

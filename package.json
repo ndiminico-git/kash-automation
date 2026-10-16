@@ -14,6 +14,8 @@
     "test:expenses:headed": "playwright test tests/04-expenses.spec.js --headed",
     "test:expense-filters": "playwright test tests/05-expense-filters.spec.js",
     "test:expense-filters:headed": "playwright test tests/05-expense-filters.spec.js --headed",
+    "test:recurring-expenses": "playwright test tests/06-recurring-expenses.spec.js",
+    "test:recurring-expenses:headed": "playwright test tests/06-recurring-expenses.spec.js --headed",
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
     "report": "playwright show-report"
   },

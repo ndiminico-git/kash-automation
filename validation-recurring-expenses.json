@@ -1,0 +1,181 @@
+{
+  "appVersion": "0.677 + TC-054 patch",
+  "suite": "tests/06-recurring-expenses.spec.js",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "verifiedAt": "16/10/2026, 12:37:00",
+  "timezone": "America/Buenos_Aires",
+  "passed": 9,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 134.5,
+  "preparationTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChangesForThisBatch": [],
+  "sourceHashes": {
+    "tests/06-recurring-expenses.spec.js": "bfeb00ba9bf16d2442409a0a3d354fe58ac53285e47ceb306e327c6b2e4b44b3",
+    "helpers/recurring-expenses.js": "8cb9c5fcde8b4a65a9da1fe45071af4d576741f9130280671858f6d657e11e58"
+  },
+  "contrast": {
+    "browser": "Microsoft Edge installed",
+    "playwrightVersion": "1.64.1",
+    "passed": 2,
+    "failed": 0,
+    "durationSeconds": 31,
+    "independentExecution": true,
+    "cases": [
+      {
+        "id": "TC-070",
+        "title": "TC-070 [R] Detener exige mes válido y confirmación; conserva histórico, pagos y excepciones",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 9821,
+        "retry": 0,
+        "setupDurationMs": 5239,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      },
+      {
+        "id": "TC-073",
+        "title": "TC-073 [R] Recargar y reactivar conserva la serie original sin duplicar gastos ni perder pagos",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 8462,
+        "retry": 0,
+        "setupDurationMs": 3395,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      }
+    ],
+    "note": "Existing user dependencies used read-only. No repository files or dependency versions changed."
+  },
+  "scope": "Only batch06 executed as a suite; independent TC070/TC073 contrast. Earlier validation files are historical. No app changes, native portable rebuild or personal project access.",
+  "catalog": {
+    "implemented": 73,
+    "verifiedOnPatchedBase": 72,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 122
+  },
+  "cases": [
+    {
+      "id": "TC-065",
+      "title": "TC-065 [P] Repetición desactivada crea sólo el gasto elegido sin series ni meses futuros",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 6175,
+      "retry": 0,
+      "setupDurationMs": 10264,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-066",
+      "title": "TC-066 [P] Crear copias pendientes hasta diciembre aunque el gasto inicial esté pagado",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 8874,
+      "retry": 0,
+      "setupDurationMs": 4322,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-067",
+      "title": "TC-067 [B] Iniciar en diciembre respeta el límite anual y separa series ARS y USD idénticas",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 12563,
+      "retry": 0,
+      "setupDurationMs": 3994,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-068",
+      "title": "TC-068 [P] Editar sólo una repetición conserva la plantilla, los otros meses y todos los IDs",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 10406,
+      "retry": 0,
+      "setupDurationMs": 4589,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-069",
+      "title": "TC-069 [R] Editar este y siguientes actualiza pendientes sin tocar anteriores, pagados ni excepciones",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 11816,
+      "retry": 0,
+      "setupDurationMs": 5534,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-070",
+      "title": "TC-070 [R] Detener exige mes válido y confirmación; conserva histórico, pagos y excepciones",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 12166,
+      "retry": 0,
+      "setupDurationMs": 3742,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-071",
+      "title": "TC-071 [R] Borrar un mes conserva la serie y no regenera esa repetición al volver a guardar",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 6979,
+      "retry": 0,
+      "setupDurationMs": 4357,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-072",
+      "title": "TC-072 [N] Rechazar mover una repetición a un mes ocupado sin alterar datos ni IDs",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 4256,
+      "retry": 0,
+      "setupDurationMs": 3637,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-073",
+      "title": "TC-073 [R] Recargar y reactivar conserva la serie original sin duplicar gastos ni perder pagos",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 10851,
+      "retry": 0,
+      "setupDurationMs": 3319,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    }
+  ]
+}
