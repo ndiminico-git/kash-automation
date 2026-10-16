@@ -31,7 +31,7 @@ function pinSection(){
   const empty=view.querySelector('.summaryHeaderWide');if(empty&&!empty.textContent.trim()&&!empty.querySelector('input,button,select'))empty.remove();
  }
  if(S.cur==='fx'){
-  const html=marketTickerHtml();if(html){const quotes=document.createElement('div');quotes.className='kashHeaderQuotes';quotes.setAttribute('aria-label','Cotizaciones de referencia');quotes.innerHTML=html;header.insertBefore(quotes,tools);quotes.querySelector('.tickerRefresh')?.setAttribute('aria-label','Actualizar cotizaciones')}
+  const html=marketTickerHtml();if(html){const quotes=document.createElement('div');quotes.className='kashHeaderQuotes';quotes.setAttribute('aria-label',KashI18n.text('Cotizaciones de referencia'));quotes.innerHTML=html;header.insertBefore(quotes,tools);quotes.querySelector('.tickerRefresh')?.setAttribute('aria-label',KashI18n.text('Actualizar cotizaciones'))}
  }
  if(S.cur==='gastos')for(const panel of view.querySelectorAll('.mockExpenseFormPanel')){
   if(panel.parentElement.classList.contains('kashExpenseEntry'))continue;
