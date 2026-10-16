@@ -1,0 +1,120 @@
+{
+  "appVersion": "0.677",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "mode": "Interfaz web por HTTP local; no ejecuta el EXE",
+  "verifiedAt": "16/10/2026, 02:13:02",
+  "timezone": "America/Buenos_Aires",
+  "workers": 1,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "unchangedAppAssets": 24,
+  "diagnostics": {
+    "case": "TC-035",
+    "browser": "Microsoft Edge 155.0.4283.45",
+    "playwrightVersion": "1.62.1",
+    "status": "passed",
+    "note": "Contraste separado; no sustituye el resultado con 1.45.0 ni su dependencia declarada"
+  },
+  "suite": "tests/03-currencies.spec.js",
+  "passed": 9,
+  "failed": 1,
+  "issue": "QA-CUR-001",
+  "cases": [
+    {
+      "id": "TC-027",
+      "title": "TC-027 [P] Ofrecer 20 códigos con nombre y bandera local cargada",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 19982,
+      "retry": 0
+    },
+    {
+      "id": "TC-028",
+      "title": "TC-028 [R] Ordenar códigos A–Z en Ajustes, Resumen y nuevas operaciones",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 12888,
+      "retry": 0
+    },
+    {
+      "id": "TC-029",
+      "title": "TC-029 [P] Agregar USD y habilitar sus campos sin crear movimientos",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 8345,
+      "retry": 0
+    },
+    {
+      "id": "TC-030",
+      "title": "TC-030 [N] Impedir duplicados y no alterar datos al agregar sin selección",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5810,
+      "retry": 0
+    },
+    {
+      "id": "TC-031",
+      "title": "TC-031 [B] Permitir cinco monedas y bloquear la incorporación de una sexta",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 7438,
+      "retry": 0
+    },
+    {
+      "id": "TC-032",
+      "title": "TC-032 [B] Rechazar la desactivación de la última moneda",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 5216,
+      "retry": 0
+    },
+    {
+      "id": "TC-033",
+      "title": "TC-033 [R] Desactivar USD conservando gastos, saldo e histórico consultable",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 12807,
+      "retry": 0
+    },
+    {
+      "id": "TC-034",
+      "title": "TC-034 [R] Reactivar USD recuperando edición y saldo sin duplicar gastos",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 9979,
+      "retry": 0
+    },
+    {
+      "id": "TC-035",
+      "title": "TC-035 [B] Sustituir una moneda al límite de cinco sin convertir su histórico",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "failed",
+      "durationMs": 19977,
+      "retry": 0,
+      "issue": "QA-CUR-001",
+      "failedExpectation": "Inactive currency summary must be visible"
+    },
+    {
+      "id": "TC-036",
+      "title": "TC-036 [R] Conservar monedas activas e histórico después de recargar",
+      "file": "03-currencies.spec.js",
+      "kind": "ui",
+      "status": "passed",
+      "durationMs": 12726,
+      "retry": 0
+    }
+  ]
+}

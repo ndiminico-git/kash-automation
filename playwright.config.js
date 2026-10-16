@@ -17,7 +17,9 @@ module.exports = defineConfig({
   ],
   use: {
     browserName: 'chromium',
-    channel: process.env.KASH_BROWSER_CHANNEL || 'msedge',
+    // "bundled" usa el Chromium instalado por esta versión de Playwright.
+    channel: process.env.KASH_BROWSER_CHANNEL === 'bundled'
+      ? undefined : (process.env.KASH_BROWSER_CHANNEL || 'msedge'),
     headless: true,
     locale: 'en-US',
     viewport: { width: 1920, height: 1080 },

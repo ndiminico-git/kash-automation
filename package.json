@@ -8,6 +8,8 @@
     "test:onboarding": "playwright test tests/01-onboarding.spec.js",
     "test:language": "playwright test tests/02-language.spec.js",
     "test:language:headed": "playwright test tests/02-language.spec.js --headed",
+    "test:currencies": "playwright test tests/03-currencies.spec.js",
+    "test:currencies:headed": "playwright test tests/03-currencies.spec.js --headed",
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
     "report": "playwright show-report"
   },

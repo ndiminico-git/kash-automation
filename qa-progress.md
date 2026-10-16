@@ -3,6 +3,8 @@
 Versión de referencia: **0.677**. Catálogo: **195 casos**, con identificadores estables.
 No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
+**Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
+
 ## Estados
 
 - **Pendiente:** todavía no hay código.
@@ -46,11 +48,26 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-025 | No generar cambios pendientes al traducir | Verificado |
 | TC-026 | Conservar formulario parcial sin registrarlo | Verificado |
 
+
+## Bloque 03: 03-currencies.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-027 | Ofrecer 20 códigos con nombre y bandera local cargada | Verificado |
+| TC-028 | Ordenar códigos A–Z en Ajustes, Resumen y nuevas operaciones | Verificado |
+| TC-029 | Agregar USD y habilitar sus campos sin crear movimientos | Verificado |
+| TC-030 | Impedir duplicados y no alterar datos al agregar sin selección | Verificado |
+| TC-031 | Permitir cinco monedas y bloquear la incorporación de una sexta | Verificado |
+| TC-032 | Rechazar la desactivación de la última moneda | Verificado |
+| TC-033 | Desactivar USD conservando gastos, saldo e histórico consultable | Verificado |
+| TC-034 | Reactivar USD recuperando edición y saldo sin duplicar gastos | Verificado |
+| TC-035 | Sustituir una moneda al límite de cinco sin convertir su histórico | Con incidencia · QA-CUR-001 |
+| TC-036 | Conservar monedas activas e histórico después de recargar | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 03 | `03-currencies.spec.js` | TC-027–TC-036 | Pendiente |
 | 04 | `04-expenses.spec.js` | TC-037–TC-054 | Pendiente |
 | 05 | `05-expense-filters.spec.js` | TC-055–TC-064 | Pendiente |
 | 06 | `06-recurring-expenses.spec.js` | TC-065–TC-073 | Pendiente |
@@ -97,8 +114,8 @@ Después se ejecutó el bloque completo de nuevo con el resultado indicado arrib
 - TC-024 también pasó ejecutado solo, preparando sus propios saldos y gastos.
 - Los 24 archivos de la interfaz conservan sus hashes originales.
 - Evidencias resumidas: validation-language.json y validation-all.json.
-- **Avance actual: 26 de 195 verificados; 169 pendientes; sin incidencias abiertas.**
-- Próximo bloque: **03-currencies.spec.js**, TC-027 a TC-036, todavía pendiente.
+- **Avance al entregar la tanda 02: 26 de 195 verificados; 169 pendientes; sin incidencias abiertas entonces.**
+- Al entregar la tanda 02 quedaba pendiente **03-currencies.spec.js**, implementada en la tanda siguiente.
 
 La primera ejecución del bloque 02 detectó dos errores de preparación: acceso
 a localStorage desde about:blank en una pestaña nueva, y capitalización incorrecta
@@ -111,3 +128,19 @@ una ayuda o guía que permanece abierta. No se presentan como una interacción
 de usuario con un selector tapado por un modal. Los datos de los demás casos
 se preparan mediante la UI; la exportación pública del proyecto se usa sólo
 para lectura y comparación de datos.
+
+## Verificación conjunta de las tandas 01, 02 y 03
+
+- Fecha local de inicio: **16/10/2026, 02:13:02**, America/Buenos_Aires.
+- Playwright real: **1.45.0**. Dependencia declarada: **^1.45.0**.
+- Navegador: **Chromium 127.0.6533.17**, build 1124, headless.
+- Resultado conjunto: **35 aprobados y 1 fallido**, de 36, en **262.8 segundos**.
+- Tanda 03: **9 aprobados y 1 con incidencia de visibilidad**, TC-035. No se oculta ni se marca como fallo esperado.
+- 0 omitidos, inestables, reintentos y errores JavaScript.
+- TC-035 también reprodujo el fallo ejecutado solo con 1.45.0; el mismo caso pasó en un contraste separado en Edge con runtime 1.62.1.
+- La causa exacta de la diferencia de renderizado queda pendiente. Detalles: **known-issues.md**, QA-CUR-001.
+- Los 24 archivos de la interfaz conservan sus hashes originales. No se modificó la app ni datos personales.
+- **Avance actual: 36 casos implementados; 35 verificados, 1 con incidencia y 159 pendientes de implementar, de 195.**
+- Próxima tanda de implementación: **04-expenses.spec.js**, TC-037 a TC-054.
+
+Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el runner 1.45.0 en esta PC. Se instaló Chromium compatible en un entorno aislado y se agregó la opción documentada KASH_BROWSER_CHANNEL=bundled. Los registros históricos de las tandas previas se conservan con su runtime original; la nueva ejecución conjunta sí usa 1.45.0.
