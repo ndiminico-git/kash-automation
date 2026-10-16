@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las siete primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las ocho primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -9,6 +9,7 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las siete primeras t
 - **`tests/05-expense-filters.spec.js`**: TC-055 a TC-064, búsquedas, filtros y acciones sobre resultados.
 - **`tests/06-recurring-expenses.spec.js`**: TC-065 a TC-073, generación, edición, detención y persistencia de recurrencias.
 - **`tests/07-monthly-budget.spec.js`**: TC-074 a TC-088, servicios, celdas, pagos, teclado y persistencia de la planilla.
+- **`tests/08-balances.spec.js`**: TC-089 a TC-102, saldos iniciales, calculados, proyecciones y cierres por moneda.
 
 ## Qué hay en esta carpeta
 
@@ -21,6 +22,7 @@ qa-automation/
   tests/05-expense-filters.spec.js Los 10 casos de filtros, en orden.
   tests/06-recurring-expenses.spec.js Los 9 casos de recurrencias, en orden.
   tests/07-monthly-budget.spec.js Los 15 casos de planilla, en orden.
+  tests/08-balances.spec.js     Los 14 casos de saldos y remanentes, en orden.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -28,6 +30,7 @@ qa-automation/
   helpers/expense-filters.js   Filas visibles, filtros y comprobaciones de sólo lectura.
   helpers/recurring-expenses.js Series y repeticiones por UI, persistencia y recarga.
   helpers/monthly-budget.js    Rubros, servicios, celdas y pagos de la planilla.
+  helpers/balances.js          Saldos iniciales, cierres, comparaciones y recarga.
   helpers/app-server.js        Sirve únicamente la interfaz en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -36,7 +39,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–06 y la revisión 3 de Monedas, agregá solamente `tests/07-monthly-budget.spec.js` y `helpers/monthly-budget.js`. El ZIP es acumulativo; para una instalación nueva incluye los siete specs y sus helpers. Conservá tu `app-server.js` si ya ajustaste su ruta a `../App`.
+1. Si ya tenés las tandas 01–07 y la revisión 3 de Monedas, agregá solamente `tests/08-balances.spec.js` y `helpers/balances.js`. El ZIP es acumulativo; para una instalación nueva incluye los ocho specs y sus helpers. Conservá tu `app-server.js` si ya ajustaste su ruta a `../App`.
 2. Copiá la carpeta `helpers` a la raíz del mismo proyecto. Debe quedar al lado de `tests`.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. En la terminal de PowerShell de VS Code, indicá la ruta de la carpeta **App** del portable:
@@ -62,6 +65,9 @@ npx playwright test tests/06-recurring-expenses.spec.js
 
 # Séptima tanda solamente.
 npx playwright test tests/07-monthly-budget.spec.js
+
+# Octava tanda solamente.
+npx playwright test tests/08-balances.spec.js
 ```
 
 Reemplazá la ruta del ejemplo por la real. Esa carpeta debe contener `index.html` y `kash-i18n.js`.
@@ -99,13 +105,14 @@ npm run test:expenses
 npm run test:expense-filters
 npm run test:recurring-expenses
 npm run test:monthly-budget
+npm run test:balances
 
-# Las siete tandas, en orden.
+# Las ocho tandas, en orden.
 npm test
 ```
 
-Dentro del workspace donde se creó esta entrega, la ruta predeterminada ya apunta a `KASH_v0.677_PORTABLE/App`.
-En otra ubicación, configurá `KASH_APP_DIR` como en los ejemplos.
+El helper incluido conserva la ruta de referencia de las primeras entregas: `KASH_v0.677_PORTABLE/App`. Esa carpeta no se distribuye dentro del ZIP de QA.
+Si ya ajustaste tu helper a `path.join(__dirname, '../App')`, conservá ese archivo y ejecutá directamente los tests. En una instalación nueva, configurá una ruta existente con `KASH_APP_DIR` como en los ejemplos o adaptá la ruta del helper a tu estructura.
 
 ### Chromium compatible con la versión instalada
 
@@ -180,7 +187,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `08-balances.spec.js`, TC-089 a TC-102.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `09-balance-adjustments.spec.js`, TC-103 a TC-110.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -429,3 +436,52 @@ Ante un fallo, `monthly-budget-diagnostic` adjunta proyecto de prueba en memoria
 La evidencia nueva corresponde a `validation-monthly-budget.json`; las validaciones de las tandas anteriores conservan su alcance histórico.
 
 **Validación de la tanda 07:** 15/15 aprobados con Playwright **1.45.0** y Chromium **127.0.6533.17**, en **158.6 s**. TC-084, TC-086 y TC-088 pasaron también en una ejecución separada con Edge y las dependencias existentes **1.64.1**, en **43.5 s**. Sin fallos, omisiones, reintentos ni errores JavaScript en ambas ejecuciones. Los 24 archivos de la app con parche y las suites/helpers anteriores conservaron sus hashes. La dependencia declarada continúa en **`^1.45.0`**.
+
+## Tanda 08 · Saldos y remanentes · TC-089 a TC-102
+
+| ID | Caso |
+|---|---|
+| TC-089 | Cierre ausente es guion; abrir y salir sin editar no confirma cero |
+| TC-090 | Saldos iniciales independientes en ARS, USD y EUR, sin crear ingresos ni cierres |
+| TC-091 | Distinguir calculado de proyectado al confirmar ingresos y gastos |
+| TC-092 | Cierre manual separado del calculado actual y referencia para el mes siguiente |
+| TC-093 | Cero ARS confirmado es válido y reinicia la referencia del mes siguiente |
+| TC-094 | Ceros USD/EUR independientes; borrar EUR no elimina USD ni confirma ARS |
+| TC-095 | Borrar cierre ARS vuelve al cálculo por movimientos sin modificar transacciones |
+| TC-096 | Escape cancela cierres nuevos y cambios sobre cierres existentes |
+| TC-097 | Reemplazar un cierre con decimales/negativos sin duplicar su referencia |
+| TC-098 | Usar el último cierre anterior; modificar uno antiguo respeta otro posterior |
+| TC-099 | Continuidad de diciembre a enero sin reiniciar saldos |
+| TC-100 | Calculado y estimado son de sólo lectura en planilla y Resumen |
+| TC-101 | Desactivar USD conserva bases, cierre e histórico y bloquea editar su cierre |
+| TC-102 | Recargar bases y cierres por moneda, incluido ARS cero, conservando datos e IDs |
+
+### Incorporación y ejecución
+
+Agregá sólo `tests/08-balances.spec.js` y `helpers/balances.js` si ya tenés las siete tandas anteriores. Se reutilizan, sin cambios, los helpers de monedas, idioma, Gastos y planilla. Conservá el `app-server.js` con la ruta de `App` que ya configuraste, tu configuración y tu lockfile. Los scripts npm nuevos son opcionales; `package.json` sigue declarando exactamente `"@playwright/test": "^1.45.0"`.
+
+```powershell
+npx playwright test tests/08-balances.spec.js
+npx playwright test tests/08-balances.spec.js --grep 'TC-093 '
+npx playwright test tests/08-balances.spec.js --grep 'TC-098 ' --headed
+```
+
+Cada caso elige idioma y recorre el wizard en un contexto limpio. Preparación: **60 s propios**. Caso: **60 s**. Acciones/expectativas: **5 s**. Bases, ingresos, gastos, pagos y cierres se cargan exclusivamente por UI; no depende de casos previos, servicios online ni datos personales. Se verifica la persistencia real y la API pública se usa sólo para leer el proyecto. No se invocan los cálculos internos para producir las expectativas.
+
+### Qué comprueban los números
+
+- **Saldo inicial:** punto de partida de cada moneda. No crea un ingreso, un gasto ni un cierre mensual.
+- **Tenencia calculada:** parte de la base o del último cierre anterior e incorpora movimientos confirmados. El cierre manual del mismo mes se mantiene separado.
+- **Remanente estimado:** incluye lo registrado para el período, aunque todavía esté pendiente. Por ejemplo, base ARS 1.000, ingreso pendiente 300, gasto pagado 100 y pendiente 50 dan calculado 900 y proyectado 1.150. Confirmar los pagos/cobros cambia el calculado y conserva lo planificado.
+- **Saldo comprobado:** referencia manual del cierre. Si el calculado del mes es 900 y se registra un cierre 850, el calculado del mismo mes sigue en 900 y el siguiente parte de 850. La diferencia no se registra como una transacción inventada.
+- **Vacío y cero:** guion significa sin cierre. Cero ingresado es una referencia válida, incluida su marca de confirmación ARS. Borrar el campo quita la referencia y recupera el cálculo por movimientos.
+
+Las expectativas de importes y meses son explícitas. TC-098 usa tres meses, dos cierres y pagos concretos: corregir el primero modifica el mes intermedio pero no salta por encima del cierre más reciente. TC-099 cruza diciembre/enero sin tocar el reloj del sistema. TC-094 prueba la eliminación de una moneda en el mapa de cierres conservando la de otra. TC-102 combina un cierre ARS cero, un cierre USD con decimales y pagos/pendientes en dos meses.
+
+Los meses futuros en los que se comprueba una proyección ARS tienen gastos de prueba registrados. La versión de referencia muestra cero en proyecciones ARS futuras sin movimientos; la suite no interpreta ese estado de presentación como un cierre en cero ni como una pérdida de la base. La base probada sigue siendo v0.677 con el parche separado TC-054. No se modifica ni redistribuye la app.
+
+Ante un fallo se adjunta `balances-diagnostic` con proyecto de prueba en memoria/persistido, año, borrador, filas de totales y modal. `balances-setup-timing` informa el tiempo del wizard. Se mantienen captura/trace según tu configuración y los errores JavaScript hacen fallar el caso. Sin pausas fijas, force, omisiones, fallos esperados ni reintentos.
+
+La evidencia nueva va en `validation-balances.json`. Las otras validaciones conservan su alcance histórico; no indican una nueva ejecución de todo el catálogo.
+
+**Validación de la tanda 08:** 14/14 aprobados con Playwright **1.45.0** y Chromium **127.0.6533.17**, en **168.5 s**. TC-093, TC-098 y TC-102 pasaron también en ejecución separada con Edge y las dependencias existentes **1.64.1**, en **42.1 s**. Cero fallos, omitidos, reintentos y errores JavaScript en ambas ejecuciones. Los 24 archivos de la app con parche y todas las suites/helpers anteriores conservaron sus hashes. La dependencia del proyecto continúa en **`^1.45.0`**.

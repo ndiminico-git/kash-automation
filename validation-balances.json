@@ -1,0 +1,253 @@
+{
+  "appVersion": "0.677 + TC-054 patch",
+  "suite": "tests/08-balances.spec.js",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "verifiedAt": "16/10/2026, 16:05:57",
+  "timezone": "America/Buenos_Aires",
+  "passed": 14,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 168.5,
+  "preparationTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChangesForThisBatch": [],
+  "sourceHashes": {
+    "tests/08-balances.spec.js": "e5d91bc338597344ec150adef84b1efc7b59160d061d1cacf9977caf73beeb9c",
+    "helpers/balances.js": "ec428035b2c4f47af67ec782b427c48ca9614e68902b0f504a2163b06ec4e831"
+  },
+  "contrast": {
+    "browser": "Microsoft Edge installed",
+    "playwrightVersion": "1.64.1",
+    "passed": 3,
+    "failed": 0,
+    "durationSeconds": 42.1,
+    "independentExecution": true,
+    "cases": [
+      {
+        "id": "TC-093",
+        "title": "TC-093 [B] Cero confirmado en ARS es un cierre válido que reinicia el saldo del mes siguiente",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 6025,
+        "retry": 0,
+        "setupDurationMs": 3320,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      },
+      {
+        "id": "TC-098",
+        "title": "TC-098 [R] El último cierre anterior manda y corregir uno más antiguo respeta el cierre posterior",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 10056,
+        "retry": 0,
+        "setupDurationMs": 3396,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      },
+      {
+        "id": "TC-102",
+        "title": "TC-102 [R] Recargar conserva bases, cierre ARS cero, cierre USD y saldos por moneda sin duplicar datos",
+        "status": "passed",
+        "kind": "ui",
+        "bodyDurationMs": 14475,
+        "retry": 0,
+        "setupDurationMs": 2714,
+        "setupTimeoutMs": 60000,
+        "testTimeoutMs": 60000,
+        "freshProject": true
+      }
+    ],
+    "note": "Existing user dependencies used read-only. No repository files or dependency versions changed."
+  },
+  "scope": "Only batch08 executed as a suite; independent TC093/TC098/TC102 contrast. Earlier validation files are historical. No app changes, native portable rebuild or personal project access.",
+  "catalog": {
+    "implemented": 102,
+    "verifiedOnPatchedBase": 101,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 93
+  },
+  "cases": [
+    {
+      "id": "TC-089",
+      "title": "TC-089 [P] Distinguir cierre ausente de cero y no crear un cierre al abrir y salir sin editar",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 2857,
+      "retry": 0,
+      "setupDurationMs": 3007,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-090",
+      "title": "TC-090 [P] Saldo inicial por moneda aparece en planilla y Resumen sin crear ingresos ni cierres",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 11827,
+      "retry": 0,
+      "setupDurationMs": 2873,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-091",
+      "title": "TC-091 [R] Separar saldo calculado y proyección según ingresos cobrados y gastos pagados o pendientes",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 11501,
+      "retry": 0,
+      "setupDurationMs": 3035,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-092",
+      "title": "TC-092 [R] Cierre manual no reemplaza el calculado del mismo mes y sí ancla el mes siguiente",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 7108,
+      "retry": 0,
+      "setupDurationMs": 3004,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-093",
+      "title": "TC-093 [B] Cero confirmado en ARS es un cierre válido que reinicia el saldo del mes siguiente",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 6680,
+      "retry": 0,
+      "setupDurationMs": 2767,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-094",
+      "title": "TC-094 [B] Ceros USD y EUR son independientes de ARS y borrar EUR elimina sólo su cierre",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 14757,
+      "retry": 0,
+      "setupDurationMs": 3054,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-095",
+      "title": "TC-095 [R] Borrar un cierre ARS elimina su referencia y vuelve al saldo de movimientos",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 8001,
+      "retry": 0,
+      "setupDurationMs": 2771,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-096",
+      "title": "TC-096 [R] Escape cancela cierres nuevos o existentes sin modificar el proyecto",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 5522,
+      "retry": 0,
+      "setupDurationMs": 2892,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-097",
+      "title": "TC-097 [B] Reemplazar cierre con decimales o saldo negativo conserva una sola referencia",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 7421,
+      "retry": 0,
+      "setupDurationMs": 2847,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-098",
+      "title": "TC-098 [R] El último cierre anterior manda y corregir uno más antiguo respeta el cierre posterior",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 9540,
+      "retry": 0,
+      "setupDurationMs": 2976,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-099",
+      "title": "TC-099 [R] Cierre de diciembre continúa en enero del año siguiente sin reiniciar el saldo",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 7296,
+      "retry": 0,
+      "setupDurationMs": 2831,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-100",
+      "title": "TC-100 [N] Tenencia calculada y remanente estimado son de sólo lectura en planilla y Resumen",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 5760,
+      "retry": 0,
+      "setupDurationMs": 2985,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-101",
+      "title": "TC-101 [R] Desactivar USD conserva saldo inicial, cierre e histórico y bloquea editar su cierre",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 10937,
+      "retry": 0,
+      "setupDurationMs": 3076,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    },
+    {
+      "id": "TC-102",
+      "title": "TC-102 [R] Recargar conserva bases, cierre ARS cero, cierre USD y saldos por moneda sin duplicar datos",
+      "status": "passed",
+      "kind": "ui",
+      "bodyDurationMs": 15145,
+      "retry": 0,
+      "setupDurationMs": 3200,
+      "setupTimeoutMs": 60000,
+      "testTimeoutMs": 60000,
+      "freshProject": true
+    }
+  ]
+}

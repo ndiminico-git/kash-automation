@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 88 implementados; 87 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 107 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 102 implementados; 101 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 93 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -141,11 +141,29 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-087 | Renombrar el servicio trata símbolos como texto y conserva importes y pagos en todos los meses | Verificado |
 | TC-088 | Navegar años y recargar conserva estructura, celdas e IDs sin repetir el wizard | Verificado |
 
+## Bloque 08: 08-balances.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-089 | Distinguir cierre ausente de cero y no crear un cierre al abrir y salir sin editar | Verificado |
+| TC-090 | Saldo inicial por moneda aparece en planilla y Resumen sin crear ingresos ni cierres | Verificado |
+| TC-091 | Separar saldo calculado y proyección según ingresos cobrados y gastos pagados o pendientes | Verificado |
+| TC-092 | Cierre manual no reemplaza el calculado del mismo mes y sí ancla el mes siguiente | Verificado |
+| TC-093 | Cero confirmado en ARS es un cierre válido que reinicia el saldo del mes siguiente | Verificado |
+| TC-094 | Ceros USD y EUR son independientes de ARS y borrar EUR elimina sólo su cierre | Verificado |
+| TC-095 | Borrar un cierre ARS elimina su referencia y vuelve al saldo de movimientos | Verificado |
+| TC-096 | Escape cancela cierres nuevos o existentes sin modificar el proyecto | Verificado |
+| TC-097 | Reemplazar cierre con decimales o saldo negativo conserva una sola referencia | Verificado |
+| TC-098 | El último cierre anterior manda y corregir uno más antiguo respeta el cierre posterior | Verificado |
+| TC-099 | Cierre de diciembre continúa en enero del año siguiente sin reiniciar el saldo | Verificado |
+| TC-100 | Tenencia calculada y remanente estimado son de sólo lectura en planilla y Resumen | Verificado |
+| TC-101 | Desactivar USD conserva saldo inicial, cierre e histórico y bloquea editar su cierre | Verificado |
+| TC-102 | Recargar conserva bases, cierre ARS cero, cierre USD y saldos por moneda sin duplicar datos | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 08 | `08-balances.spec.js` | TC-089–TC-102 | Pendiente |
 | 09 | `09-balance-adjustments.spec.js` | TC-103–TC-110 | Pendiente |
 | 10 | `10-currency-exchange.spec.js` | TC-111–TC-122 | Pendiente |
 | 11 | `11-summary.spec.js` | TC-123–TC-134 | Pendiente |
@@ -287,3 +305,17 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - No se reejecutaron juntos los 88 casos: los resultados previos son históricos. Incidencia TC-035 independiente conservada.
 - Avance sobre la base con parche: **88 implementados, 87 verificados, 1 con incidencia y 107 pendientes**, de 195.
 - Próxima implementación: **08-balances.spec.js**, TC-089–TC-102; pendiente.
+
+## Verificación de la tanda 08 · Saldos y remanentes
+
+- Inicio local: **16/10/2026, 16:05:57**, America/Buenos_Aires. App **v0.677 con parche TC-054**, sin cambios adicionales.
+- **14/14 aprobados** en **168.5 s** con Playwright real **1.45.0** y Chromium **127.0.6533.17**, build 1124. Cero fallos, omitidos, inestables, reintentos y errores JavaScript.
+- **TC-093, TC-098 y TC-102 también pasaron por separado** con Edge y las dependencias existentes **1.64.1**, en **42.1 s**. El repositorio del usuario se usó sólo para lectura de esas dependencias.
+- Cubre bases en tres monedas, calculado/proyectado según pagos/cobros, cierre manual separado del cálculo actual, cero confirmado ARS/USD/EUR, eliminar cierre, Escape/blur/Enter, decimales/negativos, ancla más reciente, diciembre/enero, valores calculados de sólo lectura, USD inactivo y recarga conservando IDs.
+- Los datos se crean por UI después del wizard. Expectativas con meses/importes explícitos; ninguna llamada al cálculo interno para obtener lo esperado. Los cierres no crean ingresos o gastos. Se compara persistencia y se verifica que no cambien las transacciones al modificar el cierre.
+- Fixture **60 s propios**, caso **60 s**, acciones/expectativas **5 s**. Sin pausas fijas, force, skips, fallos esperados ni retries.
+- Agrega `tests/08-balances.spec.js`, `helpers/balances.js` y `validation-balances.json`. Dos scripts npm opcionales, misma dependencia declarada **^1.45.0**, sin lockfile nuevo.
+- Los 24 assets de la app corregida y los specs/helpers/evidencias de las primeras siete tandas permanecen sin cambios. Integrar sólo los dos archivos nuevos; conservar la ruta de `app-server.js` ya configurada.
+- No se reejecutaron juntos los 102 casos; las evidencias anteriores son históricas. La incidencia independiente TC-035 sigue documentada.
+- Catálogo: **102 implementados, 101 verificados sobre la base con parche, 1 con incidencia y 93 pendientes**, de 195.
+- Próxima implementación: **09-balance-adjustments.spec.js**, TC-103–TC-110; pendiente.

@@ -18,6 +18,8 @@
     "test:recurring-expenses:headed": "playwright test tests/06-recurring-expenses.spec.js --headed",
     "test:monthly-budget": "playwright test tests/07-monthly-budget.spec.js",
     "test:monthly-budget:headed": "playwright test tests/07-monthly-budget.spec.js --headed",
+    "test:balances": "playwright test tests/08-balances.spec.js",
+    "test:balances:headed": "playwright test tests/08-balances.spec.js --headed",
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
     "report": "playwright show-report"
   },
