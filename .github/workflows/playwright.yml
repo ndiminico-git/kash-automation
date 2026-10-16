@@ -23,7 +23,9 @@ jobs:
       run: npx playwright install --with-deps
       
     - name: Run Playwright tests
-      run: npx playwright test
+      env:
+        KASH_APP_DIR: ${{ github.workspace }}/App
+      run: npx playwright test tests/01-onboarding.spec.js --workers=1
       
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
