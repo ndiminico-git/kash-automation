@@ -22,6 +22,8 @@
     "test:balances:headed": "playwright test tests/08-balances.spec.js --headed",
     "test:balance-adjustments": "playwright test tests/09-balance-adjustments.spec.js",
     "test:balance-adjustments:headed": "playwright test tests/09-balance-adjustments.spec.js --headed",
+    "test:currency-exchange": "playwright test tests/10-currency-exchange.spec.js",
+    "test:currency-exchange:headed": "playwright test tests/10-currency-exchange.spec.js --headed",
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
     "report": "playwright show-report"
   },

@@ -187,7 +187,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `10-currency-exchange.spec.js`, TC-111 a TC-122.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `11-summary.spec.js`, TC-123 a TC-134.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -544,3 +544,55 @@ Al recargar se admite que el contador interno `nid` del próximo ID se normalice
 La suite no agrega pausas fijas, force, retries, skips ni fallos esperados. Las expectativas de moneda, signo, meses y valores son explícitas. Los meses siguientes contemplan el salto de diciembre a enero. La base es v0.677 con el parche separado TC-054; no se modifica ni redistribuye la app.
 
 **Validación de la tanda 09:** **8/8 aprobados en 118.2 s**, Playwright **1.45.0** y Chromium **127.0.6533.17**. TC-107 y TC-110 pasaron además en una ejecución separada con Edge y las dependencias existentes **1.64.1**, en **31.8 s**. Sin fallos, omitidos, reintentos o errores JavaScript. Evidencia nueva: `validation-balance-adjustments.json`. Los 24 assets de la app y todas las suites/helpers/evidencias anteriores permanecen intactos, incluida la revisión TC-090. Las evidencias anteriores mantienen su alcance histórico; no se ejecutó todo el catálogo de 110 casos en esta tanda.
+
+## Tanda 10 · Cambio de divisas · TC-111 a TC-122
+
+| ID | Caso |
+|---|---|
+| TC-111 | Cambio vacío requiere dos monedas activas y habilitarlas no crea operaciones |
+| TC-112 | Vender USD por ARS multiplica la tasa y descuenta la comisión sólo de USD |
+| TC-113 | Comprar USD con ARS divide por la cotización y cobra la comisión en ARS |
+| TC-114 | Cambiar USD por EUR aplica tasa directa sin convertir ni alterar ARS |
+| TC-115 | Conservar precisión en monto y comisión y redondear sólo la presentación de tres cambios |
+| TC-116 | Rechazar monedas iguales, mes ausente y monto o tasa vacíos, cero, negativos o no numéricos |
+| TC-117 | Editar una fila ordenada cambia mes, monedas, tasa y comisión sin duplicar ni tocar otro cambio |
+| TC-118 | Cancelar la edición descarta todo el borrador y conserva cambios y saldos originales |
+| TC-119 | Cancelar y confirmar borrado bajo filtros afecta al índice original y revierte sólo ese cambio |
+| TC-120 | Combinar filtros de mes, monedas, nota, tasa y comisión y limpiarlos no modifica el proyecto |
+| TC-121 | Desactivar USD conserva sus cambios e histórico consultable y bloquea editarlos hasta reactivarlo |
+| TC-122 | Recargar conserva cambios, gastos y cierre por moneda y mantiene saldos sin contar dos veces el pasado |
+
+### Incorporación y ejecución
+
+Si ya tenés las nueve tandas anteriores, agregá **únicamente** `tests/10-currency-exchange.spec.js` y `helpers/currency-exchange.js`. Se reutilizan sin cambios los helpers de idiomas, monedas, Gastos, Planilla y Saldos. Conservá la ruta que configuraste en `app-server.js`, tu configuración, `package.json` y lockfile. El paquete incluye dos scripts npm opcionales y mantiene exactamente **"@playwright/test": "^1.45.0"**.
+
+```powershell
+npx playwright test tests/10-currency-exchange.spec.js
+npx playwright test tests/10-currency-exchange.spec.js --grep 'TC-119 '
+npx playwright test tests/10-currency-exchange.spec.js --grep 'TC-122 ' --headed
+```
+
+### Preparación y selectores
+
+Cada caso abre un contexto limpio, elige inglés y crea su proyecto vacío desde el wizard. La fixture común tiene **60 s propios**. `withUSD` habilita USD por UI en otra fixture de **60 s propios**; `withEUR` depende de ella y agrega EUR en una tercera, también con **60 s propios**. Únicamente se ejecutan cuando el caso las solicita. El cuerpo conserva **60 s**, acciones y expectativas **5 s**. TC-111 comprueba el bloqueo con una sola moneda y habilita USD dentro del caso para verificar el cambio de estado del botón.
+
+Las operaciones usan los controles reales `#m1`, `#m2`, `#fa`, `#ft`, `#fc`, `#fd` y `#fn`. La tabla publica `data-fx-index`, que apunta al array original aun cuando las filas estén filtradas u ordenadas por mes. Esta versión no asigna ID al cambio: se compara el registro completo, su posición original y los demás registros. No se inventan IDs ni se busca por la posición visual de la fila.
+
+Todos los datos financieros se cargan por UI. La exportación pública y el almacenamiento local se usan sólo para lectura. Las tasas son manuales y las conexiones externas se bloquean para hacer la suite independiente del cotizador. Los errores JavaScript hacen fallar el caso. Ante un fallo se adjunta `exchange-diagnostic` con proyecto de prueba, formulario, filtros, tabla y modal. `exchange-setup-timing`, `exchange-currency-timing` y `exchange-extra-currency-timing` identifican cada preparación. Capturas y traces siguen tu configuración habitual. Sin sleeps, force, retries, skips ni fallos esperados.
+
+### Qué comprueban los importes
+
+- **Vender USD:** TC-112 parte de ARS 10.000 y USD 1.000. Entregar USD 100 a tasa 1.500 recibe ARS 150.000; una comisión de USD 2,50 deja USD 897,50 y ARS 160.000. La comisión se descuenta de la moneda de origen. La nota conserva espacios, acentos, comillas, `&` y etiquetas como texto literal.
+- **Comprar USD con ARS:** TC-113 parte de ARS 200.000 y USD 100. Entregar ARS 150.000 a cotización 1.500 recibe USD 100. Una comisión ARS 1.000 deja ARS 49.000 y USD 200. Esta combinación usa división, según la convención visible de la app: ARS por USD.
+- **Cruce entre monedas:** TC-114 entrega USD 100 a tasa EUR 0,80 por USD y recibe EUR 80. Con bases USD 500/EUR 50 y comisión USD 1,25 quedan USD 398,75 y EUR 130; ARS conserva cero. La tasa directa se distingue de la convención de compra con ARS.
+- **Precisión:** TC-115 crea tres cambios de USD 1,23456 a EUR 0,8, con comisión USD 0,00004 cada uno. Cada fila muestra EUR 0,99, pero el acumulado exacto es EUR 2,962944 y debe mostrar **EUR 2,96**. Sumar importes redondeados por fila daría 2,97 y fallaría el caso. Se verifica que los importes originales sigan completos en los datos.
+- **Validaciones:** TC-116 conserva un cambio válido mientras rechaza monto/tasa vacíos, cero, negativos y texto no numérico, un mes ausente y monedas iguales. Compara el proyecto completo después de cada rechazo y conserva el borrador. La app permite registrar operaciones que dejan saldos negativos; el registro previo de esta prueba refleja esa regla.
+- **Edición y cancelación:** TC-117 cambia mes, par de monedas, tasa, comisión y nota en una fila cuyo índice original difiere de su posición visual. Debe reemplazar un único registro y recalcular ambos períodos. TC-118 cancela un borrador completo y comprueba que reabrir recupere los valores originales.
+- **Borrado con filtros:** TC-119 deja visible sólo el índice original 1, cancela una vez y luego confirma. Deben conservarse los registros originales 0 y 2, revertirse el efecto financiero del eliminado y actualizarse el contador/estado vacío filtrado. Limpiar filtros recupera las filas restantes con sus índices actuales.
+- **Consulta:** TC-120 combina mes, monedas de origen/destino, nota, tasa y comisión por intersección. Prueba cero resultados, búsqueda sin distinguir mayúsculas y etiquetas literales; limpiar restablece todos los controles. Se compara el proyecto completo para detectar escrituras inesperadas por filtrar.
+- **Moneda inactiva:** TC-121 conserva USD en el histórico y sus filtros, lo excluye de nuevas operaciones y deshabilita la edición. La reactivación por UI recupera los controles sin duplicar ni convertir registros.
+- **Cierre y recarga:** TC-122 combina tres cambios, un gasto ARS pagado, uno USD pendiente y un cierre manual USD 160. El calculado del mes del cierre sigue en USD 174,50; al mes siguiente parte del cierre y queda calculado USD 154,75 y estimado USD 149,75. Las operaciones anteriores al cierre no vuelven a sumarse. Se conservan registros, notas, comisiones, monedas, tasas e IDs de gastos. Recargar puede normalizar el contador interno `nid`; los registros financieros y sus IDs existentes deben seguir iguales.
+
+Se contemplan meses de diciembre/enero sin cambiar el reloj del sistema. Los importes esperados son explícitos, sin llamar al cálculo interno de cambios o saldos. Las comprobaciones de altas, edición y borrado comparan todos los campos ajenos a `fx`: no deben aparecer gastos, ingresos, ajustes, cierres o cambios de base por registrar una operación. La base es **v0.677 con el parche separado TC-054**; no se modifica ni redistribuye la app.
+
+**Validación del módulo 10:** **12/12 aprobados en 233.6 s**, Playwright **1.45.0** y Chromium **127.0.6533.17**. TC-117, TC-119 y TC-122 pasaron además por separado con Edge y las dependencias existentes **1.64.1**, en **74.0 s**. Sin fallos, omitidos, reintentos ni errores JavaScript. Evidencia: `validation-currency-exchange.json`. Los 24 assets de la app y todas las suites/helpers/evidencias anteriores conservan sus bytes. Las evidencias anteriores son históricas; no se ejecutó el catálogo completo de 122 casos en esta tanda.

@@ -1,0 +1,477 @@
+{
+  "suite": "tests/10-currency-exchange.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-16T20:15:33.653Z",
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 233.6,
+  "cleanProjectFixtureTimeoutMs": 60000,
+  "optionalCurrencyFixturesTimeoutMs": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "sourceHashes": {
+    "tests/10-currency-exchange.spec.js": "fc84b73649fe411675bc6f43a38390f5d307b1431c973cd69df861b572746b0e",
+    "helpers/currency-exchange.js": "cad2cb5a07d8c788cce4ea182eb654145f746deed00ed6473a45ab01632d6235"
+  },
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 3,
+    "failed": 0,
+    "durationSeconds": 74.0,
+    "independentCleanExecution": true,
+    "cases": [
+      {
+        "id": "TC-117",
+        "title": "TC-117 [R] Editar una fila ordenada cambia mes, monedas, tasa y comisión sin duplicar ni tocar otro cambio",
+        "status": "passed",
+        "executionDurationMs": 12242,
+        "retry": 0,
+        "timings": {
+          "exchange-setup-timing": {
+            "setupDurationMs": 9008,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "exchange-currency-timing": {
+            "setupDurationMs": 1299,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          }
+        }
+      },
+      {
+        "id": "TC-119",
+        "title": "TC-119 [R] Cancelar y confirmar borrado bajo filtros afecta al índice original y revierte sólo ese cambio",
+        "status": "passed",
+        "executionDurationMs": 12043,
+        "retry": 0,
+        "timings": {
+          "exchange-setup-timing": {
+            "setupDurationMs": 5722,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "exchange-currency-timing": {
+            "setupDurationMs": 1195,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          }
+        }
+      },
+      {
+        "id": "TC-122",
+        "title": "TC-122 [R] Recargar conserva cambios, gastos y cierre por moneda y mantiene saldos sin contar dos veces el pasado",
+        "status": "passed",
+        "executionDurationMs": 21932,
+        "retry": 0,
+        "timings": {
+          "exchange-setup-timing": {
+            "setupDurationMs": 4034,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true
+          },
+          "exchange-currency-timing": {
+            "setupDurationMs": 1117,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          },
+          "exchange-extra-currency-timing": {
+            "setupDurationMs": 856,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      }
+    ],
+    "note": "User-installed dependencies used read only; user repository and dependency declaration unchanged."
+  },
+  "coverage": [
+    "Empty/single-currency guard",
+    "USD to ARS multiplication with source fee",
+    "ARS to USD division with source fee",
+    "USD to EUR direct rate",
+    "Unrounded precision across three small exchanges",
+    "Invalid currency pair/month/amount/rate",
+    "Edit original array entry despite date sorting",
+    "Cancel edit",
+    "Cancel/confirm deletion under combined filters",
+    "Column filters, literal note search, zero results and reset",
+    "Inactive USD history and blocked editing until reactivation",
+    "Reload with paid/pending expenses and a manual close, without counting pre-close exchanges twice"
+  ],
+  "expectations": "Explicit monetary values. UI input only; public export and saved storage read only. No calls to internal FX or balance calculators.",
+  "recordIdentity": "v0.677 FX records have no ID; tests verify exact original-array content and use real data-fx-index attributes. Expense IDs are preserved on reload.",
+  "catalog": {
+    "implemented": 122,
+    "verifiedOnPatchedBase": 121,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 73,
+    "total": 195
+  },
+  "scope": "Only module10 plus independent TC117/TC119/TC122 contrast executed. Prior evidence remains historical. No app or native portable changes.",
+  "cases": [
+    {
+      "id": "TC-111",
+      "title": "TC-111 [P] Cambio vacío requiere dos monedas activas y habilitarlas no crea operaciones",
+      "status": "passed",
+      "executionDurationMs": 3776,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 3867,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-112",
+      "title": "TC-112 [P] Vender USD por ARS multiplica la tasa y descuenta la comisión sólo de USD",
+      "status": "passed",
+      "executionDurationMs": 8493,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4497,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1438,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-113",
+      "title": "TC-113 [P] Comprar USD con ARS divide por la cotización y cobra la comisión en ARS",
+      "status": "passed",
+      "executionDurationMs": 8685,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 3854,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1335,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-114",
+      "title": "TC-114 [P] Cambiar USD por EUR aplica tasa directa sin convertir ni alterar ARS",
+      "status": "passed",
+      "executionDurationMs": 8952,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4273,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1584,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "exchange-extra-currency-timing": {
+          "setupDurationMs": 1346,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-115",
+      "title": "TC-115 [B] Conservar precisión en monto y comisión y redondear sólo la presentación de tres cambios",
+      "status": "passed",
+      "executionDurationMs": 12355,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 5339,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1529,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "exchange-extra-currency-timing": {
+          "setupDurationMs": 1150,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-116",
+      "title": "TC-116 [N] Rechazar monedas iguales, mes ausente y monto o tasa vacíos, cero, negativos o no numéricos",
+      "status": "passed",
+      "executionDurationMs": 24893,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4099,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1323,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-117",
+      "title": "TC-117 [R] Editar una fila ordenada cambia mes, monedas, tasa y comisión sin duplicar ni tocar otro cambio",
+      "status": "passed",
+      "executionDurationMs": 14389,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4935,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1325,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-118",
+      "title": "TC-118 [N] Cancelar la edición descarta todo el borrador y conserva cambios y saldos originales",
+      "status": "passed",
+      "executionDurationMs": 12147,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4004,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1449,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-119",
+      "title": "TC-119 [R] Cancelar y confirmar borrado bajo filtros afecta al índice original y revierte sólo ese cambio",
+      "status": "passed",
+      "executionDurationMs": 12910,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 6292,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1293,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-120",
+      "title": "TC-120 [R] Combinar filtros de mes, monedas, nota, tasa y comisión y limpiarlos no modifica el proyecto",
+      "status": "passed",
+      "executionDurationMs": 9536,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 3821,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1200,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "exchange-extra-currency-timing": {
+          "setupDurationMs": 1000,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-121",
+      "title": "TC-121 [R] Desactivar USD conserva sus cambios e histórico consultable y bloquea editarlos hasta reactivarlo",
+      "status": "passed",
+      "executionDurationMs": 13919,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 4685,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1771,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "exchange-extra-currency-timing": {
+          "setupDurationMs": 826,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-122",
+      "title": "TC-122 [R] Recargar conserva cambios, gastos y cierre por moneda y mantiene saldos sin contar dos veces el pasado",
+      "status": "passed",
+      "executionDurationMs": 23231,
+      "retry": 0,
+      "timings": {
+        "exchange-setup-timing": {
+          "setupDurationMs": 3688,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true
+        },
+        "exchange-currency-timing": {
+          "setupDurationMs": 1167,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "exchange-extra-currency-timing": {
+          "setupDurationMs": 755,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    }
+  ]
+}

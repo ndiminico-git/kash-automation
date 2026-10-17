@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 110 implementados; 109 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 85 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 122 implementados; 121 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 73 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -173,11 +173,27 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-109 | Cancelar y confirmar borrado en tabla ordenada elimina sólo el ajuste elegido y revierte su efecto | Verificado |
 | TC-110 | Recargar conserva ajustes e IDs y un cierre anterior evita volver a sumar ajustes ya conciliados | Verificado |
 
+## Bloque 10: 10-currency-exchange.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-111 | Cambio vacío requiere dos monedas activas y habilitarlas no crea operaciones | Verificado |
+| TC-112 | Vender USD por ARS multiplica la tasa y descuenta la comisión sólo de USD | Verificado |
+| TC-113 | Comprar USD con ARS divide por la cotización y cobra la comisión en ARS | Verificado |
+| TC-114 | Cambiar USD por EUR aplica tasa directa sin convertir ni alterar ARS | Verificado |
+| TC-115 | Conservar precisión en monto y comisión y redondear sólo la presentación de tres cambios | Verificado |
+| TC-116 | Rechazar monedas iguales, mes ausente y monto o tasa vacíos, cero, negativos o no numéricos | Verificado |
+| TC-117 | Editar una fila ordenada cambia mes, monedas, tasa y comisión sin duplicar ni tocar otro cambio | Verificado |
+| TC-118 | Cancelar la edición descarta todo el borrador y conserva cambios y saldos originales | Verificado |
+| TC-119 | Cancelar y confirmar borrado bajo filtros afecta al índice original y revierte sólo ese cambio | Verificado |
+| TC-120 | Combinar filtros de mes, monedas, nota, tasa y comisión y limpiarlos no modifica el proyecto | Verificado |
+| TC-121 | Desactivar USD conserva sus cambios e histórico consultable y bloquea editarlos hasta reactivarlo | Verificado |
+| TC-122 | Recargar conserva cambios, gastos y cierre por moneda y mantiene saldos sin contar dos veces el pasado | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 10 | `10-currency-exchange.spec.js` | TC-111–TC-122 | Pendiente |
 | 11 | `11-summary.spec.js` | TC-123–TC-134 | Pendiente |
 | 12 | `12-dates-notifications.spec.js` | TC-135–TC-146 | Pendiente |
 | 13 | `13-installments-notes.spec.js` | TC-147–TC-156 | Pendiente |
@@ -353,3 +369,16 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Los 24 assets de la app corregida y todos los specs/helpers/evidencias de las primeras ocho tandas conservan sus bytes, incluida la corrección TC-090 REV2. Conservar el `app-server.js` configurado por el usuario. No se cambia la app ni el EXE.
 - Catálogo: **110 implementados, 109 verificados sobre la base con parche, 1 incidencia independiente TC-035 y 85 pendientes**, de 195. No se reejecutaron los 110 juntos; las evidencias anteriores son históricas.
 - Próxima implementación: **10-currency-exchange.spec.js**, TC-111–TC-122; pendiente.
+
+## Verificación del módulo 10 · Cambio de divisas
+
+- Inicio UTC: **2026-10-16T20:15:33.653Z**. App **v0.677 con parche TC-054**, sin modificaciones adicionales.
+- **12/12 aprobados en 233.6 s**, Playwright real **1.45.0**, Chromium **127.0.6533.17**, build 1124. Cero fallos, omitidos, inestables, reintentos y errores JavaScript.
+- TC-117, TC-119 y TC-122 pasaron también por separado con Edge y las dependencias existentes **1.64.1**, en **74.0 s**. El repositorio del usuario sólo se leyó para usar esas dependencias; no se modificó.
+- Proyecto vacío desde idioma/wizard, sin servicios online. Fixture limpia 60 s propios; USD y EUR son fixtures opcionales independientes de 60 s cada una. Caso 60 s; acciones y expectativas 5 s. Las bases y operaciones se cargan por UI.
+- Cubre tasa directa/inversa, comisión de origen, notas literales, redondeo sólo visual, validaciones, edición, cancelación, borrado filtrado, seis filtros combinados, histórico inactivo y recarga con gastos/cierre. Los importes esperados son explícitos.
+- Los cambios de esta versión no tienen ID. Se verifica el contenido y orden del array original y se usa `data-fx-index` para editar/borrar; los IDs de gastos ya existentes permanecen iguales tras recargar. Se admite sólo normalizar el contador `nid`, no cambiar registros financieros.
+- Agrega `tests/10-currency-exchange.spec.js`, `helpers/currency-exchange.js` y `validation-currency-exchange.json`. Dos scripts npm opcionales; misma dependencia exacta declarada **^1.45.0**, sin lockfile nuevo.
+- Los 24 assets de la app con parche y todos los specs/helpers/evidencias de las primeras nueve tandas conservan sus bytes, incluida TC-090 REV2. Conservar el `app-server.js` ya configurado, la app y el EXE.
+- Catálogo: **122 implementados, 121 verificados sobre la base con parche, 1 incidencia TC-035 y 73 pendientes**, de 195. No se reejecutaron los 122 juntos; las evidencias anteriores son históricas.
+- Próxima implementación: **11-summary.spec.js**, TC-123–TC-134; pendiente.
