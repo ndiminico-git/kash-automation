@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las ocho primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las doce primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -10,6 +10,10 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las ocho primeras ta
 - **`tests/06-recurring-expenses.spec.js`**: TC-065 a TC-073, generación, edición, detención y persistencia de recurrencias.
 - **`tests/07-monthly-budget.spec.js`**: TC-074 a TC-088, servicios, celdas, pagos, teclado y persistencia de la planilla.
 - **`tests/08-balances.spec.js`**: TC-089 a TC-102, saldos iniciales, calculados, proyecciones y cierres por moneda.
+- **`tests/09-balance-adjustments.spec.js`**: TC-103 a TC-110, ajustes de saldo.
+- **`tests/10-currency-exchange.spec.js`**: TC-111 a TC-122, cambio de divisas.
+- **`tests/11-summary.spec.js`**: TC-123 a TC-134, Resumen, gráficos y tarjetas.
+- **`tests/12-dates-notifications.spec.js`**: TC-135 a TC-146, cierres, vencimientos y avisos.
 
 ## Qué hay en esta carpeta
 
@@ -23,6 +27,10 @@ qa-automation/
   tests/06-recurring-expenses.spec.js Los 9 casos de recurrencias, en orden.
   tests/07-monthly-budget.spec.js Los 15 casos de planilla, en orden.
   tests/08-balances.spec.js     Los 14 casos de saldos y remanentes, en orden.
+  tests/09-balance-adjustments.spec.js Los 8 casos de ajustes.
+  tests/10-currency-exchange.spec.js Los 12 casos de divisas.
+  tests/11-summary.spec.js      Los 12 casos de Resumen.
+  tests/12-dates-notifications.spec.js Los 12 casos de fechas y avisos.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -31,7 +39,11 @@ qa-automation/
   helpers/recurring-expenses.js Series y repeticiones por UI, persistencia y recarga.
   helpers/monthly-budget.js    Rubros, servicios, celdas y pagos de la planilla.
   helpers/balances.js          Saldos iniciales, cierres, comparaciones y recarga.
-  helpers/app-server.js        Sirve únicamente la interfaz en localhost.
+  helpers/balance-adjustments.js Ajustes de saldo por UI.
+  helpers/currency-exchange.js Formularios, filas y filtros de divisas.
+  helpers/summary.js           Tarjetas, gráficos, movimientos y arrastre.
+  helpers/dates-notifications.js Fechas, reglas y avisos por UI.
+  helpers/app-server.js        Sirve la interfaz de ../App en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
   package.json
@@ -39,13 +51,12 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–07 y la revisión 3 de Monedas, agregá solamente `tests/08-balances.spec.js` y `helpers/balances.js`. El ZIP es acumulativo; para una instalación nueva incluye los ocho specs y sus helpers. Conservá tu `app-server.js` si ya ajustaste su ruta a `../App`.
-2. Copiá la carpeta `helpers` a la raíz del mismo proyecto. Debe quedar al lado de `tests`.
+1. Si ya tenés las tandas 01–11, agregá únicamente `tests/12-dates-notifications.spec.js` y `helpers/dates-notifications.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
+2. `helpers` y `tests` deben estar en la raíz del proyecto. El servidor incluido ya apunta a `../App`; conservá tu helper si ya usa esa ruta. Para una instalación nueva, copiá los tests y helpers acumulados.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
-4. En la terminal de PowerShell de VS Code, indicá la ruta de la carpeta **App** del portable:
+4. Ejecutá desde la raíz `kash-automation`, que contiene `App/index.html`. Para esa estructura no necesitás definir `KASH_APP_DIR`. Si usás otra ubicación, esa variable puede indicar la carpeta App antes de ejecutar.
 
 ```powershell
-$env:KASH_APP_DIR = 'C:\ruta\de\KA$H\App'
 npx playwright test tests/01-onboarding.spec.js
 
 # Segunda tanda solamente.
@@ -107,12 +118,14 @@ npm run test:recurring-expenses
 npm run test:monthly-budget
 npm run test:balances
 
-# Las ocho tandas, en orden.
+# Tanda 12 solamente.
+npx playwright test tests/12-dates-notifications.spec.js
+
+# Las doce tandas, en orden.
 npm test
 ```
 
-El helper incluido conserva la ruta de referencia de las primeras entregas: `KASH_v0.677_PORTABLE/App`. Esa carpeta no se distribuye dentro del ZIP de QA.
-Si ya ajustaste tu helper a `path.join(__dirname, '../App')`, conservá ese archivo y ejecutá directamente los tests. En una instalación nueva, configurá una ruta existente con `KASH_APP_DIR` como en los ejemplos o adaptá la ruta del helper a tu estructura.
+El helper incluido busca la app en `App` dentro de la raíz del repositorio: `path.join(__dirname, '../App')`. Ejecutá los comandos desde la raíz `kash-automation`, sin una variable adicional si usás esa estructura. La app no se distribuye en el ZIP de QA. Para otra ubicación, `KASH_APP_DIR` sigue disponible. Si esa variable ya está definida, tiene prioridad sobre el valor predeterminado.
 
 ### Chromium compatible con la versión instalada
 
@@ -187,7 +200,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `11-summary.spec.js`, TC-123 a TC-134.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `13-installments-notes.spec.js`, TC-147 a TC-156.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -596,3 +609,99 @@ Todos los datos financieros se cargan por UI. La exportación pública y el alma
 Se contemplan meses de diciembre/enero sin cambiar el reloj del sistema. Los importes esperados son explícitos, sin llamar al cálculo interno de cambios o saldos. Las comprobaciones de altas, edición y borrado comparan todos los campos ajenos a `fx`: no deben aparecer gastos, ingresos, ajustes, cierres o cambios de base por registrar una operación. La base es **v0.677 con el parche separado TC-054**; no se modifica ni redistribuye la app.
 
 **Validación del módulo 10:** **12/12 aprobados en 233.6 s**, Playwright **1.45.0** y Chromium **127.0.6533.17**. TC-117, TC-119 y TC-122 pasaron además por separado con Edge y las dependencias existentes **1.64.1**, en **74.0 s**. Sin fallos, omitidos, reintentos ni errores JavaScript. Evidencia: `validation-currency-exchange.json`. Los 24 assets de la app y todas las suites/helpers/evidencias anteriores conservan sus bytes. Las evidencias anteriores son históricas; no se ejecutó el catálogo completo de 122 casos en esta tanda.
+
+## Tanda 11 · Resumen · TC-123 a TC-134
+
+| ID | Caso |
+|---|---|
+| TC-123 | Resumen vacío muestra una moneda en cero, estados vacíos y gráficos sin NaN ni datos inventados |
+| TC-124 | Navegar períodos respeta el inicio y cruza diciembre/enero mostrando los saldos del mes elegido |
+| TC-125 | Movimientos confirmados separan monedas y no confunden flujo neto con saldo o remanente estimado |
+| TC-126 | Ojitos abren desgloses con pagos y cambios correctos y cerrar o pulsar Escape no altera datos |
+| TC-127 | Detalle de tenencia concilia base, pagos, cambio, ajuste y cierre sin reemplazar el calculado |
+| TC-128 | Variación mensual muestra subida, bajada y cero con tooltip propio y base anterior correcta |
+| TC-129 | Base anterior cero no divide por cero y una base negativa usa porcentaje sobre su valor absoluto |
+| TC-130 | Moneda de gráficos cambia distribución, barras y tendencia sin convertir tarjetas ni alterar el cotizador |
+| TC-131 | Período de distribución es independiente del Resumen y actualizarlo no cambia tarjetas ni datos |
+| TC-132 | Ocultar y restaurar gráficos, cotizador y variación conserva tarjetas, saldos y movimientos |
+| TC-133 | Arrastre visible y teclado intercambian tarjetas; Escape y límites conservan el orden y los datos |
+| TC-134 | Cinco tarjetas conservan importes, orden personalizado y preferencias al recargar sin duplicar datos |
+
+### Incorporación y ejecución
+
+Si ya tenés las diez tandas anteriores, agregá **únicamente** `tests/11-summary.spec.js` y `helpers/summary.js`. Se reutilizan sus helpers sin modificarlos. Conservá el `app-server.js` con tu ruta App, configuración, `package.json` y lockfile. Los dos scripts npm incluidos son opcionales; la dependencia mantiene exactamente **"@playwright/test": "^1.45.0"**.
+
+```powershell
+npx playwright test tests/11-summary.spec.js
+npx playwright test tests/11-summary.spec.js --grep 'TC-126 '
+npx playwright test tests/11-summary.spec.js --grep 'TC-133 ' --headed
+```
+
+### Preparación desde cero
+
+Cada caso usa un contexto limpio, elige inglés y crea el proyecto vacío desde el wizard. Los gráficos comienzan desactivados en esta versión: la fixture los activa **por la UI de Ajustes**, sin insertar datos de ejemplo. La preparación común tiene **60 s propios**. USD, EUR, cinco monedas y el conjunto de movimientos confirmados son fixtures opcionales, cada una con **60 s propios**, que se ejecutan únicamente cuando el caso las solicita. El cuerpo conserva **60 s** y las acciones/expectativas **5 s**. No se depende de casos anteriores.
+
+La fixture `confirmedSummary` carga por UI base ARS 1.000/USD 100, ingreso cobrado ARS 200 y pendiente 300, gasto pagado ARS 50 y pendiente 75, venta USD 10 a tasa 2 con comisión USD 1, y ajuste ARS +5. Los casos leen esas transacciones para identificarlas; los valores esperados de las tarjetas son explícitos, sin invocar el cálculo interno.
+
+Se bloquean solicitudes externas. Cuando se necesita ver el cotizador, la opción de conexión se habilita desde Ajustes; no se prueban precios online ni se inventan respuestas de cotización. Los datos financieros se crean por UI y la exportación pública/localStorage se usan sólo para leer y comparar. Errores JavaScript hacen fallar el caso. Ante un fallo se adjunta `summary-diagnostic` con proyecto, tarjetas, selectores, detalle, tooltip y estado del arrastre. Los adjuntos `summary-*-timing` muestran cuánto consume cada fixture. Capturas/traces siguen tu configuración. Sin esperas fijas, force, omisiones ni retries.
+
+### Qué practicar con los casos
+
+- TC-123 comprueba ARS cero, ausencia de movimientos y estados vacíos de gráficos. Los atributos SVG y textos deben conservar valores finitos; un gráfico vacío no debe introducir movimientos.
+- TC-124 impide navegar antes del inicio y cruza diciembre/enero con las flechas. USD 100 menos un pago de 10 en diciembre muestra 90; un gasto pendiente de 5 en enero mantiene calculado 90 y estimado 85. Los selectores de año y mes deben acompañar el período y la consulta conserva todo el proyecto.
+- TC-125 separa flujo del mes, dinero acumulado y planificación. La mezcla preparada da **entradas ARS 220, salidas 50 y neto 170**, pero **tenencia ARS 1.175 y remanente estimado 1.400**. USD muestra salidas 11, neto −11 y saldo 89. Ingresos/gastos pendientes no entran en movimientos confirmados; el ajuste afecta al saldo, sin convertirse en ingreso.
+- TC-126 usa los botones de ojito y comprueba filas/importes del modal de ingresos, egresos y neto. Excluye el ingreso pendiente y el gasto sin pagar. La salida USD incluye su comisión. Las etiquetas del usuario permanecen como texto literal; cerrar con X o Escape conserva el proyecto.
+- TC-127 registra un cierre manual ARS 1.180 y abre el desglose por mouse y Enter. Debe mostrar base 1.000, ingreso 200, egreso −50, cambio neto +20, ajuste +5, calculado 1.175, comprobado 1.180 y diferencia +5. El cierre no reemplaza el cálculo actual. Cerrar devuelve el foco a la tarjeta.
+- TC-128 verifica +10%, −20% y 0% entre meses, además del tooltip propio `#kashAppTooltip`, su relación accesible, el saldo anterior y la variación monetaria. No debe conservar un `title` nativo ni fondo blanco de Windows en el tema oscuro de prueba. Escape lo cierra sin escrituras.
+- TC-129 parte de USD −100 y suma 50: una mejora a −50 representa +50% usando el valor absoluto de la base. Una devolución EUR de 10 desde base cero muestra **No baseline**, sin NaN o Infinity. Un saldo sin cambio conserva 0%.
+- TC-130 cambia la moneda de gráficos de ARS a USD/EUR. Verifica el total del donut, ranking, valor del tooltip de barras y del punto de tendencia. Los gráficos USD muestran gasto 25 y remanente 75, mientras las tarjetas ARS siguen en calculado 970/estimado 900 y USD 100/75. El cotizador conserva su propio par y aparece antes del selector de gráficos.
+- TC-131 cambia sólo el mes/año de Distribución: el donut pasa de 100 a 50, mientras el período principal, las tarjetas y el ranking del mes del Resumen siguen iguales. Regresar recupera el total anterior.
+- TC-132 oculta y restaura gráficos, cotizador y variación desde sus switches. Las tarjetas y movimientos esenciales siguen disponibles y los datos financieros se conservan. Sólo cambia `displayOptions`.
+- TC-133 usa movimiento real del mouse, comprueba la tarjeta fantasma visible, su opacidad positiva y presencia en el viewport, y el destino resaltado; suelta y verifica el nuevo orden. Usa Alt + flechas, prueba el límite y cancela otro arrastre con Escape. Sólo puede cambiar `summaryCurrencyOrder`; Ajustes y dropdowns de nuevas operaciones conservan A–Z.
+- TC-134 prepara cuatro y cinco monedas por UI, carga bases y un gasto pendiente USD, coloca USD en el medio por teclado y cambia preferencias. Tras recargar conserva los cinco importes, la posición elegida, los estados de funciones y el gasto/ID original. Se admite normalizar sólo el contador nid; no modificar registros financieros.
+
+Los controles usan los selectores reales `.summaryPeriodSelect`, `[data-estimate-currency]`, `[data-flow-kind]`, `.flowEyeBtn`, `#holdingDetails`, `.kashChartCurrency` y los switches de Ajustes. Los gráficos se prueban por sus datos visibles y tooltips, con SVG sin NaN/Infinity; no por capturas de píxeles ni dimensiones internas del cálculo. Las tarjetas se ejercitan con una, dos, tres, cuatro y cinco monedas, pero esto no sustituye la futura revisión visual de ventanas/tamaños del módulo 17. La base sigue siendo **v0.677 con el parche separado TC-054**. No se modifica ni redistribuye la app.
+
+**Validación de la tanda 11:** **12/12 aprobados en 226.2 s**, Playwright **1.45.0** y Chromium **127.0.6533.17**. Después se añadieron a la función de arrastre los controles de viewport y opacidad positiva, usados sólo por TC-133, y ese caso pasó por separado en **13.7 s**. El spec y las otras funciones no cambiaron. TC-126, TC-130, TC-133 y TC-134 pasaron además por separado con Edge y las dependencias existentes **1.64.1**, en **71.4 s**, incluidos los controles reforzados de arrastre. Sin fallos, omisiones, reintentos ni errores JavaScript. Evidencia nueva: `validation-summary.json`. Los 24 assets de app y todas las suites/helpers/evidencias anteriores mantienen sus bytes. No se reejecutó el catálogo completo de 134 casos; los otros resultados son históricos.
+
+
+## Tanda 12 · Cierres, vencimientos y avisos
+
+Si tenés las once tandas anteriores, agregá **sólo** `tests/12-dates-notifications.spec.js` y `helpers/dates-notifications.js`. El ZIP acumulativo incluye `helpers/app-server.js` corregido a `../App`: si ya hiciste ese cambio, conservá tu helper. Si todavía apunta a `../../KASH_v0.677_PORTABLE/App`, reemplazalo por el incluido o corregí esa línea. No copies nada sobre tu carpeta App, configuración ni lockfile. Los scripts npm nuevos son opcionales; se mantiene **"@playwright/test": "^1.45.0"**.
+
+Desde la raíz del repositorio, con `App/index.html` y sus assets:
+
+```powershell
+npx playwright test tests/12-dates-notifications.spec.js
+npx playwright test tests/12-dates-notifications.spec.js --grep 'TC-138 '
+npx playwright test tests/12-dates-notifications.spec.js --grep 'TC-145 ' --headed
+```
+
+### Preparación y estabilidad
+
+Cada caso empieza en un contexto vacío, elige inglés y crea un proyecto vacío mediante el wizard. Se deshabilitan las guías automáticas desde F1 y se habilitan **Fechas y avisos** desde Ajustes. El setup no inserta fechas ni avisos. Los servicios de prueba se crean por UI sólo en los casos que los requieren; segundo servicio y USD son fixtures opcionales. Cada preparación tiene 60 s propios; el cuerpo tiene 60 s y las acciones/expectativas 5 s. Los adjuntos `dates-*-timing` permiten revisar el costo de cada parte. Los casos pueden ejecutarse solos.
+
+Se fija **15/10/2026 al mediodía, Buenos Aires**, mediante `page.clock.setFixedTime`, disponible en **Playwright 1.45.0**. Los timers de interfaz y autoguardado siguen funcionando. TC-141 avanza la fecha un día, sin cambiar registros ni llamar a funciones internas: abrir la campana realiza la sincronización real. Las peticiones externas permanecen bloqueadas.
+
+### Casos
+
+- **TC-135**: Proyecto vacío no inventa fechas ni avisos y la campana vacía se cierra con X y Escape.
+- **TC-136**: Guardar cierre y vencimiento puntuales conserva mes, nombre literal y datos financieros.
+- **TC-137**: Fecha obligatoria y días 0 o 32 se rechazan sin guardar parcialmente la configuración.
+- **TC-138**: Repetir el día 31 usa fin de mes en febrero, año bisiesto y abril sin perder la regla original.
+- **TC-139**: Cierre del mes anterior y vencimiento del siguiente cruzan diciembre sin mover la columna financiera.
+- **TC-140**: Buscar sin acentos y alternar tags carga el servicio correcto y conserva borradores sin guardar por un clic.
+- **TC-141**: Avisos respetan anticipación, límite de siete días vencidos y no se duplican al consultar.
+- **TC-142**: Filtros leído y sin leer, leer todos y borrar conservan avisos sin recrear el eliminado.
+- **TC-143**: Leer no paga y Ver en planilla abre la columna asociada aunque el vencimiento sea de otro mes.
+- **TC-144**: Modificar o desactivar una fecha cancela el aviso anterior y reactivarla conserva su identidad y lectura.
+- **TC-145**: Popover de fechas admite hover, foco y fijación por clic con diseño propio y cierre sin escrituras.
+- **TC-146**: Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario.
+
+La planilla se prepara con importes explícitos: ARS **125,50** en la columna noviembre con vencimiento el **15 de octubre** para comprobar que el aviso abre noviembre; ARS **100** pendiente y USD **20,25** pagado para persistencia multimoneda. Leer un aviso sólo modifica su lectura; pagar cambia el estado financiero por el check real de la planilla. Un aviso borrado conserva su identidad en los metadatos y no se vuelve a crear al abrir la campana o recargar.
+
+La búsqueda y los tags no guardan un borrador por sí solos; el test distingue **● Unsaved changes** del estado de fechas aplicadas al proyecto. Desactivar una fecha cancela el aviso anterior, y reactivarla con la misma clave conserva ID y lectura. El popover se prueba moviendo el mouse desde el icono a su contenido, mediante foco, clic para fijarlo, X y Escape; se valida texto literal y tema oscuro, sin capturas comparadas por píxeles. No es una medición de todas las resoluciones ni reemplaza el módulo 17.
+
+Los datos se ingresan sólo por UI. La exportación pública y `localStorage` se leen para comparar el proyecto, sin modificarlos. Configurar fechas puede cambiar `serviceDates` y `serviceNotifications`; el resto del proyecto debe conservarse. Tras recargar se admite únicamente la normalización del contador `nid`, conservando IDs y datos existentes. El diagnóstico de fallo tolera que la app no haya cargado: no intenta leer `localStorage` sin protección sobre `about:blank`.
+
+**Validación:** **12/12 aprobados en 173.5 s**, con **Playwright 1.45.0 / Chromium 127.0.6533.17**. TC-138, TC-142 y TC-146 pasaron además con **Edge / runtime existente 1.64.1**, **3/3 en 56.4 s**. Sin reintentos, omisiones, fallos ni errores JavaScript. Evidencia: `validation-dates-notifications.json`. App **0.677 + parche TC-054**, 24 assets intactos; sin cambios a la app, EXE ni repositorio personal. Los resultados de tandas anteriores siguen siendo históricos.

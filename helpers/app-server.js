@@ -4,7 +4,7 @@ const path = require('node:path');
 
 // KASH_APP_DIR debe apuntar a la carpeta que contiene index.html.
 // En este workspace, el valor predeterminado usa la última versión portable.
-const defaultAppDir = path.join(__dirname, '../../KASH_v0.677_PORTABLE/App');
+const defaultAppDir = path.join(__dirname, '../App');
 
 async function startAppServer() {
   const appDir = path.resolve(process.env.KASH_APP_DIR || defaultAppDir);

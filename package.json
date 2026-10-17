@@ -24,8 +24,14 @@
     "test:balance-adjustments:headed": "playwright test tests/09-balance-adjustments.spec.js --headed",
     "test:currency-exchange": "playwright test tests/10-currency-exchange.spec.js",
     "test:currency-exchange:headed": "playwright test tests/10-currency-exchange.spec.js --headed",
+    "test:summary": "playwright test tests/11-summary.spec.js",
+    "test:summary:headed": "playwright test tests/11-summary.spec.js --headed",
     "test:headed": "playwright test tests/01-onboarding.spec.js --headed",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "test:dates-notifications": "playwright test tests/12-dates-notifications.spec.js",
+    "test:dates-notifications:headed": "playwright test tests/12-dates-notifications.spec.js --headed"
   },
-  "devDependencies": { "@playwright/test": "^1.45.0" }
+  "devDependencies": {
+    "@playwright/test": "^1.45.0"
+  }
 }

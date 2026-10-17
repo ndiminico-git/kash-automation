@@ -1,0 +1,618 @@
+{
+  "suite": "tests/11-summary.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-17T00:14:57.832Z",
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "retries": 0,
+  "flaky": 0,
+  "javascriptErrors": 0,
+  "durationSeconds": 226.2,
+  "fixtureTimeoutMsEach": 60000,
+  "durationScope": "Full twelve-case run; independent strengthened TC133 and Edge runs recorded separately.",
+  "additionalDragValidation": {
+    "passed": 1,
+    "failed": 0,
+    "playwrightVersion": "1.45.0",
+    "durationSeconds": 13.7,
+    "case": {
+      "id": "TC-133",
+      "title": "TC-133 [R] Arrastre visible y teclado intercambian tarjetas; Escape y límites conservan el orden y los datos",
+      "status": "passed",
+      "executionDurationMs": 5562,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 3964,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1424,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 999,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    "changesSinceFullRun": "Only viewport/positive-opacity assertions added inside startSummaryDrag, used exclusively by TC133. Spec and other helper functions byte-identical."
+  },
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "sourceHashes": {
+    "tests/11-summary.spec.js": "25a7244373931af85decb7287850ea73d4245b51510e7a93ffaa149f9eae3b8d",
+    "helpers/summary.js": "d7327acc40826483272c1b7bc6400c0d4ff333b093f0a6b0e3e6592647bfa2b4"
+  },
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 4,
+    "failed": 0,
+    "durationSeconds": 71.4,
+    "independentCleanExecution": true,
+    "cases": [
+      {
+        "id": "TC-126",
+        "title": "TC-126 [P] Ojitos abren desgloses con pagos y cambios correctos y cerrar o pulsar Escape no altera datos",
+        "status": "passed",
+        "executionDurationMs": 3760,
+        "retry": 0,
+        "timings": {
+          "summary-setup-timing": {
+            "setupDurationMs": 4076,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "chartsEnabledByUI": true
+          },
+          "summary-usd-timing": {
+            "setupDurationMs": 1397,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          },
+          "summary-confirmed-timing": {
+            "setupDurationMs": 12686,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "seed": "UI-only confirmed/pending income, expenses, FX and adjustment"
+          }
+        }
+      },
+      {
+        "id": "TC-130",
+        "title": "TC-130 [R] Moneda de gráficos cambia distribución, barras y tendencia sin convertir tarjetas ni alterar el cotizador",
+        "status": "passed",
+        "executionDurationMs": 11815,
+        "retry": 0,
+        "timings": {
+          "summary-setup-timing": {
+            "setupDurationMs": 4203,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "chartsEnabledByUI": true
+          },
+          "summary-usd-timing": {
+            "setupDurationMs": 1111,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          },
+          "summary-eur-timing": {
+            "setupDurationMs": 785,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      },
+      {
+        "id": "TC-133",
+        "title": "TC-133 [R] Arrastre visible y teclado intercambian tarjetas; Escape y límites conservan el orden y los datos",
+        "status": "passed",
+        "executionDurationMs": 4070,
+        "retry": 0,
+        "timings": {
+          "summary-setup-timing": {
+            "setupDurationMs": 3806,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "chartsEnabledByUI": true
+          },
+          "summary-usd-timing": {
+            "setupDurationMs": 1197,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          },
+          "summary-eur-timing": {
+            "setupDurationMs": 878,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      },
+      {
+        "id": "TC-134",
+        "title": "TC-134 [R] Cinco tarjetas conservan importes, orden personalizado y preferencias al recargar sin duplicar datos",
+        "status": "passed",
+        "executionDurationMs": 10606,
+        "retry": 0,
+        "timings": {
+          "summary-setup-timing": {
+            "setupDurationMs": 4027,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "chartsEnabledByUI": true
+          },
+          "summary-usd-timing": {
+            "setupDurationMs": 865,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "USD"
+            ]
+          },
+          "summary-eur-timing": {
+            "setupDurationMs": 857,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "EUR",
+              "USD"
+            ]
+          },
+          "summary-five-timing": {
+            "setupDurationMs": 2875,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "currencies": [
+              "ARS",
+              "BRL",
+              "CNY",
+              "EUR",
+              "USD"
+            ]
+          }
+        }
+      }
+    ],
+    "note": "User dependencies used read only. No user repository or dependency declaration changes."
+  },
+  "coverage": [
+    "Empty summary with graphs enabled by UI and finite SVG attributes",
+    "Start boundary and December/January main period navigation",
+    "Confirmed monthly flows vs available and projected balances by currency",
+    "Income/outflow/net detail modals and close/Escape without writes",
+    "Holding breakdown, reconciliation and focus restoration",
+    "Positive/negative/unchanged variation with custom themed tooltip",
+    "Zero prior balance and negative denominator edge cases",
+    "Chart currency updates donut/ranking/bar/trend; converter stays independent and above chart picker",
+    "Independent distribution month/year selectors",
+    "Hide/restore charts, converter and variation without modifying financial data",
+    "Real pointer drag, visible ghost, keyboard reorder, Escape and bounds",
+    "1/2/3 cards in case bodies, 4/5 cards in UI fixture, five balances/order/preferences persist after reload"
+  ],
+  "expectations": "Explicit financial values, UI input only; public export and storage read only. No internal balance/chart calculators used for expectations.",
+  "network": "External requests blocked. Online preference enabled through Settings only when testing converter placement/visibility; no live rate values asserted.",
+  "catalog": {
+    "implemented": 134,
+    "verifiedOnPatchedBase": 133,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 61,
+    "total": 195
+  },
+  "scope": "Module11 full run, then independently strengthened TC133, plus TC126/TC130/TC133/TC134 Edge contrast. Other eleven bodies and helper functions unchanged. Earlier evidence remains historical. No app changes.",
+  "cases": [
+    {
+      "id": "TC-123",
+      "title": "TC-123 [P] Resumen vacío muestra una moneda en cero, estados vacíos y gráficos sin NaN ni datos inventados",
+      "status": "passed",
+      "executionDurationMs": 1913,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4611,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        }
+      }
+    },
+    {
+      "id": "TC-124",
+      "title": "TC-124 [R] Navegar períodos respeta el inicio y cruza diciembre/enero mostrando los saldos del mes elegido",
+      "status": "passed",
+      "executionDurationMs": 7988,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4228,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1200,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-125",
+      "title": "TC-125 [R] Movimientos confirmados separan monedas y no confunden flujo neto con saldo o remanente estimado",
+      "status": "passed",
+      "executionDurationMs": 4517,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4711,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1354,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-confirmed-timing": {
+          "setupDurationMs": 16165,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "seed": "UI-only confirmed/pending income, expenses, FX and adjustment"
+        }
+      }
+    },
+    {
+      "id": "TC-126",
+      "title": "TC-126 [P] Ojitos abren desgloses con pagos y cambios correctos y cerrar o pulsar Escape no altera datos",
+      "status": "passed",
+      "executionDurationMs": 8338,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4400,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1191,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-confirmed-timing": {
+          "setupDurationMs": 14342,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "seed": "UI-only confirmed/pending income, expenses, FX and adjustment"
+        }
+      }
+    },
+    {
+      "id": "TC-127",
+      "title": "TC-127 [R] Detalle de tenencia concilia base, pagos, cambio, ajuste y cierre sin reemplazar el calculado",
+      "status": "passed",
+      "executionDurationMs": 7598,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4502,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1392,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-confirmed-timing": {
+          "setupDurationMs": 13845,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "seed": "UI-only confirmed/pending income, expenses, FX and adjustment"
+        }
+      }
+    },
+    {
+      "id": "TC-128",
+      "title": "TC-128 [P] Variación mensual muestra subida, bajada y cero con tooltip propio y base anterior correcta",
+      "status": "passed",
+      "executionDurationMs": 10381,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4246,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1438,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 867,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-129",
+      "title": "TC-129 [B] Base anterior cero no divide por cero y una base negativa usa porcentaje sobre su valor absoluto",
+      "status": "passed",
+      "executionDurationMs": 9297,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4660,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1203,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 930,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-130",
+      "title": "TC-130 [R] Moneda de gráficos cambia distribución, barras y tendencia sin convertir tarjetas ni alterar el cotizador",
+      "status": "passed",
+      "executionDurationMs": 17210,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4725,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1460,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 954,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-131",
+      "title": "TC-131 [R] Período de distribución es independiente del Resumen y actualizarlo no cambia tarjetas ni datos",
+      "status": "passed",
+      "executionDurationMs": 6794,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4652,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        }
+      }
+    },
+    {
+      "id": "TC-132",
+      "title": "TC-132 [R] Ocultar y restaurar gráficos, cotizador y variación conserva tarjetas, saldos y movimientos",
+      "status": "passed",
+      "executionDurationMs": 10978,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4119,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1024,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-133",
+      "title": "TC-133 [R] Arrastre visible y teclado intercambian tarjetas; Escape y límites conservan el orden y los datos",
+      "status": "passed",
+      "executionDurationMs": 5562,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 3964,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 1424,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 999,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    },
+    {
+      "id": "TC-134",
+      "title": "TC-134 [R] Cinco tarjetas conservan importes, orden personalizado y preferencias al recargar sin duplicar datos",
+      "status": "passed",
+      "executionDurationMs": 13681,
+      "retry": 0,
+      "timings": {
+        "summary-setup-timing": {
+          "setupDurationMs": 4267,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "chartsEnabledByUI": true
+        },
+        "summary-usd-timing": {
+          "setupDurationMs": 969,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "USD"
+          ]
+        },
+        "summary-eur-timing": {
+          "setupDurationMs": 705,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "EUR",
+            "USD"
+          ]
+        },
+        "summary-five-timing": {
+          "setupDurationMs": 2820,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "currencies": [
+            "ARS",
+            "BRL",
+            "CNY",
+            "EUR",
+            "USD"
+          ]
+        }
+      }
+    }
+  ]
+}

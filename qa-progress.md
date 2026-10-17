@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 122 implementados; 121 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 73 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 146 implementados; 145 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 49 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -190,12 +190,44 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-121 | Desactivar USD conserva sus cambios e histórico consultable y bloquea editarlos hasta reactivarlo | Verificado |
 | TC-122 | Recargar conserva cambios, gastos y cierre por moneda y mantiene saldos sin contar dos veces el pasado | Verificado |
 
+## Bloque 11: 11-summary.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-123 | Resumen vacío muestra una moneda en cero, estados vacíos y gráficos sin NaN ni datos inventados | Verificado |
+| TC-124 | Navegar períodos respeta el inicio y cruza diciembre/enero mostrando los saldos del mes elegido | Verificado |
+| TC-125 | Movimientos confirmados separan monedas y no confunden flujo neto con saldo o remanente estimado | Verificado |
+| TC-126 | Ojitos abren desgloses con pagos y cambios correctos y cerrar o pulsar Escape no altera datos | Verificado |
+| TC-127 | Detalle de tenencia concilia base, pagos, cambio, ajuste y cierre sin reemplazar el calculado | Verificado |
+| TC-128 | Variación mensual muestra subida, bajada y cero con tooltip propio y base anterior correcta | Verificado |
+| TC-129 | Base anterior cero no divide por cero y una base negativa usa porcentaje sobre su valor absoluto | Verificado |
+| TC-130 | Moneda de gráficos cambia distribución, barras y tendencia sin convertir tarjetas ni alterar el cotizador | Verificado |
+| TC-131 | Período de distribución es independiente del Resumen y actualizarlo no cambia tarjetas ni datos | Verificado |
+| TC-132 | Ocultar y restaurar gráficos, cotizador y variación conserva tarjetas, saldos y movimientos | Verificado |
+| TC-133 | Arrastre visible y teclado intercambian tarjetas; Escape y límites conservan el orden y los datos | Verificado |
+| TC-134 | Cinco tarjetas conservan importes, orden personalizado y preferencias al recargar sin duplicar datos | Verificado |
+
+## Bloque 12: 12-dates-notifications.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-135 | Proyecto vacío no inventa fechas ni avisos y la campana vacía se cierra con X y Escape | Verificado |
+| TC-136 | Guardar cierre y vencimiento puntuales conserva mes, nombre literal y datos financieros | Verificado |
+| TC-137 | Fecha obligatoria y días 0 o 32 se rechazan sin guardar parcialmente la configuración | Verificado |
+| TC-138 | Repetir el día 31 usa fin de mes en febrero, año bisiesto y abril sin perder la regla original | Verificado |
+| TC-139 | Cierre del mes anterior y vencimiento del siguiente cruzan diciembre sin mover la columna financiera | Verificado |
+| TC-140 | Buscar sin acentos y alternar tags carga el servicio correcto y conserva borradores sin guardar por un clic | Verificado |
+| TC-141 | Avisos respetan anticipación, límite de siete días vencidos y no se duplican al consultar | Verificado |
+| TC-142 | Filtros leído y sin leer, leer todos y borrar conservan avisos sin recrear el eliminado | Verificado |
+| TC-143 | Leer no paga y Ver en planilla abre la columna asociada aunque el vencimiento sea de otro mes | Verificado |
+| TC-144 | Modificar o desactivar una fecha cancela el aviso anterior y reactivarla conserva su identidad y lectura | Verificado |
+| TC-145 | Popover de fechas admite hover, foco y fijación por clic con diseño propio y cierre sin escrituras | Verificado |
+| TC-146 | Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 11 | `11-summary.spec.js` | TC-123–TC-134 | Pendiente |
-| 12 | `12-dates-notifications.spec.js` | TC-135–TC-146 | Pendiente |
 | 13 | `13-installments-notes.spec.js` | TC-147–TC-156 | Pendiente |
 | 14 | `14-settings.spec.js` | TC-157–TC-166 | Pendiente |
 | 15 | `15-estimator-access.spec.js` | TC-167–TC-176 | Pendiente |
@@ -382,3 +414,31 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Los 24 assets de la app con parche y todos los specs/helpers/evidencias de las primeras nueve tandas conservan sus bytes, incluida TC-090 REV2. Conservar el `app-server.js` ya configurado, la app y el EXE.
 - Catálogo: **122 implementados, 121 verificados sobre la base con parche, 1 incidencia TC-035 y 73 pendientes**, de 195. No se reejecutaron los 122 juntos; las evidencias anteriores son históricas.
 - Próxima implementación: **11-summary.spec.js**, TC-123–TC-134; pendiente.
+
+## Verificación de la tanda 11 · Resumen
+
+- Inicio UTC: **2026-10-17T00:14:57.832Z**. App **v0.677 con parche TC-054**, sin cambios adicionales.
+- **12/12 aprobados en 226.2 s**, Playwright real **1.45.0** y Chromium **127.0.6533.17**, build 1124. Cero fallos, omisiones, inestables, reintentos y errores JavaScript.
+- TC-133 pasó además en ejecución independiente de **13.7 s**, reforzado con viewport y opacidad positiva de la tarjeta fantasma. Sólo se añadieron esos controles en la función que usa TC-133; el spec y las demás funciones/casos conservaron sus bytes.
+- TC-126, TC-130, TC-133 y TC-134 pasaron además por separado con Edge y dependencias existentes **1.64.1**, en **71.4 s**. El repositorio del usuario sólo se leyó para ejecutar esas dependencias.
+- Cada caso crea el proyecto vacío desde idioma/wizard y activa Gráficos desde Ajustes. Las fixtures opcionales habilitan USD/EUR, cuatro/cinco tarjetas o una mezcla de transacciones creadas por UI. Cada fixture tiene 60 s propios; cuerpo 60 s; acciones/expectativas 5 s. Sin sleeps, force, retries, skips ni fallos esperados.
+- Cubre estados vacíos, diciembre/enero, movimientos confirmados por moneda, detalles de flujo/tenencia, reconciliación, variaciones con base cero/negativa, gráficos y sus selectores independientes, preferencias, arrastre visible/teclado/Escape y cinco tarjetas después de recargar.
+- Las expectativas monetarias son explícitas. La API pública y localStorage se leen para comparar; no se inyectan registros ni se invocan cálculos internos. La navegación y los detalles comparan el proyecto completo; cambiar preferencias u orden sólo permite modificar esos metadatos. Recargar admite normalizar nid, conservando todos los IDs existentes y los demás datos.
+- Gráficos usan valores y tooltips SVG visibles; se revisan atributos finitos, sin comparación de píxeles. Los estados de cuatro/cinco tarjetas se comprueban durante su preparación UI. No se presenta esto como una revisión visual exhaustiva en todos los tamaños de ventana.
+- Agrega `tests/11-summary.spec.js`, `helpers/summary.js` y `validation-summary.json`. Dos scripts npm opcionales; dependencia exacta declarada **^1.45.0**, sin lockfile nuevo. Los 24 assets de app y todos los specs/helpers/evidencias anteriores mantienen sus bytes.
+- Integrar sólo los dos archivos nuevos; conservar `app-server.js`, su ruta App, configuración, package y lockfile. La app y el EXE quedan sin cambios.
+- Catálogo: **134 implementados, 133 verificados sobre base con parche, 1 incidencia TC-035 y 61 pendientes**, de 195. No se reejecutaron los 134 juntos; las evidencias anteriores son históricas.
+- Próxima implementación: **12-dates-notifications.spec.js**, TC-135–TC-146; pendiente.
+
+
+## Verificación del bloque 12 · Cierres, vencimientos y avisos
+
+- **12/12 aprobados en 173.5 s**, Playwright **1.45.0**, Chromium **127.0.6533.17**, un worker, sin reintentos, omisiones, fallos ni errores JavaScript.
+- Contraste independiente: **TC-138, TC-142 y TC-146**, **3/3 con Edge**, runtime existente **1.64.1**, en **56.4 s**. No se reemplaza la dependencia declarada `^1.45.0`.
+- Inicio limpio por caso y datos creados sólo por UI. La fecha se fija con `page.clock.setFixedTime` y zona Buenos Aires; los timers siguen corriendo. Los avisos se habilitan por UI porque el wizard los trae apagados. Preparación común y fixtures opcionales de servicios/monedas: 60 s propios cada una; cuerpo 60 s, acciones/expectativas 5 s.
+- Fechas puntuales; validaciones sin guardado parcial; día 31 en febrero común/bisiesto y abril; offsets anterior/siguiente cruzando año; búsqueda sin acentos, tags y borradores; ventana de anticipación y -7/-8 días; no duplicación; filtros/lectura/borrado; lectura independiente del pago y columna distinta de fecha; cancelación/reactivación; hover/foco/clic; ARS/USD y ES/EN tras recargar.
+- El valor de fecha se compara con expectativas explícitas. Se conserva el resto del proyecto al modificar sólo metadatos. Se permite normalizar sólo nid al recargar. No se llama a handlers ni calculadores internos para escribir/validar.
+- **Corrección de ruta de QA:** el helper distribuido ahora usa `path.join(__dirname, '../App')`. Así evita repetir el error de la tanda 11, que buscaba una carpeta portable externa. No cambia la app ni los tests anteriores. Conserva `KASH_APP_DIR` para otras estructuras.
+- Evidencia: `validation-dates-notifications.json`. Los 24 assets de app conservan sus hashes; los 11 specs anteriores, sus helpers de dominio y evidencias mantienen sus bytes. No se modificó el repositorio del usuario.
+- Catálogo: **146 implementados, 145 verificados sobre base con parche, 1 incidencia TC-035 y 49 pendientes**. Los resultados previos son históricos; no se reejecutaron los 146 juntos.
+- Próximo: **13-installments-notes.spec.js**, TC-147–TC-156; todavía pendiente.

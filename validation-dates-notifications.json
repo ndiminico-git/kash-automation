@@ -1,0 +1,400 @@
+{
+  "suite": "tests/12-dates-notifications.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-17T14:17:35.463Z",
+  "durationSeconds": 173.5,
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "fixedTime": "2026-10-15T12:00:00-03:00",
+  "timezoneId": "America/Argentina/Buenos_Aires",
+  "clock": "Playwright page.clock.setFixedTime; Date fixed, UI timers continue normally. TC141 advances Date one day and synchronizes via real bell UI.",
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "preparation": "Clean context, English, empty project wizard, disable automatic guides via F1, enable dates notifications via Settings UI. Optional service/second service/USD fixtures have separate setup budgets.",
+  "sourceHashes": {
+    "tests/12-dates-notifications.spec.js": "03d79a3acd6696ad9db0105981d14413ece8627399066580efbe63f8511f8df0",
+    "helpers/dates-notifications.js": "32d4f474c5fbddb66a5c7558505c1a326170eb201adabb8a4310b76a39923946",
+    "helpers/app-server.js": "aa10506c3a321c410d47febebd0637b91f4bd453a9382be050811b5d5a0845de"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "serverPathCorrection": "Only QA helper defaultAppDir changes to path.join(__dirname, '../App'); KASH_APP_DIR override preserved. Earlier specs and domain helpers untouched.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 3,
+    "failed": 0,
+    "durationSeconds": 56.4,
+    "cases": [
+      {
+        "id": "TC-138",
+        "title": "TC-138 [B] Repetir el día 31 usa fin de mes en febrero, año bisiesto y abril sin perder la regla original",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 6968,
+        "timings": {
+          "dates-setup-timing": {
+            "setupDurationMs": 6197,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "dates-service-timing": {
+            "setupDurationMs": 2008,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-142",
+        "title": "TC-142 [R] Filtros leído y sin leer, leer todos y borrar conservan avisos sin recrear el eliminado",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 8462,
+        "timings": {
+          "dates-setup-timing": {
+            "setupDurationMs": 4931,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "dates-service-timing": {
+            "setupDurationMs": 1953,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-146",
+        "title": "TC-146 [R] Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 13593,
+        "timings": {
+          "dates-setup-timing": {
+            "setupDurationMs": 4006,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "dates-service-timing": {
+            "setupDurationMs": 2146,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "dates-usd-service-timing": {
+            "setupDurationMs": 2346,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "note": "User runtime read only; no changes to user dependencies or repository."
+  },
+  "coverage": [
+    "TC-135 [P] Proyecto vacío no inventa fechas ni avisos y la campana vacía se cierra con X y Escape",
+    "TC-136 [P] Guardar cierre y vencimiento puntuales conserva mes, nombre literal y datos financieros",
+    "TC-137 [N] Fecha obligatoria y días 0 o 32 se rechazan sin guardar parcialmente la configuración",
+    "TC-138 [B] Repetir el día 31 usa fin de mes en febrero, año bisiesto y abril sin perder la regla original",
+    "TC-139 [B] Cierre del mes anterior y vencimiento del siguiente cruzan diciembre sin mover la columna financiera",
+    "TC-140 [R] Buscar sin acentos y alternar tags carga el servicio correcto y conserva borradores sin guardar por un clic",
+    "TC-141 [B] Avisos respetan anticipación, límite de siete días vencidos y no se duplican al consultar",
+    "TC-142 [R] Filtros leído y sin leer, leer todos y borrar conservan avisos sin recrear el eliminado",
+    "TC-143 [R] Leer no paga y Ver en planilla abre la columna asociada aunque el vencimiento sea de otro mes",
+    "TC-144 [R] Modificar o desactivar una fecha cancela el aviso anterior y reactivarla conserva su identidad y lectura",
+    "TC-145 [R] Popover de fechas admite hover, foco y fijación por clic con diseño propio y cierre sin escrituras",
+    "TC-146 [R] Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario"
+  ],
+  "cases": [
+    {
+      "id": "TC-135",
+      "title": "TC-135 [P] Proyecto vacío no inventa fechas ni avisos y la campana vacía se cierra con X y Escape",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3161,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 4456,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-136",
+      "title": "TC-136 [P] Guardar cierre y vencimiento puntuales conserva mes, nombre literal y datos financieros",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5109,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3630,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1460,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-137",
+      "title": "TC-137 [N] Fecha obligatoria y días 0 o 32 se rechazan sin guardar parcialmente la configuración",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 7103,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3936,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 2061,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-138",
+      "title": "TC-138 [B] Repetir el día 31 usa fin de mes en febrero, año bisiesto y abril sin perder la regla original",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 16030,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 4376,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1665,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-139",
+      "title": "TC-139 [B] Cierre del mes anterior y vencimiento del siguiente cruzan diciembre sin mover la columna financiera",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 9386,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 5128,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 3432,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-140",
+      "title": "TC-140 [R] Buscar sin acentos y alternar tags carga el servicio correcto y conserva borradores sin guardar por un clic",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 10896,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 4992,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 3275,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "dates-second-service-timing": {
+          "setupDurationMs": 1264,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-141",
+      "title": "TC-141 [B] Avisos respetan anticipación, límite de siete días vencidos y no se duplican al consultar",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4986,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3505,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1508,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "dates-second-service-timing": {
+          "setupDurationMs": 547,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-142",
+      "title": "TC-142 [R] Filtros leído y sin leer, leer todos y borrar conservan avisos sin recrear el eliminado",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 7215,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3209,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1510,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-143",
+      "title": "TC-143 [R] Leer no paga y Ver en planilla abre la columna asociada aunque el vencimiento sea de otro mes",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6835,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3326,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1468,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-144",
+      "title": "TC-144 [R] Modificar o desactivar una fecha cancela el aviso anterior y reactivarla conserva su identidad y lectura",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 7854,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3183,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1714,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-145",
+      "title": "TC-145 [R] Popover de fechas admite hover, foco y fijación por clic con diseño propio y cierre sin escrituras",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5233,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3466,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1174,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-146",
+      "title": "TC-146 [R] Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 15888,
+      "timings": {
+        "dates-setup-timing": {
+          "setupDurationMs": 3361,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "dates-service-timing": {
+          "setupDurationMs": 1536,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "dates-usd-service-timing": {
+          "setupDurationMs": 2189,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    }
+  ],
+  "expectations": "Real UI writes; public project export and persisted JSON read only. Explicit dates and values independent of app calculators; financial state preserved while date/notification metadata change.",
+  "network": "Requests outside isolated localhost blocked; no real exchange services, files or user project data.",
+  "catalog": {
+    "implemented": 146,
+    "verifiedOnPatchedBase": 145,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035"
+    ],
+    "pending": 49,
+    "total": 195
+  },
+  "scope": "Only new module12 full run and three-case Edge contrast. Earlier verification is historical; all 146 cases were not rerun together."
+}
