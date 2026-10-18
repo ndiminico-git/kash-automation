@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las trece primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las catorce primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -15,6 +15,7 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las trece primeras t
 - **`tests/11-summary.spec.js`**: TC-123 a TC-134, Resumen, gráficos y tarjetas.
 - **`tests/12-dates-notifications.spec.js`**: TC-135 a TC-146, cierres, vencimientos y avisos.
 - **`tests/13-installments-notes.spec.js`**: TC-147 a TC-156, planes de cuotas y recordatorios propios.
+- **`tests/14-settings.spec.js`**: TC-157 a TC-166, Ajustes y funciones visibles.
 
 ## Qué hay en esta carpeta
 
@@ -33,6 +34,7 @@ qa-automation/
   tests/11-summary.spec.js      Los 12 casos de Resumen.
   tests/12-dates-notifications.spec.js Los 12 casos de fechas y avisos.
   tests/13-installments-notes.spec.js Los 10 casos de cuotas y notas.
+  tests/14-settings.spec.js     Los 10 casos de Ajustes y funciones visibles.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -46,6 +48,7 @@ qa-automation/
   helpers/summary.js           Tarjetas, gráficos, movimientos y arrastre.
   helpers/dates-notifications.js Fechas, reglas y avisos por UI.
   helpers/installments-notes.js Cuotas, teclado y recordatorios propios por UI.
+  helpers/settings.js          Preferencias, navegación y funciones visibles por UI.
   helpers/app-server.js        Sirve la interfaz de ../App en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -54,7 +57,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–12, agregá únicamente `tests/13-installments-notes.spec.js` y `helpers/installments-notes.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
+1. Si ya tenés las tandas 01–13, agregá únicamente `tests/14-settings.spec.js` y `helpers/settings.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
 2. `helpers` y `tests` deben estar en la raíz del proyecto. El servidor incluido ya apunta a `../App`; conservá tu helper si ya usa esa ruta. Para una instalación nueva, copiá los tests y helpers acumulados.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. Ejecutá desde la raíz `kash-automation`, que contiene `App/index.html`. Para esa estructura no necesitás definir `KASH_APP_DIR`. Si usás otra ubicación, esa variable puede indicar la carpeta App antes de ejecutar.
@@ -127,7 +130,10 @@ npx playwright test tests/12-dates-notifications.spec.js
 # Tanda 13 solamente.
 npx playwright test tests/13-installments-notes.spec.js
 
-# Las trece tandas, en orden.
+# Tanda 14 solamente.
+npx playwright test tests/14-settings.spec.js
+
+# Las catorce tandas, en orden.
 npm test
 ```
 
@@ -206,7 +212,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `14-settings.spec.js`, TC-157 a TC-166.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `15-estimator-access.spec.js`, TC-167 a TC-176.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -752,3 +758,51 @@ Cada caso empieza desde cero con su contexto, idioma y wizard real. F1 desactiva
 
 
 **TC-155 queda activo y fallará en esta app.** Después de rechazar una edición vacía y cerrar la advertencia, agregar una nota válida con Enter reabre la advertencia anterior. La nota sí se agrega una vez. Se reprodujo en ambos navegadores; la causa es un listener de teclado que no se retira en `editOwnReminder`. No se altera la expectativa, no se omite el caso ni se recarga a mitad del flujo para ocultarlo. **La suite y CI pueden quedar en rojo por QA-NOTE-001.** Ver `known-issues.md` y `evidence/TC-155-stale-validation.png`. La app no fue modificada al entregar las pruebas.
+
+
+## Tanda 14 · Ajustes y funciones visibles
+
+Si tenés las trece tandas anteriores, agregá **sólo** `tests/14-settings.spec.js` y `helpers/settings.js`. El ZIP es acumulativo. Se reutilizan los helpers previos sin modificarlos; conservá el `app-server.js` con `../App`, tu configuración, package y lockfile. Los scripts npm nuevos son opcionales; la dependencia mantiene exactamente **"@playwright/test": "^1.45.0"**.
+
+Desde la raíz del repositorio, con la app en `App`:
+
+```powershell
+npx playwright test tests/14-settings.spec.js
+npx playwright test tests/14-settings.spec.js --grep 'TC-157 '
+npx playwright test tests/14-settings.spec.js --grep 'TC-166 ' --headed
+```
+
+### Preparación
+
+Cada caso crea un contexto vacío, elige inglés y completa el wizard de proyecto vacío. F1 desactiva las guías automáticas por UI. Fecha fija **15/10/2026, Buenos Aires** con `page.clock.setFixedTime`, disponible en **Playwright 1.45.0**; los timers de interfaz y autoguardado siguen activos. Las peticiones externas se bloquean incluso al activar la preferencia online: no se necesitan cotizaciones ni internet real.
+
+Las fixtures opcionales crean base ARS **1.000**, gasto pagado **25** con nota literal y gasto pendiente **75**, un plan de tres cuotas y un recordatorio propio. Los casos que lo requieren agregan USD con base **100**, o un servicio con un aviso al día siguiente. Setup y cada fixture tienen **60 s propios**; cuerpo **60 s**, acciones/expectativas **5 s**. Los adjuntos `settings-*-timing` muestran la preparación. No se depende de casos anteriores.
+
+### Casos
+
+- **TC-157**: Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto.
+- **TC-158**: Ocultar Cuotas conserva sus registros y mantiene disponibles las secciones principales, guardado y ayuda.
+- **TC-159**: Gráficos se ocultan y restauran con deshacer y rehacer sin alterar importes ni registros.
+- **TC-160**: Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas.
+- **TC-161**: Variación mensual cambia sólo la presentación y conserva saldo, remanente y movimientos.
+- **TC-162**: Ocultar avisos conserva fechas e historial leído y restaurarlos no crea notificaciones duplicadas.
+- **TC-163**: Conexión es una preferencia local y respeta el switch del cotizador sin bloquear datos offline.
+- **TC-164**: Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto.
+- **TC-165**: Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo.
+- **TC-166**: Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos.
+
+### Qué comprobar
+
+- Las seis secciones tienen selección única; los tabs conectan `aria-selected`, `aria-controls` y `aria-labelledby`. TC-157 recorre 14 subsecciones estables y prueba flechas, Home/End y vuelta circular. No exige la subsección antigua Tamaños, retirada en versiones posteriores.
+- TC-158 comprueba que sólo Cuotas se puede ocultar como módulo. Resumen, Consumos, Gastos, Divisas, Ajustes, guardado, historial y F1 siguen accesibles; restaurar Cuotas recupera los registros originales.
+- Gráficos, variación y avisos cambian su visibilidad sin modificar saldos ni movimientos. TC-159 usa deshacer/rehacer; TC-162 conserva fecha, ID y lectura del aviso tras ocultar/restaurar, sin duplicarlo.
+- El cotizador requiere **dos monedas** y servicios online habilitados. Con una sola moneda el switch está deshabilitado; activar una segunda habilita su uso. Desactivar su propia preferencia debe ocultarlo aunque la conexión esté activa. Usarlo no registra operaciones de divisas.
+- Los switches de funciones se guardan en `displayOptions` del proyecto. Conexión, tema y guías son preferencias locales, fuera del proyecto. Tema se prueba en claro/oscuro, con control lateral sincronizado y recarga. F1, un tema del manual y el recorrido manual de Ajustes no deben insertar datos de ejemplo.
+- TC-166 combina preferencias: gráficos visibles, cotizador/variación/Cuotas ocultos, avisos visibles y vacíos, conexión activada y tema claro. Tras recargar se conservan todos los valores. Expectativas financieras explícitas: ARS **975 calculado / 900 estimado**, USD **100 / 100**. Gastos/IDs, pagos, cuotas, notas y demás campos deben coincidir. Sólo se admite normalizar el contador nid al restaurar historia o recargar.
+- Se usan entradas reales de UI y exportación/almacenamiento sólo para lectura. No se invocan calculadores internos para producir expectativas ni handlers para ingresar datos. Los accesos de guardado se comprueban como disponibles; no se escriben archivos personales.
+
+**Validación:** **10/10 aprobados**, **312.2 s**, con **Playwright 1.45.0 / Chromium 127.0.6533.17**. Contraste independiente TC-157/160/164/166 con **Edge / runtime existente 1.64.1**: **4/4**, **126.3 s**. Sin fallos, omisiones, inestables, reintentos ni errores JavaScript. App **0.677 + parche TC-054**, 24 assets intactos. Evidencia: `validation-settings.json`. Config, app-server y todos los casos/helpers anteriores conservan sus bytes.
+
+Después del recorrido completo se reforzó TC-166 para recargar con conexión activada. El bootstrap inicializa offline sólo si no hay una preferencia guardada, por lo que no sobrescribe el valor que está verificando. TC-166 volvió a pasar por separado en **68.2 s con 1.45.0** y **43.9 s con Edge**. La comparación exacta de fuentes confirma que los otros nueve casos y helpers no cambiaron; sus contextos limpios y recargas offline se comportan igual. Los reportes distinguen el recorrido completo y estas comprobaciones adicionales.
+
+La contraseña y autorización del estimador quedan para la **tanda 15**; esta suite lo mantiene apagado. Los resultados anteriores son históricos: no se reejecutaron TC-035, TC-155 ni los 166 casos juntos. La incidencia anterior de TC-155 se conserva como antecedente hasta verificar el parche que el usuario indicó que iba a realizar; no se modifica la app ni se declara resuelto por esta tanda.

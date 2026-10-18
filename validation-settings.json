@@ -1,0 +1,669 @@
+{
+  "suite": "tests/14-settings.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-18T01:26:05.714Z",
+  "durationSeconds": 312.2,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "fixedTime": "2026-10-15T12:00:00-03:00",
+  "timezoneId": "America/Argentina/Buenos_Aires",
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "preparation": "Clean contexts, English, empty wizard and automatic guides disabled by F1. Optional expense/plan/note fixture; separate optional USD and service-date fixtures. UI writes only.",
+  "sourceHashes": {
+    "tests/14-settings.spec.js": "6b70cb756613e19905743bfdacb98527a8641ee71e28b3ccc932f249f5635ee8",
+    "helpers/settings.js": "42d492baef29c7f16444eb87b68dc9c1310a8dd729c4752f243760a3b0a71b26"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "priorSourceChanges": [],
+  "serverPath": "Unchanged: path.join(__dirname, '../App'); KASH_APP_DIR override preserved.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 4,
+    "failed": 0,
+    "durationSeconds": 126.3,
+    "cases": [
+      {
+        "id": "TC-157",
+        "title": "TC-157 [P] Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 20245,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 6226,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          }
+        }
+      },
+      {
+        "id": "TC-160",
+        "title": "TC-160 [N] Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 9231,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 5946,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 8685,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-164",
+        "title": "TC-164 [P] Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 7719,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 6260,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 8049,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-166",
+        "title": "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 17899,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 6259,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 9564,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "settings-usd-timing": {
+            "setupDurationMs": 2152,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "note": "Existing user runtime read only. No edits to user app, repo or dependency declarations."
+  },
+  "coverage": [
+    "TC-157 [P] Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto",
+    "TC-158 [R] Ocultar Cuotas conserva sus registros y mantiene disponibles las secciones principales, guardado y ayuda",
+    "TC-159 [R] Gráficos se ocultan y restauran con deshacer y rehacer sin alterar importes ni registros",
+    "TC-160 [N] Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas",
+    "TC-161 [R] Variación mensual cambia sólo la presentación y conserva saldo, remanente y movimientos",
+    "TC-162 [R] Ocultar avisos conserva fechas e historial leído y restaurarlos no crea notificaciones duplicadas",
+    "TC-163 [R] Conexión es una preferencia local y respeta el switch del cotizador sin bloquear datos offline",
+    "TC-164 [P] Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto",
+    "TC-165 [R] Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo",
+    "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos"
+  ],
+  "cases": [
+    {
+      "id": "TC-157",
+      "title": "TC-157 [P] Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 33100,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 7800,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-158",
+      "title": "TC-158 [R] Ocultar Cuotas conserva sus registros y mantiene disponibles las secciones principales, guardado y ayuda",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 44768,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 6526,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 10963,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-159",
+      "title": "TC-159 [R] Gráficos se ocultan y restauran con deshacer y rehacer sin alterar importes ni registros",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 13880,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 5472,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 7560,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-160",
+      "title": "TC-160 [N] Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 11979,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 4387,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 7625,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-161",
+      "title": "TC-161 [R] Variación mensual cambia sólo la presentación y conserva saldo, remanente y movimientos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 10640,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 4285,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 7534,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-162",
+      "title": "TC-162 [R] Ocultar avisos conserva fechas e historial leído y restaurarlos no crea notificaciones duplicadas",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 12740,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 5696,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 6949,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "settings-dates-timing": {
+          "setupDurationMs": 5379,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-163",
+      "title": "TC-163 [R] Conexión es una preferencia local y respeta el switch del cotizador sin bloquear datos offline",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 14159,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 4281,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 7417,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "settings-usd-timing": {
+          "setupDurationMs": 2315,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-164",
+      "title": "TC-164 [P] Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 11763,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 3125,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 8212,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-165",
+      "title": "TC-165 [R] Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 9518,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 3216,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-166",
+      "title": "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 32901,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 11690,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 11310,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "settings-usd-timing": {
+          "setupDurationMs": 2819,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    }
+  ],
+  "preferences": "Project visibility persisted in displayOptions; online/theme/guide preferences local to this browser context. All unaffected project fields compared exactly.",
+  "historyNormalization": "TC159 undo/redo may normalize nid only; existing financial IDs and other project fields exact. Reload helpers likewise allow nid normalization only. No locale change in module14.",
+  "explicitFinancialExpectations": {
+    "ARS": {
+      "opening": 1000,
+      "paidExpense": 25,
+      "pendingExpense": 75,
+      "calculated": 975,
+      "projected": 900
+    },
+    "USD": {
+      "opening": 100,
+      "calculated": 100,
+      "projected": 100
+    }
+  },
+  "navigation": "Six settings groups and 14 stable core tabs, with tab ARIA and ArrowLeft/Right/Home/End. Legacy size controls are not required, since that UI was later removed.",
+  "network": "All non-local requests blocked even when testing online preference. No live exchange rate values asserted.",
+  "excludedScope": "Estimator password/authorization belongs to module15. Module14 never enables estimator. Native save dialogs are only checked as available entry points, not used to write personal files.",
+  "catalog": {
+    "implemented": 166,
+    "verifiedOnPatchedBase": 164,
+    "historicalKnownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035",
+      "QA-NOTE-001 / TC-155"
+    ],
+    "pending": 29,
+    "total": 195
+  },
+  "scope": "Full ten-case run and four-case Edge contrast, then strengthened TC166 independently in both runtimes. Earlier evidence is historical; TC035/TC155 were not rerun and no user fix is assumed verified.",
+  "preferenceRefinement": {
+    "fullRunCases": [
+      {
+        "id": "TC-157",
+        "title": "TC-157 [P] Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 33100,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 7800,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          }
+        }
+      },
+      {
+        "id": "TC-158",
+        "title": "TC-158 [R] Ocultar Cuotas conserva sus registros y mantiene disponibles las secciones principales, guardado y ayuda",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 44768,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 6526,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 10963,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-159",
+        "title": "TC-159 [R] Gráficos se ocultan y restauran con deshacer y rehacer sin alterar importes ni registros",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 13880,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 5472,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 7560,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-160",
+        "title": "TC-160 [N] Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 11979,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 4387,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 7625,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-161",
+        "title": "TC-161 [R] Variación mensual cambia sólo la presentación y conserva saldo, remanente y movimientos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 10640,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 4285,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 7534,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-162",
+        "title": "TC-162 [R] Ocultar avisos conserva fechas e historial leído y restaurarlos no crea notificaciones duplicadas",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 12740,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 5696,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 6949,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "settings-dates-timing": {
+            "setupDurationMs": 5379,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-163",
+        "title": "TC-163 [R] Conexión es una preferencia local y respeta el switch del cotizador sin bloquear datos offline",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 14159,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 4281,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 7417,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "settings-usd-timing": {
+            "setupDurationMs": 2315,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-164",
+        "title": "TC-164 [P] Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 11763,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 3125,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 8212,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-165",
+        "title": "TC-165 [R] Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 9518,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 3216,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          }
+        }
+      },
+      {
+        "id": "TC-166",
+        "title": "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 17415,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 4040,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 8155,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "settings-usd-timing": {
+            "setupDurationMs": 2057,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "fullRunConnectionProfileTC166": "offline",
+    "finalConnectionProfileTC166": "online; initial offline seed only applies when no preference exists",
+    "playwrightVersion": "1.45.0",
+    "passed": 1,
+    "failed": 0,
+    "durationSeconds": 68.2,
+    "case": {
+      "id": "TC-166",
+      "title": "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 32901,
+      "timings": {
+        "settings-setup-timing": {
+          "setupDurationMs": 11690,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "settings-data-timing": {
+          "setupDurationMs": 11310,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "settings-usd-timing": {
+          "setupDurationMs": 2819,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    "edge": {
+      "playwrightVersion": "1.64.1",
+      "passed": 1,
+      "failed": 0,
+      "durationSeconds": 43.9,
+      "case": {
+        "id": "TC-166",
+        "title": "TC-166 [R] Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 17899,
+        "timings": {
+          "settings-setup-timing": {
+            "setupDurationMs": 6259,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "settings-data-timing": {
+            "setupDurationMs": 9564,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "settings-usd-timing": {
+            "setupDurationMs": 2152,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    },
+    "sourceProof": "Exact source comparison: only the missing-key guard in offline bootstrap and TC166 online preference/assertion changed. All other case bodies and helper functions byte-identical. Fresh contexts still seed 0; other reload cases retain 0. TC166 is revalidated independently in both runtimes.",
+    "durationScope": "Main full ten-case run and four-case Edge contrast recorded separately from the two strengthened TC166 runs; final cases list uses the stronger TC166 evidence."
+  }
+}

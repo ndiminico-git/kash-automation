@@ -31,7 +31,9 @@
     "test:dates-notifications": "playwright test tests/12-dates-notifications.spec.js",
     "test:dates-notifications:headed": "playwright test tests/12-dates-notifications.spec.js --headed",
     "test:installments-notes": "playwright test tests/13-installments-notes.spec.js",
-    "test:installments-notes:headed": "playwright test tests/13-installments-notes.spec.js --headed"
+    "test:installments-notes:headed": "playwright test tests/13-installments-notes.spec.js --headed",
+    "test:settings": "playwright test tests/14-settings.spec.js",
+    "test:settings:headed": "playwright test tests/14-settings.spec.js --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.0"

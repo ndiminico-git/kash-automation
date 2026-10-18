@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 156 implementados; 154 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 39 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 166 implementados; 164 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 29 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -239,11 +239,25 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-155 | Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores | Con incidencia QA-NOTE-001 |
 | TC-156 | Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos | Verificado |
 
+## Bloque 14: 14-settings.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-157 | Secciones y subsecciones navegan con selección accesible y teclado sin modificar el proyecto | Verificado |
+| TC-158 | Ocultar Cuotas conserva sus registros y mantiene disponibles las secciones principales, guardado y ayuda | Verificado |
+| TC-159 | Gráficos se ocultan y restauran con deshacer y rehacer sin alterar importes ni registros | Verificado |
+| TC-160 | Cotizador requiere dos monedas y su switch controla visibilidad sin registrar cambios de divisas | Verificado |
+| TC-161 | Variación mensual cambia sólo la presentación y conserva saldo, remanente y movimientos | Verificado |
+| TC-162 | Ocultar avisos conserva fechas e historial leído y restaurarlos no crea notificaciones duplicadas | Verificado |
+| TC-163 | Conexión es una preferencia local y respeta el switch del cotizador sin bloquear datos offline | Verificado |
+| TC-164 | Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto | Verificado |
+| TC-165 | Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo | Verificado |
+| TC-166 | Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 14 | `14-settings.spec.js` | TC-157–TC-166 | Pendiente |
 | 15 | `15-estimator-access.spec.js` | TC-167–TC-176 | Pendiente |
 | 16 | `16-project-persistence.spec.js` | TC-177–TC-186 | Pendiente |
 | 17 | `17-ui-regression.spec.js` | TC-187–TC-195 | Pendiente |
@@ -470,3 +484,17 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Integrar sólo `tests/13-installments-notes.spec.js` y `helpers/installments-notes.js`. Próximo bloque 14, TC-157–TC-166, pendiente. No se reejecutó el catálogo completo.
 
 **TC-155 detecta QA-NOTE-001 y seguirá fallando hasta corregir la app; no es un timeout del runner. Ver known-issues.md.**
+
+
+## Verificación del bloque 14 · Ajustes y funciones visibles
+
+- **10/10 aprobados en 312.2 s**, Playwright **1.45.0**, Chromium **127.0.6533.17**, un worker. Sin reintentos, omisiones, inestables ni errores JavaScript.
+- Contraste independiente TC-157, TC-160, TC-164 y TC-166: **4/4 con Edge**, runtime existente **1.64.1**, **126.3 s**. Se conserva la dependencia `^1.45.0`.
+- Tras esa ejecución se reforzó TC-166: ahora recarga con conexión activada, y el bootstrap offline sólo inicializa la preferencia si no existe. TC-166 volvió a pasar solo con 1.45.0 en **68.2 s** y con Edge en **43.9 s**. Comparación exacta confirma que los otros nueve cuerpos y helpers no cambiaron; sus contextos nuevos siguen iniciando offline y sus recargas conservan ese valor. La evidencia distingue estas ejecuciones adicionales del recorrido completo.
+- Contexto limpio por caso, inglés, wizard vacío y guías automáticas desactivadas desde F1. Fecha fija 15/10/2026, Buenos Aires; timers activos. Setup y fixtures opcionales de datos/USD/fechas tienen 60 s propios cada una; cuerpo 60 s y acciones/expectativas 5 s.
+- Seis secciones, 14 subsecciones estables y navegación ARIA/teclado; secciones principales fijas; Cuotas opcional sin pérdida de datos; gráficos/deshacer/rehacer; requisito de dos monedas del cotizador; variación; avisos con lectura/historial; conexión local y acceso offline; tema; guías/manual; preferencias mixtas tras recargar con dos monedas.
+- Datos creados por UI: base ARS 1.000, pago 25 y pendiente 75, plan de tres cuotas y nota propia. Expectativas independientes: calculado **975**, estimado **900**; USD base/saldos **100**. Configurar fechas conserva un aviso leído sin duplicados al ocultar/restaurar.
+- Visibilidad puede modificar sólo displayOptions. Conexión, tema y guías no modifican el proyecto. Deshacer/rehacer (TC-159) y recarga pueden normalizar sólo nid; IDs existentes y los demás datos se exigen exactos. No se cambian idiomas ni notas automáticas en esta tanda.
+- No se requieren los controles antiguos de Tamaños, retirados en versiones posteriores. El estimador permanece desactivado; contraseña y permisos se reservan para tanda 15. Se bloquea toda petición externa y no se validan tasas en vivo.
+- Evidencia: `validation-settings.json`. Los 24 assets de la app con parche y los specs/helpers/evidencias de las 13 tandas anteriores, config y app-server conservan sus bytes. No se modifica app ni repositorio personal.
+- Integrar sólo `tests/14-settings.spec.js` y `helpers/settings.js`. Próximo bloque 15, TC-167–TC-176, pendiente. Catálogo **166 implementados, 164 verificados, 2 incidencias históricas y 29 pendientes**. No se reejecutó el catálogo completo ni TC-035/TC-155; el anuncio del usuario de corregir TC-155 no se toma como verificación de un parche.
