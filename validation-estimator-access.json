@@ -1,0 +1,413 @@
+{
+  "suite": "tests/15-estimator-access.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-18T02:27:54.379Z",
+  "durationSeconds": 107.3,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "fixedTime": "2026-10-15T12:00:00-03:00",
+  "timezoneId": "America/Argentina/Buenos_Aires",
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "preparation": "Fresh context per case, English, empty wizard, F1 automatic guides disabled through UI. Optional ARS data and USD fixtures have separate setup timeouts. No auth/project data seeded in storage.",
+  "sourceHashes": {
+    "tests/15-estimator-access.spec.js": "93e769827b7f8349a825da8d97dbc8c8aa10d6360c4fc8118431481eee037e07",
+    "helpers/estimator-access.js": "3e70033c7edac697dd084811eb1f8809284cb0e3d5402bf01b891ad4dd93efb3"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "priorSourceChanges": [],
+  "serverPath": "Unchanged: path.join(__dirname, '../App'); KASH_APP_DIR override preserved.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 4,
+    "failed": 0,
+    "durationSeconds": 55.4,
+    "cases": [
+      {
+        "id": "TC-171",
+        "title": "TC-171 [P] Contraseña correcta muestra estimador de noviembre y conserva saldos, gastos y notas",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 2077,
+        "timings": {
+          "estimator-setup-timing": {
+            "setupDurationMs": 2731,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "estimator-data-timing": {
+            "setupDurationMs": 5071,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "estimator-usd-timing": {
+            "setupDurationMs": 1881,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-173",
+        "title": "TC-173 [R] Desactivar oculta el panel, revoca autorización y exige contraseña para volver a habilitar",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 4974,
+        "timings": {
+          "estimator-setup-timing": {
+            "setupDurationMs": 1932,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "estimator-data-timing": {
+            "setupDurationMs": 4255,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "estimator-usd-timing": {
+            "setupDurationMs": 2054,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-174",
+        "title": "TC-174 [R] Recargar conserva activación y datos; tras desactivar la recarga no restaura el acceso",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 4467,
+        "timings": {
+          "estimator-setup-timing": {
+            "setupDurationMs": 1785,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "estimator-data-timing": {
+            "setupDurationMs": 4473,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "estimator-usd-timing": {
+            "setupDurationMs": 1946,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-176",
+        "title": "TC-176 [R] Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 7442,
+        "timings": {
+          "estimator-setup-timing": {
+            "setupDurationMs": 1714,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "estimator-data-timing": {
+            "setupDurationMs": 4650,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "estimator-usd-timing": {
+            "setupDurationMs": 2209,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "note": "Read-only use of installed user runtime; no dependency, repository or app edits."
+  },
+  "coverage": [
+    "TC-167 [P] Inicio limpio mantiene estimador oculto y ofrece activación protegida sin alterar el proyecto",
+    "TC-168 [N] Cancelar y Escape descartan el intento y el borrador sin autorizar ni guardar cambios",
+    "TC-169 [N] Contraseña vacía usa validación obligatoria sin desbloquear ni mostrar éxito",
+    "TC-170 [N] Claves incorrectas, mayúsculas y espacios no equivalen a la contraseña exacta",
+    "TC-171 [P] Contraseña correcta muestra estimador de noviembre y conserva saldos, gastos y notas",
+    "TC-172 [R] Reintentar tras rechazo permite activar con Enter sin duplicar diálogo ni registros",
+    "TC-173 [R] Desactivar oculta el panel, revoca autorización y exige contraseña para volver a habilitar",
+    "TC-174 [R] Recargar conserva activación y datos; tras desactivar la recarga no restaura el acceso",
+    "TC-175 [E] Autorizar con ARS no agrega USD; el panel aparece al incorporar la moneda requerida",
+    "TC-176 [R] Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado"
+  ],
+  "cases": [
+    {
+      "id": "TC-167",
+      "title": "TC-167 [P] Inicio limpio mantiene estimador oculto y ofrece activación protegida sin alterar el proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3031,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2262,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-168",
+      "title": "TC-168 [N] Cancelar y Escape descartan el intento y el borrador sin autorizar ni guardar cambios",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 2630,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2524,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-169",
+      "title": "TC-169 [N] Contraseña vacía usa validación obligatoria sin desbloquear ni mostrar éxito",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 2410,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2814,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-170",
+      "title": "TC-170 [N] Claves incorrectas, mayúsculas y espacios no equivalen a la contraseña exacta",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4589,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2519,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-171",
+      "title": "TC-171 [P] Contraseña correcta muestra estimador de noviembre y conserva saldos, gastos y notas",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4270,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2581,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 5742,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "estimator-usd-timing": {
+          "setupDurationMs": 1985,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-172",
+      "title": "TC-172 [R] Reintentar tras rechazo permite activar con Enter sin duplicar diálogo ni registros",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 2859,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2043,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 3849,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "estimator-usd-timing": {
+          "setupDurationMs": 1662,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-173",
+      "title": "TC-173 [R] Desactivar oculta el panel, revoca autorización y exige contraseña para volver a habilitar",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6579,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2343,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 4323,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "estimator-usd-timing": {
+          "setupDurationMs": 1864,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-174",
+      "title": "TC-174 [R] Recargar conserva activación y datos; tras desactivar la recarga no restaura el acceso",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4784,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2214,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 4310,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "estimator-usd-timing": {
+          "setupDurationMs": 1634,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-175",
+      "title": "TC-175 [E] Autorizar con ARS no agrega USD; el panel aparece al incorporar la moneda requerida",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3844,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 2364,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 4021,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-176",
+      "title": "TC-176 [R] Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 10110,
+      "timings": {
+        "estimator-setup-timing": {
+          "setupDurationMs": 1889,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "estimator-data-timing": {
+          "setupDurationMs": 4631,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "estimator-usd-timing": {
+          "setupDurationMs": 2152,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    }
+  ],
+  "authorization": "Project displayOptions.estimator plus a separate browser-local authorization. UI password submission only; no verifier stub, internal setter, hash bypass or authorization token seeding. Failed/cancelled attempts preserve complete project and persisted JSON.",
+  "negativeInputs": [
+    "empty required field",
+    "incorrect password",
+    "different case",
+    "leading space",
+    "trailing space"
+  ],
+  "explicitFinancialExpectations": {
+    "ARS": {
+      "opening": 1000,
+      "paidOctober": 25,
+      "pendingOctober": 75,
+      "calculatedOctober": 975,
+      "projectedOctober": 900,
+      "scheduledNovember": 150
+    },
+    "USD": {
+      "opening": 100,
+      "calculated": 100,
+      "projected": 100
+    }
+  },
+  "reload": "Enabled and disabled states reloaded independently within TC174. Only nid normalization is allowed; all existing project fields and record IDs must remain exact.",
+  "import": "TC176 exports the authorized project read-only, creates a second clean browser context and completes its wizard, then selects a .kash file buffer through the real file input. Imported estimator flag is true but local authorization remains absent and panel hidden until password entered on the second context. Original context remains authorized and unchanged.",
+  "localizationAndKeyboard": "TC176 uses Spanish and dark theme, translated title/cancel/error, initial password focus, Shift+Tab/Tab wrap, retry and Enter submission. Imported user notes remain unchanged.",
+  "passwordStorage": "Successful unlock checks that raw password is absent from project export and localStorage values. Failure diagnostics omit password contents. Practice password may be overridden with KASH_ESTIMATOR_PASSWORD.",
+  "network": "All non-local requests blocked, online preference initially offline only if missing. No live rates or market cache seeded; scheduled ARS amount checked, USD quote shown as dash.",
+  "catalog": {
+    "implemented": 176,
+    "verifiedOnPatchedBase": 174,
+    "historicalKnownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035",
+      "QA-NOTE-001 / TC-155"
+    ],
+    "pending": 19,
+    "total": 195
+  },
+  "scope": "Only the ten new cases run as full suite plus four independent Edge cases. Earlier results remain historical; TC035 and TC155 were not rerun. No application fixes in this delivery."
+}

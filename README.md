@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las catorce primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las quince primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -16,6 +16,7 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las catorce primeras
 - **`tests/12-dates-notifications.spec.js`**: TC-135 a TC-146, cierres, vencimientos y avisos.
 - **`tests/13-installments-notes.spec.js`**: TC-147 a TC-156, planes de cuotas y recordatorios propios.
 - **`tests/14-settings.spec.js`**: TC-157 a TC-166, Ajustes y funciones visibles.
+- **`tests/15-estimator-access.spec.js`**: TC-167 a TC-176, contraseña y autorización del estimador.
 
 ## Qué hay en esta carpeta
 
@@ -35,6 +36,7 @@ qa-automation/
   tests/12-dates-notifications.spec.js Los 12 casos de fechas y avisos.
   tests/13-installments-notes.spec.js Los 10 casos de cuotas y notas.
   tests/14-settings.spec.js     Los 10 casos de Ajustes y funciones visibles.
+  tests/15-estimator-access.spec.js Los 10 casos del estimador protegido.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -49,6 +51,7 @@ qa-automation/
   helpers/dates-notifications.js Fechas, reglas y avisos por UI.
   helpers/installments-notes.js Cuotas, teclado y recordatorios propios por UI.
   helpers/settings.js          Preferencias, navegación y funciones visibles por UI.
+  helpers/estimator-access.js  Contraseña, revocación e integridad del proyecto por UI.
   helpers/app-server.js        Sirve la interfaz de ../App en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -57,7 +60,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–13, agregá únicamente `tests/14-settings.spec.js` y `helpers/settings.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
+1. Si ya tenés las tandas 01–14, agregá únicamente `tests/15-estimator-access.spec.js` y `helpers/estimator-access.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
 2. `helpers` y `tests` deben estar en la raíz del proyecto. El servidor incluido ya apunta a `../App`; conservá tu helper si ya usa esa ruta. Para una instalación nueva, copiá los tests y helpers acumulados.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. Ejecutá desde la raíz `kash-automation`, que contiene `App/index.html`. Para esa estructura no necesitás definir `KASH_APP_DIR`. Si usás otra ubicación, esa variable puede indicar la carpeta App antes de ejecutar.
@@ -133,7 +136,10 @@ npx playwright test tests/13-installments-notes.spec.js
 # Tanda 14 solamente.
 npx playwright test tests/14-settings.spec.js
 
-# Las catorce tandas, en orden.
+# Tanda 15 solamente.
+npx playwright test tests/15-estimator-access.spec.js
+
+# Las quince tandas, en orden.
 npm test
 ```
 
@@ -212,7 +218,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `15-estimator-access.spec.js`, TC-167 a TC-176.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `16-project-persistence.spec.js`, TC-177 a TC-186.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -806,3 +812,51 @@ Las fixtures opcionales crean base ARS **1.000**, gasto pagado **25** con nota l
 Después del recorrido completo se reforzó TC-166 para recargar con conexión activada. El bootstrap inicializa offline sólo si no hay una preferencia guardada, por lo que no sobrescribe el valor que está verificando. TC-166 volvió a pasar por separado en **68.2 s con 1.45.0** y **43.9 s con Edge**. La comparación exacta de fuentes confirma que los otros nueve casos y helpers no cambiaron; sus contextos limpios y recargas offline se comportan igual. Los reportes distinguen el recorrido completo y estas comprobaciones adicionales.
 
 La contraseña y autorización del estimador quedan para la **tanda 15**; esta suite lo mantiene apagado. Los resultados anteriores son históricos: no se reejecutaron TC-035, TC-155 ni los 166 casos juntos. La incidencia anterior de TC-155 se conserva como antecedente hasta verificar el parche que el usuario indicó que iba a realizar; no se modifica la app ni se declara resuelto por esta tanda.
+
+
+## Tanda 15 · Estimador protegido
+
+Si ya tenés las tandas 01–14, agregá **sólo** `tests/15-estimator-access.spec.js` y `helpers/estimator-access.js`. El ZIP es acumulativo. Conservá configuración, `app-server.js` con `../App`, package y lockfile. No hace falta reemplazar el index de la app. Los dos scripts npm agregados son opcionales; `"@playwright/test": "^1.45.0"` permanece igual.
+
+Desde la raíz de `kash-automation`, con `App/index.html`:
+
+```powershell
+npx playwright test tests/15-estimator-access.spec.js
+npx playwright test tests/15-estimator-access.spec.js --grep 'TC-174 '
+npx playwright test tests/15-estimator-access.spec.js --grep 'TC-176 ' --headed
+```
+
+### Preparación y alcance
+
+Cada caso empieza con contexto vacío, selector de inglés y wizard de proyecto vacío. Se desactivan guías automáticas desde F1. No se usa tu perfil del portable ni tus gastos. El servidor conserva `../App`; `KASH_APP_DIR` sólo es necesario si la app está en otra ubicación. Los casos pueden ejecutarse solos y no dependen del anterior.
+
+Fecha fija **15/10/2026, Buenos Aires**, con `page.clock.setFixedTime`, compatible con **1.45.0** y timers normales. Inicio y fixtures opcionales de datos/USD tienen **60 s propios**; cada cuerpo **60 s**, acciones y expectativas **5 s**. Los adjuntos `estimator-*-timing` distinguen cada preparación. TC-176 crea un segundo contexto limpio dentro de su cuerpo de prueba.
+
+Los datos se cargan por UI: base ARS **1.000**, pago octubre **25** con nota literal, pendiente octubre **75**, previsto noviembre **150**; cuando corresponde, USD con base **100**. Se bloquean peticiones externas: el caso verifica **ARS 150** programados y **—** como estimación USD sin cotización. No depende de internet ni tasas actuales.
+
+### Casos
+
+- **TC-167**: Inicio limpio mantiene estimador oculto y ofrece activación protegida sin alterar el proyecto.
+- **TC-168**: Cancelar y Escape descartan el intento y el borrador sin autorizar ni guardar cambios.
+- **TC-169**: Contraseña vacía usa validación obligatoria sin desbloquear ni mostrar éxito.
+- **TC-170**: Claves incorrectas, mayúsculas y espacios no equivalen a la contraseña exacta.
+- **TC-171**: Contraseña correcta muestra estimador de noviembre y conserva saldos, gastos y notas.
+- **TC-172**: Reintentar tras rechazo permite activar con Enter sin duplicar diálogo ni registros.
+- **TC-173**: Desactivar oculta el panel, revoca autorización y exige contraseña para volver a habilitar.
+- **TC-174**: Recargar conserva activación y datos; tras desactivar la recarga no restaura el acceso.
+- **TC-175**: Autorizar con ARS no agrega USD; el panel aparece al incorporar la moneda requerida.
+- **TC-176**: Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado.
+
+### Verificaciones
+
+- La opción del proyecto y la autorización del contexto son independientes. Habilitar exige contraseña; cancelar, Escape, campo vacío o clave incorrecta no deben registrar cambios. Se comprueba también la persistencia, no sólo el switch.
+- Contraseña exacta: mayúsculas y espacios importan. Tras el rechazo se limpia el campo, se indica el error, el foco vuelve al password y se permite reintentar. Enter también debe activar correctamente.
+- Un desbloqueo correcto guarda autorización local y la opción del proyecto. Se verifica que el password no aparezca como texto en el proyecto ni en localStorage. Se puede cambiar el dato de práctica mediante `KASH_ESTIMATOR_PASSWORD` si cambia la contraseña de tu app. No se altera ni simula el verificador, no se inyecta un token y no se accede a D.
+- Desactivar quita panel, opción y autorización; reactivar exige contraseña otra vez. TC-174 recarga primero habilitado y después deshabilitado, para detectar tanto pérdida de autorización como resurrección indebida. Sólo se admite normalización del contador nid; registros existentes y sus IDs quedan exactos.
+- El panel requiere ARS y USD. Autorizar con una sola moneda no agrega divisas ni movimientos; al agregar USD por UI aparece el panel. No se confunde este requisito con un password fallido.
+- TC-176 exporta sólo para lectura el proyecto autorizado, arranca otro contexto limpio con su propio wizard e importa un archivo .kash en memoria por el input real. El flag importado no habilita acceso por sí solo. Se comprueban español, tema oscuro, nombre accesible del diálogo, foco inicial y vuelta circular con Shift+Tab/Tab. La primera sesión conserva autorización y datos.
+- Activar/desactivar sólo puede modificar `displayOptions.estimator`; las demás opciones y datos se comparan completos. Expectativas independientes en octubre: ARS **975 calculado / 900 estimado**, USD **100 / 100**. Notas, importes, pagos y gastos no se traducen ni se recrean.
+
+**Validación:** **10/10 aprobados**, **107.3 s**, **Playwright 1.45.0 / Chromium 127.0.6533.17**. Contraste independiente TC-171/173/174/176: **4/4**, **55.4 s**, **Edge / runtime existente 1.64.1**. Sin omisiones, reintentos, inestables ni errores JavaScript. App **0.677 + parche TC-054**, 24 assets sin cambios. Evidencia: `validation-estimator-access.json`.
+
+Las evidencias de tandas anteriores son históricas; no se reejecutaron los 176 casos juntos, TC-035 ni TC-155. Esta entrega no modifica la app ni el repo personal. Próximo: **tanda 16 · Proyectos y persistencia**, TC-177–TC-186.

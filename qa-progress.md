@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 166 implementados; 164 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 29 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 176 implementados; 174 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 19 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -254,11 +254,25 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-165 | Preferencia de guías, manual y recorrido de Ajustes funcionan sin insertar datos de ejemplo | Verificado |
 | TC-166 | Recargar conserva funciones del proyecto y preferencias locales con gastos, cuotas, notas y dos monedas intactos | Verificado |
 
+## Bloque 15: 15-estimator-access.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-167 | Inicio limpio mantiene estimador oculto y ofrece activación protegida sin alterar el proyecto | Verificado |
+| TC-168 | Cancelar y Escape descartan el intento y el borrador sin autorizar ni guardar cambios | Verificado |
+| TC-169 | Contraseña vacía usa validación obligatoria sin desbloquear ni mostrar éxito | Verificado |
+| TC-170 | Claves incorrectas, mayúsculas y espacios no equivalen a la contraseña exacta | Verificado |
+| TC-171 | Contraseña correcta muestra estimador de noviembre y conserva saldos, gastos y notas | Verificado |
+| TC-172 | Reintentar tras rechazo permite activar con Enter sin duplicar diálogo ni registros | Verificado |
+| TC-173 | Desactivar oculta el panel, revoca autorización y exige contraseña para volver a habilitar | Verificado |
+| TC-174 | Recargar conserva activación y datos; tras desactivar la recarga no restaura el acceso | Verificado |
+| TC-175 | Autorizar con ARS no agrega USD; el panel aparece al incorporar la moneda requerida | Verificado |
+| TC-176 | Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 15 | `15-estimator-access.spec.js` | TC-167–TC-176 | Pendiente |
 | 16 | `16-project-persistence.spec.js` | TC-177–TC-186 | Pendiente |
 | 17 | `17-ui-regression.spec.js` | TC-187–TC-195 | Pendiente |
 
@@ -498,3 +512,16 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - No se requieren los controles antiguos de Tamaños, retirados en versiones posteriores. El estimador permanece desactivado; contraseña y permisos se reservan para tanda 15. Se bloquea toda petición externa y no se validan tasas en vivo.
 - Evidencia: `validation-settings.json`. Los 24 assets de la app con parche y los specs/helpers/evidencias de las 13 tandas anteriores, config y app-server conservan sus bytes. No se modifica app ni repositorio personal.
 - Integrar sólo `tests/14-settings.spec.js` y `helpers/settings.js`. Próximo bloque 15, TC-167–TC-176, pendiente. Catálogo **166 implementados, 164 verificados, 2 incidencias históricas y 29 pendientes**. No se reejecutó el catálogo completo ni TC-035/TC-155; el anuncio del usuario de corregir TC-155 no se toma como verificación de un parche.
+
+
+## Verificación del bloque 15 · Estimador protegido
+
+- **10/10 aprobados en 107.3 s**, Playwright **1.45.0 / Chromium 127.0.6533.17**, un worker. Sin reintentos, omisiones, inestables ni errores JavaScript.
+- Contraste independiente TC-171, TC-173, TC-174 y TC-176: **4/4 con Edge**, runtime existente **1.64.1**, **55.4 s**. Declaración de dependencia intacta: `^1.45.0`.
+- Cada caso crea un proyecto vacío por UI. Fixtures propias de 60 s para inicio, datos y USD; cuerpo 60 s, acciones/expectativas 5 s. Fecha fija 15/10/2026, Buenos Aires, sin detener timers. Red externa bloqueada y sin cotizaciones ficticias.
+- Inicio bloqueado, Cancelar/Escape, campo obligatorio, clave incorrecta, diferencias de mayúsculas y espacios, éxito, reintento/Enter, revocación, reactivación, recarga habilitada y deshabilitada, requisito ARS/USD, importación en contexto sin autorización y diálogo en español con teclado.
+- Activación y desactivación sólo pueden cambiar `displayOptions.estimator`. Intentos cancelados o rechazados no pueden cambiar ningún campo del proyecto ni el JSON persistido. La autorización se comprueba aparte, en la preferencia local. Contraseña ingresada únicamente por UI, sin escribir tokens ni invocar verificadores internos.
+- Expectativas independientes: base ARS 1.000, pago 25, pendiente octubre 75; tenencia **975**, estimado **900**; gasto noviembre **150** en el estimador. USD base/tenencia/estimado **100**. Se preservan gastos, notas literales, pagos, IDs y demás preferencias. Recargar/importar admite sólo normalización de nid.
+- TC-176 importa por el input real un buffer .kash exportado del primer contexto. Aunque el proyecto trae estimador=true, el contexto nuevo lo mantiene oculto y exige contraseña. El primer contexto continúa autorizado e intacto. El segundo también arranca limpio y completa su wizard.
+- Los 24 assets de app, las catorce tandas previas, helpers, config y app-server permanecen byte a byte. No se modifica la app ni el repositorio personal. Evidencia: `validation-estimator-access.json`.
+- Integrar sólo `tests/15-estimator-access.spec.js` y `helpers/estimator-access.js`. Próximo bloque **16-project-persistence.spec.js**, TC-177–TC-186. Catálogo: **176 implementados, 174 verificados, 2 incidencias históricas y 19 pendientes**. No se reejecutó el catálogo completo ni se verificaron nuevos parches de TC-035/TC-155.
