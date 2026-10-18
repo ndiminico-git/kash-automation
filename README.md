@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las quince primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las dieciséis primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -17,6 +17,7 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las quince primeras 
 - **`tests/13-installments-notes.spec.js`**: TC-147 a TC-156, planes de cuotas y recordatorios propios.
 - **`tests/14-settings.spec.js`**: TC-157 a TC-166, Ajustes y funciones visibles.
 - **`tests/15-estimator-access.spec.js`**: TC-167 a TC-176, contraseña y autorización del estimador.
+- **`tests/16-project-persistence.spec.js`**: TC-177 a TC-186, guardado web, proyectos y deshacer/rehacer.
 
 ## Qué hay en esta carpeta
 
@@ -37,6 +38,7 @@ qa-automation/
   tests/13-installments-notes.spec.js Los 10 casos de cuotas y notas.
   tests/14-settings.spec.js     Los 10 casos de Ajustes y funciones visibles.
   tests/15-estimator-access.spec.js Los 10 casos del estimador protegido.
+  tests/16-project-persistence.spec.js Los 10 casos de proyectos, guardado y deshacer.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -52,6 +54,7 @@ qa-automation/
   helpers/installments-notes.js Cuotas, teclado y recordatorios propios por UI.
   helpers/settings.js          Preferencias, navegación y funciones visibles por UI.
   helpers/estimator-access.js  Contraseña, revocación e integridad del proyecto por UI.
+  helpers/project-persistence.js Guardado web, selector de archivos e historial por UI.
   helpers/app-server.js        Sirve la interfaz de ../App en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -60,7 +63,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–14, agregá únicamente `tests/15-estimator-access.spec.js` y `helpers/estimator-access.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
+1. Si ya tenés las tandas 01–15, agregá únicamente `tests/16-project-persistence.spec.js` y `helpers/project-persistence.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
 2. `helpers` y `tests` deben estar en la raíz del proyecto. El servidor incluido ya apunta a `../App`; conservá tu helper si ya usa esa ruta. Para una instalación nueva, copiá los tests y helpers acumulados.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. Ejecutá desde la raíz `kash-automation`, que contiene `App/index.html`. Para esa estructura no necesitás definir `KASH_APP_DIR`. Si usás otra ubicación, esa variable puede indicar la carpeta App antes de ejecutar.
@@ -139,7 +142,10 @@ npx playwright test tests/14-settings.spec.js
 # Tanda 15 solamente.
 npx playwright test tests/15-estimator-access.spec.js
 
-# Las quince tandas, en orden.
+# Tanda 16 solamente.
+npx playwright test tests/16-project-persistence.spec.js
+
+# Las dieciséis tandas, en orden.
 npm test
 ```
 
@@ -218,7 +224,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `16-project-persistence.spec.js`, TC-177 a TC-186.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `17-ui-regression.spec.js`, TC-187 a TC-195.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -860,3 +866,58 @@ Los datos se cargan por UI: base ARS **1.000**, pago octubre **25** con nota lit
 **Validación:** **10/10 aprobados**, **107.3 s**, **Playwright 1.45.0 / Chromium 127.0.6533.17**. Contraste independiente TC-171/173/174/176: **4/4**, **55.4 s**, **Edge / runtime existente 1.64.1**. Sin omisiones, reintentos, inestables ni errores JavaScript. App **0.677 + parche TC-054**, 24 assets sin cambios. Evidencia: `validation-estimator-access.json`.
 
 Las evidencias de tandas anteriores son históricas; no se reejecutaron los 176 casos juntos, TC-035 ni TC-155. Esta entrega no modifica la app ni el repo personal. Próximo: **tanda 16 · Proyectos y persistencia**, TC-177–TC-186.
+
+
+## Tanda 16 · Guardado, proyectos y deshacer
+
+Si ya tenés las tandas 01–15, agregá **sólo** `tests/16-project-persistence.spec.js` y `helpers/project-persistence.js`. ZIP acumulativo: los quince bloques anteriores se conservan sin cambios. Conservá config, `app-server.js` con `../App`, package y lockfile. No hay cambios en el index de la app. Scripts npm opcionales; dependencia intacta **"@playwright/test": "^1.45.0"**.
+
+Desde la raíz de `kash-automation`, con `App/index.html`:
+
+```powershell
+npx playwright test tests/16-project-persistence.spec.js
+npx playwright test tests/16-project-persistence.spec.js --grep 'TC-180 '
+npx playwright test tests/16-project-persistence.spec.js --grep 'TC-186 ' --headed
+```
+
+### Preparación
+
+Contexto vacío por caso, idioma inglés, wizard completo de proyecto vacío y guías desactivadas mediante F1. Fecha fija **15/10/2026 Buenos Aires** con `page.clock.setFixedTime` de Playwright 1.45.0, sin congelar timers. Red externa bloqueada. Se inicializa offline sólo si la preferencia todavía no existe.
+
+Las fixtures preparan sus propios datos por UI: base ARS 1.000, gasto pagado 25 y pendiente 75. La fixture mixta agrega USD 100, pago USD 10,25 y cambio USD 5 a tasa 10 ARS/USD con comisión USD 0,5, más un plan de tres cuotas y una nota propia. Resultado esperado: **ARS 1.025 calculado / 950 estimado**, **USD 84,25 / 84,25**. El proyecto B, creado por Nuevo y su wizard, usa ARS 2.000, pago 20 y pendiente 30: **1.980 / 1.950**.
+
+Inicio y cada fixture de saldo/datos/mixta/segundo proyecto tienen **60 s propios**; cuerpo **60 s** y acciones/expectativas **5 s**. Adjuntos `persistence-*-timing` separan tiempos. Todos los casos funcionan solos y no necesitan datos de otro caso ni tu perfil personal.
+
+### Casos
+
+- **TC-177**: Autoguardado, Guardar y Guardar como conservan el proyecto completo en la sesión web.
+- **TC-178**: Recargar reanuda el proyecto con monedas, pagos, notas, cuotas y divisas sin datos agregados.
+- **TC-179**: Abrir el mismo proyecto como JSON y KASH conserva IDs y no duplica registros.
+- **TC-180**: Archivos corruptos, esquema inválido y extensión no permitida no reemplazan el proyecto.
+- **TC-181**: Cancelar el selector de archivo conserva proyecto, sesión e historial.
+- **TC-182**: Cancelar o Escape en cambios pendientes impide Nuevo y Abrir sin perder datos.
+- **TC-183**: Nuevo tras descartar crea proyecto vacío sin heredar monedas, saldos, registros ni deshacer.
+- **TC-184**: Alternar proyectos A y B abre cada copia completa y reinicia el historial sin mezclar datos.
+- **TC-185**: Deshacer y rehacer creación y edición restaura cada estado completo, pagos y saldos.
+- **TC-186**: Atajos deshacen y rehacen; una acción nueva invalida rehacer y editar texto no deshace el proyecto.
+
+### Qué se verifica
+
+- La exportación, memoria y almacenamiento deben conservar todos los campos, no sólo totales. Guardar repetido y Guardar como en navegador no pueden duplicar gastos, divisas, planes ni notas.
+- Recargar conserva monedas, datos, pagos, IDs y notas literales, sin repetir idioma/wizard ni insertar recordatorios predeterminados. La migración puede elevar sólo nid. El proyecto en memoria normaliza ese contador antes de Guardar; TC-178 también comprueba que el botón persista el valor normalizado.
+- Los archivos de prueba son buffers .json/.kash ficticios, seleccionados desde Abrir proyecto y el selector de archivos real. No se invocan handlers de carga. Abrir dos veces el mismo proyecto no duplica registros; la apertura reinicia deshacer/rehacer.
+- Archivo truncado, array raíz, falta de servicios, falta de inicio y extensión .txt deben mostrar un error y conservar íntegramente el proyecto actual y guardado. Cancelar el selector tampoco modifica datos o historial.
+- Cancelar y Escape se prueban tanto para Nuevo como Abrir con cambios pendientes. Descartar para crear Nuevo sí debe vaciar datos y limitar monedas activas a ARS. Esta versión conserva placeholders internos USD/EUR con saldo cero: se verifican exactos, sin confundirlos con monedas habilitadas ni saldos heredados.
+- TC-184 alterna A/B/A con datos diferentes: B no hereda USD, cambios, planes ni notas de A; deshacer no puede volver al otro proyecto. Se comprueba el regreso a A y su recarga.
+- TC-185 compara snapshots completos en tres deshacer y tres rehacer (creación, importe, nota y pago), más saldos independientes en cada paso y recarga final. Sólo se admite normalizar nid; IDs de registros existentes se conservan.
+- TC-186 prueba Ctrl+Z, Ctrl+Shift+Z y Ctrl+Y; una edición nueva tras deshacer elimina la rama de rehacer. Ctrl+Z dentro del concepto debe quedar reservado al editor, sin deshacer datos del proyecto. La rama nueva tiene ARS **985 calculado / 985 estimado**.
+
+### Límite del modo navegador
+
+En esta interfaz web, **Guardar y Guardar como guardan la sesión local del navegador**. Estos casos no afirman generar un archivo en disco. Los diálogos del EXE, la confirmación de escritura, Guardar y continuar con respuesta del host, el cierre del portable, copias automáticas y recuperación frente a fallos del sistema de archivos requieren pruebas del host de escritorio. No se simulan respuestas nativas para hacer pasar estos casos.
+
+**Validación:** **10/10 aprobados**, **187.8 s**, **Playwright 1.45.0 / Chromium 127.0.6533.17**. Contraste independiente TC-178/180/184/186: **4/4**, **69.9 s**, **Edge / runtime existente 1.64.1**. Sin omisiones, reintentos, inestables ni errores JavaScript. App **0.677 + parche TC-054**, 24 assets intactos. Evidencia: `validation-project-persistence.json`.
+
+En desarrollo se corrigieron expectativas del test sobre los defaults internos USD/EUR, el nombre `paid` del campo de pago y cuándo se persiste el contador normalizado. Después se ejecutó otra vez toda la suite final. No se cambió la app ni se desactivaron verificaciones.
+
+Resultados anteriores históricos: no se ejecutaron los 186 casos juntos ni se revalidaron TC-035/TC-155. Próximo: **tanda 17 · Regresión visual y adaptación**, TC-187–TC-195.

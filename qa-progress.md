@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 176 implementados; 174 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 19 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 186 implementados; 184 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 9 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -269,11 +269,25 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-175 | Autorizar con ARS no agrega USD; el panel aparece al incorporar la moneda requerida | Verificado |
 | TC-176 | Importar proyecto habilitado en contexto limpio no transfiere autorización y diálogo respeta idioma y teclado | Verificado |
 
+## Bloque 16: 16-project-persistence.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-177 | Autoguardado, Guardar y Guardar como conservan el proyecto completo en la sesión web | Verificado |
+| TC-178 | Recargar reanuda el proyecto con monedas, pagos, notas, cuotas y divisas sin datos agregados | Verificado |
+| TC-179 | Abrir el mismo proyecto como JSON y KASH conserva IDs y no duplica registros | Verificado |
+| TC-180 | Archivos corruptos, esquema inválido y extensión no permitida no reemplazan el proyecto | Verificado |
+| TC-181 | Cancelar el selector de archivo conserva proyecto, sesión e historial | Verificado |
+| TC-182 | Cancelar o Escape en cambios pendientes impide Nuevo y Abrir sin perder datos | Verificado |
+| TC-183 | Nuevo tras descartar crea proyecto vacío sin heredar monedas, saldos, registros ni deshacer | Verificado |
+| TC-184 | Alternar proyectos A y B abre cada copia completa y reinicia el historial sin mezclar datos | Verificado |
+| TC-185 | Deshacer y rehacer creación y edición restaura cada estado completo, pagos y saldos | Verificado |
+| TC-186 | Atajos deshacen y rehacen; una acción nueva invalida rehacer y editar texto no deshace el proyecto | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 16 | `16-project-persistence.spec.js` | TC-177–TC-186 | Pendiente |
 | 17 | `17-ui-regression.spec.js` | TC-187–TC-195 | Pendiente |
 
 ## Observaciones
@@ -525,3 +539,18 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - TC-176 importa por el input real un buffer .kash exportado del primer contexto. Aunque el proyecto trae estimador=true, el contexto nuevo lo mantiene oculto y exige contraseña. El primer contexto continúa autorizado e intacto. El segundo también arranca limpio y completa su wizard.
 - Los 24 assets de app, las catorce tandas previas, helpers, config y app-server permanecen byte a byte. No se modifica la app ni el repositorio personal. Evidencia: `validation-estimator-access.json`.
 - Integrar sólo `tests/15-estimator-access.spec.js` y `helpers/estimator-access.js`. Próximo bloque **16-project-persistence.spec.js**, TC-177–TC-186. Catálogo: **176 implementados, 174 verificados, 2 incidencias históricas y 19 pendientes**. No se reejecutó el catálogo completo ni se verificaron nuevos parches de TC-035/TC-155.
+
+
+## Verificación del bloque 16 · Guardado, proyectos y deshacer
+
+- **10/10 aprobados en 187.8 s**, **Playwright 1.45.0 / Chromium 127.0.6533.17**, un worker. Sin reintentos, omisiones, inestables ni errores JavaScript.
+- Contraste independiente TC-178/180/184/186: **4/4 con Edge**, runtime existente **1.64.1**, **69.9 s**. Se mantiene exactamente la declaración `^1.45.0`.
+- Autoguardado y botones Guardar/Guardar como en sesión web; recarga; apertura .json/.kash; archivos inválidos; cancelar selector; Cancelar/Escape antes de Nuevo/Abrir; nuevo proyecto vacío; aislamiento A/B/A; deshacer/rehacer tres estados; atajos y rama nueva; editor de texto no ejecuta deshacer del proyecto.
+- Inicio limpio por caso: inglés, wizard y F1 por UI. Fixtures opcionales de saldo inicial, datos ARS, datos mixtos y segundo proyecto tienen 60 s propios; cuerpo 60 s, acciones/expectativas 5 s. Fecha fija 15/10/2026 Buenos Aires, timers activos y red externa bloqueada.
+- Fixture mixta: base ARS 1.000, gasto pagado 25, pendiente 75; USD 100, gasto pagado 10,25, envío 5 con comisión 0,5 a tasa 10 ARS/USD. Esperado: ARS **1.025 calculado / 950 estimado**, USD **84,25 / 84,25**; conserva también plan y recordatorio propio. B usa base ARS 2.000, pagado 20, pendiente 30: **1.980 / 1.950**.
+- Se compara el proyecto completo en memoria y persistido; cargar/restaurar admite sólo normalizar nid, sin cambiar IDs existentes. El contador normalizado al cargar puede seguir sólo en memoria hasta Guardar; TC-178 confirma ese guardado. Nuevo proyecto conserva los dos placeholders internos inactivos USD/EUR en cero propios de esta versión, sin habilitarlos ni heredar saldos de A.
+- Se usa el selector real de archivos, con buffers locales ficticios. Exportación pública y almacenamiento sólo se leen. No se llama a hostEvent, funciones de deshacer o setters internos para preparar resultados. No se escriben datos ni archivos personales.
+- Alcance web: los botones Guardar/Guardar como guardan la sesión del navegador. No equivale a probar disco, diálogos/confirmaciones del EXE, Guardar y continuar nativo, cierre del portable, backups o recuperación; esos requieren una suite del host.
+- Durante el desarrollo se corrigieron tres expectativas de QA (defaults vacíos de ten, campo paid y persistencia del nid normalizado); después se reejecutaron los diez casos finales. No se modificó la app ni se ocultaron fallos con skip/retry/test.fail.
+- Los 24 assets de la app, quince tandas previas, helpers, config y app-server conservan sus bytes. Evidencia: `validation-project-persistence.json`. Integrar sólo `tests/16-project-persistence.spec.js` y `helpers/project-persistence.js`.
+- Catálogo: **186 implementados, 184 verificados, 2 incidencias históricas y 9 pendientes**. No se reejecutaron los 186 juntos ni TC-035/TC-155. Próximo bloque **17-ui-regression.spec.js**, TC-187–TC-195.

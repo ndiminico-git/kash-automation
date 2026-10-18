@@ -1,0 +1,520 @@
+{
+  "suite": "tests/16-project-persistence.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-18T15:20:59.624Z",
+  "durationSeconds": 187.8,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "fixedTime": "2026-10-15T12:00:00-03:00",
+  "timezoneId": "America/Argentina/Buenos_Aires",
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "preparation": "Clean context, English, empty wizard and F1 auto-guides disabled per case. Separate opening, ARS expenses, mixed-currency and second-project fixtures with individual setup budgets. Financial data entered through UI.",
+  "sourceHashes": {
+    "tests/16-project-persistence.spec.js": "0338df00026359d1aa79a8ca50bab14eb6781703a9aec15b3793f8d47654f354",
+    "helpers/project-persistence.js": "b2d7ed064f47f3741c3d91589397a7d8879dbf65d2b51ad2c99c6d278dc19e71"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "priorSourceChanges": [],
+  "serverPath": "Unchanged: path.join(__dirname, '../App'); KASH_APP_DIR override preserved.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 4,
+    "failed": 0,
+    "durationSeconds": 69.9,
+    "cases": [
+      {
+        "id": "TC-178",
+        "title": "TC-178 [R] Recargar reanuda el proyecto con monedas, pagos, notas, cuotas y divisas sin datos agregados",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 2991,
+        "timings": {
+          "persistence-setup-timing": {
+            "setupDurationMs": 3197,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "fixedTime": "2026-10-15T12:00:00-03:00"
+          },
+          "persistence-opening-timing": {
+            "setupDurationMs": 1054,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-data-timing": {
+            "setupDurationMs": 3347,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-mixed-timing": {
+            "setupDurationMs": 7215,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-180",
+        "title": "TC-180 [N] Archivos corruptos, esquema inválido y extensión no permitida no reemplazan el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 5789,
+        "timings": {
+          "persistence-setup-timing": {
+            "setupDurationMs": 2605,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "fixedTime": "2026-10-15T12:00:00-03:00"
+          },
+          "persistence-opening-timing": {
+            "setupDurationMs": 1000,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-data-timing": {
+            "setupDurationMs": 3536,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-184",
+        "title": "TC-184 [R] Alternar proyectos A y B abre cada copia completa y reinicia el historial sin mezclar datos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 5303,
+        "timings": {
+          "persistence-setup-timing": {
+            "setupDurationMs": 2461,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "fixedTime": "2026-10-15T12:00:00-03:00"
+          },
+          "persistence-opening-timing": {
+            "setupDurationMs": 1034,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-data-timing": {
+            "setupDurationMs": 3266,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-mixed-timing": {
+            "setupDurationMs": 7586,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "persistence-second-project-timing": {
+            "setupDurationMs": 4884,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      },
+      {
+        "id": "TC-186",
+        "title": "TC-186 [E] Atajos deshacen y rehacen; una acción nueva invalida rehacer y editar texto no deshace el proyecto",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 8188,
+        "timings": {
+          "persistence-setup-timing": {
+            "setupDurationMs": 2545,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "fixedTime": "2026-10-15T12:00:00-03:00"
+          },
+          "persistence-opening-timing": {
+            "setupDurationMs": 997,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "note": "Existing runtime used read only; no changes to personal repo, application or dependencies."
+  },
+  "coverage": [
+    "TC-177 [P] Autoguardado, Guardar y Guardar como conservan el proyecto completo en la sesión web",
+    "TC-178 [R] Recargar reanuda el proyecto con monedas, pagos, notas, cuotas y divisas sin datos agregados",
+    "TC-179 [P] Abrir el mismo proyecto como JSON y KASH conserva IDs y no duplica registros",
+    "TC-180 [N] Archivos corruptos, esquema inválido y extensión no permitida no reemplazan el proyecto",
+    "TC-181 [N] Cancelar el selector de archivo conserva proyecto, sesión e historial",
+    "TC-182 [N] Cancelar o Escape en cambios pendientes impide Nuevo y Abrir sin perder datos",
+    "TC-183 [R] Nuevo tras descartar crea proyecto vacío sin heredar monedas, saldos, registros ni deshacer",
+    "TC-184 [R] Alternar proyectos A y B abre cada copia completa y reinicia el historial sin mezclar datos",
+    "TC-185 [R] Deshacer y rehacer creación y edición restaura cada estado completo, pagos y saldos",
+    "TC-186 [E] Atajos deshacen y rehacen; una acción nueva invalida rehacer y editar texto no deshace el proyecto"
+  ],
+  "cases": [
+    {
+      "id": "TC-177",
+      "title": "TC-177 [P] Autoguardado, Guardar y Guardar como conservan el proyecto completo en la sesión web",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4531,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2285,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1180,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3773,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-mixed-timing": {
+          "setupDurationMs": 8186,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-178",
+      "title": "TC-178 [R] Recargar reanuda el proyecto con monedas, pagos, notas, cuotas y divisas sin datos agregados",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5864,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2682,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1163,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3746,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-mixed-timing": {
+          "setupDurationMs": 8042,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-179",
+      "title": "TC-179 [P] Abrir el mismo proyecto como JSON y KASH conserva IDs y no duplica registros",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5918,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2693,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1123,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3653,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-mixed-timing": {
+          "setupDurationMs": 7852,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-180",
+      "title": "TC-180 [N] Archivos corruptos, esquema inválido y extensión no permitida no reemplazan el proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 8941,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2750,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1225,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3673,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-181",
+      "title": "TC-181 [N] Cancelar el selector de archivo conserva proyecto, sesión e historial",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 2739,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2863,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1213,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3601,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-182",
+      "title": "TC-182 [N] Cancelar o Escape en cambios pendientes impide Nuevo y Abrir sin perder datos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5461,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2642,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1116,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3663,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-183",
+      "title": "TC-183 [R] Nuevo tras descartar crea proyecto vacío sin heredar monedas, saldos, registros ni deshacer",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6274,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2632,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1137,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3822,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-mixed-timing": {
+          "setupDurationMs": 8020,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-184",
+      "title": "TC-184 [R] Alternar proyectos A y B abre cada copia completa y reinicia el historial sin mezclar datos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 9903,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2766,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1129,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-data-timing": {
+          "setupDurationMs": 3702,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-mixed-timing": {
+          "setupDurationMs": 8146,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "persistence-second-project-timing": {
+          "setupDurationMs": 5030,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-185",
+      "title": "TC-185 [R] Deshacer y rehacer creación y edición restaura cada estado completo, pagos y saldos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 11076,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2616,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1189,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-186",
+      "title": "TC-186 [E] Atajos deshacen y rehacen; una acción nueva invalida rehacer y editar texto no deshace el proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 10466,
+      "timings": {
+        "persistence-setup-timing": {
+          "setupDurationMs": 2929,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "fixedTime": "2026-10-15T12:00:00-03:00"
+        },
+        "persistence-opening-timing": {
+          "setupDurationMs": 1160,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    }
+  ],
+  "webSaveContract": "Autosave and Save/Save as persist the working project to browser storage. The suite asserts complete data equality, not just success messages. It does not claim to write a portable .kash file or test native save dialogs.",
+  "openContract": "Open project via real navigation, unsaved-changes prompt when needed and Playwright filechooser, using in-memory .kash/.json file buffers. No direct hostEvent or internal project assignment.",
+  "invalidFiles": [
+    "truncated JSON",
+    "top-level array",
+    "missing rub array",
+    "missing inicio",
+    "valid project with .txt extension"
+  ],
+  "cancellation": "Both Cancel and Escape for New and Open, plus empty filechooser selection. Current and persisted project must remain exact.",
+  "projectIsolation": "New empty project discards old ARS/USD financial data and resets undo/redo. Switching A/B/A verifies complete states, currencies, records, balances and no undo across projects.",
+  "history": "Three button undo steps and three redo steps restore expense creation/edit, amount, payment and note with exact full snapshots excluding nid normalization only. Keyboard Ctrl+Z, Ctrl+Shift+Z and Ctrl+Y; new branch invalidates redo; Ctrl+Z inside a text editor must not undo project data.",
+  "counterNormalization": "Loading/restoring may raise nid only. All existing IDs and other fields remain exact. TC178 verifies reload before explicitly saving the normalized counter; the storage may still contain its earlier counter before that Save.",
+  "emptyProjectDefaults": "v0.677 stores inactive USD/EUR opening-balance placeholders (IDs100/101, ini0) even with ARS as the only enabled currency. The empty-project case requires those exact zero defaults, empty transaction/config collections, null source and default display options.",
+  "explicitFinancialExpectations": {
+    "sampleARS": {
+      "opening": 1000,
+      "paid": 25,
+      "pending": 75,
+      "calculated": 975,
+      "projected": 900
+    },
+    "mixed": {
+      "USDOpening": 100,
+      "USDPaid": 10.25,
+      "USDSent": 5,
+      "USDFee": 0.5,
+      "rateARSperUSD": 10,
+      "ARSReceived": 50,
+      "ARSCalculated": 1025,
+      "ARSProjected": 950,
+      "USDCalculated": 84.25,
+      "USDProjected": 84.25
+    },
+    "projectB": {
+      "ARSOpening": 2000,
+      "paid": 20,
+      "pending": 30,
+      "calculated": 1980,
+      "projected": 1950
+    },
+    "editedHistory": {
+      "ARSCalculated": 850,
+      "ARSProjected": 850
+    },
+    "newHistoryBranch": {
+      "ARSCalculated": 985,
+      "ARSProjected": 985
+    }
+  },
+  "network": "All non-local requests blocked. Initial offline preference only written when absent; timers run normally. No market data dependency.",
+  "excludedNativeScope": [
+    "portable disk write/rename",
+    "native save dialogs",
+    "native save-and-continue acknowledgement",
+    "close-exe prompt",
+    "automatic backup retention",
+    "recovery from filesystem failures"
+  ],
+  "developmentCorrections": "Initial development checks corrected QA assumptions: empty ten contains zero USD/EUR placeholders; expense payment field is paid; nid normalization after reload is in-memory until a real Save. Full final ten-case suite rerun after all corrections. App unchanged.",
+  "catalog": {
+    "implemented": 186,
+    "verifiedOnPatchedBase": 184,
+    "historicalKnownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035",
+      "QA-NOTE-001 / TC-155"
+    ],
+    "pending": 9,
+    "total": 195
+  },
+  "scope": "Only the ten new cases plus four independent Edge cases run. Previous suite evidence is historical; no full-catalogue rerun and no verification of later user app fixes."
+}
