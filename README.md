@@ -1,6 +1,6 @@
 # KA$H · Práctica de Playwright
 
-Versión de referencia: **KA$H 0.677**. Este paquete reúne las doce primeras tandas:
+Versión de referencia: **KA$H 0.677**. Este paquete reúne las trece primeras tandas:
 
 - **`tests/01-onboarding.spec.js`**: TC-001 a TC-012, primer inicio y bienvenida.
 - **`tests/02-language.spec.js`**: TC-013 a TC-026, idiomas y conservación de datos.
@@ -14,6 +14,7 @@ Versión de referencia: **KA$H 0.677**. Este paquete reúne las doce primeras ta
 - **`tests/10-currency-exchange.spec.js`**: TC-111 a TC-122, cambio de divisas.
 - **`tests/11-summary.spec.js`**: TC-123 a TC-134, Resumen, gráficos y tarjetas.
 - **`tests/12-dates-notifications.spec.js`**: TC-135 a TC-146, cierres, vencimientos y avisos.
+- **`tests/13-installments-notes.spec.js`**: TC-147 a TC-156, planes de cuotas y recordatorios propios.
 
 ## Qué hay en esta carpeta
 
@@ -31,6 +32,7 @@ qa-automation/
   tests/10-currency-exchange.spec.js Los 12 casos de divisas.
   tests/11-summary.spec.js      Los 12 casos de Resumen.
   tests/12-dates-notifications.spec.js Los 12 casos de fechas y avisos.
+  tests/13-installments-notes.spec.js Los 10 casos de cuotas y notas.
   helpers/onboarding.js        Acciones comunes de los wizards.
   helpers/language.js          Navegación, idioma y datos mínimos por UI.
   helpers/currencies.js        Monedas, dropdowns e histórico por UI.
@@ -43,6 +45,7 @@ qa-automation/
   helpers/currency-exchange.js Formularios, filas y filtros de divisas.
   helpers/summary.js           Tarjetas, gráficos, movimientos y arrastre.
   helpers/dates-notifications.js Fechas, reglas y avisos por UI.
+  helpers/installments-notes.js Cuotas, teclado y recordatorios propios por UI.
   helpers/app-server.js        Sirve la interfaz de ../App en localhost.
   playwright.config.js        Configuración de ejecución y reportes.
   qa-progress.md              Seguimiento de los 195 casos del catálogo.
@@ -51,7 +54,7 @@ qa-automation/
 
 ## Usarlo en tu proyecto de automation existente
 
-1. Si ya tenés las tandas 01–11, agregá únicamente `tests/12-dates-notifications.spec.js` y `helpers/dates-notifications.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
+1. Si ya tenés las tandas 01–12, agregá únicamente `tests/13-installments-notes.spec.js` y `helpers/installments-notes.js`. El ZIP es acumulativo y conserva los casos anteriores. No hace falta reemplazar tu package ni tu lockfile.
 2. `helpers` y `tests` deben estar en la raíz del proyecto. El servidor incluido ya apunta a `../App`; conservá tu helper si ya usa esa ruta. Para una instalación nueva, copiá los tests y helpers acumulados.
 3. Conservá tu configuración de Playwright. La configuración incluida sirve como referencia; no reemplaces la tuya si tiene otras suites o proyectos.
 4. Ejecutá desde la raíz `kash-automation`, que contiene `App/index.html`. Para esa estructura no necesitás definir `KASH_APP_DIR`. Si usás otra ubicación, esa variable puede indicar la carpeta App antes de ejecutar.
@@ -121,7 +124,10 @@ npm run test:balances
 # Tanda 12 solamente.
 npx playwright test tests/12-dates-notifications.spec.js
 
-# Las doce tandas, en orden.
+# Tanda 13 solamente.
+npx playwright test tests/13-installments-notes.spec.js
+
+# Las trece tandas, en orden.
 npm test
 ```
 
@@ -200,7 +206,7 @@ Los casos TC-013 a TC-026 siguen los IDs del catálogo original: cambios desde A
 
 Con la configuración incluida, los casos se ejecutan en el orden del archivo. También podés ejecutar cualquiera por su ID: ninguno depende del resultado del anterior.
 
-Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `13-installments-notes.spec.js`, TC-147 a TC-156.
+Consultá `qa-progress.md` para saber qué está pendiente y qué se verificó. La siguiente suite pendiente es `14-settings.spec.js`, TC-157 a TC-166.
 El estado verificado documenta la ejecución realizada al entregar este bloque; tu ejecución local generará su propio resultado.
 
 Las evidencias resumidas se conservan por separado: `validation.json` documenta la entrega original del bloque 01; `validation-language.json`, el bloque 02; `validation-currencies.json`, el bloque 03; `validation-all.json`, la última ejecución conjunta. Los reportes HTML y traces se generan localmente y no van dentro del ZIP.
@@ -705,3 +711,44 @@ La búsqueda y los tags no guardan un borrador por sí solos; el test distingue 
 Los datos se ingresan sólo por UI. La exportación pública y `localStorage` se leen para comparar el proyecto, sin modificarlos. Configurar fechas puede cambiar `serviceDates` y `serviceNotifications`; el resto del proyecto debe conservarse. Tras recargar se admite únicamente la normalización del contador `nid`, conservando IDs y datos existentes. El diagnóstico de fallo tolera que la app no haya cargado: no intenta leer `localStorage` sin protección sobre `about:blank`.
 
 **Validación:** **12/12 aprobados en 173.5 s**, con **Playwright 1.45.0 / Chromium 127.0.6533.17**. TC-138, TC-142 y TC-146 pasaron además con **Edge / runtime existente 1.64.1**, **3/3 en 56.4 s**. Sin reintentos, omisiones, fallos ni errores JavaScript. Evidencia: `validation-dates-notifications.json`. App **0.677 + parche TC-054**, 24 assets intactos; sin cambios a la app, EXE ni repositorio personal. Los resultados de tandas anteriores siguen siendo históricos.
+
+
+## Tanda 13 · Cuotas y notas
+
+Con las doce tandas previas instaladas, agregá **únicamente** `tests/13-installments-notes.spec.js` y `helpers/installments-notes.js`. El ZIP es acumulativo. Conservá la ruta `../App` de `app-server.js`, tu configuración, package y lockfile. Los dos scripts npm nuevos son opcionales; la dependencia mantiene exactamente **"@playwright/test": "^1.45.0"**.
+
+```powershell
+npx playwright test tests/13-installments-notes.spec.js
+npx playwright test tests/13-installments-notes.spec.js --grep 'TC-150 '
+npx playwright test tests/13-installments-notes.spec.js --grep 'TC-155 ' --headed
+```
+
+### Qué se prueba
+
+En v0.677, **Cuotas** es un seguimiento del número de cuota por mes: no registra importes ni confirma pagos en Consumos. Las notas de esta sección se llaman **Custom reminders / Recordatorios propios**, se guardan en `rec` y no son las notas de celdas (`notes`) ni los recordatorios mensuales (`recConfig`/`recMonthly`). Crear/editar/borrar se compara contra todos los campos ajenos al registro correspondiente para detectar efectos secundarios.
+
+Cada caso empieza desde cero con su contexto, idioma y wizard real. F1 desactiva guías automáticas mediante UI. Fecha fija **15/10/2026, Buenos Aires**, con `page.clock.setFixedTime` de Playwright **1.45.0**; los timers siguen funcionando. Dos planes, dos notas y datos financieros son fixtures opcionales, con **60 s propios** cada una, igual que el setup limpio. Cuerpo **60 s**, acciones/expectativas **5 s**. Los adjuntos `tracker-*-timing` separan preparación y ejecución. No hay dependencias entre casos, sleeps, force ni reintentos.
+
+- **TC-147**: Inicio vacío muestra formularios sin cuotas ni notas y no permite retroceder antes del proyecto.
+- **TC-148**: Agregar compra con caracteres especiales muestra seis avances sin crear gastos ni pagos.
+- **TC-149**: Nombre vacío, cantidad vacía o no positiva y mes ausente se rechazan sin insertar planes.
+- **TC-150**: Cuota única, redondeo de cantidad y planes futuros respetan fin de plan y diciembre a enero.
+- **TC-151**: Editar por botón y doble clic reemplaza sólo el plan elegido y Cancelar o Escape descarta borradores.
+- **TC-152**: Borrar una cuota exige confirmación y renumera acciones sin editar o eliminar el plan vecino.
+- **TC-153**: Flechas, Enter, F2 y Escape operan sólo sobre filas visibles aunque sus índices no sean consecutivos.
+- **TC-154**: Notas por botón y Enter conservan texto literal; vacío se rechaza y borrar respeta la nota vecina.
+- **TC-155**: Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores **Con incidencia QA-NOTE-001.**
+- **TC-156**: Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos.
+
+### Detalles para practicar
+
+- La tabla muestra seis meses desde el período elegido. Sólo aparecen los planes activos en el primer mes visible; un plan futuro o finalizado queda guardado aunque su fila no se muestre. TC-150 verifica esa regla, cruza diciembre/enero y comprueba el resaltado de la última cuota. La cantidad decimal **2.5** se guarda como **3**, de acuerdo con la normalización actual; no se inventa un requisito de rechazo.
+- Los planes y recordatorios propios no tienen IDs en esta versión: se identifican por posición del array. TC-152 y TC-154 comprueban que eliminar una fila reajuste sus acciones sin editar/borrar al vecino. TC-153 usa índices visibles **1 y 3**, separados por un plan finalizado y otro futuro, para verificar que las flechas no seleccionen filas ocultas.
+- La UI en inglés genera `data-installment-index`; en español genera `data-cuota-index`. El helper acepta ambos atributos reales. Los valores de avance son expectativas explícitas; no usa calculadores internos de la app.
+- TC-156 parte de base **ARS 1.000**, gasto pagado **50,25** y pendiente **20,50**, con nota manual literal. Cuotas y recordatorios no deben cambiar el calculado **949,75**, el estimado **929,25**, IDs, importes ni estados de pago. Al recargar en español, el resumen automático de la única celda agregada de gastos pasa de punto a coma decimal. Se admite sólo esa cadena derivada identificada y la normalización de nid; las notas manuales se comparan literalmente y todo lo demás permanece exacto.
+- Los diagnósticos de fallo toleran que la app no llegue a cargar. Exportación pública y almacenamiento se leen, sin escribir datos por APIs internas. Peticiones externas bloqueadas; no se usan proyectos personales.
+
+**Resultado:** **9 aprobados y 1 con incidencia activa**, **123.0 s**, con Playwright **1.45.0 / Chromium 127.0.6533.17**. Contraste TC-150/155/156 con Edge/runtime existente **1.64.1**: **2 aprobados y 1 con la misma incidencia**, **60.4 s**. Sin omisiones, reintentos ni errores JavaScript. App base **v0.677 + parche TC-054**, 24 assets intactos; app-server y casos/helpers anteriores sin cambios. Evidencia: `validation-installments-notes.json`. Los resultados anteriores son históricos, no una reejecución de los 156 casos juntos.
+
+
+**TC-155 queda activo y fallará en esta app.** Después de rechazar una edición vacía y cerrar la advertencia, agregar una nota válida con Enter reabre la advertencia anterior. La nota sí se agrega una vez. Se reprodujo en ambos navegadores; la causa es un listener de teclado que no se retira en `editOwnReminder`. No se altera la expectativa, no se omite el caso ni se recarga a mitad del flujo para ocultarlo. **La suite y CI pueden quedar en rojo por QA-NOTE-001.** Ver `known-issues.md` y `evidence/TC-155-stale-validation.png`. La app no fue modificada al entregar las pruebas.

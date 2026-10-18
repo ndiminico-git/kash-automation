@@ -87,3 +87,15 @@ Evidencia y entornos ejecutados: `validation-expenses.json`. La captura se entre
 El trace aportado por el usuario registra 6,2 s para agregar USD y 28,0 s para EUR. Ambos pasos compartían los 60 s del caso con la carga y verificación de bases en tres recorridos de Ajustes, Planilla y Resumen. El timeout se produjo durante la verificación EUR, sin una comparación de saldo fallida registrada. El diagnóstico de proyecto contiene ARS 1.000, USD 200 y EUR 50,25, sin ingresos/gastos/cierres agregados. Algunas operaciones terminaron durante la limpieza: el resultado original continúa siendo fallido por timeout.
 
 REV2 organiza la preparación de monedas en una fixture UI no automática, exclusiva de TC-090 y con 60 s propios, y agrupa las entradas/verificaciones por pantalla. El cuerpo conserva sus 60 s, acciones/expectativas 5 s, y todos los controles originales. Los otros trece casos y la app no cambian. Validación nueva en `validation-balances-rev2.json`; diagnóstico resumido en `diagnosis-tc090-user.json`. La causa de la latencia del equipo no está determinada: no se atribuye a un defecto de Chromium. No se usan reintentos, esperas fijas ni omisiones para ocultar el fallo.
+
+
+## QA-NOTE-001 · TC-155 · Una validación vieja reaparece al agregar otra nota con Enter
+
+- **App:** v0.677 con el parche independiente TC-054. **Caso activo:** `tests/13-installments-notes.spec.js`, TC-155.
+- **Reproducción:** crear dos recordatorios propios; editar uno normalmente; editar el otro y dejar sólo espacios; pulsar Guardar; cerrar la advertencia con Aceptar; escribir una nota nueva válida en Nuevo recordatorio y agregarla con Enter.
+- **Esperado:** la nota nueva se agrega una vez y no queda ninguna validación abierta. El texto anterior de la nota rechazada se conserva.
+- **Observado:** la nota nueva sí se agrega y persiste una sola vez, pero reaparece **Enter some reminder text.**. Los dos textos anteriores se conservan y no hay cambios financieros. Es un error de estado/teclado del modal, no pérdida de notas ni un límite de tiempo global.
+- **Causa verificada en código:** `editOwnReminder()` (`App/index.html`, línea 1639 de la base probada) registra un listener de teclado en document. Al rechazar un texto vacío, llama a `darkAlert()` y sale sin ejecutar `close()`, que es quien retira ese listener. Cerrar la nueva alerta retira sólo el listener propio de la alerta. El listener anterior queda activo y vuelve a validar el input del editor ya retirado cuando se pulsa Enter.
+- **Entornos:** reproducido en Chromium 127 con Playwright 1.45.0 y en Edge con el runtime existente 1.64.1. No se atribuye a Chromium.
+- **Evidencia:** `validation-installments-notes.json`, adjunto `tracker-diagnostic`, captura `evidence/TC-155-stale-validation.png`. El trace se genera localmente; no se incluye completo en el ZIP.
+- **Estado:** pendiente de corregir en la app. **TC-155 permanece activo y falla; puede dejar CI en rojo.** No se agregan skips, test.fail, retries ni recargas intermedias para esconderlo. No se modifica la app al entregar esta tanda de QA.

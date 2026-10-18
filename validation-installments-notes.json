@@ -1,0 +1,348 @@
+{
+  "suite": "tests/13-installments-notes.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-17T23:27:40.119Z",
+  "durationSeconds": 123.0,
+  "passed": 9,
+  "failed": 1,
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "knownActiveFailures": [
+    "QA-NOTE-001 / TC-155"
+  ],
+  "fixedTime": "2026-10-15T12:00:00-03:00",
+  "timezoneId": "America/Argentina/Buenos_Aires",
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "preparation": "Clean contexts, English, empty project wizard and automatic guides disabled via F1. Optional two plans/two notes/financial fixtures created only through UI.",
+  "sourceHashes": {
+    "tests/13-installments-notes.spec.js": "00e2e65d37b840f695d4e2fe86e275b603c03a5fbfbde52867a2e976a87108a8",
+    "helpers/installments-notes.js": "2476e20c10b3331e74f4c4254d6b92cba9504550e18809cddc56f7c8713974ec"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "priorSourceChanges": [],
+  "serverPath": "Unchanged: path.join(__dirname, '../App'); KASH_APP_DIR override preserved.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 2,
+    "failed": 1,
+    "durationSeconds": 60.4,
+    "cases": [
+      {
+        "id": "TC-150",
+        "title": "TC-150 [B] Cuota única, redondeo de cantidad y planes futuros respetan fin de plan y diciembre a enero",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 5801,
+        "timings": {
+          "tracker-setup-timing": {
+            "setupDurationMs": 5684,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          }
+        }
+      },
+      {
+        "id": "TC-155",
+        "title": "TC-155 [N] Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores",
+        "status": "failed",
+        "retry": 0,
+        "executionDurationMs": 10610,
+        "timings": {
+          "tracker-setup-timing": {
+            "setupDurationMs": 4126,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "tracker-notes-timing": {
+            "setupDurationMs": 1459,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        },
+        "issue": "QA-NOTE-001",
+        "failure": "A stale validation reopens after a new valid reminder is added with Enter.",
+        "diagnostic": {
+          "modal": "!\nMissing information\nEnter some reminder text.\nOK",
+          "notes": [
+            {
+              "t": "Texto editado & <b>Guardar</b>"
+            },
+            {
+              "t": "Segunda nota / Save"
+            },
+            {
+              "t": "Nota nueva después de corregir"
+            }
+          ],
+          "notesPersisted": true,
+          "financialDataUnchanged": true
+        }
+      },
+      {
+        "id": "TC-156",
+        "title": "TC-156 [R] Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 11728,
+        "timings": {
+          "tracker-setup-timing": {
+            "setupDurationMs": 5350,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "fixedTime": "2026-10-15T12:00:00-03:00",
+            "freshProject": true
+          },
+          "tracker-financial-timing": {
+            "setupDurationMs": 5731,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        }
+      }
+    ],
+    "note": "Existing user runtime read only. No user repository/dependency changes."
+  },
+  "coverage": [
+    "TC-147 [P] Inicio vacío muestra formularios sin cuotas ni notas y no permite retroceder antes del proyecto",
+    "TC-148 [P] Agregar compra con caracteres especiales muestra seis avances sin crear gastos ni pagos",
+    "TC-149 [N] Nombre vacío, cantidad vacía o no positiva y mes ausente se rechazan sin insertar planes",
+    "TC-150 [B] Cuota única, redondeo de cantidad y planes futuros respetan fin de plan y diciembre a enero",
+    "TC-151 [R] Editar por botón y doble clic reemplaza sólo el plan elegido y Cancelar o Escape descarta borradores",
+    "TC-152 [R] Borrar una cuota exige confirmación y renumera acciones sin editar o eliminar el plan vecino",
+    "TC-153 [R] Flechas, Enter, F2 y Escape operan sólo sobre filas visibles aunque sus índices no sean consecutivos",
+    "TC-154 [P] Notas por botón y Enter conservan texto literal; vacío se rechaza y borrar respeta la nota vecina",
+    "TC-155 [N] Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores",
+    "TC-156 [R] Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos"
+  ],
+  "cases": [
+    {
+      "id": "TC-147",
+      "title": "TC-147 [P] Inicio vacío muestra formularios sin cuotas ni notas y no permite retroceder antes del proyecto",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3564,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 3597,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-148",
+      "title": "TC-148 [P] Agregar compra con caracteres especiales muestra seis avances sin crear gastos ni pagos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3784,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 5566,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-149",
+      "title": "TC-149 [N] Nombre vacío, cantidad vacía o no positiva y mes ausente se rechazan sin insertar planes",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 8007,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 5433,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-150",
+      "title": "TC-150 [B] Cuota única, redondeo de cantidad y planes futuros respetan fin de plan y diciembre a enero",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6797,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 3943,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-151",
+      "title": "TC-151 [R] Editar por botón y doble clic reemplaza sólo el plan elegido y Cancelar o Escape descarta borradores",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6664,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 4725,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "tracker-plans-timing": {
+          "setupDurationMs": 2279,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-152",
+      "title": "TC-152 [R] Borrar una cuota exige confirmación y renumera acciones sin editar o eliminar el plan vecino",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4251,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 6757,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "tracker-plans-timing": {
+          "setupDurationMs": 1544,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    },
+    {
+      "id": "TC-153",
+      "title": "TC-153 [R] Flechas, Enter, F2 y Escape operan sólo sobre filas visibles aunque sus índices no sean consecutivos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 7493,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 3015,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-154",
+      "title": "TC-154 [P] Notas por botón y Enter conservan texto literal; vacío se rechaza y borrar respeta la nota vecina",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 4779,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 2944,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        }
+      }
+    },
+    {
+      "id": "TC-155",
+      "title": "TC-155 [N] Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores",
+      "status": "failed",
+      "retry": 0,
+      "executionDurationMs": 9027,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 3018,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "tracker-notes-timing": {
+          "setupDurationMs": 1144,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "issue": "QA-NOTE-001",
+      "failure": "A stale validation reopens after a new valid reminder is added with Enter.",
+      "diagnostic": {
+        "modal": "!\nMissing information\nEnter some reminder text.\nOK",
+        "notes": [
+          {
+            "t": "Texto editado & <b>Guardar</b>"
+          },
+          {
+            "t": "Segunda nota / Save"
+          },
+          {
+            "t": "Nota nueva después de corregir"
+          }
+        ],
+        "notesPersisted": true,
+        "financialDataUnchanged": true
+      }
+    },
+    {
+      "id": "TC-156",
+      "title": "TC-156 [R] Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 11457,
+      "timings": {
+        "tracker-setup-timing": {
+          "setupDurationMs": 2773,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "fixedTime": "2026-10-15T12:00:00-03:00",
+          "freshProject": true
+        },
+        "tracker-financial-timing": {
+          "setupDurationMs": 4654,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      }
+    }
+  ],
+  "identities": "Plans use cu array positions, custom reminders use rec array positions; this version assigns no IDs to these records. Financial expense IDs are checked independently and persist.",
+  "selectorLocalization": "English runtime produces data-installment-index; Spanish uses data-cuota-index. Helpers accept both, without changing DOM.",
+  "reloadNormalization": "Only nid and the explicitly identified generated expense-summary C[key].n may differ across ES reload. The expected English/Spanish summary strings are explicit. All other fields, manual expense notes, custom reminders, plans, amounts, payment states and IDs must match exactly.",
+  "expectations": "UI writes only; public project export/storage read only. Six explicit progress values, short/end/future boundaries, active visible indices, and explicit financial values. No internal app calculators/handlers called.",
+  "network": "External requests blocked. No personal project files loaded or edited.",
+  "catalog": {
+    "implemented": 156,
+    "verifiedOnPatchedBase": 154,
+    "knownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035",
+      "QA-NOTE-001 / TC-155"
+    ],
+    "pending": 39,
+    "total": 195
+  },
+  "scope": "Module13 complete run plus independent three-case Edge contrast. Earlier evidence is historical; full catalog not rerun."
+}

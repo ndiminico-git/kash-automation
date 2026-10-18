@@ -5,7 +5,7 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 
 **Restricción de dependencias indicada por el usuario:** en los `package.json` de KA$H, usar exactamente `"@playwright/test": "^1.45.0"`. No sustituir ese valor por la versión del runtime de herramientas. Los resultados históricos conservan la versión con la que realmente se ejecutaron y no se reinterpretan como pruebas con 1.45.0.
 
-**Avance vigente: 146 implementados; 145 verificados sobre v0.677 con el parche TC-054, 1 con incidencia y 49 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
+**Avance vigente: 156 implementados; 154 verificados sobre v0.677 con el parche TC-054, 2 con incidencia y 39 pendientes, de 195.** Los resultados de la app original y de las primeras tandas se conservan como evidencia histórica.
 
 **Parche TC-054, 16/10/2026:** sobre v0.677 con `KASH_v0.677_PATCH_TC054.zip` aplicado, los 18 casos de Gastos pasan sin cambios en las pruebas. Al entregar ese parche, antes de la tanda 05, quedaban 53 verificados y una incidencia abierta (TC-035). El portable original y las evidencias anteriores conservan sus resultados. La verificación adicional de ocho escenarios de recordatorios no agrega IDs al catálogo. Ver `validation-tc054-fix.json`.
 
@@ -224,11 +224,25 @@ No renumerar los casos al agregar nuevos. Las pruebas nuevas reciben nuevos IDs.
 | TC-145 | Popover de fechas admite hover, foco y fijación por clic con diseño propio y cierre sin escrituras | Verificado |
 | TC-146 | Recargar conserva fechas ARS y USD, avisos y pagos; cambiar idioma no traduce nombres del usuario | Verificado |
 
+## Bloque 13: 13-installments-notes.spec.js
+
+| ID | Caso | Estado |
+|---|---|---|
+| TC-147 | Inicio vacío muestra formularios sin cuotas ni notas y no permite retroceder antes del proyecto | Verificado |
+| TC-148 | Agregar compra con caracteres especiales muestra seis avances sin crear gastos ni pagos | Verificado |
+| TC-149 | Nombre vacío, cantidad vacía o no positiva y mes ausente se rechazan sin insertar planes | Verificado |
+| TC-150 | Cuota única, redondeo de cantidad y planes futuros respetan fin de plan y diciembre a enero | Verificado |
+| TC-151 | Editar por botón y doble clic reemplaza sólo el plan elegido y Cancelar o Escape descarta borradores | Verificado |
+| TC-152 | Borrar una cuota exige confirmación y renumera acciones sin editar o eliminar el plan vecino | Verificado |
+| TC-153 | Flechas, Enter, F2 y Escape operan sólo sobre filas visibles aunque sus índices no sean consecutivos | Verificado |
+| TC-154 | Notas por botón y Enter conservan texto literal; vacío se rechaza y borrar respeta la nota vecina | Verificado |
+| TC-155 | Editar nota vacía conserva el texto y permite continuar con Enter sin reabrir validaciones anteriores | Con incidencia QA-NOTE-001 |
+| TC-156 | Ocultar y restaurar sección, cambiar idioma y recargar conserva cuotas, notas, gastos y saldos | Verificado |
+
 ## Próximos bloques
 
 | Orden | Archivo previsto | Casos | Estado |
 |---|---|---|---|
-| 13 | `13-installments-notes.spec.js` | TC-147–TC-156 | Pendiente |
 | 14 | `14-settings.spec.js` | TC-157–TC-166 | Pendiente |
 | 15 | `15-estimator-access.spec.js` | TC-167–TC-176 | Pendiente |
 | 16 | `16-project-persistence.spec.js` | TC-177–TC-186 | Pendiente |
@@ -442,3 +456,17 @@ Antes de las pruebas funcionales, el Edge instalado no pudo iniciarse con el run
 - Evidencia: `validation-dates-notifications.json`. Los 24 assets de app conservan sus hashes; los 11 specs anteriores, sus helpers de dominio y evidencias mantienen sus bytes. No se modificó el repositorio del usuario.
 - Catálogo: **146 implementados, 145 verificados sobre base con parche, 1 incidencia TC-035 y 49 pendientes**. Los resultados previos son históricos; no se reejecutaron los 146 juntos.
 - Próximo: **13-installments-notes.spec.js**, TC-147–TC-156; todavía pendiente.
+
+
+## Verificación del bloque 13 · Cuotas y notas
+
+- **9 aprobados y 1 con incidencia activa**, en **123.0 s**, Playwright **1.45.0**, Chromium **127.0.6533.17**, un worker. Sin reintentos, omisiones ni errores JavaScript.
+- Contraste independiente TC-150, TC-155 y TC-156: **2 aprobados y 1 con la misma incidencia**, en **60.4 s**, Edge/runtime existente **1.64.1**. No se cambia `^1.45.0`.
+- Contexto limpio por caso, wizard real, inglés y guías automáticas desactivadas por F1. Fecha fija 15/10/2026, zona Buenos Aires; timers de UI activos. Cada fixture limpia/dos planes/dos notas/datos financieros tiene 60 s propios; cuerpo 60 s; acciones/expectativas 5 s.
+- Seis avances explícitos; una cuota; cantidad 2,5 normalizada a 3 por el comportamiento actual; futura/terminada no visible pero conservada; diciembre/enero; edición/cancelación; eliminación y posiciones reasignadas; flechas/Enter/F2/Escape con índices visibles no consecutivos; notas literales por botón/Enter, vacío, edición y borrado; ocultar/restaurar, ES y recarga con gastos pagados/pendientes.
+- Selectores ES/EN reales: `data-cuota-index` / `data-installment-index`. Sin alterar DOM ni llamar a handlers internos para preparar datos.
+- Al recargar en español sólo se admite normalizar nid y el texto resumen automático de la celda de gastos identificada explícitamente (punto/coma). Las notas manuales y todos los demás campos/IDs/importes/pagos deben permanecer exactos. Saldo calculado ARS 949,75 y estimado ARS 929,25 antes/después, a partir de base 1.000, pago 50,25 y pendiente 20,50.
+- Evidencia: `validation-installments-notes.json`. App y EXE sin cambios, 24 assets con hashes intactos. Los 12 specs/helpers de dominio/evidencias anteriores, app-server y config conservan sus bytes.
+- Integrar sólo `tests/13-installments-notes.spec.js` y `helpers/installments-notes.js`. Próximo bloque 14, TC-157–TC-166, pendiente. No se reejecutó el catálogo completo.
+
+**TC-155 detecta QA-NOTE-001 y seguirá fallando hasta corregir la app; no es un timeout del runner. Ver known-issues.md.**
