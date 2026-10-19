@@ -1,0 +1,2640 @@
+{
+  "appVersion": "0.690",
+  "date": "2026-10-19",
+  "totalCases": 213,
+  "modules": 19,
+  "discovery": {
+    "cases": 213,
+    "modules": 19,
+    "status": "passed"
+  },
+  "environment": {
+    "os": "Windows",
+    "playwright": "1.45.0",
+    "browser": "Chromium 127.0.6533.17",
+    "channel": "bundled",
+    "workers": 1,
+    "testRetries": 0
+  },
+  "targetedRun": {
+    "stats": {
+      "startTime": "2026-10-19T16:04:25.679Z",
+      "duration": 71672.332,
+      "expected": 4,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "id": "TC-086",
+        "status": "passed",
+        "durationMs": 8178,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-145",
+        "status": "passed",
+        "durationMs": 6245,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-188",
+        "status": "passed",
+        "durationMs": 25417,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-194",
+        "status": "passed",
+        "durationMs": 2074,
+        "retry": 0,
+        "repeatEachIndex": 0
+      }
+    ]
+  },
+  "additionalIndependentRepetitions": {
+    "stats": {
+      "startTime": "2026-10-19T16:06:06.605Z",
+      "duration": 74921.129,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "id": "TC-086",
+        "status": "passed",
+        "durationMs": 8351,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-086",
+        "status": "passed",
+        "durationMs": 7649,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-086",
+        "status": "passed",
+        "durationMs": 7580,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-145",
+        "status": "passed",
+        "durationMs": 5645,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-145",
+        "status": "passed",
+        "durationMs": 5665,
+        "retry": 0,
+        "repeatEachIndex": 0
+      },
+      {
+        "id": "TC-145",
+        "status": "passed",
+        "durationMs": 5477,
+        "retry": 0,
+        "repeatEachIndex": 0
+      }
+    ]
+  },
+  "uiMeasurements": {
+    "TC-188": [
+      {
+        "count": 1,
+        "width": 1920,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1598,
+          "height": 210,
+          "right": 1883,
+          "bottom": 376
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 210,
+            "right": 1883,
+            "bottom": 376
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 804,
+                "scrollWidth": 804,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 804,
+                "scrollWidth": 804,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 720,
+                "scrollWidth": 720,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 284,
+                "scrollWidth": 284,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": "approxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "width": 1366,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1044,
+          "height": 210,
+          "right": 1329,
+          "bottom": 376
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 210,
+            "right": 1329,
+            "bottom": 376
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 527,
+                "scrollWidth": 527,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 527,
+                "scrollWidth": 527,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 443,
+                "scrollWidth": 443,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 284,
+                "scrollWidth": 284,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "1",
+                "className": "approxValue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 2,
+        "width": 1920,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1598,
+          "height": 281.265625,
+          "right": 1883,
+          "bottom": 447.265625
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 793,
+            "height": 281.265625,
+            "right": 1078,
+            "bottom": 447.265625
+          },
+          {
+            "x": 1090,
+            "y": 166,
+            "width": 793,
+            "height": 281.265625,
+            "right": 1883,
+            "bottom": 447.265625
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 759,
+                "scrollWidth": 759,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 759,
+                "scrollWidth": 759,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 743,
+                "scrollWidth": 743,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 743,
+                "scrollWidth": 743,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 759,
+                "scrollWidth": 759,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 759,
+                "scrollWidth": 759,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 743,
+                "scrollWidth": 743,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 743,
+                "scrollWidth": 743,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 2,
+        "width": 1366,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1044,
+          "height": 281.265625,
+          "right": 1329,
+          "bottom": 447.265625
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 516,
+            "height": 281.265625,
+            "right": 801,
+            "bottom": 447.265625
+          },
+          {
+            "x": 813,
+            "y": 166,
+            "width": 516,
+            "height": 281.265625,
+            "right": 1329,
+            "bottom": 447.265625
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 482,
+                "scrollWidth": 482,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 482,
+                "scrollWidth": 482,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 466,
+                "scrollWidth": 466,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 466,
+                "scrollWidth": 466,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "2",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 482,
+                "scrollWidth": 482,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 482,
+                "scrollWidth": 482,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 466,
+                "scrollWidth": 466,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 466,
+                "scrollWidth": 466,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "2",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 3,
+        "width": 1920,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1598,
+          "height": 281.265625,
+          "right": 1883,
+          "bottom": 447.265625
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 524.65625,
+            "height": 281.265625,
+            "right": 809.65625,
+            "bottom": 447.265625
+          },
+          {
+            "x": 821.65625,
+            "y": 166,
+            "width": 524.671875,
+            "height": 281.265625,
+            "right": 1346.328125,
+            "bottom": 447.265625
+          },
+          {
+            "x": 1358.328125,
+            "y": 166,
+            "width": 524.671875,
+            "height": 281.265625,
+            "right": 1883,
+            "bottom": 447.265625
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 491,
+                "scrollWidth": 491,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 475,
+                "scrollWidth": 475,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 3,
+        "width": 1366,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1044,
+          "height": 281.265625,
+          "right": 1329,
+          "bottom": 447.265625
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 340,
+            "height": 281.265625,
+            "right": 625,
+            "bottom": 447.265625
+          },
+          {
+            "x": 637,
+            "y": 166,
+            "width": 340,
+            "height": 281.265625,
+            "right": 977,
+            "bottom": 447.265625
+          },
+          {
+            "x": 989,
+            "y": 166,
+            "width": 340,
+            "height": 281.265625,
+            "right": 1329,
+            "bottom": 447.265625
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "3",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "3",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 306,
+                "scrollWidth": 306,
+                "height": 38,
+                "scrollHeight": 40,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 23,
+                "scrollHeight": 23,
+                "font": "600 18px / 22.5px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 290,
+                "scrollWidth": 290,
+                "height": 36,
+                "scrollHeight": 38,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "3",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "width": 1920,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1598,
+          "height": 243.671875,
+          "right": 1883,
+          "bottom": 409.671875
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 392,
+            "height": 243.671875,
+            "right": 677,
+            "bottom": 409.671875
+          },
+          {
+            "x": 687,
+            "y": 166,
+            "width": 392,
+            "height": 243.671875,
+            "right": 1079,
+            "bottom": 409.671875
+          },
+          {
+            "x": 1089,
+            "y": 166,
+            "width": 392,
+            "height": 243.671875,
+            "right": 1481,
+            "bottom": 409.671875
+          },
+          {
+            "x": 1491,
+            "y": 166,
+            "width": 392,
+            "height": 243.671875,
+            "right": 1883,
+            "bottom": 409.671875
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 362,
+                "scrollWidth": 362,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 346,
+                "scrollWidth": 346,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 4,
+        "width": 1366,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1044,
+          "height": 497.34375,
+          "right": 1329,
+          "bottom": 663.34375
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 517,
+            "height": 243.671875,
+            "right": 802,
+            "bottom": 409.671875
+          },
+          {
+            "x": 812,
+            "y": 166,
+            "width": 517,
+            "height": 243.671875,
+            "right": 1329,
+            "bottom": 409.671875
+          },
+          {
+            "x": 285,
+            "y": 419.671875,
+            "width": 517,
+            "height": 243.671875,
+            "right": 802,
+            "bottom": 663.34375
+          },
+          {
+            "x": 812,
+            "y": 419.671875,
+            "width": 517,
+            "height": 243.671875,
+            "right": 1329,
+            "bottom": 663.34375
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "4",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 487,
+                "scrollWidth": 487,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 471,
+                "scrollWidth": 471,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "4",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 5,
+        "width": 1920,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1598,
+          "height": 497.34375,
+          "right": 1883,
+          "bottom": 663.34375
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 526,
+            "height": 243.671875,
+            "right": 811,
+            "bottom": 409.671875
+          },
+          {
+            "x": 821,
+            "y": 166,
+            "width": 526,
+            "height": 243.671875,
+            "right": 1347,
+            "bottom": 409.671875
+          },
+          {
+            "x": 1357,
+            "y": 166,
+            "width": 526,
+            "height": 243.671875,
+            "right": 1883,
+            "bottom": 409.671875
+          },
+          {
+            "x": 553,
+            "y": 419.671875,
+            "width": 526,
+            "height": 243.671875,
+            "right": 1079,
+            "bottom": 663.34375
+          },
+          {
+            "x": 1089,
+            "y": 419.671875,
+            "width": 526,
+            "height": 243.671875,
+            "right": 1615,
+            "bottom": 663.34375
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "JPY 0",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "JPY 0",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 496,
+                "scrollWidth": 496,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 480,
+                "scrollWidth": 480,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1920,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "count": 5,
+        "width": 1366,
+        "outer": {
+          "x": 285,
+          "y": 166,
+          "width": 1044,
+          "height": 497.34375,
+          "right": 1329,
+          "bottom": 663.34375
+        },
+        "cards": [
+          {
+            "x": 285,
+            "y": 166,
+            "width": 341.328125,
+            "height": 243.671875,
+            "right": 626.328125,
+            "bottom": 409.671875
+          },
+          {
+            "x": 636.328125,
+            "y": 166,
+            "width": 341.328125,
+            "height": 243.671875,
+            "right": 977.65625,
+            "bottom": 409.671875
+          },
+          {
+            "x": 987.65625,
+            "y": 166,
+            "width": 341.34375,
+            "height": 243.671875,
+            "right": 1329,
+            "bottom": 409.671875
+          },
+          {
+            "x": 460.65625,
+            "y": 419.671875,
+            "width": 341.34375,
+            "height": 243.671875,
+            "right": 802,
+            "bottom": 663.34375
+          },
+          {
+            "x": 812,
+            "y": 419.671875,
+            "width": 341.328125,
+            "height": 243.671875,
+            "right": 1153.328125,
+            "bottom": 663.34375
+          }
+        ],
+        "text": [
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "ARS 123,456,764.12",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "ARS 123,456,689.12",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "ARS",
+                "currencyCount": "5",
+                "className": "approxValue "
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "BRL 0",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "BRL",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "EUR 0",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "EUR",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "JPY 0",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "JPY 0",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "JPY",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          },
+          {
+            "kind": "text-fit",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "currencyBalanceCaption"
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 311,
+                "scrollWidth": 311,
+                "height": 35,
+                "scrollHeight": 36,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "moneyZero"
+              },
+              {
+                "text": "Projected month-end balance",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 21,
+                "scrollHeight": 21,
+                "font": "600 17px / 21.25px \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-serif",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": ""
+              },
+              {
+                "text": "USD 0",
+                "id": "",
+                "width": 295,
+                "scrollWidth": 295,
+                "height": 34,
+                "scrollHeight": 35,
+                "font": "",
+                "viewport": {
+                  "width": 1366,
+                  "height": 1080
+                },
+                "currency": "USD",
+                "currencyCount": "5",
+                "className": "approxValue moneyZero"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "TC-194": [
+      {
+        "kind": "modal-focus",
+        "button": {
+          "x": 1285,
+          "y": 397.84375,
+          "width": 34,
+          "height": 34,
+          "right": 1319,
+          "bottom": 431.84375
+        },
+        "icon": {
+          "x": 1294,
+          "y": 406.84375,
+          "width": 16,
+          "height": 16,
+          "right": 1310,
+          "bottom": 422.84375
+        },
+        "afterTab": {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "",
+          "insideDialog": true
+        },
+        "afterClose": {
+          "tag": "BUTTON",
+          "id": "",
+          "text": "",
+          "insideDialog": false
+        }
+      }
+    ]
+  },
+  "dependencyDeclaration": "^1.45.0",
+  "lockedVersion": "1.45.0",
+  "workflowInstall": "npm install",
+  "appEdited": false,
+  "fullModifiedSuiteRun": false,
+  "githubActionsRun": false,
+  "preservedChecks": {
+    "financialAmounts": true,
+    "projectIntegrity": true,
+    "focusAndKeyboard": true,
+    "textOverflowTolerancePx": 2,
+    "contrastRequirements": true
+  },
+  "changedCheck": {
+    "closeIconCenterTolerancePx": {
+      "before": 1,
+      "after": 2
+    }
+  },
+  "remainingRisk": "TC-188 reported 52 CSS px overflow in GitHub before this patch. It remains active and will fail if overflow persists after layout stabilization. Passing on Windows does not establish a pass on Ubuntu."
+}

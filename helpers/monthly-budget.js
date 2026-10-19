@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { goTo, projectSnapshot } = require('./language');
 const { readSavedProject } = require('./expenses');
+const { preparePointerTarget } = require('./interaction-stability');
 
 const budgetRow = (page, service) => page.locator(`#gw tr.data-row[data-rid="${service.id}"]`);
 const budgetCell = (page, service, month) => page.locator(`#gw td[data-key="${service.id}|${month}"]`);
@@ -99,9 +100,18 @@ async function expectBudgetUnchanged(page, before) {
 
 async function openBudgetExpensePayments(page, service, month) {
   await selectBudgetYear(page, Number(month.slice(0, 4)));
-  await budgetCell(page, service, month).click({ button: 'right' });
-  await page.locator('#expensePaymentMenu').getByRole('menuitem', { name: 'Edit expenses', exact: true }).click();
-  await expect(page.locator('#expensePaymentPopup [data-payment-save]')).toBeVisible();
+  const cell = budgetCell(page, service, month);
+  await preparePointerTarget(page, cell);
+  await cell.click({ button: 'right' });
+  const edit = page.locator('#expensePaymentMenu').getByRole('menuitem', { name: 'Edit expenses', exact: true });
+  await expect(edit).toBeVisible({ timeout:10_000 });
+  await expect(edit).toBeEnabled();
+  await edit.click();
+  const popup = page.locator('#expensePaymentPopup');
+  await expect(popup).toHaveAttribute('role', 'dialog');
+  await expect(popup).toHaveClass(/paymentEditing/);
+  await expect(popup.locator('[data-payment-save]')).toBeVisible();
+  await expect(popup.locator('[data-payment-loaded]')).toHaveText(/\S/);
 }
 
 module.exports = {

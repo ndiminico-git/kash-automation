@@ -1,0 +1,63 @@
+{
+  "kind": "replacement-patch",
+  "appVersion": "0.690",
+  "applyAt": "C:/Nico/Misc/kash-automation",
+  "appIncluded": false,
+  "files": [
+    {
+      "path": ".github/workflows/playwright.yml",
+      "bytes": 882,
+      "sha256": "ba9961c428d2f3d6e91826b427678d6dc153f8f5aa595ba6ecf099748e702786"
+    },
+    {
+      "path": "helpers/interaction-stability.js",
+      "bytes": 1964,
+      "sha256": "ff64d7e14ca194c03a5e10e85e6cc336436588fcd8cd22b00308308a44d9360c"
+    },
+    {
+      "path": "helpers/monthly-budget.js",
+      "bytes": 5353,
+      "sha256": "f9861be29d21caebf72f48e4a7914e6f9c635d746593abbd5e06ec3449abcb85"
+    },
+    {
+      "path": "helpers/ui-regression.js",
+      "bytes": 8905,
+      "sha256": "fdfd7dcfb2344af12938b2e32dee1a69595a7ef0e812da1c8848a75af9138806"
+    },
+    {
+      "path": "INCIDENCIAS_ESTABILIDAD.md",
+      "bytes": 4195,
+      "sha256": "0ca01635268e48ef7c1a2fba60b85f9c452c5fdbf434d7c6dcc4ba459b33442e"
+    },
+    {
+      "path": "LEEME_ESTABILIDAD.md",
+      "bytes": 3727,
+      "sha256": "4911933deda1d0c511931e9ef4cf420e7ea61451c467c490de0a44c50b17e0b1"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 1733,
+      "sha256": "353f3c290bca865e661c916761a44e6628e94d0e63729219e6949d1a87acd83e"
+    },
+    {
+      "path": "package.json",
+      "bytes": 3627,
+      "sha256": "42c771e42df2d15b36f66b4f049143b245168128b65c3aa35449438aea857d7b"
+    },
+    {
+      "path": "tests/12-dates-notifications.spec.js",
+      "bytes": 25533,
+      "sha256": "5e19f40d797abeb3bb51831e3d88af698adeb823c2ffff5de4b0ad378e095372"
+    },
+    {
+      "path": "tests/17-ui-regression.spec.js",
+      "bytes": 20264,
+      "sha256": "00e77027a6ad0d9f786dcb262907adf41a948f27a8bf2a341f49e9f4a62b8500"
+    },
+    {
+      "path": "validation-stability.json",
+      "bytes": 82094,
+      "sha256": "9ae743117a66dd86f2b49045aee57591a21c90ead7a07e4023d0885a6053bba1"
+    }
+  ]
+}

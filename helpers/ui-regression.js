@@ -1,6 +1,9 @@
 const { expect } = require('@playwright/test');
 const { projectSnapshot, settingsPage } = require('./language');
 const { expectBudgetPersisted } = require('./monthly-budget');
+const { waitForStableLayout } = require('./interaction-stability');
+
+const GEOMETRY_TOLERANCE_PX = 2;
 
 const uiTime = '2026-10-15T12:00:00-03:00';
 const uiMonth = '2026-10';
@@ -11,11 +14,27 @@ async function unchangedUIProject(page, before) {
 }
 
 async function box(locator) {
-  await expect(locator).toBeVisible();
-  return locator.evaluate(el => {
-    const r = el.getBoundingClientRect();
-    return { x: r.x, y: r.y, width: r.width, height: r.height, right: r.right, bottom: r.bottom };
-  });
+  return waitForStableLayout(locator);
+}
+
+async function centeredIcon(button) {
+  await waitForStableLayout(button);
+  let result;
+  await expect(async () => {
+    // Botón e icono se miden en el mismo frame; no mezclar posiciones de una animación.
+    result = await button.evaluate(el => {
+      const rect = node => {
+        const r = node.getBoundingClientRect();
+        return { x:r.x, y:r.y, width:r.width, height:r.height, right:r.right, bottom:r.bottom };
+      };
+      const button = rect(el), icon = rect(el.querySelector('svg'));
+      return { button, icon, dx:Math.abs(button.x + button.width/2 - icon.x - icon.width/2),
+        dy:Math.abs(button.y + button.height/2 - icon.y - icon.height/2) };
+    });
+    expect(result.dx, 'Centrado horizontal de la X, tolerancia 2 CSS px').toBeLessThanOrEqual(GEOMETRY_TOLERANCE_PX);
+    expect(result.dy, 'Centrado vertical de la X, tolerancia 2 CSS px').toBeLessThanOrEqual(GEOMETRY_TOLERANCE_PX);
+  }).toPass({ timeout:5_000, intervals:[100,200,500] });
+  return result;
 }
 
 function contained(inner, outer, label, tolerance = 2) {
@@ -31,15 +50,28 @@ function separate(a, b, label) {
   expect(overlapWidth <= 1 || overlapHeight <= 1, label).toBe(true);
 }
 
-async function noClippedText(locator) {
-  const data = await locator.evaluateAll(nodes => nodes.filter(el => el.getClientRects().length).map(el => ({
-    text: el.textContent.trim().slice(0, 90), id: el.id, width: el.clientWidth, scrollWidth: el.scrollWidth,
-    height: el.clientHeight, scrollHeight: el.scrollHeight,
-  })));
-  expect(data.length, 'La muestra de textos no puede estar vacía').toBeGreaterThan(0);
-  for (const item of data) {
-    expect(item.scrollWidth, `Texto cortado horizontalmente: ${item.text}`).toBeLessThanOrEqual(item.width + 2);
-    expect(item.scrollHeight, `Texto cortado verticalmente: ${item.text}`).toBeLessThanOrEqual(item.height + 2);
+async function noClippedText(locator, measurements) {
+  let data;
+  // Repetir sólo la lectura/assert hasta que termine el layout; conservar 2 px
+  // de tolerancia y fallar si el desborde permanece. No reducir fuentes ni importes.
+  try {
+    await expect(async () => {
+      data = await locator.evaluateAll(nodes => nodes.filter(el => el.getClientRects().length).map(el => ({
+        text: el.textContent.trim().slice(0, 90), id: el.id, width: el.clientWidth, scrollWidth: el.scrollWidth,
+        height: el.clientHeight, scrollHeight: el.scrollHeight,
+        font: getComputedStyle(el).font, viewport: { width:innerWidth, height:innerHeight },
+        currency:el.closest('[data-estimate-currency]')?.dataset.estimateCurrency,
+        currencyCount:el.closest('[data-currency-count]')?.dataset.currencyCount,
+        className:el.className,
+      })));
+      expect(data.length, 'La muestra de textos no puede estar vacía').toBeGreaterThan(0);
+      for (const item of data) {
+        expect(item.scrollWidth, `Texto cortado horizontalmente: ${item.text}`).toBeLessThanOrEqual(item.width + 2);
+        expect(item.scrollHeight, `Texto cortado verticalmente: ${item.text}`).toBeLessThanOrEqual(item.height + 2);
+      }
+    }).toPass({ timeout:5_000, intervals:[100,200,500] });
+  } finally {
+    if (measurements) measurements.push({ kind:'text-fit', data });
   }
   return data;
 }
@@ -138,6 +170,6 @@ async function visibleKeyboardFocus(locator) {
   expect((focus.width > 0 && focus.outline !== 'none') || focus.shadow !== 'none', 'El foco debe tener indicador visual').toBe(true);
 }
 
-module.exports = { uiTime, uiMonth, unchangedUIProject, box, contained, separate,
+module.exports = { uiTime, uiMonth, unchangedUIProject, box, centeredIcon, contained, separate,
   noClippedText, headerGeometry, noDocumentOverflow, setUIZoom, setCollapsedNavigation,
   readTextContrast, assertTextContrast, visibleKeyboardFocus };

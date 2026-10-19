@@ -7,7 +7,7 @@ const { setOpeningBalance } = require('../helpers/balances');
 const { addCurrency } = require('../helpers/currencies');
 const { openSummary, summaryCard, flowCard, expectSummaryCard } = require('../helpers/summary');
 const { setThemePreference, expectSettingsSelection } = require('../helpers/settings');
-const { uiTime, uiMonth, unchangedUIProject, box, contained, separate, noClippedText,
+const { uiTime, uiMonth, unchangedUIProject, box, centeredIcon, contained, separate, noClippedText,
   headerGeometry, noDocumentOverflow, setUIZoom, setCollapsedNavigation,
   assertTextContrast, visibleKeyboardFocus } = require('../helpers/ui-regression');
 
@@ -114,18 +114,18 @@ test.describe('17 · Diseño y accesibilidad básica · KA$H v0.690', () => {
         const container=page.locator('.kashActiveCurrencyCards'), cards=container.locator(':scope>[data-estimate-currency]');
         await expect(cards).toHaveCount(count);
         await expect(container).toHaveAttribute('data-currency-count',String(count));
-        const outer=await box(container), boxes=[];
+        const outer=await box(container), boxes=[], sample={count,width,outer,cards:boxes,text:[]};
+        evidence.push(sample);
         for(let i=0;i<count;i++) {
           const card=cards.nth(i), rect=await box(card);
           contained(rect,outer,'Tarjeta dentro de su grilla');
           for(const old of boxes) separate(rect,old,'Las tarjetas no se superponen');
           boxes.push(rect);
-          await noClippedText(card.locator('.currencyBalanceCaption,.holdingText>strong,.currencyCardEstimate>span,.approxValue'));
+          await noClippedText(card.locator('.currencyBalanceCaption,.holdingText>strong,.currencyCardEstimate>span,.approxValue'), sample.text);
           for(const caption of ['.currencyBalanceCaption','.currencyCardEstimate>span'])
             expect(await card.locator(caption).evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(14);
         }
         await expectSummaryCard(page,'ARS','ARS 123,456,764.12','ARS 123,456,689.12');
-        evidence.push({count,width,outer,cards:boxes});
         await noDocumentOverflow(page);
         await unchangedUIProject(page,before);
       }
@@ -252,9 +252,7 @@ test.describe('17 · Diseño y accesibilidad básica · KA$H v0.690', () => {
     await expect(dialog).toBeVisible(); await expect(dialog).toHaveAttribute('aria-modal','true');
     await expect(dialog).toHaveAttribute('aria-labelledby','flowDetailHeading');
     await expect(close).toHaveAccessibleName('Close details'); await expect(close).toBeFocused();
-    const button=await box(close), icon=await box(close.locator('svg'));
-    expect(Math.abs((button.x+button.width/2)-(icon.x+icon.width/2))).toBeLessThanOrEqual(1);
-    expect(Math.abs((button.y+button.height/2)-(icon.y+icon.height/2))).toBeLessThanOrEqual(1);
+    const {button, icon}=await centeredIcon(close);
     await info.attach('ui-modal-before-tab',{body:await page.screenshot(),contentType:'image/png'});
     const focused=()=>page.evaluate(()=>({tag:document.activeElement?.tagName,id:document.activeElement?.id,
       text:document.activeElement?.textContent?.trim().slice(0,120),

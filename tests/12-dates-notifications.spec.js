@@ -6,6 +6,7 @@ const { createMonthlyGroup, createMonthlyService, createBudgetService, writeBudg
 const { reloadBalanceProject } = require('../helpers/balances');
 const { addCurrency } = require('../helpers/currencies');
 const { readSavedProject } = require('../helpers/expenses');
+const { preparePointerTarget } = require('../helpers/interaction-stability');
 const { fixedTime, fixedMonth, datesSave, notices, notice, unrelatedToDates, openDates,
   fillDateKind, configureDates, openNotices, filterNotices, expectUnread, expectDateRejected } =
   require('../helpers/dates-notifications');
@@ -344,8 +345,9 @@ test.describe('12 · Cierres, vencimientos y avisos · KA$H v0.690', () => {
     await selectBudgetYear(page, 2026);
     await budgetCell(page, service, fixedMonth).click();
     const icon = page.locator(`[data-service-dates="${service.id}"]`), popup = page.locator('#serviceDatesHover');
+    await preparePointerTarget(page, icon);
     await icon.hover();
-    await expect(popup).toBeVisible();
+    await expect(popup).toBeVisible({ timeout:10_000 });
     await expect(popup).toHaveAttribute('role', 'dialog');
     await expect(popup.locator('h3')).toHaveText(service.n + ' · ARS');
     await expect(popup.locator('h3 b')).toHaveCount(0);
