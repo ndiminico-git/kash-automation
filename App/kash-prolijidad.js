@@ -9,7 +9,7 @@ function decorateKash(){
  const view=document.getElementById('v');if(!view)return;
  document.body.classList.toggle('kashModern',!!D);
  const help=view.querySelector('.kashHelpButton');helpAppearance(help);
- if(!D||view.querySelector('.kashPageHeader'))return;
+ if(!D||view.querySelector('.kashPageHeader')){window.KashExport?.decorate();window.KashGridSelection?.decorate();return;}
  let title;
  if(S.cur==='res'){
   const h=view.querySelector('.summaryTitleBlock>h2');if(!h)return;
@@ -26,7 +26,7 @@ function decorateKash(){
  if(zoom){zoom.querySelectorAll('button').forEach((b,i)=>{b.type='button';b.setAttribute('aria-label',i?KashI18n.text('Acercar esta sección'):KashI18n.text('Alejar esta sección'));b.disabled=S.cur!=='res'&&!view.querySelector('.zoomable')});tools.append(zoom)}
  const helpWrapper=help?.closest('.kashPageHelp');if(help)tools.append(help);helpWrapper?.remove();
  const oldZoom=view.querySelector('#zoomCtl');if(oldZoom&&!oldZoom.children.length)oldZoom.remove();
- header.append(title,tools);view.prepend(header);
+ header.append(title,tools);view.prepend(header);window.KashExport?.decorate();window.KashGridSelection?.decorate();
  const currencies=view.querySelector('.enabledCurrenciesPanel .sub');if(currencies)currencies.textContent=KashI18n.text('Al menos una moneda activa.');
  summaryPeriodLabels();headerWidth();summaryZoom();
 }

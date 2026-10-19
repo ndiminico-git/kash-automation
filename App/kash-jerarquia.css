@@ -107,3 +107,11 @@ body.kashModern #v#v#v#v#v .kashActiveCurrencyCards[data-currency-count="5"]>.ka
 }
 
 body.kashModern #v#v#v#v#v .kashCurrencyBalanceCard .holdingVariation{max-width:140px;white-space:normal;overflow-wrap:anywhere;text-align:right}
+
+/* v0.678: semantic states are emitted with the value, not inferred from text. */
+body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyNegative{color:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyExpense{color:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyRefund{color:var(--kash-money-refund)!important}
+body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyZero{color:var(--kash-money-zero)!important}
+body.kashModern #v#v#v#v#v .kashCurrencyBalanceCard .currencyCardEstimate.moneyNegative{background:var(--kash-negative-bg)!important}
+body.kashModern #v#v#v#v#v .holdingVariation.same{color:var(--kash-neutral-text)!important;background:var(--kash-neutral-bg)!important}

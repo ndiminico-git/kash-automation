@@ -55,10 +55,13 @@ async function setOnlinePreference(page, on) {
 
 async function setThemePreference(page, mode) {
   await settingsPage(page, 'appearance', 'theme');
-  const before = await projectSnapshot(page), button = page.locator(`[data-settings-theme="${mode}"]`);
-  await button.click();
-  await expect(button).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('html')).toHaveAttribute('data-kash-theme', mode);
+  const before = await projectSnapshot(page), select = page.locator('[data-settings-theme-select]');
+  await select.selectOption(mode);
+  await expect(select).toHaveValue(mode);
+  await expect(page.locator('html')).toHaveAttribute('data-kash-theme-mode', mode);
+  const resolved = mode === 'system'
+    ? await page.evaluate(() => matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : mode;
+  await expect(page.locator('html')).toHaveAttribute('data-kash-theme', resolved);
   expect(await page.evaluate(() => localStorage.getItem('kash_ui_theme'))).toBe(mode);
   expect(await projectSnapshot(page)).toEqual(before);
   await expectBudgetPersisted(page, before);

@@ -83,7 +83,7 @@ const test = base.extend({
 });
 
 test.use({ storageState: { cookies: [], origins: [] }, timezoneId: 'America/Argentina/Buenos_Aires' });
-test.describe('13 · Cuotas y notas · KA$H v0.677', () => {
+test.describe('13 · Cuotas y notas · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];

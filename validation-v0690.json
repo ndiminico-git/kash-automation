@@ -1,0 +1,49 @@
+{
+  "archive": "C:\\Nico\\Misc\\Ka$h.rar",
+  "archiveBytes": 114064871,
+  "archiveSha256": "71d08d446311af0da1423c89abec74ea060e18f59514e516e86dd450154960d4",
+  "appVersion": "0.690",
+  "appResources": 35,
+  "originalBugCasesPassed": 9,
+  "testAssertionsRelaxed": false,
+  "appEdited": false,
+  "ciInstallValidated": true,
+  "dependencyDeclaration": "^1.45.0",
+  "lockedVersion": "1.45.0",
+  "date": "2026-10-19",
+  "totalCases": 213,
+  "modules": 19,
+  "bugRegression": {
+    "playwright": "1.45.0",
+    "browser": "Chromium 127.0.6533.17",
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "retries": 0,
+    "ids": [
+      "TC-035",
+      "TC-054",
+      "TC-088",
+      "TC-164",
+      "TC-178",
+      "TC-184",
+      "TC-194",
+      "TC-195",
+      "TC-213"
+    ]
+  },
+  "fullSuite": {
+    "completed": false,
+    "finalReportAvailable": false,
+    "status": "Pending user execution; user requested delivery without further tests."
+  },
+  "edgeContrast": {
+    "executed": false
+  },
+  "ci": {
+    "npmCiVerifiedInIsolatedWindowsDirectory": true,
+    "workflowUpdated": true,
+    "githubJobExecuted": false
+  },
+  "testExpectationsRelaxed": false
+}

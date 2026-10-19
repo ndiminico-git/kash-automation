@@ -1,3 +1,4 @@
+const { gridMoney } = require('../helpers/money-presentation');
 const { test: base, expect } = require('@playwright/test');
 const { startAppServer } = require('../helpers/app-server');
 const { createLanguageProject, projectSnapshot } = require('../helpers/language');
@@ -47,7 +48,7 @@ const test = base.extend({
 });
 
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('07 · Consumos Mensuales · KA$H v0.677', () => {
+test.describe('07 · Consumos Mensuales · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];
@@ -78,7 +79,7 @@ test.describe('07 · Consumos Mensuales · KA$H v0.677', () => {
       .toEqual(Array.from({ length: 12 }, (_, i) => `${year}-${String(i + 1).padStart(2, '0')}`));
     for (const kind of ['expenses', 'estimated', 'confirmed']) {
       await expect(page.locator(`#gw tr[data-total-currency="ARS"][data-total-kind="${kind}"] td[data-total-month]`))
-        .toHaveText(Array(12).fill('ARS 0'));
+        .toHaveText(Array(12).fill('ARS 0.00'));
     }
     await expect(page.locator('#gw .realDisplay')).toHaveText(Array(12).fill('—'));
     await expectBudgetUnchanged(page, before);
@@ -356,8 +357,48 @@ test.describe('07 · Consumos Mensuales · KA$H v0.677', () => {
     expect(actual).toEqual(expected);
     for (const [period, value] of [[month, '10.25'], [later, '20.5']]) {
       await selectBudgetYear(page, Number(period.slice(0, 4)));
-      await expect(budgetCell(page, service, period).locator('.val')).toHaveText(`ARS ${value}`);
+      await expect(budgetCell(page, service, period).locator('.val')).toHaveText(gridMoney(`ARS ${value}`));
       await expectMonthlyTotals(page, { month: period, expenses: `ARS ${value}` });
     }
+  });
+});
+
+
+const { test: upgradeTest } = require('../helpers/upgrade-fixture');
+upgradeTest.describe('07 · Selección de importes · KA$H v0.690', () => {
+  upgradeTest.setTimeout(60_000);
+  upgradeTest('TC-198 [R] Selección con Shift suma un negativo y un cero cargado sin editar datos', async ({ page }) => {
+    const service = await createBudgetService(page, 'Selección QA');
+    await writeBudgetAmount(page, service, '2026-10', '12.3456');
+    await writeBudgetAmount(page, service, '2026-11', '-2.3456');
+    await writeBudgetAmount(page, service, '2026-12', '0');
+    const before = await projectSnapshot(page);
+    await expect(budgetCell(page, service, '2026-10').locator('.val')).toHaveText('ARS 12.35');
+    expect(before.C[`${service.id}|2026-10`].a).toBe(12.3456);
+    await budgetCell(page, service, '2026-10').click();
+    await budgetCell(page, service, '2026-12').click({ modifiers: ['Shift'] });
+    const bar = page.locator('#kashGridSelectionBar');
+    await expect(bar.locator('.kashGridSelectionGroups strong')).toHaveText('ARS 10');
+    await expect(bar.locator('.kashGridSelectionGroups')).toContainText('Count: 3');
+    await expect(bar.locator('.kashGridSelectionActions > span')).toHaveText('3 selected cells');
+    await bar.getByRole('button', { name: 'Clear selection', exact: true }).click();
+    await expect(bar.locator('.kashGridSelectionGroups strong')).toHaveText('—');
+    await expectBudgetUnchanged(page, before);
+  });
+  upgradeTest('TC-199 [R] Selección discontinua con Ctrl separa ARS y USD y Escape la limpia', async ({ page }) => {
+    await require('../helpers/currencies').addCurrency(page, 'USD');
+    const group = await createMonthlyGroup(page, { name: 'Dos monedas QA' });
+    const ars = await createMonthlyService(page, { name: 'ARS QA', group });
+    const usd = await createMonthlyService(page, { name: 'USD QA', group, currency: 'USD' });
+    await writeBudgetAmount(page, ars, '2026-10', '10');
+    await writeBudgetAmount(page, usd, '2026-10', '20');
+    const before = await projectSnapshot(page);
+    await budgetCell(page, ars, '2026-10').click();
+    await budgetCell(page, usd, '2026-10').click({ modifiers: ['Control'] });
+    const bar = page.locator('#kashGridSelectionBar');
+    await expect(bar.locator('.kashGridSelectionGroups strong')).toHaveText(['ARS 10', 'USD 20']);
+    await page.keyboard.press('Escape');
+    await expect(bar.locator('.kashGridSelectionGroups strong')).toHaveText('—');
+    await expectBudgetUnchanged(page, before);
   });
 });

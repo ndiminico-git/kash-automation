@@ -8,7 +8,7 @@ const {
 
 test.use({ storageState: { cookies: [], origins: [] } });
 
-test.describe('02 · Idiomas · KA$H v0.677', () => {
+test.describe('02 · Idiomas · KA$H v0.690', () => {
   let app;
   const errorsByPage = new WeakMap();
 

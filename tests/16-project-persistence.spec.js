@@ -100,7 +100,7 @@ const test = base.extend({
 });
 
 test.use({ storageState: { cookies: [], origins: [] }, timezoneId: 'America/Argentina/Buenos_Aires' });
-test.describe('16 · Guardado, proyectos y deshacer · KA$H v0.677', () => {
+test.describe('16 · Guardado, proyectos y deshacer · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];
@@ -313,4 +313,21 @@ test.describe('16 · Guardado, proyectos y deshacer · KA$H v0.677', () => {
     await expect(expenseRows(page)).toHaveCount(2);
     await expect(redoButton(page)).toBeDisabled();
   });
+});
+
+
+const { test: upgradeTest } = require('../helpers/upgrade-fixture');
+upgradeTest('TC-212 [R] Copias y recuperación informa el alcance web y cerrar conserva proyecto y foco', async ({ page }) => {
+  await require('../helpers/language').settingsPage(page, 'money', 'currencies');
+  const before = await projectSnapshot(page);
+  const button = page.locator('#kashRecoveryAccess button');
+  await button.click();
+  await expect(page.locator('#kashSafetyDialog [role="dialog"]')).toBeVisible();
+  await expect(page.locator('.kashSafetyBody')).toHaveText('Available when running KA$H from PowerShell.');
+  await expect(page.locator('[data-recover-copy]')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#kashSafetyDialog')).toHaveCount(0);
+  await expect(button).toBeFocused();
+  expect(await projectSnapshot(page)).toEqual(before);
+  await expectBudgetPersisted(page, before);
 });

@@ -66,7 +66,7 @@ const test = base.extend({
 
 const initialMonth = async page => (await projectSnapshot(page)).inicio;
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('09 · Ajustes de saldo · KA$H v0.677', () => {
+test.describe('09 · Ajustes de saldo · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];

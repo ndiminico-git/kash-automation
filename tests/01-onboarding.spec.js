@@ -8,7 +8,7 @@ const {
 // Sobrescribe un eventual storageState de otro proyecto de automation.
 test.use({ storageState: { cookies: [], origins: [] } });
 
-test.describe('01 · Primer inicio y bienvenida · KA$H v0.677', () => {
+test.describe('01 · Primer inicio y bienvenida · KA$H v0.690', () => {
   let app;
   const errorsByPage = new WeakMap();
 

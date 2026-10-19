@@ -46,7 +46,7 @@ const test = base.extend({
 });
 
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('05 · Búsqueda y filtros de Gastos · KA$H v0.677', () => {
+test.describe('05 · Búsqueda y filtros de Gastos · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];

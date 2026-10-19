@@ -84,3 +84,113 @@ body.kashModern #v#v#v#v .kashDisplayChoices>h3{margin:0 0 16px!important;font-s
 body.kashModern #v#v#v#v .kashDisplayChoices>.learnOptions{margin:0!important;gap:12px!important}
 body.kashModern #v#v#v#v .kashDisplayChoices .learnOptions>label{min-height:48px;padding:12px 14px!important;align-items:center}
 body.kashModern #v#v#v#v .kashDisplayChoices .learnOptions input{margin:0!important}
+
+/* v0.678: converter guidance remains readable at the normal zoom. */
+body.kashModern #v#v#v#v#v .quickConverter :is(.converterMeta,.marketQuoteStatus,.marketQuoteStatus span){font-size:12px!important;line-height:1.5}
+body.kashModern #v#v#v#v#v .quickConverter #convAmount{font-size:12px!important;min-width:0}
+
+/* v0.679: keep numbers comparable while preserving payment marks. */
+body.kashModern #v#v#v#v#v #gw :is(.valw,.realDisplay,.quickAmount,.realEdit,td[data-total-month]){text-align:right!important;font-variant-numeric:tabular-nums lining-nums}
+body.kashModern #v#v#v#v#v #gw .cellv{grid-template-columns:minmax(0,1fr) 26px!important}
+body.kashModern #v#v#v#v#v #gw .monthtable td.ok{background-color:var(--kash-paid-soft)!important}
+body.kashModern #v#v#v#v#v .monthtable td.currentMonthColumn{background-image:linear-gradient(var(--kash-month-tint),var(--kash-month-tint))}
+body.kashModern #v#v#v#v#v #gw td[data-total-month]{padding-right:6px!important}
+body.kashModern #v#v#v#v#v .monthh .mh2:not(:has(.currentPeriodBadge:not([hidden]))){display:none}
+
+/* Tanda 3: typography and plot presentation only; dashboard placement stays intact. */
+body.kashModern #v#v#v#v#v#v .flowText strong{font-size:clamp(17px,1.05vw,22px)!important;font-weight:700!important;line-height:1.2!important;white-space:normal;overflow-wrap:anywhere;margin-top:7px!important}
+body.kashModern #v#v#v#v#v#v .flowTile .flowText>span:first-child{font-size:12px!important;line-height:1.2!important}
+body.kashModern #v#v#v#v#v#v .principalRankRow{grid-template-columns:24px minmax(110px,1fr) auto auto;gap:5px 10px;margin:9px 0;align-items:center}
+body.kashModern #v#v#v#v#v#v .principalRankRow .rankCircle{grid-row:1;grid-column:1}
+body.kashModern #v#v#v#v#v#v .principalRankRow .rankLabel{grid-row:1;grid-column:2}
+body.kashModern #v#v#v#v#v#v .principalRankRow .rankValue{grid-row:1;grid-column:3;font-size:13px;font-weight:650}
+body.kashModern #v#v#v#v#v#v .principalRankRow .rankPct{grid-row:1;grid-column:4;font-size:12px}
+body.kashModern #v#v#v#v#v#v .principalRankRow .rankTrack{grid-row:2;grid-column:2/-1}
+body.kashModern #v#v#v#v#v#v .summaryTrendNegative{stroke:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v#v .summaryNegativeDot{fill:var(--kash-money-negative)!important;stroke:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v#v .summaryZeroAxis{stroke:var(--mut)!important;stroke-width:1.5!important;opacity:.85}
+body.kashModern #v#v#v#v#v#v .chartPeriodSelectors{position:relative}
+body.kashModern #v#v#v#v#v#v .chartOwnPeriod{position:absolute;right:0;top:-13px;font-size:11px;line-height:12px;color:var(--mut);white-space:nowrap;text-align:right}
+body.kashModern #v#v#v#v#v#v .converterQuoteRow{margin:4px 0;line-height:1.4;color:var(--ink)}
+body.kashModern #v#v#v#v#v#v .converterQuoteRow small{display:block;font-size:12px;color:var(--mut);overflow-wrap:anywhere}
+body.kashModern #v#v#v#v#v#v .converterRateActions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+body.kashModern #v#v#v#v#v#v .converterRateActions button{font-size:12px;padding:6px 9px}
+.kashFeatureModal .converterManualError{color:var(--kash-money-negative);font-size:13px;min-height:18px}
+
+/* Tanda 4: keyboard focus applies to page controls and body-mounted dialogs. */
+html body :is(button,input,select,textarea,summary,a[href],[tabindex]):focus-visible{outline:2px solid var(--ac)!important;outline-offset:2px!important}
+html body input:focus-visible+.switchSlider{outline:2px solid var(--ac)!important;outline-offset:3px!important}
+html body .monthtable :is(td,[data-group-handle]):focus-visible{outline-offset:-2px!important}
+
+/* The trend popup is mounted on body, outside #v. Use the sign of its number. */
+html body #trendTip.trendTooltip.negative .ttValue{color:var(--kash-money-negative)!important}
+html body #trendTip.trendTooltip.negative .ttSwatch{background:var(--kash-money-negative)!important}
+html body #trendTip.trendTooltip .ttTitle{font-size:12px;line-height:1.4}
+
+/* Keep auxiliary information readable without changing dashboard columns. */
+body.kashModern #v#v#v#v#v#v :is(.holdingDetailNote,.holdingFxDetails>div,.serviceHoverPeriod,.chartOwnPeriod,.sub){font-size:12px!important}
+body.kashModern #v#v#v#v#v#v .chartOwnPeriod{line-height:14px;top:-14px}
+html body :is(#serviceDatesHover p,#serviceDatesHover small,.kashThemeStatus){font-size:12px;line-height:1.5;color:var(--mut)}
+
+/* Tanda 6C: keep the right column and chart order; give each control its own row. */
+body.kashModern #v#v#v#v#v#v .quickConverter{display:grid;gap:14px;padding:16px!important;min-height:0!important}
+body.kashModern #v#v#v#v#v#v .quickConverterHeader{margin:0!important;align-items:center!important;gap:12px!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterRow{display:grid!important;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr)!important;gap:14px 10px!important;align-items:end!important}
+body.kashModern #v#v#v#v#v#v .converterField{display:grid!important;gap:7px!important;min-width:0!important;margin:0!important;font-size:14px!important;line-height:1.45!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v#v .converterFrom{grid-column:1;grid-row:1}
+body.kashModern #v#v#v#v#v#v .converterTo{grid-column:3;grid-row:1}
+body.kashModern #v#v#v#v#v#v .converterAmount{grid-column:1;grid-row:2}
+body.kashModern #v#v#v#v#v#v .converterOutput{grid-column:3;grid-row:2}
+body.kashModern #v#v#v#v#v#v .quickConverter .swapCurrency{grid-column:2;grid-row:2;width:36px!important;height:42px!important;align-self:end!important}
+body.kashModern #v#v#v#v#v#v .converterField .kashCurrencySelectWrap{width:100%;max-width:100%;min-width:0}
+body.kashModern #v#v#v#v#v#v .converterField :is(select,input){width:100%!important;max-width:100%!important;min-width:0!important;height:42px!important;font-size:14px!important;line-height:1.4!important;padding:7px 10px!important;box-sizing:border-box}
+body.kashModern #v#v#v#v#v#v .quickConverter #convAmount{font-size:15px!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterResult{display:flex!important;align-items:center!important;min-width:0!important;min-height:42px!important;height:auto!important;font-size:18px!important;line-height:1.4!important;padding:7px 10px!important;white-space:normal!important;overflow-wrap:anywhere!important;text-align:left!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterMeta{display:grid;gap:10px;margin:0!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterQuoteRow{margin:0!important;line-height:1.5!important;font-size:13px!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterQuoteRow small{font-size:12px!important;line-height:1.5!important;margin-top:2px}
+body.kashModern #v#v#v#v#v#v .quickConverter .marketQuoteStatus{margin:0!important;line-height:1.5!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterRateActions{margin:0!important;gap:9px!important}
+body.kashModern #v#v#v#v#v#v .quickConverter .converterRateActions button{min-height:36px;font-size:13px!important;line-height:1.4!important;padding:7px 10px!important;white-space:normal}
+body.kashModern #v#v#v#v#v#v .kashChartCurrency{display:grid!important;gap:9px!important;margin:4px 0!important;padding:0!important;font-size:14px!important;line-height:1.45!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v#v .kashChartCurrency>span:first-child{font-weight:600}
+body.kashModern #v#v#v#v#v#v .kashChartCurrency .kashCurrencySelectWrap{width:100%;min-width:0;max-width:100%}
+body.kashModern #v#v#v#v#v#v .kashChartCurrency select{height:42px!important;width:100%!important;max-width:100%!important;margin:0!important;font-size:14px!important;line-height:1.4!important}
+body.kashModern #v#v#v#v#v#v .chartPeriodSelectors{position:static!important;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+@media(max-width:650px){body.kashModern #v#v#v#v#v#v .quickConverter{padding:13px!important}body.kashModern #v#v#v#v#v#v .quickConverter .converterRow{gap:12px 7px!important;grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr)!important}body.kashModern #v#v#v#v#v#v .quickConverter .swapCurrency{width:32px!important}}
+
+/* Native reminder selectors retain explicit choices and all original handlers. */
+body.kashModern #v#v#v#v#v#v #rw .statussel{appearance:none;font-size:12px!important;border:1px solid transparent!important;padding:6px 8px!important;background:var(--kash-neutral-bg)!important;color:var(--ink)!important;min-height:32px}
+body.kashModern #v#v#v#v#v#v #rw .statussel.st-pay{background:var(--kash-paid-soft)!important;color:var(--kash-money-refund)!important}
+body.kashModern #v#v#v#v#v#v #rw .statussel.st-pend{background:var(--kash-reminder-pending-bg)!important;color:var(--kash-reminder-pending-ink)!important}
+body.kashModern #v#v#v#v#v#v #rw .statussel.st-off{background:var(--kash-negative-bg)!important;color:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v#v #rw .statussel:is(:hover,:focus-visible){appearance:auto;border-color:var(--ln)!important}
+body.kashModern #v#v#v#v#v#v #rw .recConcept{font-size:12px!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v#v #rw .datecell{font-size:12px!important;color:var(--ink)!important}
+@media(hover:none),(forced-colors:active){body.kashModern #v#v#v#v#v#v #rw .statussel{appearance:auto}}
+
+
+html body #trendTip.trendTooltip{width:max-content;max-width:min(320px,calc(100vw - 32px))}
+
+/* Month translation wraps the date input: the wrapper must be a flex item too. */
+body.kashModern #v#v#v#v#v#v#v .quotaForm{display:flex!important;flex-wrap:wrap!important;gap:8px!important;align-items:end!important}
+body.kashModern #v#v#v#v#v#v#v .quotaForm>#cd{flex:1 1 240px!important;width:auto!important;min-width:0!important}
+body.kashModern #v#v#v#v#v#v#v .quotaForm>#ct{flex:0 1 160px!important;width:160px!important;min-width:0!important}
+body.kashModern #v#v#v#v#v#v#v .quotaForm>.kashDateInput{flex:0 1 220px!important;width:220px!important;min-width:0!important;max-width:100%}
+body.kashModern #v#v#v#v#v#v#v .quotaForm>button{flex:0 0 auto!important;width:auto!important;white-space:nowrap!important}
+
+/* Totals share one explicit scope label, and currencies stay grouped. */
+body.kashModern #v#v#v#v#v#v#v .expenseFilterSummary{justify-content:flex-start!important;align-items:center!important;gap:12px 28px!important}
+body.kashModern #v#v#v#v#v#v#v .expenseTotalsHeading{display:grid;gap:3px;min-width:0;max-width:100%}
+body.kashModern #v#v#v#v#v#v#v .expenseTotalsHeading b{font-size:14px;color:var(--ink)}
+body.kashModern #v#v#v#v#v#v#v .expenseTotalsHeading>span{font-size:13px;color:var(--mut);overflow-wrap:anywhere}
+body.kashModern #v#v#v#v#v#v#v .expenseTotalsValues{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;min-width:0;max-width:100%}
+body.kashModern #v#v#v#v#v#v#v .expenseTotal{display:inline-flex;padding:6px 10px;border-left:2px solid var(--ln);background:var(--kash-neutral-bg);border-radius:4px;max-width:100%;min-width:0}
+
+/* Larger toolbar controls fit inside the existing 42px title row. */
+body.kashModern #v#v#v#v#v#v#v .kashPageTools :is(.kashExportHeaderButton,.kashHelpButton){height:40px!important;min-height:40px!important;max-height:40px!important;padding:7px 12px!important;font-size:14px!important;line-height:1.4!important;box-sizing:border-box;white-space:nowrap!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageTools :is(.kashExportHeaderButton,.kashHelpButton) :is(span,svg){font-size:14px!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageTools .kashHelpButton kbd{font-size:12px!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageTools .zoomControls{height:40px!important;min-height:40px!important;box-sizing:border-box;padding:3px!important;align-items:center!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageTools .zoomControls button{height:32px!important;min-height:32px!important;width:32px!important;min-width:32px!important;font-size:16px!important;padding:0!important;display:grid!important;place-items:center!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageTools .zoomControls .zpct{font-size:13px!important;min-width:40px!important;line-height:1.4!important}

@@ -1,3 +1,5 @@
+/* v0.678: semantic money colors shared by summary and monthly totals. */
+:root{--kash-reminder-pending-bg:#343022;--kash-reminder-pending-ink:#f0cb75;--kash-money-negative:#ff8392;--kash-money-refund:#57dba9;--kash-money-zero:#9aacc4;--kash-neutral-text:#b0bdd0;--kash-neutral-bg:#202d42;--kash-negative-bg:#352235;--kash-nav-active:#1a293c;--kash-paid-soft:#142b31;--kash-month-tint:rgba(57,209,210,.055)}
 /* Stable form geometry: the recurrence detail lives below the input/action row. */
 #v#v .expenseForm{grid-template-columns:150px minmax(180px,1.25fr) 140px minmax(180px,1fr) auto;align-items:end}
 #v#v .expenseFormActions{align-self:end;align-items:center;flex-wrap:nowrap;gap:8px}
@@ -12,23 +14,21 @@
 @media(max-width:1750px){#v#v .expenseForm{grid-template-columns:150px minmax(0,1fr) 140px minmax(0,1fr)}#v#v .expenseFormActions{grid-column:1/-1;min-height:34px}#v#v .expenseFormActions>.btn:first-of-type{margin-left:auto!important}}
 @media(max-width:1100px){#v#v .expenseForm{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* Theme choice stays below Redo. Its footprint is fixed in both appearances. */
-#nav#nav .kashThemeControl,.home .kashThemeControl{display:grid;grid-template-columns:18px 34px 18px minmax(0,1fr);align-items:center;gap:8px;padding:14px 10px 8px;margin:12px 0 8px;border-top:1px solid var(--ln);font-size:12px;color:var(--ink);cursor:pointer;min-height:48px}
+/* Three appearance modes share one native selector in the footer. */
+#nav#nav .kashThemeControl,.home .kashThemeControl{display:flex;align-items:center;gap:8px;padding:12px 10px 8px;margin:12px 0 8px;border-top:1px solid var(--ln);font-size:12px;color:var(--ink);min-height:48px}
 .kashThemeControl svg{width:18px;height:18px;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.kashThemeControl .themeMoon{color:var(--ac)}.kashThemeControl .themeSun{color:var(--mut)}
-.kashThemeControl .switchToggle{margin:0;width:34px;height:20px;flex:none}
-.kashThemeControl .switchToggle input{display:block;width:34px;height:20px;inset:0;opacity:0;position:absolute;margin:0;padding:0;z-index:1;cursor:pointer}
-.kashThemeControl .switchToggle:focus-within{outline:2px solid var(--ac);outline-offset:3px;border-radius:12px}
-.kashThemeControl .themeMode{white-space:nowrap}
-.kashThemeControl .switchSlider{pointer-events:none}
-.kashThemeControl .switchToggle{align-self:center;justify-self:center;line-height:normal}
-.kashThemeControl .switchToggle .switchSlider::before{width:14px;height:14px;left:2px;top:50%;transform:translate(0,-50%)}
-.kashThemeControl .switchToggle input:checked + .switchSlider::before{transform:translate(14px,-50%)}
-body.nav-collapsed #nav#nav .kashThemeControl{grid-template-columns:18px 18px;gap:7px 5px;justify-content:center;padding:12px 0 6px;margin:8px 0 4px;font-size:11px}
-body.nav-collapsed #nav#nav .kashThemeControl .themeMoon{grid-row:1;grid-column:1}
-body.nav-collapsed #nav#nav .kashThemeControl .themeSun{grid-row:1;grid-column:2}
-body.nav-collapsed #nav#nav .kashThemeControl .switchToggle{grid-row:2;grid-column:1/-1;justify-self:center}
-body.nav-collapsed #nav#nav .kashThemeControl .themeMode{grid-row:3;grid-column:1/-1;justify-self:center}
+.kashThemeControl .themeMoon{color:var(--ac);flex:none}
+.kashThemeControl .kashThemeSelect{flex:1;min-width:0;width:100%;font:inherit;background:var(--pn);color:var(--ink);border:1px solid var(--ln);border-radius:7px;padding:5px 7px;min-height:32px}
+body.nav-collapsed #nav#nav .kashThemeControl{justify-content:center;padding:9px 2px 6px}
+.kashThemeCompactButton{display:none!important}
+body.nav-collapsed #nav#nav .kashThemeControl :is(.themeMoon,.kashThemeSelect){display:none!important}
+body.nav-collapsed #nav#nav .kashThemeControl .kashThemeCompactButton{display:grid!important;place-items:center;flex:none!important;width:34px!important;min-width:34px!important;max-width:34px!important;height:34px!important;min-height:34px!important;margin:0!important;padding:7px!important;border:1px solid var(--ln)!important;border-radius:8px!important;background:var(--pn)!important;color:var(--ac)!important}
+.kashThemeMenu{position:fixed;z-index:20000;min-width:170px;max-width:calc(100vw - 24px);padding:5px;border:1px solid var(--ln);border-radius:10px;background:var(--pn);color:var(--ink);box-shadow:0 8px 28px #0003}
+html body .kashThemeMenu button{display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;border:0;border-radius:6px;background:transparent;color:var(--ink);font:inherit;font-size:14px;text-align:left;padding:10px 12px;min-height:38px;cursor:pointer}
+html body .kashThemeMenu button:is(:hover,[aria-checked=true]){background:var(--kash-nav-active)}
+.kashThemeMenuCheck{color:var(--ac);min-width:12px}
+
+
 /* Keep both groups comfortably inside short windows as the footer grows. */
 @media(max-height:860px){#nav#nav .nh{margin-bottom:12px!important}body:not(.nav-collapsed) #nav#nav .navPrimary>button{min-height:36px!important;padding:5px 14px!important}body:not(.nav-collapsed) #nav#nav .navbottom>button{min-height:33px!important;padding:4px 14px!important}#nav#nav .navPrimary{gap:3px!important}#nav#nav .navActionStack{gap:3px;margin-top:8px}#nav#nav .navActionBtn{min-height:32px!important;padding:5px 10px!important}#nav#nav .navUndoDivider{margin:10px 0!important}}
 
@@ -50,11 +50,11 @@ body.nav-collapsed #nav#nav .kashThemeControl .themeMode{grid-row:3;grid-column:
 #v#v .holdingDetailSelected{border-color:var(--ac)!important;box-shadow:inset 0 0 0 1px var(--ac)!important}
 
 /* Soft neutral light palette. Dark mode retains the existing KASH styles. */
-html[data-kash-theme=light]{color-scheme:light;--bg:#eef1f2;--pn:#f9faf9;--ink:#27363a;--mut:#56686d;--ln:#c8d0d2;--ac:#176f75;--neg:#994854;--ok:#e1eee6;--pe:#f1ecdc;--sb:#e4e9ea;--warn:#795b23;--light-raised:#edf0f0;--light-accent:#e0eceb;--light-paid:#2b6b4e}
+html[data-kash-theme=light]{color-scheme:light;--kash-reminder-pending-bg:#f1ecdc;--kash-reminder-pending-ink:#795b23;--bg:#eef1f2;--pn:#f9faf9;--ink:#27363a;--mut:#56686d;--ln:#c8d0d2;--ac:#176f75;--neg:#994854;--ok:#e1eee6;--pe:#f1ecdc;--sb:#e4e9ea;--warn:#795b23;--light-raised:#edf0f0;--light-accent:#e0eceb;--light-paid:#2b6b4e;--kash-money-negative:#b13044;--kash-money-refund:#257357;--kash-money-zero:#627580;--kash-neutral-text:#586b77;--kash-neutral-bg:#e9edef;--kash-negative-bg:#f8e8ec;--kash-nav-active:#d1e9eb;--kash-paid-soft:#edf4f0;--kash-month-tint:rgba(20,123,131,.05)}
 html[data-kash-theme=light] body{background:var(--bg)!important;color:var(--ink)!important}
 html[data-kash-theme=light] #nav#nav{background:var(--sb)!important;border-color:var(--ln)!important;color:var(--ink)!important}
 html[data-kash-theme=light] #nav#nav .brand,html[data-kash-theme=light] #nav#nav .brandtext,html[data-kash-theme=light] #nav#nav .lbl{color:var(--ink)!important}
-html[data-kash-theme=light] #nav#nav button.on{background:var(--light-accent)!important;color:var(--ink)!important;box-shadow:none!important}
+html[data-kash-theme=light] #nav#nav button.on{background:#d1e9eb!important;color:var(--ink)!important;box-shadow:none!important}
 html[data-kash-theme=light] #nav#nav button:hover:not(:disabled){background:var(--light-raised)!important}
 html[data-kash-theme=light] #nav#nav .svgico,html[data-kash-theme=light] #nav#nav .navIconSvg,html[data-kash-theme=light] #nav#nav .navgroup,html[data-kash-theme=light] #nav#nav .navShortcut{color:var(--mut)!important}
 html[data-kash-theme=light] #nav#nav .on .svgico{color:var(--ac)!important}
@@ -96,7 +96,7 @@ html[data-kash-theme=light] #v#v#v :is(.monthtable td.z,.expenseTable .noteCell,
 html[data-kash-theme=light] #v#v#v .expenseTable td.kashNegativeAmount{color:var(--neg)!important}
 html[data-kash-theme=light] #v#v#v .holdingVariation.up{color:var(--light-paid)!important;background:#e1eee6!important}
 html[data-kash-theme=light] #v#v#v .holdingVariation.down{color:var(--neg)!important;background:#f0e5e8!important}
-html[data-kash-theme=light] #v#v#v .holdingVariation.same{color:var(--warn)!important;background:var(--pe)!important}
+html[data-kash-theme=light] #v#v#v .holdingVariation.same{color:var(--kash-neutral-text)!important;background:var(--kash-neutral-bg)!important}
 html[data-kash-theme=light] #v#v#v :is(.holdingReconciliation td,.holdingDetailNote,.holdingFxDetails>div){color:var(--mut)!important}
 html[data-kash-theme=light] #v#v#v .holdingFxDetails>summary{color:var(--ink)!important}
 html[data-kash-theme=light] #v#v#v .holdingBreakdown .holdingFinal td{color:var(--ac)!important}
@@ -195,3 +195,18 @@ html[data-kash-theme=light] #serviceDatesHover :is(p,small,.serviceHoverPeriod){
 body #kashAppTooltip{position:fixed;z-index:2147470000;pointer-events:none;box-sizing:border-box;width:max-content;max-width:min(380px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:hidden;padding:10px 12px;background:var(--pn);color:var(--ink);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:9px;box-shadow:0 10px 28px #0004;font-family:inherit;font-size:13px;font-weight:500;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere}
 body #kashAppTooltip[hidden]{display:none!important}
 html[data-kash-theme=light] #kashAppTooltip{box-shadow:0 8px 24px #27363a26}
+
+/* A light appearance applies to the entire currency band and plot area. */
+html[data-kash-theme=light] body.kashModern #v#v#v#v#v .currencyTotalsHeading td{background:#e4eff1!important;color:var(--ink)!important}
+html[data-kash-theme=light] body.kashModern #v#v#v#v#v :is(.chartPlotBg,.chartPlotGlow){fill:transparent!important}
+html[data-kash-theme=light] body.kashModern #v#v#v#v#v .chartGridLine{stroke:var(--ln);opacity:.65}
+
+/* v0.679: one moving surface carries the single selection line in both themes. */
+body.kashModern #nav#nav.kfx-nav :is(.navPrimary,.navbottom)>button.on{background:transparent!important;box-shadow:none!important;overflow:visible!important;isolation:auto}
+body.kashModern #nav#nav.kfx-nav :is(.navPrimary,.navbottom)>button>:not(.kfx-selection){position:relative;z-index:1}
+body.kashModern #nav#nav .kfx-selection{position:absolute;inset:0;background:var(--kash-nav-active);border-radius:inherit;pointer-events:none;z-index:0}
+body.kashModern #nav#nav .kfx-selection .kfx-bar{background:var(--ac);animation:none!important}
+
+/* Center the close glyph itself; text baselines must not position icons. */
+body button:is([data-kash-close-icon],.closex,.flowDetailClose,.expensePaymentClose,.featureClose,.serviceHoverClose){display:inline-grid!important;place-items:center!important;align-content:center!important;justify-content:center!important;padding:0!important;line-height:1!important;box-sizing:border-box;vertical-align:middle}
+body button:is([data-kash-close-icon],.closex,.flowDetailClose,.expensePaymentClose,.featureClose,.serviceHoverClose)>svg{display:block!important;width:16px!important;height:16px!important;margin:0!important;align-self:center!important;justify-self:center!important}

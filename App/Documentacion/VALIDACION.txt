@@ -1,33 +1,34 @@
-KA$H v0.677 — Validation notes
+KA$H v0.690 — Verificación del portable Windows x64
 
-Browser regression with Microsoft Edge and isolated synthetic data:
-- Clean start in English and Spanish; complete or skip onboarding.
-- Language persistence and live Settings selector.
-- Project JSON, undo history, dirty flag and balances unchanged by translation.
-- User names, special characters and notes preserved exactly.
-- Decimal entry and numeric drafts across language switches.
-- Reminder labels translated without changing stored status codes.
-- F1 manual and an active walkthrough switch languages live.
-- Manual month-end closing remains separate from calculated current balance.
-- Old project cannot enable estimator without local activation.
-- Incorrect password and cancel do not change project data.
-- Correct activation and disabling collapse/restore the estimator panel.
+Compilado desde los 44 archivos aprobados de la fuente v0.690, verificados
+por SHA256. Ejecutable único con .NET 8.0.32 incluido; interfaz en App.
+Versión del ejecutable 0.690.0.0 / producto 0.690.
 
-No personal installation or project was used in these checks.
+CORRECCIONES
+- Configuración vacía de recordatorios respetada al abrir y recargar.
+- Foco contenido y restaurado en detalle de movimientos.
+- Nombres accesibles del menú contraído.
+- Referencia temporal actualizada al cambiar de mes con la app abierta.
+- Histórico de monedas inactivas visible en Chromium 127.
 
-Additional completed checks:
-- 29 screen/topic audits: finance sections, Settings tabs and nine help topics.
-- 48 visual combinations: English/Spanish, light/dark, widths 980/1366/1920/2560,
-  one/three/five currencies, with 80% or 125% summary zoom.
-- Short-height navigation at 720, 900 and 1080 pixels; no overlapping items.
-- Legacy expense migration gives the same amounts and balances in both languages.
-- Activation persists after saving/reloading; project-only settings cannot bypass
-  the gate when local activation is absent.
-- Native Windows portable: clean install, copy-over upgrade and reopening.
-- Native language preference, new internal assets, password gate and project save.
-- Existing project, profile, user folders and reversible legacy-file archive preserved.
-- Compilation completed successfully without warnings or errors.
+BASE DE VERIFICACIÓN
+Los nueve casos del informe pasaron en Chromium 127 y Edge: 18 aprobados.
+Matriz adicional ES/EN claro/oscuro, fechas y conservación de datos aprobado.
+Guardado/reapertura de la fuente en WebView2 real aprobados.
 
-The estimator password gate is a local preference, not account-based security.
-Standard Windows file picker controls follow the operating system's language;
-app-provided dialog titles and filters follow the selected app language.
+PRUEBA DEL PAQUETE
+- Arranque nuevo con perfil local y .NET incluido, sin KASH_PORTABLE_ROOT
+  y con DOTNET_ROOT apuntando a una carpeta inexistente.
+- Los 32 recursos servidos coinciden con la fuente aprobada por SHA256.
+- Actualización real desde v0.689: proyecto, preferencias y configuración
+  vacía de recordatorios conservados. Foco y nombres accesibles revisados.
+- Rechazo de rubro vacío seguido de nota válida con Enter.
+- Guardados completos y dos copias nuevas, conservando copias anteriores.
+- Diálogos CSV/informe mensual y reapertura sin argumentos.
+- Archivos personales ficticios, Proyectos, .actualizaciones y archivos
+  anteriores de estructura plana conservados en la prueba.
+- ZIP: 37 archivos, CRC y SHA256 por archivo comprobados.
+
+Las pruebas se realizaron con proyectos y perfiles ficticios aislados.
+La suite completa del portable integrado en VS/Git sigue pendiente.
+No incluye proyectos, Data ni perfiles personales. WebView2 sigue requerido.

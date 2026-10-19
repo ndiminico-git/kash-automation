@@ -1,9 +1,60 @@
-// Presentation preferences are local to this installation, never part of .kash.
+// Appearance is an installation preference. Never store it in the project.
+const kashSystemThemeMedia=window.matchMedia('(prefers-color-scheme: light)');
+let kashThemePreference=(()=>{try{const mode=localStorage.getItem('kash_ui_theme');return ['light','dark','system'].includes(mode)?mode:'dark'}catch{return 'dark'}})();
+function kashThemeMode(){return kashThemePreference}
 function kashTheme(){return document.documentElement.dataset.kashTheme==='light'?'light':'dark'}
+function kashResolvedTheme(mode=kashThemeMode()){return mode==='system'?(kashSystemThemeMedia.matches?'light':'dark'):mode==='light'?'light':'dark'}
 function themeIcon(kind){return kind==='moon'?'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>':'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>'}
-function themeControlHtml(){return '<label class="kashThemeControl"><span class="themeMoon">'+themeIcon('moon')+KashI18n.text('</span><span class="switchToggle"><input id="kashThemeToggle" type="checkbox" role="switch" aria-label="Modo claro" ')+(kashTheme()==='light'?'checked':'')+' onchange="setKashTheme(this.checked?\'light\':\'dark\')"><span class="switchSlider"></span></span><span class="themeSun">'+themeIcon('sun')+'</span><span class="themeMode">'+(kashTheme()==='light'?KashI18n.text('Claro'):KashI18n.text('Oscuro'))+'</span></label>'}
-function setKashTheme(mode){mode=mode==='light'?'light':'dark';document.documentElement.dataset.kashTheme=mode;try{localStorage.setItem('kash_ui_theme',mode)}catch{}document.querySelectorAll('.kashThemeControl').forEach(el=>{el.querySelector('input').checked=mode==='light';el.querySelector('.themeMode').textContent=mode==='light'?KashI18n.text('Claro'):KashI18n.text('Oscuro')});try{window.chrome?.webview?.postMessage('uiTheme|'+mode)}catch{}}
-function refreshThemeControl(){const target=D?document.querySelector('#nav .navActionStack'):document.querySelector('.home .panel');if(!target)return;document.querySelectorAll('.kashThemeControl').forEach(el=>{if(!target.contains(el))el.remove()});if(!target.querySelector('.kashThemeControl'))target.insertAdjacentHTML('beforeend',themeControlHtml())}
+function themeControlHtml(){
+ return '<div class="kashThemeControl"><span class="themeMoon">'+themeIcon(kashTheme()==='light'?'sun':'moon')+'</span><select class="kashThemeSelect" aria-label="'+KashI18n.text('Tema')+'" onchange="setKashTheme(this.value)">'+[['light','Claro'],['dark','Oscuro'],['system','Sistema']].map(([mode,label])=>'<option value="'+mode+'"'+(kashThemeMode()===mode?' selected':'')+'>'+KashI18n.text(label)+'</option>').join('')+'</select><button type="button" class="kashThemeCompactButton" aria-label="'+KashI18n.text('Cambiar tema')+'" aria-haspopup="menu" aria-expanded="false" onclick="toggleKashThemeMenu(this)">'+themeIcon(kashTheme()==='light'?'sun':'moon')+'</button></div>'
+}
+function syncKashThemeControls(){
+ document.querySelectorAll('.kashThemeSelect,[data-settings-theme-select]').forEach(el=>el.value=kashThemeMode());
+ document.querySelectorAll('.kashThemeControl .themeMoon').forEach(el=>el.innerHTML=themeIcon(kashTheme()==='light'?'sun':'moon'));
+ document.querySelectorAll('.kashThemeCompactButton').forEach(el=>{const label=KashI18n.text('Tema')+': '+KashI18n.text(kashThemeMode()==='system'?'Sistema':kashTheme()==='light'?'Claro':'Oscuro')+(kashThemeMode()==='system'?' · '+KashI18n.text(kashTheme()==='light'?'Claro':'Oscuro'):'');el.innerHTML=themeIcon(kashTheme()==='light'?'sun':'moon');el.setAttribute('aria-label',KashI18n.text('Cambiar tema')+'. '+label);el.title=label;});
+ document.querySelectorAll('[data-settings-theme]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.settingsTheme===kashThemeMode())));
+ document.querySelectorAll('[data-kash-theme-status]').forEach(el=>el.textContent=kashThemeMode()==='system'?KashI18n.text('Sigue la apariencia de Windows')+' · '+KashI18n.text(kashTheme()==='light'?'Claro':'Oscuro'):KashI18n.text('Elección manual'));
+}
+function applyKashTheme(){
+ const actual=kashResolvedTheme();document.documentElement.dataset.kashTheme=actual;document.documentElement.dataset.kashThemeMode=kashThemeMode();syncKashThemeControls();
+ try{window.chrome?.webview?.postMessage('uiTheme|'+actual)}catch{}
+}
+function setKashTheme(mode){
+ if(!['light','dark','system'].includes(mode))mode='dark';kashThemePreference=mode;
+ try{localStorage.setItem('kash_ui_theme',mode)}catch{}
+ applyKashTheme();
+}
+// The collapsed sidebar has room for an icon, not a truncated native selector.
+let kashThemeMenuAnchor=null;
+function closeKashThemeMenu(restoreFocus=false){
+ const anchor=kashThemeMenuAnchor;document.getElementById('kashThemeMenu')?.remove();kashThemeMenuAnchor=null;anchor?.setAttribute('aria-expanded','false');
+ if(restoreFocus&&anchor?.isConnected)anchor.focus({preventScroll:true});
+}
+function toggleKashThemeMenu(anchor){
+ if(document.getElementById('kashThemeMenu')){closeKashThemeMenu(true);return}
+ closeKashThemeMenu();const menu=document.createElement('div');menu.id='kashThemeMenu';menu.className='kashThemeMenu';menu.setAttribute('role','menu');menu.setAttribute('aria-label',KashI18n.text('Tema'));
+ menu.innerHTML=[['light','Claro'],['dark','Oscuro'],['system','Sistema']].map(([mode,label])=>'<button type="button" role="menuitemradio" data-kash-theme-mode="'+mode+'" aria-checked="'+(kashThemeMode()===mode)+'"><span>'+KashI18n.text(label)+'</span><span class="kashThemeMenuCheck" aria-hidden="true">'+(kashThemeMode()===mode?'✓':'')+'</span></button>').join('');
+ document.body.appendChild(menu);kashThemeMenuAnchor=anchor;anchor.setAttribute('aria-expanded','true');
+ const a=anchor.getBoundingClientRect(),b=menu.getBoundingClientRect(),pad=12;
+ menu.style.left=Math.max(pad,Math.min(a.right+10,innerWidth-b.width-pad))+'px';menu.style.top=Math.max(pad,Math.min(a.bottom-b.height,innerHeight-b.height-pad))+'px';
+ const buttons=[...menu.querySelectorAll('button')];
+ for(const button of buttons)button.onclick=()=>{setKashTheme(button.dataset.kashThemeMode);closeKashThemeMenu(true)};
+ menu.addEventListener('keydown',event=>{
+  event.stopPropagation();
+  if(event.key==='Escape'){event.preventDefault();closeKashThemeMenu(true);return}
+  if(!['ArrowDown','ArrowUp','Home','End'].includes(event.key))return;
+  event.preventDefault();const i=buttons.indexOf(document.activeElement),next=event.key==='Home'?0:event.key==='End'?buttons.length-1:(i+(event.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length;buttons[next].focus();
+ });
+ menu.addEventListener('focusout',()=>queueMicrotask(()=>{if(!menu.contains(document.activeElement)&&document.activeElement!==anchor)closeKashThemeMenu()}));
+ (buttons.find(b=>b.getAttribute('aria-checked')==='true')||buttons[0]).focus({preventScroll:true});
+}
+document.addEventListener('pointerdown',event=>{if(document.getElementById('kashThemeMenu')&&!event.target.closest?.('#kashThemeMenu,.kashThemeCompactButton'))closeKashThemeMenu()});
+document.addEventListener('scroll',()=>closeKashThemeMenu(),true);
+window.addEventListener('resize',()=>closeKashThemeMenu());window.addEventListener('blur',()=>closeKashThemeMenu());
+new MutationObserver(()=>{if(!document.body.classList.contains('nav-collapsed'))closeKashThemeMenu()}).observe(document.body,{attributes:true,attributeFilter:['class']});
+
+function refreshThemeControl(){closeKashThemeMenu();const target=D?document.querySelector('#nav .navActionStack'):document.querySelector('.home .panel');if(!target)return;document.querySelectorAll('.kashThemeControl').forEach(el=>{if(!target.contains(el))el.remove()});if(!target.querySelector('.kashThemeControl'))target.insertAdjacentHTML('beforeend',themeControlHtml());syncKashThemeControls()}
+kashSystemThemeMedia.addEventListener('change',()=>{if(kashThemeMode()==='system')applyKashTheme()});
 
 // Read the same confirmed amounts used by the existing balance engine.
 function holdingOpeningBalance(cur,m){const prev=add(m,-1);if(idx(prev)<idx(D.inicio))return baseHoldingTotal(cur);return currencyRealConfirmed(cur,prev)?num(currencyRealValues(cur)[prev]):calculatedCurrencyBalance(cur,prev)}
@@ -14,7 +65,7 @@ function refreshHoldingDetail(){document.getElementById('holdingDetails')?.remov
 function closeHoldingDetail(){const key=S.holdingDetail;S.holdingDetail=null;refreshHoldingDetail();document.querySelector('[data-kfx-holding="'+CSS.escape(key||'')+'"]')?.focus({preventScroll:true})}
 function toggleKashHolding(tile){const key=tile.dataset.kfxHolding;S.holdingDetail=S.holdingDetail===key?null:key;refreshHoldingDetail()}
 
-(function(){const originalRender=window.render;window.render=function(){const result=originalRender.apply(this,arguments);refreshThemeControl();if(S.cur==='gastos')for(const cur of CURRENCIES)updateExpenseRecurringControls(cur);return result};const originalNav=window.renderNavOnly;window.renderNavOnly=function(){const result=originalNav.apply(this,arguments);refreshThemeControl();return result};setKashTheme(kashTheme());if(D)render();else refreshThemeControl();})();
+(function(){const originalRender=window.render;window.render=function(){const result=originalRender.apply(this,arguments);refreshThemeControl();if(S.cur==='gastos')for(const cur of CURRENCIES)updateExpenseRecurringControls(cur);return result};const originalNav=window.renderNavOnly;window.renderNavOnly=function(){const result=originalNav.apply(this,arguments);refreshThemeControl();return result};applyKashTheme();if(D)render();else refreshThemeControl();})();
 
 // Read-only calendar information: never creates notifications or changes the project.
 function serviceHasDates(r){if(!r||r.t!=='e'||isAutoExpenseRubro(r))return false;const cfg=D?.serviceDates?.[r.id];return !!cfg&&((cfg.rules||[]).some(rule=>rule.close?.on||rule.due?.on)||Object.values(cfg.months||{}).some(x=>serviceValidDate(x?.close)||serviceValidDate(x?.due)))}
@@ -44,7 +95,7 @@ document.addEventListener('click',e=>{const anchor=e.target.closest?.('[data-ser
 document.addEventListener('dblclick',()=>hideServiceDatesHover(true));
 document.addEventListener('contextmenu',()=>hideServiceDatesHover(true));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&serviceDatesHoverState){e.preventDefault();const anchor=serviceDatesHoverState.anchor;hideServiceDatesHover(true);if(anchor?.isConnected){anchor.focus({preventScroll:true});hideServiceDatesHover(true)}}});
-window.addEventListener('resize',positionServiceDatesHover);document.addEventListener('scroll',positionServiceDatesHover,true);
+window.addEventListener('resize',positionServiceDatesHover);document.addEventListener('scroll',event=>{if(!event.target?.closest?.('#serviceDatesHover'))hideServiceDatesHover(true)},true);
 (function(){const previous=window.render;window.render=function(){const state=serviceDatesHoverState;const result=previous.apply(this,arguments);if(state){const anchor=state.project===D&&state.view===S.cur?[...document.querySelectorAll('[data-service-dates]')].find(el=>el.dataset.serviceDates===state.id):null;if(anchor&&anchor.getClientRects().length){serviceDatesHoverState={...state,anchor};anchor.setAttribute('aria-expanded','true');refreshServiceDatesHover()}else hideServiceDatesHover(true)}return result};const selected=window.selectCell;window.selectCell=function(){const result=selected.apply(this,arguments);refreshServiceDatesHover();return result};if(D)render()})();
 /* Replace browser title bubbles with theme-aware hints, including dynamic controls. */
 (function(){
@@ -56,7 +107,7 @@ window.addEventListener('resize',positionServiceDatesHover);document.addEventLis
  function normalize(el){if(!el?.hasAttribute?.('title'))return;const text=el.getAttribute('title').trim();el.removeAttribute('title');if(text){el.dataset.kashTip=text;el.removeAttribute('data-kash-tip-stop');const owned=autoLabels.get(el),aria=el.getAttribute('aria-label');if(['BUTTON','A'].includes(el.tagName)&&el.textContent.trim().length<=2&&!el.hasAttribute('aria-labelledby')&&(!aria||aria===owned)){el.setAttribute('aria-label',text);autoLabels.set(el,text)}}else{delete el.dataset.kashTip;el.setAttribute('data-kash-tip-stop','');if(autoLabels.get(el)===el.getAttribute('aria-label'))el.removeAttribute('aria-label');autoLabels.delete(el)}}
  function scan(root){if(root?.nodeType!==1)return;normalize(root);for(const el of root.querySelectorAll('[title]'))normalize(el)}
  function trigger(node){const el=node?.nodeType===1?node:node?.parentElement;if(!el)return null;for(let p=el;p&&p!==document.body;p=p.parentElement)normalize(p);const target=el.closest(selector);return target&&!target.hasAttribute('data-kash-tip-stop')&&target.dataset.kashTip?.trim()?target:null}
- function place(){if(!tip||tip.hidden||!anchor?.isConnected)return;const r=anchor.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,pad=12;let x=r.left+(r.width-w)/2,y=r.bottom+8;if(y+h>innerHeight-pad)y=r.top-h-8;tip.style.left=Math.max(pad,Math.min(x,innerWidth-w-pad))+'px';tip.style.top=Math.max(pad,Math.min(y,innerHeight-h-pad))+'px'}
+ function place(){if(!tip||tip.hidden||!anchor?.isConnected)return;const r=anchor.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,pad=12;let x=r.left+(r.width-w)/2,y=r.bottom+8;const grid=anchor.closest('#gw');if(grid){const bounds=grid.getBoundingClientRect();y=r.top-h-8;if(y<Math.max(pad,bounds.top+45)){x=r.right+8;y=r.top}}if(y+h>innerHeight-pad)y=r.top-h-8;tip.style.left=Math.max(pad,Math.min(x,innerWidth-w-pad))+'px';tip.style.top=Math.max(pad,Math.min(y,innerHeight-h-pad))+'px'}
  function paint(){if(!anchor?.isConnected||document.body.classList.contains('kashCurrencyDragging')){hide();return}const text=anchor.dataset.kashTip?.trim();if(!text){hide();return}if(!tip){tip=document.createElement('div');tip.id=id;tip.setAttribute('role','tooltip');document.body.appendChild(tip)}if(tip.textContent!==text)tip.textContent=text;tip.hidden=false;const ids=new Set((anchor.getAttribute('aria-describedby')||'').split(/\s+/).filter(Boolean));ids.add(id);anchor.setAttribute('aria-describedby',[...ids].join(' '));place()}
  function queue(el,kind){if(!el){hide();return}if(anchor===el&&mode===kind)return;hide();anchor=el;mode=kind;timer=setTimeout(paint,kind==='focus'?80:350)}
  document.addEventListener('pointerover',event=>{if(event.pointerType==='touch'||event.buttons||document.body.classList.contains('kashCurrencyDragging'))return;queue(trigger(event.target),'pointer')},true);

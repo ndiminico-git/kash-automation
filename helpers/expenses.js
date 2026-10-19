@@ -1,3 +1,4 @@
+const { gridMoney } = require('./money-presentation');
 const { test, expect } = require('@playwright/test');
 const { goTo, projectSnapshot } = require('./language');
 
@@ -100,7 +101,7 @@ async function expectMonthlyTotals(page, { currency = 'ARS', month, expenses, ca
       const cell = page.locator(`tr[data-total-currency="${currency}"][data-total-kind="${kind}"] td[data-total-month="${month}"]`);
       // Las columnas pueden estar fuera del viewport del scroll horizontal.
       // Se valida su contenido sin forzar clics ni modificar el scroll de la app.
-      await expect(cell).toHaveText(text);
+      await expect(cell).toHaveText(gridMoney(text));
     }
   });
 }

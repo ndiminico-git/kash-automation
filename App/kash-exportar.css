@@ -1,0 +1,48 @@
+body.kashModern #v#v#v#v#v#v .kashPageTools .kashExportHeaderButton{display:inline-flex;align-items:center;gap:7px;flex:none;min-height:34px;padding:6px 10px;border:1px solid var(--ac);border-radius:7px;background:var(--pn);color:var(--ac);font:inherit;font-size:12px;white-space:nowrap;cursor:pointer}
+.kashExportHeaderButton svg{width:16px;height:16px;flex:none}
+.kashExportHeaderButton:disabled{opacity:.5;cursor:default}
+.kashExportBackdrop{position:fixed;inset:0;z-index:16000;background:#0009;display:grid;place-items:center;padding:20px;color:var(--ink)}
+.kashExportDialog{width:min(1100px,100%);max-height:calc(100vh - 40px);overflow:auto;border:1px solid var(--ln);border-radius:13px;background:var(--pn);color:var(--ink);padding:22px;font:14px/1.45 'Segoe UI',sans-serif;box-sizing:border-box}
+.kashExportDialog>header{display:flex;align-items:start;justify-content:space-between;gap:15px;margin-bottom:18px}
+.kashExportDialog h2{font-size:20px;margin:0 0 6px;color:var(--ink)}
+.kashExportScope,.kashExportHint{font-size:12px;line-height:1.5;color:var(--mut);margin:5px 0 13px;overflow-wrap:anywhere}
+.kashExportDialog>header button{background:var(--bg);color:var(--ink);border:1px solid var(--ln);border-radius:7px;width:32px;height:32px;min-height:32px;min-width:32px;padding:0;display:grid;place-items:center;line-height:1;cursor:pointer}
+.kashExportContentLabel{display:flex;flex-direction:column;gap:7px;max-width:360px;font-size:13px;margin:10px 0 18px}
+.kashExportContentLabel select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--ln);border-radius:7px;padding:7px 10px;min-height:36px}
+.kashExportFilename{font-weight:600;font-size:14px;overflow-wrap:anywhere;margin-bottom:13px}
+.kashExportTableWrap{max-width:100%;overflow:auto}
+.kashExportTableWrap table{width:100%;min-width:660px;border-collapse:collapse;font-size:12px;color:var(--ink)}
+.kashExportTableWrap :is(th,td){background:transparent!important;border:0!important;border-bottom:1px solid var(--ln)!important;padding:10px 8px!important;text-align:left;vertical-align:top;max-width:280px;overflow-wrap:anywhere;color:var(--ink)!important;position:static!important;white-space:normal}
+.kashExportTableWrap th{font-weight:600;color:var(--mut)!important}
+.kashExportActions{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:9px;margin-top:18px}
+.kashExportActions button{font-size:13px;min-height:36px;padding:7px 13px}
+#kashExportStatus{min-height:20px;font-size:13px;line-height:1.5;overflow-wrap:anywhere;color:var(--mut);margin:12px 0 0}
+#kashExportStatus.kashExportError{color:var(--kash-money-negative)}
+#kashPrintSheet{box-sizing:border-box;max-width:800px;margin:0 auto;background:#fff;color:#24343c;padding:30px;border:1px solid #ccd3d7;font:13px/1.5 'Segoe UI',sans-serif;color-scheme:light}
+#kashPrintSheet .kashPrintTop{display:flex;justify-content:space-between;gap:20px;padding-bottom:17px;border-bottom:2px solid #c8d0d2;margin-bottom:20px}
+#kashPrintSheet .kashPrintTop strong{font-size:22px;letter-spacing:1px}
+#kashPrintSheet .kashPrintTop span{font-size:12px;color:#52636c;text-align:right}
+#kashPrintSheet h1{font-size:23px;font-weight:650;margin:0 0 5px;color:#24343c}
+#kashPrintSheet .kashPrintProject{font-size:13px;color:#52636c;margin:0 0 24px;overflow-wrap:anywhere}
+#kashPrintSheet .kashPrintCurrencies{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+#kashPrintSheet .kashPrintCurrency{break-inside:avoid;min-width:0}
+#kashPrintSheet h2{font-size:15px;font-weight:600;border-bottom:1px solid #c8d0d2;padding-bottom:8px;margin:0 0 11px;color:#24343c}
+#kashPrintSheet .kashPrintLine{display:flex;flex-direction:column;gap:4px;font-size:12px;color:#52636c;margin:10px 0}
+#kashPrintSheet .kashPrintLine strong{font-size:14px;font-weight:600;color:#24343c;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#kashPrintSheet .kashPrintLine.kashPrintResult{margin-top:17px;border-top:1px solid #c8d0d2;padding-top:10px}
+#kashPrintSheet strong.kashPrintNegative{color:#b13044!important}
+#kashPrintSheet .kashPrintNote{font-size:12px;color:#52636c;margin:25px 0 15px}
+#kashPrintSheet footer{border-top:1px solid #c8d0d2;padding-top:11px;font-size:12px;color:#52636c}
+@media(max-width:600px){.kashExportBackdrop{padding:10px}.kashExportDialog{padding:16px;max-height:calc(100vh - 20px)}#kashPrintSheet{padding:18px 14px}#kashPrintSheet .kashPrintCurrencies{grid-template-columns:minmax(0,1fr)}}
+@media print{
+ @page{size:A4 portrait;margin:12mm}
+ html:has(body.kashPrintReady),body.kashPrintReady{height:auto!important;min-height:0!important;overflow:visible!important;background:#fff!important;margin:0!important;padding:0!important}
+ body.kashPrintReady>*{display:none!important}
+ body.kashPrintReady>#kashExportModal{display:block!important;position:static!important;inset:auto!important;background:#fff!important;padding:0!important;margin:0!important;overflow:visible!important}
+ body.kashPrintReady .kashExportDialog{width:auto!important;max-width:none!important;height:auto!important;max-height:none!important;overflow:visible!important;border:0!important;border-radius:0!important;background:#fff!important;margin:0!important;padding:0!important}
+ body.kashPrintReady .kashExportDialog>:not(.kashExportPreview){display:none!important}
+ body.kashPrintReady .kashExportPreview{display:block!important;overflow:visible!important;margin:0!important;padding:0!important}
+ body.kashPrintReady #kashPrintSheet{display:block!important;max-width:none!important;width:100%!important;border:0!important;margin:0!important;padding:0!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ body.kashPrintReady #kashPrintSheet .kashPrintCurrencies{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ body.kashPrintReady #kashPrintSheet .kashPrintCurrency{break-inside:avoid!important}
+}

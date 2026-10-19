@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
     
@@ -20,12 +20,13 @@ jobs:
       run: npm ci
       
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: npx playwright install --with-deps chromium
       
     - name: Run Playwright tests
       env:
         KASH_APP_DIR: ${{ github.workspace }}/App
-      run: npx playwright test tests/01-onboarding.spec.js --workers=1
+        KASH_BROWSER_CHANNEL: bundled
+      run: npx playwright test --workers=1
       
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}

@@ -1,14 +1,20 @@
-KA$H v0.677
+KA$H v0.690 — Acumulado desde el portable v0.677
 
-English and Spanish interface with a first-launch language selector.
-Live switching in Settings > Appearance > Language.
-Translated navigation, forms, help, walkthroughs, tooltips and dialogs.
-User-entered names and notes are preserved.
-Financial records, currency history and calculations retain their logic.
-Translated buttons wrap to their labels without resizing icon controls.
-Exchange estimator hidden by default; password required to enable it.
-Same clean portable structure: executable, App folder and marker.
+- v0.690: al abrir o recargar se conserva la configuración vacía de recordatorios.
+- v0.690: foco contenido/restaurado en detalle de movimientos y nombres del menú contraído.
+- v0.690: referencia de mes actualizada con la app abierta.
+- v0.690: histórico de monedas inactivas visible en Chromium 127.
+- Mejoras de legibilidad, contraste, navegación y cifras en ambos temas.
+- Consumos: selección por arrastre, suma por moneda y encabezados más claros.
+- Resumen y divisas: cotizador compacto, cotizaciones ordenadas y porcentajes
+  representados proporcionalmente, con distribución de gráficos conservada.
+- Tema Sistema y correcciones de los controles y del lateral colapsado.
+- CSV y documento mensual independiente para impresión/PDF.
+- Aviso de cierre del último mes terminado; leído separado de completado.
+- Guardado protegido, copias anteriores y recuperación a un archivo nuevo.
+- Formularios de cuotas en una fila cuando hay ancho disponible.
+- Correcciones de notas/rubros y editores al cambiar de proyecto.
+- Limpieza de diálogos y de imágenes duplicadas, sin cambiar fórmulas.
 
-Interfaz en inglés y español; selección inicial y cambio desde Apariencia.
-Ayuda F1 y guías incluidas. Los textos propios del usuario se conservan.
-Estimador oculto por defecto, activable con contraseña desde Ajustes.
+Los nueve casos del informe de bugs pasaron en Chromium 127 y Edge.
+La suite completa de integración sigue pendiente. Ver VALIDACION.txt.

@@ -68,7 +68,7 @@ const test = base.extend({
 
 const initialMonth = async page => (await projectSnapshot(page)).inicio;
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('08 · Saldos y remanentes · KA$H v0.677', () => {
+test.describe('08 · Saldos y remanentes · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];
@@ -354,4 +354,19 @@ test.describe('08 · Saldos y remanentes · KA$H v0.677', () => {
     expect(after.realByCurrency).toEqual({ USD: { [month]: 150.75 } });
     await expectSummaryBalances(page, { currency: 'USD', month: later, calculated: 'USD 140.75', projected: 'USD 140.75' });
   });
+});
+
+
+const { test: upgradeTest } = require('../helpers/upgrade-fixture');
+upgradeTest('TC-213 [R] Al cambiar de mes con la app abierta ARS deja de tratar el mes actual como futuro', async ({ page }) => {
+  await setOpeningBalance(page, 'ARS', '1000');
+  const { openSummary, expectSummaryCard } = require('../helpers/summary');
+  const before = await projectSnapshot(page);
+  await openSummary(page, '2026-11');
+  // Existing rule: a future ARS month with no entries displays a zero projection.
+  await expectSummaryCard(page, 'ARS', 'ARS 1,000', 'ARS 0');
+  await page.clock.setFixedTime(new Date('2026-11-15T12:00:00-03:00'));
+  await require('../helpers/language').goTo(page, 'res');
+  expect(await projectSnapshot(page)).toEqual(before);
+  await expectSummaryCard(page, 'ARS', 'ARS 1,000', 'ARS 1,000');
 });

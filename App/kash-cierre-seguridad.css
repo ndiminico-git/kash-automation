@@ -1,0 +1,98 @@
+/* Compact quotes retain the existing summary columns and chart positions. */
+body.kashModern #v#v#v#v#v#v#v .quickConverter{gap:10px;padding:14px!important}
+body.kashModern #v#v#v#v#v#v#v .quickConverterHeader{display:grid!important;grid-template-columns:auto minmax(0,1fr) 36px;gap:12px!important}
+body.kashModern #v#v#v#v#v#v#v .converterCompactRates{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px 14px;color:var(--mut);font-size:12px;line-height:1.5;min-width:0}
+body.kashModern #v#v#v#v#v#v#v .converterCompactRates span{white-space:nowrap}
+body.kashModern #v#v#v#v#v#v#v .converterCompactRates b{color:var(--ink);font-variant-numeric:tabular-nums}
+body.kashModern #v#v#v#v#v#v#v .quickConverter .converterRow{gap:10px!important}
+body.kashModern #v#v#v#v#v#v#v .converterField{gap:4px!important}
+body.kashModern #v#v#v#v#v#v#v .converterField :is(select,input){height:38px!important;padding:5px 10px!important;line-height:1.4!important}
+body.kashModern #v#v#v#v#v#v#v .quickConverter .converterResult{min-height:38px!important;padding:5px 10px!important}
+body.kashModern #v#v#v#v#v#v#v .quickConverter .swapCurrency{height:38px!important}
+body.kashModern #v#v#v#v#v#v#v .converterFooter{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 12px}
+body.kashModern #v#v#v#v#v#v#v .converterSources{margin:0;font-size:12px;color:var(--mut);line-height:1.5}
+body.kashModern #v#v#v#v#v#v#v .converterSources summary{cursor:pointer;color:var(--ink)}
+body.kashModern #v#v#v#v#v#v#v .converterSources .converterMeta{padding-top:10px}
+body.kashModern #v#v#v#v#v#v#v .kashChartCurrency{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px!important}
+body.kashModern #v#v#v#v#v#v#v .kashChartCurrency select{height:38px!important}
+body.kashModern #v#v#v#v#v#v#v .kashHeaderQuotes{order:2!important;flex:0 1 auto!important;width:auto!important;margin-left:auto;max-width:100%}
+body.kashModern #v#v#v#v#v#v#v .kashHeaderQuotes .tickerDetailed{padding:0!important;gap:6px 16px!important;grid-template-columns:minmax(0,1fr) 36px!important}
+body.kashModern #v#v#v#v#v#v#v .tickerDetailed .tickerQuotes{display:flex!important;flex-wrap:wrap;gap:20px 24px!important}
+body.kashModern #v#v#v#v#v#v#v .tickerRateGroup{display:grid;grid-template-columns:62px 68px 68px;gap:5px 6px;border-left:3px solid var(--quote-accent)!important;padding:0 0 0 10px!important;--quote-accent:#8bc5ff}
+body.kashModern #v#v#v#v#v#v#v .tickerRateGroup.eur{--quote-accent:#cfafff}
+html[data-kash-theme="light"] body.kashModern #v#v#v#v#v#v#v .tickerRateGroup{--quote-accent:#245b96}
+html[data-kash-theme="light"] body.kashModern #v#v#v#v#v#v#v .tickerRateGroup.eur{--quote-accent:#74519c}
+body.kashModern #v#v#v#v#v#v#v .tickerRateCurrency{color:var(--quote-accent)!important;font-size:16px!important;grid-column:1;line-height:1.4!important}
+body.kashModern #v#v#v#v#v#v#v .tickerRateName{grid-column:2/4;color:var(--mut);font-size:12px;line-height:1.4}
+body.kashModern #v#v#v#v#v#v#v :is(.tickerRateMarket,.tickerRateColumn){background:var(--kash-raised);color:var(--mut)!important;border-bottom:1px solid var(--ln);font-size:12px!important;line-height:1.5!important;padding:3px 0}
+body.kashModern #v#v#v#v#v#v#v .tickerRateColumn{text-align:right}
+body.kashModern #v#v#v#v#v#v#v .tickerRateValue{font-size:18px!important;text-align:right;line-height:1.4!important;color:var(--ink)!important;overflow-wrap:normal}
+body.kashModern #v#v#v#v#v#v#v .tickerRateKind{font-size:13px!important}
+body.kashModern #v#v#v#v#v#v#v .tickerRateFoot{gap:6px 12px}
+body.kashModern #v#v#v#v#v#v#v .tickerRateFoot :is(.tickerRateUnit,.marketQuoteStatus,.marketQuoteStatus span){font-size:12px!important}
+@media(max-width:1400px){body.kashModern #v#v#v#v#v#v#v .kashHeaderQuotes{order:4!important;flex:0 0 100%!important;margin-left:0}}
+/* FX quotes belong to the right edge, with a single flexible space after the title. */
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"]{align-items:flex-start!important;gap:10px 18px!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTools{margin-left:0!important;align-self:flex-start!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTitle{align-self:flex-start!important}
+body.kashModern #v#v#v#v#v#v#v .tickerRateGroup{gap:3px 6px}
+body.kashModern #v#v#v#v#v#v#v .tickerRateValue{line-height:1.25!important}
+body.kashModern #v#v#v#v#v#v#v :is(.tickerRateMarket,.tickerRateColumn){padding:1px 0}
+body.kashModern #v#v#v#v#v#v#v .tickerRateFoot{grid-column:1/-1;line-height:1.4}
+/* Currency is the first table header: remove the extra label row to reduce header height. */
+body.kashModern #v#v#v#v#v#v#v .tickerRateName{display:none}
+body.kashModern #v#v#v#v#v#v#v .tickerRateMarket{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden;clip-path:inset(50%);white-space:nowrap;padding:0!important;border:0}
+body.kashModern #v#v#v#v#v#v#v .tickerRateCurrency{grid-column:1;grid-row:1;font-size:14px!important;background:var(--kash-raised);border-bottom:1px solid var(--ln);padding:1px 0}
+html[data-kash-theme="light"] body.kashModern #v#v#v#v#v#v#v .chartEmpty{color:#526978!important}
+@media(max-width:1400px){body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTools{margin-left:auto!important}body.kashModern #v#v#v#v#v#v#v .tickerDetailed .tickerQuotes{justify-content:flex-start!important}}
+@media(max-width:650px){body.kashModern #v#v#v#v#v#v#v .kashChartCurrency{grid-template-columns:minmax(0,1fr)}body.kashModern #v#v#v#v#v#v#v .quickConverterHeader{grid-template-columns:minmax(0,1fr) 36px}body.kashModern #v#v#v#v#v#v#v .converterCompactRates{grid-row:2;grid-column:1/-1;justify-content:flex-start}body.kashModern #v#v#v#v#v#v#v .quickConverterHeader>.tickerRefresh{grid-column:2;grid-row:1}}
+
+/* A dedicated reference strip keeps quotes out of the title/zoom row. */
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"]{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:10px 18px!important;align-items:center!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTitle{grid-column:1;grid-row:1;align-self:center!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTools{grid-column:2;grid-row:1;align-self:center!important;margin-left:0!important}
+body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashHeaderQuotes{grid-column:1/-1;grid-row:2;width:100%!important;margin:0!important;padding-top:9px;border-top:1px solid var(--ln)}
+body.kashModern #v#v#v#v#v#v#v .kashHeaderQuotes .tickerDetailed{grid-template-columns:auto minmax(0,1fr) 36px!important;gap:10px 24px!important;align-items:center!important}
+body.kashModern #v#v#v#v#v#v#v .tickerDetailed .tickerQuotes{grid-column:1;grid-row:1;justify-content:flex-start!important}
+body.kashModern #v#v#v#v#v#v#v .tickerDetailed .tickerRateFoot{grid-column:2;grid-row:1;display:grid;justify-content:end;text-align:right;gap:4px;align-self:center}
+body.kashModern #v#v#v#v#v#v#v .tickerDetailed>.tickerRefresh{grid-column:3!important;grid-row:1!important;align-self:center!important}
+@media(max-width:1050px){body.kashModern #v#v#v#v#v#v#v .kashHeaderQuotes .tickerDetailed{grid-template-columns:minmax(0,1fr) 36px!important}body.kashModern #v#v#v#v#v#v#v .tickerDetailed .tickerRateFoot{grid-column:1/-1;grid-row:2;justify-content:start;text-align:left;display:flex}body.kashModern #v#v#v#v#v#v#v .tickerDetailed>.tickerRefresh{grid-column:2!important}}
+@media(max-width:650px){body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"]{grid-template-columns:minmax(0,1fr)!important}body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashPageTools{grid-column:1;grid-row:2;justify-self:start}body.kashModern #v#v#v#v#v#v#v .kashPageHeader[data-kash-section="fx"] .kashHeaderQuotes{grid-row:3}}
+
+html body .kashSafetyOverlay{position:fixed;inset:0;background:#0008;z-index:100050;display:grid;place-items:center;padding:20px;color:var(--ink)}
+html body .kashSafetyBox{width:min(760px,100%);max-height:calc(100dvh - 40px);overflow:auto;background:var(--pn,#102036);color:var(--ink);border:1px solid var(--ln);border-radius:12px;box-shadow:0 16px 50px #0005;font-size:14px;line-height:1.6}
+html[data-kash-theme="light"] body .kashSafetyBox{background:#f9fbfc;color:#233844}
+html body .kashSafetyBox>header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:20px 22px;border-bottom:1px solid var(--ln)}
+html body .kashSafetyBox :is(h3,h4,p){margin:0 0 10px;color:inherit}
+html body .kashSafetyBox h3{font-size:21px;line-height:1.4;margin:0}
+html body .kashSafetyBox header p{color:var(--mut);font-size:14px;margin:6px 0 0}
+html body .kashSafetyClose{display:grid!important;place-items:center!important;flex:0 0 34px;width:34px!important;height:34px!important;padding:0!important;border:1px solid var(--ln);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer}
+html body .kashSafetyClose svg{display:block;margin:0}
+html body .kashSafetyBody{padding:20px 22px}
+html body .kashSafetyBox :is(input,select,textarea){box-sizing:border-box;min-width:0;width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--ln);border-radius:7px;padding:7px 11px;line-height:1.5;min-height:40px}
+html body .kashSafetyBox :is(input,textarea)::placeholder{color:var(--mut);opacity:1}
+html body .kashSafetyBox textarea{height:160px;resize:vertical;margin-top:10px}
+html body .kashSafetyBox label{display:grid;gap:5px;color:inherit}
+html body .kashSafetyBox :is(input,select,button,summary):focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+html body .kashSafetyBox .kashSafetyPeriod{max-width:330px;margin-bottom:14px}
+html body .kashClosingRows{display:grid;gap:15px;margin:18px 0}
+html body .kashClosingFeedback{padding:10px 12px;margin:12px 0;border-left:3px solid var(--ac);background:var(--kash-neutral-bg);color:var(--ink);font-size:14px;line-height:1.5}
+html body .kashClosingReadState{color:var(--mut);font-size:13px}
+html body .kashClosingRow,html body .kashCopy{padding:16px;border:1px solid var(--ln);border-radius:8px;color:var(--ink)}
+html body .kashClosingRow h4{display:flex;align-items:center;gap:9px;font-size:17px}
+html body .kashClosingRow h4 small{margin-left:auto;font-size:13px;color:var(--mut)}
+html body .kashClosingFigures{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;color:var(--mut);font-size:13px}
+html body .kashClosingFigures b{display:block;color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums}
+html body .kashClosingRow input{max-width:380px;margin-bottom:10px}
+html body .kashClosingRow .kashSuggestion{color:var(--mut);font-size:13px}
+html body .kashClosingError{color:var(--kash-money-negative,#ff6e85);margin-top:10px}
+html body .kashSafetyActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+html body .kashCopies{display:grid;gap:12px}
+html body .kashSafetyBox [hidden]{display:none!important}
+html body .kashSafetyBox button:disabled{cursor:not-allowed;opacity:.65}
+html body .kashSafetyBox .moneyNegative{color:var(--kash-money-negative)!important}
+html body .kashClosingSummary{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:12px 15px;margin-bottom:12px;background:var(--pn);color:var(--ink);border:1px solid var(--ln);border-left:3px solid var(--ac);border-radius:8px}
+html body .kashClosingSummary span{display:block;color:var(--mut);font-size:13px;margin-top:3px}
+html body .kashClosingNotice p{color:var(--mut);font-size:13px;margin:7px 0}
+html body .kashRecoveryAccess{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;border-top:1px solid var(--ln);padding-top:18px;color:var(--mut);font-size:13px}
+@media(max-width:500px){html body .kashSafetyOverlay{padding:10px}html body .kashSafetyBox>header,html body .kashSafetyBody{padding:16px}html body .kashClosingFigures{grid-template-columns:1fr}}

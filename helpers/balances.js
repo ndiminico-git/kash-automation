@@ -1,3 +1,4 @@
+const { gridMoney } = require('./money-presentation');
 const { test, expect } = require('@playwright/test');
 const { settingsPage, goTo, projectSnapshot } = require('./language');
 const { readSavedProject } = require('./expenses');
@@ -47,9 +48,9 @@ async function expectBalances(page, { currency = 'ARS', month, opening, calculat
   await test.step(`Verificar saldos ${currency}, ${month}`, async () => {
     await selectBudgetYear(page, Number(month.slice(0, 4)));
     for (const [kind, value] of Object.entries({ opening, confirmed: calculated, estimated: projected })) {
-      if (value !== undefined) await expect(totalCell(page, currency, month, kind)).toHaveText(value);
+      if (value !== undefined) await expect(totalCell(page, currency, month, kind)).toHaveText(gridMoney(value));
     }
-    if (verified !== undefined) await expect(verifiedCell(page, currency, month).locator('.realDisplay')).toHaveText(verified);
+    if (verified !== undefined) await expect(verifiedCell(page, currency, month).locator('.realDisplay')).toHaveText(gridMoney(verified));
   });
 }
 

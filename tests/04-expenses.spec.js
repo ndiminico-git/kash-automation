@@ -47,7 +47,7 @@ const test = base.extend({
 
 test.use({ storageState: { cookies: [], origins: [] } });
 
-test.describe('04 · Gastos · KA$H v0.677', () => {
+test.describe('04 · Gastos · KA$H v0.690', () => {
   // Presupuesto común para CRUD y verificaciones en varias pantallas.
   // El wizard tiene otros 60 s propios; cada acción y expect conserva 5 s.
   test.setTimeout(60_000);

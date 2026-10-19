@@ -125,7 +125,7 @@ const test = base.extend({
 
 const initialMonth = async page => (await projectSnapshot(page)).inicio;
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('11 · Resumen · KA$H v0.677', () => {
+test.describe('11 · Resumen · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];
@@ -470,5 +470,42 @@ test.describe('11 · Resumen · KA$H v0.677', () => {
       expect(normalizedNextId).toBeGreaterThanOrEqual(storedNextId);
       return financialProject;
     }).toEqual(expectedFinancialProject);
+  });
+});
+
+
+const { test: upgradeTest } = require('../helpers/upgrade-fixture');
+upgradeTest.describe('11 · Cotizador manual · KA$H v0.690', () => {
+  upgradeTest.setTimeout(60_000);
+  upgradeTest('TC-200 [R] Tasa manual valida cero y negativos, convierte offline y no crea transacciones', async ({ page }) => {
+    await addCurrency(page, 'USD');
+    await enableSummaryConverter(page);
+    const before = await projectSnapshot(page);
+    await page.locator('[onclick="openConverterRates()"]').click();
+    for (const invalid of ['0', '-1', 'abc']) {
+      await page.locator('#converterManualArs').fill(invalid);
+      await page.locator('#converterManualEur').fill('0.8');
+      await page.locator('#converterManualApply').click();
+      await expect(page.locator('#converterManualError')).toHaveText('Enter exchange rates greater than zero.');
+      expect(await page.evaluate(() => localStorage.getItem('kash_converter_manual_v1'))).toBeNull();
+    }
+    await page.locator('#converterManualArs').fill('1500');
+    await page.locator('#converterManualEur').fill('0.8');
+    await page.locator('#converterManualApply').click();
+    await require('../helpers/settings').setOnlinePreference(page, false);
+    await openSummary(page, '2026-10');
+    await expect(page.locator('.quickConverter')).toBeVisible();
+    await page.locator('#convFrom').selectOption('USD');
+    await page.locator('#convTo').selectOption('ARS');
+    await page.locator('#convAmount').fill('2');
+    await expect(page.locator('#convResult')).toHaveText('ARS 3,000');
+    await expect(page.locator('.quickConverter .marketQuoteStatus')).toContainText('Manual rate');
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('kash_converter_manual_v1'))))
+      .toMatchObject({ usdArs: 1500, usdEur: 0.8 });
+    expect(await projectSnapshot(page)).toEqual(before);
+    await expectBudgetPersisted(page, before);
+    await page.locator('[onclick="clearConverterManualRates()"]').click();
+    await expect(page.locator('.quickConverter')).toHaveCount(0);
+    expect(await page.evaluate(() => localStorage.getItem('kash_converter_manual_v1'))).toBeNull();
   });
 });

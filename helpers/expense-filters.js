@@ -29,12 +29,16 @@ async function expectFilteredExpenses(page, { descriptions, totals }) {
   await expect.poll(async () => (await rows.locator('.expenseConceptText').allTextContents()).sort())
     .toEqual([...descriptions].sort());
   const summary = page.locator('#expenseFilterSummary');
-  await expect(summary.locator(':scope > span').first())
-    .toHaveText(`${descriptions.length} ${descriptions.length === 1 ? 'result' : 'results'}`);
-  await expect(summary.locator('strong')).toHaveCount(Object.keys(totals).length);
+  const filtered = Boolean((await page.locator('#expenseSearch').inputValue()).trim()
+    || await page.locator('#expensePeriodFilter').inputValue()
+    || await page.locator('#expenseCurrencyFilter').inputValue());
+  await expect(summary.locator('.expenseTotalsHeading b')).toHaveText(filtered ? 'Results total' : 'Total expenses');
+  const count = filtered ? `${descriptions.length} ${descriptions.length === 1 ? 'result' : 'results'}`
+    : `${descriptions.length} ${descriptions.length === 1 ? 'listed expense' : 'listed expenses'}`;
+  await expect(summary.locator('.expenseTotalsHeading > span')).toContainText(`${count} · `);
+  await expect(summary.locator('[data-expense-total-currency]')).toHaveCount(Object.keys(totals).length);
   for (const [currency, amount] of Object.entries(totals)) {
-    await expect(summary.locator(':scope > span').filter({ hasText: `Filtered total ${currency}:` }))
-      .toHaveText(`Filtered total ${currency}: ${amount}`);
+    await expect(summary.locator(`[data-expense-total-currency="${currency}"] strong`)).toHaveText(amount);
   }
 }
 

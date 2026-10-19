@@ -1,5 +1,84 @@
 /* English UI catalog. Project data is never passed through this catalog. */
 window.KASH_ENGLISH={
+"Total de los resultados":"Results total",
+"Total de gastos":"Total expenses",
+"gasto listado":"listed expense",
+"gastos listados":"listed expenses",
+"Aviso leído":"Notice read",
+"Aviso sin leer":"Notice unread",
+"Cierre completado":"Closing completed",
+"El cierre sigue pendiente":"Closing remains pending",
+"Aviso marcado como sin leer.":"Notice marked as unread.",
+"Aviso marcado como leído.":"Notice marked as read.",
+"Cierre completado.":"Closing completed.",
+"Esto no confirma los saldos pendientes.":"This does not confirm pending balances.",
+"Saldo actualizado en Consumos":"Balance updated in monthly consumption",
+"Cambios pendientes de guardar en el archivo .kash.":"Changes pending saving to the .kash file.",
+"Aviso leído · Saldos pendientes de confirmar":"Notice read · Balances awaiting confirmation",
+"Fuentes y fecha de consulta":"Sources and retrieval date",
+"Mercado":"Market",
+"Cierre mensual":"Monthly closing",
+"El aviso aparece al terminar un mes del proyecto.":"The reminder appears after a project month ends.",
+"No hay períodos finalizados para revisar.":"There are no completed periods to review.",
+"Pendiente de confirmar":"Awaiting confirmation",
+"Registrá el dinero real al terminar el mes. Leer el aviso no confirma los saldos.":"Record the actual money at month end. Reading the notice does not confirm balances.",
+"Confirmado":"Confirmed",
+"Ingresá un importe; cero es válido":"Enter an amount; zero is valid",
+"Precargado del saldo comprobado de ":"Prefilled from the verified balance for ",
+". Sin actividad ni variación. Revisá y confirmá.":". No activity or change. Review and confirm.",
+"Actualizar saldo":"Update balance",
+"Confirmar saldo":"Confirm balance",
+"Marcar como leído":"Mark as read",
+"El cierre se completa al confirmar todas las monedas.":"Closing is complete after all currencies are confirmed.",
+"Ver en Consumos":"View in monthly consumption",
+"Ingresá un importe válido. Cero también confirma un saldo.":"Enter a valid amount. Zero also confirms a balance.",
+"Saldos reales pendientes":"Actual balances pending",
+"Revisar cierre":"Review closing",
+"Completar cierre":"Complete closing",
+"Cierre mensual pendiente":"Monthly closing pending",
+"Confirmá los saldos reales al finalizar el mes.":"Confirm actual balances at month end.",
+"Copias y recuperación":"Backups and recovery",
+"Se conserva el archivo anterior en cada guardado: hasta 10 copias por proyecto.":"Each save retains the previous file: up to 10 backups per project.",
+"Consultando copias...":"Loading backups...",
+"Disponible al ejecutar KA$H desde PowerShell.":"Available when running KA$H from PowerShell.",
+"Recuperar crea un archivo independiente y conserva el proyecto abierto.":"Recovery creates a separate file and preserves the open project.",
+"servicios":"services",
+"gastos":"expenses",
+"Copia incompleta o inválida. No se puede recuperar.":"Incomplete or invalid backup. Recovery is unavailable.",
+"Recuperar como archivo independiente":"Recover as a separate file",
+"Todavía no hay copias. Se crea una versión del archivo anterior al volver a guardar.":"There are no backups yet. Saving again retains a version of the previous file.",
+"Guardá primero el proyecto como archivo .kash.":"Save the project as a .kash file first.",
+"No se pudo actualizar la copia de sesión. Los cambios siguen pendientes en la app.":"The session copy could not be updated. Changes remain pending in the app.",
+"No se pudo guardar el archivo. Los cambios siguen pendientes en la app.":"The file could not be saved. Changes remain pending in the app.",
+"No se pudo completar la acción.":"The action could not be completed.",
+"No se pudo completar la acción":"The action could not be completed",
+"Operación":"Operation",
+"Detalle":"Details",
+"Último guardado confirmado":"Last confirmed save",
+"Sin confirmación en esta sesión":"No confirmation in this session",
+"La copia de sesión no equivale a guardar el archivo .kash.":"The session copy is separate from saving the .kash file.",
+"Detalles del error":"Error details",
+"Reintentar":"Retry",
+"Copiar detalles":"Copy details",
+"Detalles copiados.":"Details copied.",
+"Presioná Ctrl+C para copiar los detalles.":"Press Ctrl+C to copy the details.",
+"Copia recuperada":"Backup recovered",
+"Se creó un archivo independiente.":"A separate file has been created.",
+"El proyecto abierto y sus cambios continúan igual. Usá Abrir proyecto para revisar el archivo recuperado.":"The open project and its changes are preserved. Use Open project to review the recovered file.",
+"Versiones anteriores del archivo .kash; la sesión se guarda por separado.":"Earlier versions of the .kash file; the session is saved separately.",
+  "Origen": "From",
+  "Destino": "To",
+  "Resultado": "Result",
+  "Venta": "Sell",
+  "Oficial": "Official",
+  "Suma de la selección": "Selection sum",
+  "Seleccioná importes para ver la suma.": "Select amounts to see their sum.",
+  "Ver gráficos en": "Show charts in",
+  "Valores en ARS por unidad": "Values in ARS per unit",
+  "Año de Distribución": "Distribution year",
+  "Mes de Distribución": "Distribution month",
+  "Moneda de destino": "Target currency",
+  "Moneda de origen": "Source currency",
   "— Sin anterior": "— No previous balance",
   "¿Borrar el recordatorio mensual “": "Delete monthly reminder “",
   "¿Borrar el rubro \"": "Delete category \"",
@@ -876,3 +955,21 @@ window.KASH_ENGLISH={
   "antes": "before",
   " del ": " of "
 };
+
+Object.assign(window.KASH_ENGLISH,{"Período propio":"Own period","Origen no registrado":"Source not recorded","Ingresada por vos":"Entered by you","Promedio: ":"Average: ","Referencia fija de respaldo":"Fixed fallback reference","Última referencia USD/EUR guardada":"Last stored USD/EUR reference","Cotización manual · ":"Manual rate · ","Usar valor manual":"Use manual rate","Usar cotizaciones disponibles":"Use available rates","Cotizaciones manuales":"Manual exchange rates","Se usan solo en el cotizador. No modifican saldos, cambios registrados ni el estimador.":"Used only in the converter. Balances, recorded exchanges and the estimator are unchanged.","ARS por 1 USD":"ARS per 1 USD","EUR por 1 USD":"EUR per 1 USD","Ingresá tasas mayores que cero.":"Enter exchange rates greater than zero."});
+
+Object.assign(window.KASH_ENGLISH,{"Sistema":"System","Sigue la apariencia de Windows":"Follows Windows appearance","Elección manual":"Manual selection"});
+
+Object.assign(window.KASH_ENGLISH,{"Paga":"Paid","No aún":"Not yet","No se paga":"Not due"});
+
+Object.assign(window.KASH_ENGLISH,{"Apariencia de la app":"App appearance","Tamaño de los campos en Ajustes":"Field size in Settings","Cambia el tamaño de los campos y sus etiquetas dentro de Ajustes. No cambia Resumen, Consumos ni el zoom de la pantalla.":"Changes field and label sizes within Settings. Summary, Monthly Usage and screen zoom stay unchanged.","Compacto: campos un poco más bajos y texto un poco menor.":"Compact: slightly shorter fields and slightly smaller text.","Cómodo: campos más altos y texto un poco mayor.":"Comfortable: taller fields and slightly larger text.","Así se verán los campos":"How fields will look","Servicio de ejemplo":"Example item","Moneda de ejemplo":"Example currency","Esta vista previa no modifica el proyecto.":"This preview does not change the project.","También podés verlo en Agregar moneda o al editar un servicio.":"You can also see this in Add currency or when editing an item.","Ver en Monedas":"View in Currencies","Vista previa":"Preview"});
+
+Object.assign(window.KASH_ENGLISH,{"Cambiar tema":"Change theme"});
+
+Object.assign(window.KASH_ENGLISH,{"Exportar CSV":"Export CSV","Imprimir / PDF":"Print / PDF","Año completo":"Full year","Totales y saldos por moneda":"Totals and balances by currency","Detalle mensual de servicios y gastos":"Monthly item and expense details","Sin carga":"Not entered","Parcial / pendiente":"Partly paid / pending","Sin registrar":"Not recorded","Resumen mensual":"Monthly summary","Resumen mensual imprimible":"Printable monthly summary","Ingresos del mes":"Income for the month","Egresos del mes":"Expenses for the month","La tenencia calculada considera los movimientos confirmados. El remanente estimado incluye los gastos pendientes.":"Calculated holdings use confirmed transactions. The estimated remainder includes pending expenses.","Monedas por separado · sin conversión":"Separate currencies · no conversion","Vista previa de las primeras filas. El archivo incluye todos los resultados indicados.":"Preview of the first rows. The file includes all indicated results.","Contenido del CSV":"CSV contents","Guardar PDF":"Save PDF","Guardar CSV":"Save CSV","Preparando archivo…":"Preparing file…","Descarga solicitada.":"Download requested.","Archivo guardado: ":"File saved: ","Exportación cancelada.":"Export cancelled.","Diálogo de impresión abierto.":"Print dialog opened.","No se pudo exportar.":"Could not export.","Imprimir":"Print"});
+
+Object.assign(window.KASH_ENGLISH,{"Herramientas de la vista":"View tools"});
+
+Object.assign(window.KASH_ENGLISH,{"celda seleccionada":"selected cell","celdas seleccionadas":"selected cells","Suma":"Sum","Limpiar selección":"Clear selection","Sin importes cargados en la selección.":"No recorded amounts in this selection."});
+
+Object.assign(window.KASH_ENGLISH,{"Cantidad":"Count"});

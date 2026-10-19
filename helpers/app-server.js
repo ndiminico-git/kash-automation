@@ -3,7 +3,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 
 // KASH_APP_DIR debe apuntar a la carpeta que contiene index.html.
-// En este workspace, el valor predeterminado usa la última versión portable.
+// La app vive en App dentro de la raíz del repositorio de automation.
 const defaultAppDir = path.join(__dirname, '../App');
 
 async function startAppServer() {
@@ -14,7 +14,7 @@ async function startAppServer() {
   } catch {
     throw new Error(
       `No se encontró KA$H con selector de idioma en: ${appDir}. ` +
-      'Definí KASH_APP_DIR con la ruta de la carpeta App del portable v0.677.',
+      'Definí KASH_APP_DIR con la ruta de la carpeta App de la versión que querés probar.',
     );
   }
 

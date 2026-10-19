@@ -56,7 +56,7 @@ const entry = (f, c, { m = 'ARS', a = 10.25, n = 'Nota de la serie', paid = fals
 const occurrence = (project, seriesId, month) => project.expenses.find(e => e.recurrenceId === seriesId && e.f === month);
 
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('06 · Gastos recurrentes · KA$H v0.677', () => {
+test.describe('06 · Gastos recurrentes · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];

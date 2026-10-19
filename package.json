@@ -2,7 +2,7 @@
   "name": "kash-qa-practice",
   "version": "0.1.0",
   "private": true,
-  "description": "Práctica de Playwright para KA$H v0.677",
+  "description": "Práctica de Playwright para KA$H v0.690",
   "scripts": {
     "test": "playwright test",
     "test:onboarding": "playwright test tests/01-onboarding.spec.js",
@@ -37,7 +37,14 @@
     "test:estimator-access": "playwright test tests/15-estimator-access.spec.js",
     "test:estimator-access:headed": "playwright test tests/15-estimator-access.spec.js --headed",
     "test:project-persistence": "playwright test tests/16-project-persistence.spec.js",
-    "test:project-persistence:headed": "playwright test tests/16-project-persistence.spec.js --headed"
+    "test:project-persistence:headed": "playwright test tests/16-project-persistence.spec.js --headed",
+    "test:ui-regression": "playwright test tests/17-ui-regression.spec.js",
+    "test:ui-regression:headed": "playwright test tests/17-ui-regression.spec.js --headed",
+    "test:monthly-closing": "playwright test tests/18-monthly-closing.spec.js",
+    "test:exports": "playwright test tests/19-exports.spec.js",
+    "test:bug-regression": "playwright test --grep \"TC-(035|054|088|164|178|184|194|195|213) \"",
+    "test:monthly-closing:headed": "playwright test tests/18-monthly-closing.spec.js --headed",
+    "test:exports:headed": "playwright test tests/19-exports.spec.js --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.0"

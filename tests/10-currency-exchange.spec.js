@@ -76,7 +76,7 @@ const test = base.extend({
 
 const initialMonth = async page => (await projectSnapshot(page)).inicio;
 test.use({ storageState: { cookies: [], origins: [] } });
-test.describe('10 · Cambio de divisas · KA$H v0.677', () => {
+test.describe('10 · Cambio de divisas · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];

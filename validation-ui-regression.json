@@ -1,0 +1,3799 @@
+{
+  "suite": "tests/17-ui-regression.spec.js",
+  "appVersion": "0.677 + TC-054 patch",
+  "playwrightVersion": "1.45.0",
+  "requiredDependency": "^1.45.0",
+  "browser": "Chromium 127.0.6533.17 (Playwright build 1124)",
+  "startedAt": "2026-10-18T16:11:17.413Z",
+  "durationSeconds": 187.0,
+  "passed": 7,
+  "failed": 2,
+  "knownFailureCases": [
+    "TC-194 / QA-UI-001",
+    "TC-195 / QA-UI-002"
+  ],
+  "skipped": 0,
+  "flaky": 0,
+  "retries": 0,
+  "javascriptErrors": 0,
+  "clock": {
+    "initialTime": "2026-10-15T12:00:00-03:00",
+    "timezoneId": "America/Argentina/Buenos_Aires",
+    "api": "page.clock.install; clock and timers advance normally",
+    "reason": "Tooltip focus suppression compares Date.now with the last pointerdown. A permanently fixed Date would misrepresent that interaction."
+  },
+  "fixtureTimeoutMsEach": 60000,
+  "testTimeoutMs": 60000,
+  "actionTimeoutMs": 5000,
+  "expectTimeoutMs": 5000,
+  "sourceHashes": {
+    "tests/17-ui-regression.spec.js": "0ffb46e04b72357c3240a886f7298d100dac1929ece0d39bb7fe8903193ab8ba",
+    "helpers/ui-regression.js": "86e8c6b9a71ccb27e06298bfdae5002ef92519b90c038388029f55263e159d0a"
+  },
+  "unchangedPatchedAppAssets": 24,
+  "patchedHtmlSHA256": "d51bc1b1e119cf28b678959ca604e1b970d6d65748b28eff7799c894a752607b",
+  "appChanges": [],
+  "priorSourceChanges": [],
+  "serverPath": "Unchanged: path.join(__dirname, '../App'); KASH_APP_DIR override preserved.",
+  "contrast": {
+    "playwrightVersion": "1.64.1",
+    "browser": "Microsoft Edge installed",
+    "passed": 3,
+    "failed": 2,
+    "durationSeconds": 125.4,
+    "knownFailureCases": [
+      "TC-194 / QA-UI-001",
+      "TC-195 / QA-UI-002"
+    ],
+    "cases": [
+      {
+        "id": "TC-188",
+        "title": "TC-188 [E] Una a cinco monedas acomodan tarjetas e importes grandes sin tapar textos ni otras tarjetas",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 18653,
+        "timings": {
+          "ui-setup-timing": {
+            "setupDurationMs": 5213,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "initialTime": "2026-10-15T12:00:00-03:00",
+            "clockAdvances": true
+          },
+          "ui-data-timing": {
+            "setupDurationMs": 5868,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        },
+        "measurements": [
+          {
+            "count": 1,
+            "width": 1920,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 210,
+              "right": 1883,
+              "bottom": 376
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 1598,
+                "height": 210,
+                "right": 1883,
+                "bottom": 376
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "width": 1366,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 210,
+              "right": 1329,
+              "bottom": 376
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 1044,
+                "height": 210,
+                "right": 1329,
+                "bottom": 376
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "width": 1920,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 281.265625,
+              "right": 1883,
+              "bottom": 447.265625
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 793,
+                "height": 281.265625,
+                "right": 1078,
+                "bottom": 447.265625
+              },
+              {
+                "x": 1090,
+                "y": 166,
+                "width": 793,
+                "height": 281.265625,
+                "right": 1883,
+                "bottom": 447.265625
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "width": 1366,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 281.265625,
+              "right": 1329,
+              "bottom": 447.265625
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 516,
+                "height": 281.265625,
+                "right": 801,
+                "bottom": 447.265625
+              },
+              {
+                "x": 813,
+                "y": 166,
+                "width": 516,
+                "height": 281.265625,
+                "right": 1329,
+                "bottom": 447.265625
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "width": 1920,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 281.265625,
+              "right": 1883,
+              "bottom": 447.265625
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 524.65625,
+                "height": 281.265625,
+                "right": 809.65625,
+                "bottom": 447.265625
+              },
+              {
+                "x": 821.65625,
+                "y": 166,
+                "width": 524.671875,
+                "height": 281.265625,
+                "right": 1346.328125,
+                "bottom": 447.265625
+              },
+              {
+                "x": 1358.328125,
+                "y": 166,
+                "width": 524.671875,
+                "height": 281.265625,
+                "right": 1883,
+                "bottom": 447.265625
+              }
+            ]
+          },
+          {
+            "count": 3,
+            "width": 1366,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 281.265625,
+              "right": 1329,
+              "bottom": 447.265625
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 340,
+                "height": 281.265625,
+                "right": 625,
+                "bottom": 447.265625
+              },
+              {
+                "x": 637,
+                "y": 166,
+                "width": 340,
+                "height": 281.265625,
+                "right": 977,
+                "bottom": 447.265625
+              },
+              {
+                "x": 989,
+                "y": 166,
+                "width": 340,
+                "height": 281.265625,
+                "right": 1329,
+                "bottom": 447.265625
+              }
+            ]
+          },
+          {
+            "count": 4,
+            "width": 1920,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 243.671875,
+              "right": 1883,
+              "bottom": 409.671875
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 392,
+                "height": 243.671875,
+                "right": 677,
+                "bottom": 409.671875
+              },
+              {
+                "x": 687,
+                "y": 166,
+                "width": 392,
+                "height": 243.671875,
+                "right": 1079,
+                "bottom": 409.671875
+              },
+              {
+                "x": 1089,
+                "y": 166,
+                "width": 392,
+                "height": 243.671875,
+                "right": 1481,
+                "bottom": 409.671875
+              },
+              {
+                "x": 1491,
+                "y": 166,
+                "width": 392,
+                "height": 243.671875,
+                "right": 1883,
+                "bottom": 409.671875
+              }
+            ]
+          },
+          {
+            "count": 4,
+            "width": 1366,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 497.34375,
+              "right": 1329,
+              "bottom": 663.34375
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 517,
+                "height": 243.671875,
+                "right": 802,
+                "bottom": 409.671875
+              },
+              {
+                "x": 812,
+                "y": 166,
+                "width": 517,
+                "height": 243.671875,
+                "right": 1329,
+                "bottom": 409.671875
+              },
+              {
+                "x": 285,
+                "y": 419.671875,
+                "width": 517,
+                "height": 243.671875,
+                "right": 802,
+                "bottom": 663.34375
+              },
+              {
+                "x": 812,
+                "y": 419.671875,
+                "width": 517,
+                "height": 243.671875,
+                "right": 1329,
+                "bottom": 663.34375
+              }
+            ]
+          },
+          {
+            "count": 5,
+            "width": 1920,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 497.34375,
+              "right": 1883,
+              "bottom": 663.34375
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 526,
+                "height": 243.671875,
+                "right": 811,
+                "bottom": 409.671875
+              },
+              {
+                "x": 821,
+                "y": 166,
+                "width": 526,
+                "height": 243.671875,
+                "right": 1347,
+                "bottom": 409.671875
+              },
+              {
+                "x": 1357,
+                "y": 166,
+                "width": 526,
+                "height": 243.671875,
+                "right": 1883,
+                "bottom": 409.671875
+              },
+              {
+                "x": 553,
+                "y": 419.671875,
+                "width": 526,
+                "height": 243.671875,
+                "right": 1079,
+                "bottom": 663.34375
+              },
+              {
+                "x": 1089,
+                "y": 419.671875,
+                "width": 526,
+                "height": 243.671875,
+                "right": 1615,
+                "bottom": 663.34375
+              }
+            ]
+          },
+          {
+            "count": 5,
+            "width": 1366,
+            "outer": {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 497.34375,
+              "right": 1329,
+              "bottom": 663.34375
+            },
+            "cards": [
+              {
+                "x": 285,
+                "y": 166,
+                "width": 341.328125,
+                "height": 243.671875,
+                "right": 626.328125,
+                "bottom": 409.671875
+              },
+              {
+                "x": 636.328125,
+                "y": 166,
+                "width": 341.328125,
+                "height": 243.671875,
+                "right": 977.65625,
+                "bottom": 409.671875
+              },
+              {
+                "x": 987.65625,
+                "y": 166,
+                "width": 341.34375,
+                "height": 243.671875,
+                "right": 1329,
+                "bottom": 409.671875
+              },
+              {
+                "x": 460.65625,
+                "y": 419.671875,
+                "width": 341.34375,
+                "height": 243.671875,
+                "right": 802,
+                "bottom": 663.34375
+              },
+              {
+                "x": 812,
+                "y": 419.671875,
+                "width": 341.328125,
+                "height": 243.671875,
+                "right": 1153.328125,
+                "bottom": 663.34375
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      {
+        "id": "TC-190",
+        "title": "TC-190 [P] Campos y acciones de Gastos tienen nombre accesible y permiten registrar con Tab, Espacio y Enter",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 4136,
+        "timings": {
+          "ui-setup-timing": {
+            "setupDurationMs": 3459,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "initialTime": "2026-10-15T12:00:00-03:00",
+            "clockAdvances": true
+          }
+        },
+        "measurements": [],
+        "errors": []
+      },
+      {
+        "id": "TC-192",
+        "title": "TC-192 [R] Textos principales y secundarios mantienen contraste básico en temas claro y oscuro",
+        "status": "passed",
+        "retry": 0,
+        "executionDurationMs": 5453,
+        "timings": {
+          "ui-setup-timing": {
+            "setupDurationMs": 4254,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "initialTime": "2026-10-15T12:00:00-03:00",
+            "clockAdvances": true
+          },
+          "ui-data-timing": {
+            "setupDurationMs": 5008,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        },
+        "measurements": [
+          {
+            "label": "dark: .kashPageHeader h2",
+            "data": [
+              {
+                "text": "Summary",
+                "size": 28,
+                "weight": 750,
+                "foreground": [
+                  232,
+                  240,
+                  252
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 16.207584064207754,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .currencyBalanceCaption",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "size": 18,
+                "weight": 600,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .holdingText>strong",
+            "data": [
+              {
+                "text": "ARS 975",
+                "size": 32,
+                "weight": 730,
+                "foreground": [
+                  244,
+                  251,
+                  255
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 16.195223475950872,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .currencyCardEstimate>span",
+            "data": [
+              {
+                "text": "Projected month-end balance",
+                "size": 18,
+                "weight": 600,
+                "foreground": [
+                  232,
+                  240,
+                  252
+                ],
+                "background": [
+                  19,
+                  51,
+                  64
+                ],
+                "ratio": 11.617721241166144,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .approxValue",
+            "data": [
+              {
+                "text": "ARS 900",
+                "size": 30,
+                "weight": 730,
+                "foreground": [
+                  57,
+                  210,
+                  213
+                ],
+                "background": [
+                  19,
+                  51,
+                  64
+                ],
+                "ratio": 7.207367581981825,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .holdingText>.minor",
+            "data": [
+              {
+                "text": "Argentine peso",
+                "size": 17,
+                "weight": 450,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .kashPageHeader h2",
+            "data": [
+              {
+                "text": "Expenses",
+                "size": 28,
+                "weight": 750,
+                "foreground": [
+                  232,
+                  240,
+                  252
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 16.207584064207754,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .expenseSearchField>span",
+            "data": [
+              {
+                "text": "Search by description",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 9.179732083561634,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .expenseFilterLabel>span",
+            "data": [
+              {
+                "text": "Period",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 9.179732083561634,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Currency",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 9.179732083561634,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "All currenciesARS · Argentine peso",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  10,
+                  19,
+                  34
+                ],
+                "ratio": 9.179732083561634,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: .expenseForm>label",
+            "data": [
+              {
+                "text": "MonthOctober 2026",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Description",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Amount ARS",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Notes",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  16,
+                  29,
+                  48
+                ],
+                "ratio": 8.35604977077719,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "dark: #expenseFilterSummary",
+            "data": [
+              {
+                "text": "2 resultsFiltered total ARS: ARS 100",
+                "size": 14,
+                "weight": 400,
+                "foreground": [
+                  164,
+                  184,
+                  210
+                ],
+                "background": [
+                  10,
+                  18,
+                  33
+                ],
+                "ratio": 9.243288378138999,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .kashPageHeader h2",
+            "data": [
+              {
+                "text": "Summary",
+                "size": 28,
+                "weight": 750,
+                "foreground": [
+                  39,
+                  54,
+                  58
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 11.044395297883666,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .currencyBalanceCaption",
+            "data": [
+              {
+                "text": "Calculated balance",
+                "size": 18,
+                "weight": 600,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .holdingText>strong",
+            "data": [
+              {
+                "text": "ARS 975",
+                "size": 32,
+                "weight": 730,
+                "foreground": [
+                  39,
+                  54,
+                  58
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 11.981925550791843,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .currencyCardEstimate>span",
+            "data": [
+              {
+                "text": "Projected month-end balance",
+                "size": 18,
+                "weight": 600,
+                "foreground": [
+                  39,
+                  54,
+                  58
+                ],
+                "background": [
+                  226,
+                  237,
+                  239
+                ],
+                "ratio": 10.503578909097923,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .approxValue",
+            "data": [
+              {
+                "text": "ARS 900",
+                "size": 30,
+                "weight": 730,
+                "foreground": [
+                  23,
+                  111,
+                  117
+                ],
+                "background": [
+                  226,
+                  237,
+                  239
+                ],
+                "ratio": 4.9322785479342,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .holdingText>.minor",
+            "data": [
+              {
+                "text": "Argentine peso",
+                "size": 17,
+                "weight": 450,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .kashPageHeader h2",
+            "data": [
+              {
+                "text": "Expenses",
+                "size": 28,
+                "weight": 750,
+                "foreground": [
+                  39,
+                  54,
+                  58
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 11.044395297883666,
+                "minimum": 3,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .expenseSearchField>span",
+            "data": [
+              {
+                "text": "Search by description",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 5.143611577669138,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .expenseFilterLabel>span",
+            "data": [
+              {
+                "text": "Period",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 5.143611577669138,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Currency",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 5.143611577669138,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "All currenciesARS · Argentine peso",
+                "size": 13,
+                "weight": 600,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 5.143611577669138,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: .expenseForm>label",
+            "data": [
+              {
+                "text": "MonthOctober 2026",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Description",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Amount ARS",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              },
+              {
+                "text": "Notes",
+                "size": 12,
+                "weight": 400,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  249,
+                  250,
+                  249
+                ],
+                "ratio": 5.580239508235661,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          },
+          {
+            "label": "light: #expenseFilterSummary",
+            "data": [
+              {
+                "text": "2 resultsFiltered total ARS: ARS 100",
+                "size": 14,
+                "weight": 400,
+                "foreground": [
+                  86,
+                  104,
+                  109
+                ],
+                "background": [
+                  238,
+                  241,
+                  242
+                ],
+                "ratio": 5.143611577669138,
+                "minimum": 4.5,
+                "supported": true
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      {
+        "id": "TC-194",
+        "title": "TC-194 [R] Detalle modal centra su cierre, contiene el foco y lo devuelve al botón de origen",
+        "status": "failed",
+        "retry": 0,
+        "executionDurationMs": 13970,
+        "timings": {
+          "ui-setup-timing": {
+            "setupDurationMs": 3647,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "initialTime": "2026-10-15T12:00:00-03:00",
+            "clockAdvances": true
+          },
+          "ui-data-timing": {
+            "setupDurationMs": 4887,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        },
+        "measurements": [
+          {
+            "kind": "modal-focus",
+            "button": {
+              "x": 1285,
+              "y": 397.84375,
+              "width": 34,
+              "height": 34,
+              "right": 1319,
+              "bottom": 431.84375
+            },
+            "icon": {
+              "x": 1294,
+              "y": 406.84375,
+              "width": 16,
+              "height": 16,
+              "right": 1310,
+              "bottom": 422.84375
+            },
+            "afterTab": {
+              "tag": "BODY",
+              "id": "",
+              "text": "KA$HMy financesSummaryMonthly budgetCurrency exchangeExpensesInstallments & notesProjectNew projectOpen projectSaveSave ",
+              "insideDialog": false
+            },
+            "afterClose": {
+              "tag": "BODY",
+              "id": "",
+              "text": "KA$HMy financesSummaryMonthly budgetCurrency exchangeExpensesInstallments & notesProjectNew projectOpen projectSaveSave ",
+              "insideDialog": false
+            }
+          }
+        ],
+        "errors": [
+          "Error: Tab debe permanecer dentro del diálogo modal",
+          "Error: Cerrar debe devolver el foco al botón que abrió el detalle"
+        ]
+      },
+      {
+        "id": "TC-195",
+        "title": "TC-195 [R] Desplazar Gastos y colapsar navegación conserva cabecera, filtros, accesos y datos con movimiento reducido",
+        "status": "failed",
+        "retry": 0,
+        "executionDurationMs": 11914,
+        "timings": {
+          "ui-setup-timing": {
+            "setupDurationMs": 4507,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000,
+            "freshProject": true,
+            "initialTime": "2026-10-15T12:00:00-03:00",
+            "clockAdvances": true
+          },
+          "ui-data-timing": {
+            "setupDurationMs": 4519,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          },
+          "ui-scroll-data-timing": {
+            "setupDurationMs": 12927,
+            "setupTimeoutMs": 60000,
+            "testTimeoutMs": 60000
+          }
+        },
+        "measurements": [
+          {
+            "kind": "collapsed-navigation",
+            "accessibleMatches": {
+              "res": 0,
+              "grid": 0,
+              "fx": 0,
+              "gastos": 0,
+              "cu": 0
+            },
+            "buttons": [
+              {
+                "text": "Summary",
+                "ariaLabel": null,
+                "labelVisible": false
+              },
+              {
+                "text": "Monthly budget",
+                "ariaLabel": null,
+                "labelVisible": false
+              },
+              {
+                "text": "Currency exchange",
+                "ariaLabel": null,
+                "labelVisible": false
+              },
+              {
+                "text": "Expenses",
+                "ariaLabel": null,
+                "labelVisible": false
+              },
+              {
+                "text": "Installments & notes",
+                "ariaLabel": null,
+                "labelVisible": false
+              }
+            ],
+            "transitionMs": [
+              0.01
+            ],
+            "header": {
+              "header": {
+                "x": 92,
+                "y": 0,
+                "width": 1254,
+                "height": 70,
+                "right": 1346,
+                "bottom": 70
+              },
+              "title": {
+                "x": 92,
+                "y": 13.5,
+                "width": 170.015625,
+                "height": 42,
+                "right": 262.015625,
+                "bottom": 55.5
+              },
+              "tools": {
+                "x": 1137.953125,
+                "y": 16,
+                "width": 208.046875,
+                "height": 37,
+                "right": 1346,
+                "bottom": 53
+              }
+            },
+            "nav": {
+              "x": 0,
+              "y": 0,
+              "width": 72,
+              "height": 768,
+              "right": 72,
+              "bottom": 768
+            }
+          }
+        ],
+        "errors": [
+          "Error: El menú con iconos debe conservar nombres accesibles para sus cinco secciones"
+        ]
+      }
+    ],
+    "note": "Existing runtime read only; no edits to personal app, repo or dependencies."
+  },
+  "coverage": [
+    "TC-187 [R] Seis secciones mantienen cabeceras legibles sin superposición ni desborde en escritorio",
+    "TC-188 [E] Una a cinco monedas acomodan tarjetas e importes grandes sin tapar textos ni otras tarjetas",
+    "TC-189 [R] Inglés y español con zoom 80 y 125 conservan títulos, acciones y filtros dentro de su espacio",
+    "TC-190 [P] Campos y acciones de Gastos tienen nombre accesible y permiten registrar con Tab, Espacio y Enter",
+    "TC-191 [P] Tabs de Ajustes conectan nombres y paneles y muestran foco al navegar con teclado",
+    "TC-192 [R] Textos principales y secundarios mantienen contraste básico en temas claro y oscuro",
+    "TC-193 [R] Ayudas al pasar el mouse y enfocar usan tooltip temático, relación accesible y Escape",
+    "TC-194 [R] Detalle modal centra su cierre, contiene el foco y lo devuelve al botón de origen",
+    "TC-195 [R] Desplazar Gastos y colapsar navegación conserva cabecera, filtros, accesos y datos con movimiento reducido"
+  ],
+  "cases": [
+    {
+      "id": "TC-187",
+      "title": "TC-187 [R] Seis secciones mantienen cabeceras legibles sin superposición ni desborde en escritorio",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 15427,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3371,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        }
+      },
+      "measurements": [
+        {
+          "width": 1366,
+          "section": "res",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 176.0625,
+            "height": 42,
+            "right": 444.0625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1366,
+          "section": "grid",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 262.078125,
+            "height": 42,
+            "right": 530.078125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1366,
+          "section": "fx",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 296.765625,
+            "height": 42,
+            "right": 564.765625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1366,
+          "section": "gastos",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.015625,
+            "height": 42,
+            "right": 438.015625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1366,
+          "section": "cu",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 317.625,
+            "height": 42,
+            "right": 585.625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1366,
+          "section": "set",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 157.59375,
+            "height": 42,
+            "right": 425.59375,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1366,
+            "scroll": 1366
+          }
+        },
+        {
+          "width": 1920,
+          "section": "res",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 176.0625,
+            "height": 42,
+            "right": 444.0625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 1920,
+          "section": "grid",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 262.078125,
+            "height": 42,
+            "right": 530.078125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 1920,
+          "section": "fx",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 296.765625,
+            "height": 42,
+            "right": 564.765625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 1920,
+          "section": "gastos",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.015625,
+            "height": 42,
+            "right": 438.015625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 1920,
+          "section": "cu",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 317.625,
+            "height": 42,
+            "right": 585.625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 1920,
+          "section": "set",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1632,
+            "height": 70,
+            "right": 1900,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 157.59375,
+            "height": 42,
+            "right": 425.59375,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1691.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1900,
+            "bottom": 53
+          },
+          "document": {
+            "client": 1920,
+            "scroll": 1920
+          }
+        },
+        {
+          "width": 2560,
+          "section": "res",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 176.0625,
+            "height": 42,
+            "right": 444.0625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        },
+        {
+          "width": 2560,
+          "section": "grid",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 262.078125,
+            "height": 42,
+            "right": 530.078125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        },
+        {
+          "width": 2560,
+          "section": "fx",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 296.765625,
+            "height": 42,
+            "right": 564.765625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        },
+        {
+          "width": 2560,
+          "section": "gastos",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.015625,
+            "height": 42,
+            "right": 438.015625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        },
+        {
+          "width": 2560,
+          "section": "cu",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 317.625,
+            "height": 42,
+            "right": 585.625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        },
+        {
+          "width": 2560,
+          "section": "set",
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 2272,
+            "height": 70,
+            "right": 2540,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 157.59375,
+            "height": 42,
+            "right": 425.59375,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 2331.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 2540,
+            "bottom": 53
+          },
+          "document": {
+            "client": 2560,
+            "scroll": 2560
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "TC-188",
+      "title": "TC-188 [E] Una a cinco monedas acomodan tarjetas e importes grandes sin tapar textos ni otras tarjetas",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 16693,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3121,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        },
+        "ui-data-timing": {
+          "setupDurationMs": 4508,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "measurements": [
+        {
+          "count": 1,
+          "width": 1920,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 210,
+            "right": 1883,
+            "bottom": 376
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 1598,
+              "height": 210,
+              "right": 1883,
+              "bottom": 376
+            }
+          ]
+        },
+        {
+          "count": 1,
+          "width": 1366,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 210,
+            "right": 1329,
+            "bottom": 376
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 1044,
+              "height": 210,
+              "right": 1329,
+              "bottom": 376
+            }
+          ]
+        },
+        {
+          "count": 2,
+          "width": 1920,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 281.265625,
+            "right": 1883,
+            "bottom": 447.265625
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 793,
+              "height": 281.265625,
+              "right": 1078,
+              "bottom": 447.265625
+            },
+            {
+              "x": 1090,
+              "y": 166,
+              "width": 793,
+              "height": 281.265625,
+              "right": 1883,
+              "bottom": 447.265625
+            }
+          ]
+        },
+        {
+          "count": 2,
+          "width": 1366,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 281.265625,
+            "right": 1329,
+            "bottom": 447.265625
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 516,
+              "height": 281.265625,
+              "right": 801,
+              "bottom": 447.265625
+            },
+            {
+              "x": 813,
+              "y": 166,
+              "width": 516,
+              "height": 281.265625,
+              "right": 1329,
+              "bottom": 447.265625
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "width": 1920,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 281.265625,
+            "right": 1883,
+            "bottom": 447.265625
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 524.65625,
+              "height": 281.265625,
+              "right": 809.65625,
+              "bottom": 447.265625
+            },
+            {
+              "x": 821.65625,
+              "y": 166,
+              "width": 524.671875,
+              "height": 281.265625,
+              "right": 1346.328125,
+              "bottom": 447.265625
+            },
+            {
+              "x": 1358.328125,
+              "y": 166,
+              "width": 524.671875,
+              "height": 281.265625,
+              "right": 1883,
+              "bottom": 447.265625
+            }
+          ]
+        },
+        {
+          "count": 3,
+          "width": 1366,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 281.265625,
+            "right": 1329,
+            "bottom": 447.265625
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 340,
+              "height": 281.265625,
+              "right": 625,
+              "bottom": 447.265625
+            },
+            {
+              "x": 637,
+              "y": 166,
+              "width": 340,
+              "height": 281.265625,
+              "right": 977,
+              "bottom": 447.265625
+            },
+            {
+              "x": 989,
+              "y": 166,
+              "width": 340,
+              "height": 281.265625,
+              "right": 1329,
+              "bottom": 447.265625
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "width": 1920,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 243.671875,
+            "right": 1883,
+            "bottom": 409.671875
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 392,
+              "height": 243.671875,
+              "right": 677,
+              "bottom": 409.671875
+            },
+            {
+              "x": 687,
+              "y": 166,
+              "width": 392,
+              "height": 243.671875,
+              "right": 1079,
+              "bottom": 409.671875
+            },
+            {
+              "x": 1089,
+              "y": 166,
+              "width": 392,
+              "height": 243.671875,
+              "right": 1481,
+              "bottom": 409.671875
+            },
+            {
+              "x": 1491,
+              "y": 166,
+              "width": 392,
+              "height": 243.671875,
+              "right": 1883,
+              "bottom": 409.671875
+            }
+          ]
+        },
+        {
+          "count": 4,
+          "width": 1366,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 497.34375,
+            "right": 1329,
+            "bottom": 663.34375
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 517,
+              "height": 243.671875,
+              "right": 802,
+              "bottom": 409.671875
+            },
+            {
+              "x": 812,
+              "y": 166,
+              "width": 517,
+              "height": 243.671875,
+              "right": 1329,
+              "bottom": 409.671875
+            },
+            {
+              "x": 285,
+              "y": 419.671875,
+              "width": 517,
+              "height": 243.671875,
+              "right": 802,
+              "bottom": 663.34375
+            },
+            {
+              "x": 812,
+              "y": 419.671875,
+              "width": 517,
+              "height": 243.671875,
+              "right": 1329,
+              "bottom": 663.34375
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "width": 1920,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1598,
+            "height": 497.34375,
+            "right": 1883,
+            "bottom": 663.34375
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 526,
+              "height": 243.671875,
+              "right": 811,
+              "bottom": 409.671875
+            },
+            {
+              "x": 821,
+              "y": 166,
+              "width": 526,
+              "height": 243.671875,
+              "right": 1347,
+              "bottom": 409.671875
+            },
+            {
+              "x": 1357,
+              "y": 166,
+              "width": 526,
+              "height": 243.671875,
+              "right": 1883,
+              "bottom": 409.671875
+            },
+            {
+              "x": 553,
+              "y": 419.671875,
+              "width": 526,
+              "height": 243.671875,
+              "right": 1079,
+              "bottom": 663.34375
+            },
+            {
+              "x": 1089,
+              "y": 419.671875,
+              "width": 526,
+              "height": 243.671875,
+              "right": 1615,
+              "bottom": 663.34375
+            }
+          ]
+        },
+        {
+          "count": 5,
+          "width": 1366,
+          "outer": {
+            "x": 285,
+            "y": 166,
+            "width": 1044,
+            "height": 497.34375,
+            "right": 1329,
+            "bottom": 663.34375
+          },
+          "cards": [
+            {
+              "x": 285,
+              "y": 166,
+              "width": 341.328125,
+              "height": 243.671875,
+              "right": 626.328125,
+              "bottom": 409.671875
+            },
+            {
+              "x": 636.328125,
+              "y": 166,
+              "width": 341.328125,
+              "height": 243.671875,
+              "right": 977.65625,
+              "bottom": 409.671875
+            },
+            {
+              "x": 987.65625,
+              "y": 166,
+              "width": 341.34375,
+              "height": 243.671875,
+              "right": 1329,
+              "bottom": 409.671875
+            },
+            {
+              "x": 460.65625,
+              "y": 419.671875,
+              "width": 341.34375,
+              "height": 243.671875,
+              "right": 802,
+              "bottom": 663.34375
+            },
+            {
+              "x": 812,
+              "y": 419.671875,
+              "width": 341.328125,
+              "height": 243.671875,
+              "right": 1153.328125,
+              "bottom": 663.34375
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "TC-189",
+      "title": "TC-189 [R] Inglés y español con zoom 80 y 125 conservan títulos, acciones y filtros dentro de su espacio",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 23870,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 2949,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        }
+      },
+      "measurements": [
+        {
+          "language": "en",
+          "section": "res",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 176.0625,
+            "height": 42,
+            "right": 444.0625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "en",
+          "section": "res",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 176.0625,
+            "height": 42,
+            "right": 444.0625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "en",
+          "section": "grid",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 262.078125,
+            "height": 42,
+            "right": 530.078125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "en",
+          "section": "grid",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 262.078125,
+            "height": 42,
+            "right": 530.078125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "en",
+          "section": "gastos",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.015625,
+            "height": 42,
+            "right": 438.015625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "en",
+          "section": "gastos",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.015625,
+            "height": 42,
+            "right": 438.015625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1137.953125,
+            "y": 16,
+            "width": 208.046875,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "res",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.453125,
+            "height": 42,
+            "right": 438.453125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "res",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 170.453125,
+            "height": 42,
+            "right": 438.453125,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "grid",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 328.140625,
+            "height": 42,
+            "right": 596.140625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "grid",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 328.140625,
+            "height": 42,
+            "right": 596.140625,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "gastos",
+          "zoom": 80,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 138.9375,
+            "height": 42,
+            "right": 406.9375,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        },
+        {
+          "language": "es",
+          "section": "gastos",
+          "zoom": 125,
+          "header": {
+            "x": 268,
+            "y": 0,
+            "width": 1078,
+            "height": 70,
+            "right": 1346,
+            "bottom": 70
+          },
+          "title": {
+            "x": 268,
+            "y": 13.5,
+            "width": 138.9375,
+            "height": 42,
+            "right": 406.9375,
+            "bottom": 55.5
+          },
+          "tools": {
+            "x": 1129.4375,
+            "y": 16,
+            "width": 216.5625,
+            "height": 37,
+            "right": 1346,
+            "bottom": 53
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "TC-190",
+      "title": "TC-190 [P] Campos y acciones de Gastos tienen nombre accesible y permiten registrar con Tab, Espacio y Enter",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 5294,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3942,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        }
+      },
+      "measurements": [],
+      "errors": []
+    },
+    {
+      "id": "TC-191",
+      "title": "TC-191 [P] Tabs de Ajustes conectan nombres y paneles y muestran foco al navegar con teclado",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 3311,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3017,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        }
+      },
+      "measurements": [],
+      "errors": []
+    },
+    {
+      "id": "TC-192",
+      "title": "TC-192 [R] Textos principales y secundarios mantienen contraste básico en temas claro y oscuro",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 6864,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3083,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        },
+        "ui-data-timing": {
+          "setupDurationMs": 4841,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "measurements": [
+        {
+          "label": "dark: .kashPageHeader h2",
+          "data": [
+            {
+              "text": "Summary",
+              "size": 28,
+              "weight": 750,
+              "foreground": [
+                232,
+                240,
+                252
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 16.207584064207754,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .currencyBalanceCaption",
+          "data": [
+            {
+              "text": "Calculated balance",
+              "size": 18,
+              "weight": 600,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .holdingText>strong",
+          "data": [
+            {
+              "text": "ARS 975",
+              "size": 32,
+              "weight": 730,
+              "foreground": [
+                244,
+                251,
+                255
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 16.195223475950872,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .currencyCardEstimate>span",
+          "data": [
+            {
+              "text": "Projected month-end balance",
+              "size": 18,
+              "weight": 600,
+              "foreground": [
+                232,
+                240,
+                252
+              ],
+              "background": [
+                19,
+                51,
+                64
+              ],
+              "ratio": 11.617721241166144,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .approxValue",
+          "data": [
+            {
+              "text": "ARS 900",
+              "size": 30,
+              "weight": 730,
+              "foreground": [
+                57,
+                210,
+                213
+              ],
+              "background": [
+                19,
+                51,
+                64
+              ],
+              "ratio": 7.207367581981825,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .holdingText>.minor",
+          "data": [
+            {
+              "text": "Argentine peso",
+              "size": 17,
+              "weight": 450,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .kashPageHeader h2",
+          "data": [
+            {
+              "text": "Expenses",
+              "size": 28,
+              "weight": 750,
+              "foreground": [
+                232,
+                240,
+                252
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 16.207584064207754,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .expenseSearchField>span",
+          "data": [
+            {
+              "text": "Search by description",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 9.179732083561634,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .expenseFilterLabel>span",
+          "data": [
+            {
+              "text": "Period",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 9.179732083561634,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Currency",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 9.179732083561634,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "All currenciesARS · Argentine peso",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                10,
+                19,
+                34
+              ],
+              "ratio": 9.179732083561634,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: .expenseForm>label",
+          "data": [
+            {
+              "text": "MonthOctober 2026",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Description",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Amount ARS",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Notes",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 8.35604977077719,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "dark: #expenseFilterSummary",
+          "data": [
+            {
+              "text": "2 resultsFiltered total ARS: ARS 100",
+              "size": 14,
+              "weight": 400,
+              "foreground": [
+                164,
+                184,
+                210
+              ],
+              "background": [
+                10,
+                18,
+                33
+              ],
+              "ratio": 9.243288378138999,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .kashPageHeader h2",
+          "data": [
+            {
+              "text": "Summary",
+              "size": 28,
+              "weight": 750,
+              "foreground": [
+                39,
+                54,
+                58
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 11.044395297883666,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .currencyBalanceCaption",
+          "data": [
+            {
+              "text": "Calculated balance",
+              "size": 18,
+              "weight": 600,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .holdingText>strong",
+          "data": [
+            {
+              "text": "ARS 975",
+              "size": 32,
+              "weight": 730,
+              "foreground": [
+                39,
+                54,
+                58
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 11.981925550791843,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .currencyCardEstimate>span",
+          "data": [
+            {
+              "text": "Projected month-end balance",
+              "size": 18,
+              "weight": 600,
+              "foreground": [
+                39,
+                54,
+                58
+              ],
+              "background": [
+                226,
+                237,
+                239
+              ],
+              "ratio": 10.503578909097923,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .approxValue",
+          "data": [
+            {
+              "text": "ARS 900",
+              "size": 30,
+              "weight": 730,
+              "foreground": [
+                23,
+                111,
+                117
+              ],
+              "background": [
+                226,
+                237,
+                239
+              ],
+              "ratio": 4.9322785479342,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .holdingText>.minor",
+          "data": [
+            {
+              "text": "Argentine peso",
+              "size": 17,
+              "weight": 450,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .kashPageHeader h2",
+          "data": [
+            {
+              "text": "Expenses",
+              "size": 28,
+              "weight": 750,
+              "foreground": [
+                39,
+                54,
+                58
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 11.044395297883666,
+              "minimum": 3,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .expenseSearchField>span",
+          "data": [
+            {
+              "text": "Search by description",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 5.143611577669138,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .expenseFilterLabel>span",
+          "data": [
+            {
+              "text": "Period",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 5.143611577669138,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Currency",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 5.143611577669138,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "All currenciesARS · Argentine peso",
+              "size": 13,
+              "weight": 600,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 5.143611577669138,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: .expenseForm>label",
+          "data": [
+            {
+              "text": "MonthOctober 2026",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Description",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Amount ARS",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            },
+            {
+              "text": "Notes",
+              "size": 12,
+              "weight": 400,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 5.580239508235661,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: #expenseFilterSummary",
+          "data": [
+            {
+              "text": "2 resultsFiltered total ARS: ARS 100",
+              "size": 14,
+              "weight": 400,
+              "foreground": [
+                86,
+                104,
+                109
+              ],
+              "background": [
+                238,
+                241,
+                242
+              ],
+              "ratio": 5.143611577669138,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "TC-193",
+      "title": "TC-193 [R] Ayudas al pasar el mouse y enfocar usan tooltip temático, relación accesible y Escape",
+      "status": "passed",
+      "retry": 0,
+      "executionDurationMs": 7321,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3051,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        },
+        "ui-data-timing": {
+          "setupDurationMs": 4989,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "measurements": [
+        {
+          "label": "dark: tooltip",
+          "data": [
+            {
+              "text": "There is no earlier period in this project.",
+              "size": 13,
+              "weight": 500,
+              "foreground": [
+                232,
+                240,
+                252
+              ],
+              "background": [
+                16,
+                29,
+                48
+              ],
+              "ratio": 14.753304112992085,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        },
+        {
+          "label": "light: tooltip",
+          "data": [
+            {
+              "text": "There is no earlier period in this project.",
+              "size": 13,
+              "weight": 500,
+              "foreground": [
+                39,
+                54,
+                58
+              ],
+              "background": [
+                249,
+                250,
+                249
+              ],
+              "ratio": 11.981925550791843,
+              "minimum": 4.5,
+              "supported": true
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "TC-194",
+      "title": "TC-194 [R] Detalle modal centra su cierre, contiene el foco y lo devuelve al botón de origen",
+      "status": "failed",
+      "retry": 0,
+      "executionDurationMs": 14068,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 3259,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        },
+        "ui-data-timing": {
+          "setupDurationMs": 5176,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "measurements": [
+        {
+          "kind": "modal-focus",
+          "button": {
+            "x": 1285,
+            "y": 397.84375,
+            "width": 34,
+            "height": 34,
+            "right": 1319,
+            "bottom": 431.84375
+          },
+          "icon": {
+            "x": 1294,
+            "y": 406.84375,
+            "width": 16,
+            "height": 16,
+            "right": 1310,
+            "bottom": 422.84375
+          },
+          "afterTab": {
+            "tag": "BODY",
+            "id": "",
+            "text": "KA$HMy financesSummaryMonthly budgetCurrency exchangeExpensesInstallments & notesProjectNew projectOpen projectSaveSave ",
+            "insideDialog": false
+          },
+          "afterClose": {
+            "tag": "BODY",
+            "id": "",
+            "text": "KA$HMy financesSummaryMonthly budgetCurrency exchangeExpensesInstallments & notesProjectNew projectOpen projectSaveSave ",
+            "insideDialog": false
+          }
+        }
+      ],
+      "errors": [
+        "Error: Tab debe permanecer dentro del diálogo modal",
+        "Error: Cerrar debe devolver el foco al botón que abrió el detalle"
+      ]
+    },
+    {
+      "id": "TC-195",
+      "title": "TC-195 [R] Desplazar Gastos y colapsar navegación conserva cabecera, filtros, accesos y datos con movimiento reducido",
+      "status": "failed",
+      "retry": 0,
+      "executionDurationMs": 7211,
+      "timings": {
+        "ui-setup-timing": {
+          "setupDurationMs": 4366,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000,
+          "freshProject": true,
+          "initialTime": "2026-10-15T12:00:00-03:00",
+          "clockAdvances": true
+        },
+        "ui-data-timing": {
+          "setupDurationMs": 5403,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        },
+        "ui-scroll-data-timing": {
+          "setupDurationMs": 13446,
+          "setupTimeoutMs": 60000,
+          "testTimeoutMs": 60000
+        }
+      },
+      "measurements": [
+        {
+          "kind": "collapsed-navigation",
+          "accessibleMatches": {
+            "res": 0,
+            "grid": 0,
+            "fx": 0,
+            "gastos": 0,
+            "cu": 0
+          },
+          "buttons": [
+            {
+              "text": "Summary",
+              "ariaLabel": null,
+              "labelVisible": false
+            },
+            {
+              "text": "Monthly budget",
+              "ariaLabel": null,
+              "labelVisible": false
+            },
+            {
+              "text": "Currency exchange",
+              "ariaLabel": null,
+              "labelVisible": false
+            },
+            {
+              "text": "Expenses",
+              "ariaLabel": null,
+              "labelVisible": false
+            },
+            {
+              "text": "Installments & notes",
+              "ariaLabel": null,
+              "labelVisible": false
+            }
+          ],
+          "transitionMs": [
+            0.01
+          ],
+          "header": {
+            "header": {
+              "x": 92,
+              "y": 0,
+              "width": 1254,
+              "height": 70,
+              "right": 1346,
+              "bottom": 70
+            },
+            "title": {
+              "x": 92,
+              "y": 13.5,
+              "width": 170.015625,
+              "height": 42,
+              "right": 262.015625,
+              "bottom": 55.5
+            },
+            "tools": {
+              "x": 1137.953125,
+              "y": 16,
+              "width": 208.046875,
+              "height": 37,
+              "right": 1346,
+              "bottom": 53
+            }
+          },
+          "nav": {
+            "x": 0,
+            "y": 0,
+            "width": 72,
+            "height": 768,
+            "right": 72,
+            "bottom": 768
+          }
+        }
+      ],
+      "errors": [
+        "Error: El menú con iconos debe conservar nombres accesibles para sus cinco secciones"
+      ]
+    }
+  ],
+  "viewportCoverage": {
+    "headers": [
+      1366,
+      1920,
+      2560
+    ],
+    "cards": [
+      1366,
+      1920
+    ],
+    "languageAndZoom": {
+      "width": 1366,
+      "zoomPercent": [
+        80,
+        125
+      ],
+      "languages": [
+        "en",
+        "es"
+      ]
+    },
+    "scroll": {
+      "width": 1366,
+      "height": 768,
+      "activeCurrencies": [
+        "ARS",
+        "USD",
+        "EUR"
+      ],
+      "ARSRows": 12
+    }
+  },
+  "contrastMethod": {
+    "scope": "Explicit visible primary and secondary text samples in Summary and Expenses, dark and light themes; themed tooltips separately.",
+    "method": "Independent sRGB luminance and alpha-composited solid ancestor backgrounds; 4.5:1 normal, 3:1 at >=24px or >=18.6667px bold>=700. Wait for opaque stable ancestors before sampling; do not modify CSS.",
+    "samples": 32,
+    "minimumMeasuredRatio": 4.9322785479342,
+    "fullAccessibilityConformanceClaim": false
+  },
+  "keyboard": "Expense labels, independent clear action name, Tab order, Space checkbox and Enter submission; Settings tab ARIA and focus indicator; tooltip focus/Escape. Search accessible name may contain its nested Clear search action; it must start with the visible label.",
+  "modalIssue": "Initial focus, accessible dialog title and centered close icon pass. Tab then escapes the modal, and closing with Escape does not restore the opener. Complete project/persistence remain unchanged. Active failure in both engines, not a timeout or browser-specific claim.",
+  "collapsedNavigationIssue": "Five primary navigation buttons become unnamed after collapsing the sidebar: their label spans are display:none and the buttons have no aria-label. Icons remain visible and geometry/data checks pass. Final assertion records all five zero accessible-name matches explicitly rather than timing out in the navigation helper; sidebar then expands to finish balance checks.",
+  "reducedMotion": "MatchMedia plus public read-only effects status and button transition durations <=1ms. CSS may use 0.01ms to preserve end events. Scrolling uses a content margin so the inner table does not consume the wheel event.",
+  "data": {
+    "ARSOpening": 1000,
+    "paid": 25,
+    "pending": 75,
+    "calculated": 975,
+    "projected": 900,
+    "largeCardOpening": 123456789.12,
+    "largeCardCalculated": 123456764.12,
+    "largeCardProjected": 123456689.12,
+    "keyboardExpense": 150.75,
+    "scrollPendingExtra": 10,
+    "scrollCalculated": 975,
+    "scrollProjected": 890
+  },
+  "network": "All external requests blocked. Offline preference only initialized if absent. No market data dependency.",
+  "developmentNotes": [
+    "Search label equality initially too strict: its nested Clear search action contributes text. Final test requires visible label prefix and independent action name; no missing label is ignored.",
+    "Reduced-motion duration initially required literal 0s. Final check accepts <=1ms, keeping almost-zero event-preserving CSS valid.",
+    "Contrast measurement initially raced entry opacity; final predicate waits for supported solid opaque rendering with the same ratio thresholds.",
+    "One currency only scrolls the inner table. Final scroll fixture adds two empty currencies and targets the main content margin.",
+    "A development run lost one Node worker with native exit code 3221226505 before TC188 body (0ms). Cause undetermined; not classified as an app assertion or attributed to Chromium. Final full suite and independent Edge run are separate, no configured retries."
+  ],
+  "catalog": {
+    "implemented": 195,
+    "verifiedOnPatchedBase": 191,
+    "historicalKnownIssuesOnPatchedBase": [
+      "QA-CUR-001 / TC-035",
+      "QA-NOTE-001 / TC-155"
+    ],
+    "newKnownIssuesOnPatchedBase": [
+      "QA-UI-001 / TC-194",
+      "QA-UI-002 / TC-195"
+    ],
+    "pending": 0,
+    "total": 195
+  },
+  "scope": "Nine final cases run together after development corrections, plus five independent Edge cases. Earlier evidence is historical; not a combined run of all 195. No app changes, golden screenshot baselines, full axe/WCAG audit, mobile certification or native EXE validation."
+}

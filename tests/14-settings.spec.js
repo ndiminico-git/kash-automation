@@ -85,7 +85,7 @@ const test = base.extend({
 });
 
 test.use({ storageState: { cookies: [], origins: [] }, timezoneId: 'America/Argentina/Buenos_Aires' });
-test.describe('14 · Ajustes y funciones visibles · KA$H v0.677', () => {
+test.describe('14 · Ajustes y funciones visibles · KA$H v0.690', () => {
   test.setTimeout(60_000);
   test.afterEach(async ({ page }, testInfo) => {
     const errors = errorsByPage.get(page) || [];
@@ -269,14 +269,14 @@ test.describe('14 · Ajustes y funciones visibles · KA$H v0.677', () => {
   test('TC-164 [P] Tema claro y oscuro se aplican al instante, se guardan en esta PC y no modifican el proyecto', async ({ page, sampleProject: before }) => {
     for (const theme of ['light', 'dark', 'light']) {
       await setThemePreference(page, theme);
-      await expect(page.locator(`[data-settings-theme="${theme === 'light' ? 'dark' : 'light'}"]`)).toHaveAttribute('aria-pressed', 'false');
-      await expect(page.locator('#kashThemeToggle')).toBeChecked({ checked: theme === 'light' });
+      expect(await page.locator('[data-settings-theme-select] option').evaluateAll(xs => xs.map(x => x.value))).toEqual(['light', 'dark', 'system']);
+      await expect(page.locator('.kashThemeSelect')).toHaveValue(theme);
     }
     expect(await projectSnapshot(page)).toEqual(before);
     await reloadBalanceProject(page, before);
     await expect(page.locator('html')).toHaveAttribute('data-kash-theme', 'light');
     await settingsPage(page, 'appearance', 'theme');
-    await expect(page.locator('[data-settings-theme="light"]')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('[data-settings-theme-select]')).toHaveValue('light');
     await openSummary(page, settingsMonth);
     await expectSummaryCard(page, 'ARS', 'ARS 975', 'ARS 900');
   });
@@ -352,5 +352,51 @@ test.describe('14 · Ajustes y funciones visibles · KA$H v0.677', () => {
       const { nid, ...data } = stored;
       return data;
     }).toEqual((({ nid, ...data }) => data)(afterReload));
+  });
+});
+
+
+// Cobertura incorporada para v0.689; los IDs anteriores conservan su significado.
+const { test: upgradeTest } = require('../helpers/upgrade-fixture');
+upgradeTest.describe('14 · Apariencia nueva · KA$H v0.690', () => {
+  upgradeTest.setTimeout(60_000);
+  upgradeTest('TC-196 [R] Sistema sigue al SO y una elección manual ignora los cambios del SO', async ({ page }) => {
+    const before = await projectSnapshot(page);
+    await page.emulateMedia({ colorScheme: 'light' });
+    await setThemePreference(page, 'system');
+    await expect(page.locator('html')).toHaveAttribute('data-kash-theme', 'light');
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await expect(page.locator('html')).toHaveAttribute('data-kash-theme', 'dark');
+    await expect(page.locator('[data-settings-theme-select]')).toHaveValue('system');
+    await setThemePreference(page, 'light');
+    await page.emulateMedia({ colorScheme: 'dark' });
+    await expect(page.locator('html')).toHaveAttribute('data-kash-theme', 'light');
+    expect(await projectSnapshot(page)).toEqual(before);
+  });
+  upgradeTest('TC-197 [P] Tema en panel contraído permite teclado, selección y Escape con foco restaurado', async ({ page }) => {
+    const before = await projectSnapshot(page);
+    await page.locator('[onclick="toggleNav()"]').click();
+    const button = page.locator('.kashThemeCompactButton');
+    await expect(button).toBeVisible();
+    await button.focus();
+    await page.keyboard.press('Enter');
+    const menu = page.locator('#kashThemeMenu');
+    await expect(menu).toHaveAttribute('role', 'menu');
+    await expect(button).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Home');
+    await expect(menu.locator('[data-kash-theme-mode="light"]')).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(menu).toHaveCount(0);
+    await expect(button).toBeFocused();
+    await expect(page.locator('html')).toHaveAttribute('data-kash-theme', 'light');
+    await button.press('Enter');
+    await expect(menu.locator('[data-kash-theme-mode="light"]')).toHaveAttribute('aria-checked', 'true');
+    await page.keyboard.press('End');
+    await page.keyboard.press('Escape');
+    await expect(button).toBeFocused();
+    await expect(menu).toHaveCount(0);
+    await expect(page.locator('html')).toHaveAttribute('data-kash-theme-mode', 'light');
+    expect(await projectSnapshot(page)).toEqual(before);
+    await expectBudgetPersisted(page, before);
   });
 });

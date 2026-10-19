@@ -1,41 +1,37 @@
-KA$H v0.677 — Windows 64-bit portable
+KA$H v0.690 — Portable para Windows 64 bits
 
-UPDATE / ACTUALIZAR
-Close KA$H. Extract this ZIP elsewhere, then copy ALL its contents
-(KASH.App.exe, App and .kash-portable) into your existing KA$H folder.
-Accept file replacements. Open KASH.App.exe from your usual folder.
+ABRIR
+Extraer el ZIP completo. Abrir KASH.App.exe.
+Conservar App y .kash-portable junto al ejecutable.
+.NET está incluido. Requiere Microsoft Edge WebView2 Runtime, como antes.
+No requiere PowerShell, Visual Studio ni el SDK .NET para ejecutar.
 
-Cerrá KA$H. Extraé el ZIP en otra carpeta y copiá TODO su contenido
-(KASH.App.exe, App y .kash-portable) a tu carpeta habitual.
-Aceptá reemplazar archivos y abrí el mismo KASH.App.exe.
+ACTUALIZAR EL PORTABLE ANTERIOR
+1. Cerrar KA$H.
+2. Extraer este ZIP en otra carpeta.
+3. Copiar KASH.App.exe, App y .kash-portable a la carpeta habitual de KA$H.
+4. Aceptar reemplazar los archivos de la aplicación; abrir el mismo EXE.
+Conservar Data, Proyectos, .actualizaciones y los archivos .kash personales.
+El paquete no incluye ni reemplaza esas carpetas ni tus proyectos.
+Los accesos directos al mismo KASH.App.exe siguen siendo válidos.
 
-The package contains no Data, Proyectos, .actualizaciones or .kash files.
-Keep those folders and your project files. Do not replace them with an
-empty folder. Existing shortcuts to KASH.App.exe continue to work.
-El paquete no contiene tus datos. Conservá Data, Proyectos,
-.actualizaciones y tus archivos .kash.
+SI VENÍAS PROBANDO LA FUENTE EN POWERSHELL
+Guardar el proyecto en un archivo .kash y abrirlo desde el portable.
+La sesión .kash-prueba de aquella carpeta no se importa automáticamente.
+Conservarla hasta comprobar que el proyecto guardado tiene tus últimos cambios.
 
-LAYOUT / ESTRUCTURA
-KASH.App.exe       Launch the app / archivo que abrís.
-App/              Required interface files and documentation.
-.kash-portable    Keeps app data beside the executable.
-Data/             Created or preserved at launch; session and preferences.
-Proyectos/        Suggested folder for projects, preserved on update.
+ESTRUCTURA
+KASH.App.exe        Aplicación.
+App                 Interfaz y documentación; necesaria para ejecutar.
+.kash-portable      Mantiene el perfil junto al ejecutable.
+Data                Se crea al abrir: sesión, preferencias y copias.
+Proyectos           Carpeta sugerida para proyectos, creada al abrir.
+Archivos conocidos de portables antiguos con estructura plana pueden quedar
+respaldados en App/Archivos_anteriores. No se mueven las carpetas personales.
 
-Keep App beside the executable. The .NET runtime is included.
-Microsoft Edge WebView2 is required, as in the previous release.
-Known files from the old flat layout are archived under
-App/Archivos_anteriores without deleting their original content.
-Unrecognized files and personal folders remain in place.
-
-LANGUAGE / IDIOMA
-Choose English or Spanish on the first launch of this version.
-Change it anytime in Settings > Appearance > Language, or
-Ajustes > Apariencia > Idioma. The choice belongs to this device.
-Project names, categories, notes and comments retain your original text.
-
-EXCHANGE ESTIMATOR / ESTIMADOR DE CAMBIO
-Hidden by default, including when an older project had it enabled.
-Activate in Settings > Visible features > Summary using the private
-password. Disable in the same place. Its space collapses when hidden.
-The gate is a local app preference, not account-based access control.
+UPDATE (ENGLISH)
+Close KA$H, extract elsewhere and copy the executable, App and .kash-portable
+into the existing app directory. Keep Data, Proyectos, .actualizaciones and
+your .kash projects. The .NET runtime is included; Edge WebView2 is required.
+The PowerShell test profile (.kash-prueba) is separate: save and open your
+project file rather than assuming its unsaved session was transferred.

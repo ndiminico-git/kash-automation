@@ -49,7 +49,7 @@ const test = base.extend({
 
 test.use({ storageState: { cookies: [], origins: [] } });
 
-test.describe('03 · Monedas · KA$H v0.677', () => {
+test.describe('03 · Monedas · KA$H v0.690', () => {
   test.setTimeout(30_000);
 
   test.afterEach(async ({ page }, testInfo) => {
