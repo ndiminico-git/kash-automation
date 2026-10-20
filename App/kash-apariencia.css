@@ -20,7 +20,7 @@
 .kashThemeControl .themeMoon{color:var(--ac);flex:none}
 .kashThemeControl .kashThemeSelect{flex:1;min-width:0;width:100%;font:inherit;background:var(--pn);color:var(--ink);border:1px solid var(--ln);border-radius:7px;padding:5px 7px;min-height:32px}
 body.nav-collapsed #nav#nav .kashThemeControl{justify-content:center;padding:9px 2px 6px}
-.kashThemeCompactButton{display:none!important}
+.kashThemeCompactButton,
 body.nav-collapsed #nav#nav .kashThemeControl :is(.themeMoon,.kashThemeSelect){display:none!important}
 body.nav-collapsed #nav#nav .kashThemeControl .kashThemeCompactButton{display:grid!important;place-items:center;flex:none!important;width:34px!important;min-width:34px!important;max-width:34px!important;height:34px!important;min-height:34px!important;margin:0!important;padding:7px!important;border:1px solid var(--ln)!important;border-radius:8px!important;background:var(--pn)!important;color:var(--ac)!important}
 .kashThemeMenu{position:fixed;z-index:20000;min-width:170px;max-width:calc(100vw - 24px);padding:5px;border:1px solid var(--ln);border-radius:10px;background:var(--pn);color:var(--ink);box-shadow:0 8px 28px #0003}

@@ -1,6 +1,6 @@
 /* Shared hierarchy: preserve icon sizes and give titles a consistent visual weight. */
 body.kashModern #v#v#v#v#v .kashPageTitle h2{font-size:28px!important;font-weight:750!important;line-height:1.18!important;letter-spacing:-.45px!important;color:var(--ink)!important}
-body.kashModern #v#v#v#v#v :is(.summarySectionTitle,.settingsSummaryTitle,.financeCardTitle,.settingsSectionHead h3,.expenseCurrencyTitle h2,.enabledCurrenciesPanel h3,.currencyEstimatesHead h3){font-size:21px!important;font-weight:720!important;line-height:1.25!important;letter-spacing:-.25px!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v :is(.summarySectionTitle,.settingsSummaryTitle,.financeCardTitle,.settingsSectionHead h3,.expenseCurrencyTitle h2,.enabledCurrenciesPanel h3,.currencyEstimatesHead h3),
 body.kashModern #v#v#v#v#v .mockPanelHeading b{font-size:21px!important;font-weight:720!important;line-height:1.25!important;letter-spacing:-.25px!important;color:var(--ink)!important}
 body.kashModern #v#v#v#v#v :is(.mockPanelHeading,.financeCardHeader,.settingsSummaryWrap,.settingsSectionHead){align-items:center!important}
 body.kashModern #v#v#v#v#v .mockPanelHeading>div{min-width:0}
@@ -39,8 +39,6 @@ body.kashModern #v#v#v#v#v .marketHead>div:first-child{display:flex;align-items:
 body.kashModern #v#v#v#v#v .marketHead .estimatorScope{margin:0!important;flex:none}
 body.kashModern #v#v#v#v#v .marketHead{gap:16px;flex-wrap:wrap}
 body.kashModern #v#v#v#v#v .estimatorActions{display:flex;flex-wrap:wrap;gap:8px}
-body.kashModern button.closex{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0!important;line-height:1!important;flex-shrink:0}
-body.kashModern button.closex svg{display:block;flex:none;width:16px;height:16px;margin:0}
 body.kashModern #nav#nav .collapsebtn{right:0!important;width:16px!important;height:78px!important;border-radius:10px 0 0 10px!important;box-shadow:none!important;background:var(--pn)!important}
 body.kashModern #nav#nav .collapsebtn svg{width:12px!important;height:16px!important}
 body.kashModern #v#v#v#v#v .fxFilterToolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;color:var(--mut);font-size:12px}
@@ -50,7 +48,9 @@ body.kashModern #v#v#v#v#v .fxFilterRow :is(input,select){display:block;width:10
 body.kashModern #v#v#v#v#v .fxFilterRow :is(input,select):focus-visible{outline:2px solid var(--ac);outline-offset:1px}
 body.kashModern #v#v#v#v#v .fxNoResults{position:static!important;text-align:center!important;padding:24px!important;color:var(--mut)}
 
+body.kashModern button.closex,
 body.kashModern button[data-kash-close-icon]{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0!important;line-height:1!important;flex-shrink:0}
+body.kashModern button.closex svg,
 body.kashModern button[data-kash-close-icon] svg{display:block;flex:none;width:16px;height:16px;margin:0}
 
 /* Approved “Bloques claros”: one shared card for every currency. */
@@ -109,7 +109,7 @@ body.kashModern #v#v#v#v#v .kashActiveCurrencyCards[data-currency-count="5"]>.ka
 body.kashModern #v#v#v#v#v .kashCurrencyBalanceCard .holdingVariation{max-width:140px;white-space:normal;overflow-wrap:anywhere;text-align:right}
 
 /* v0.678: semantic states are emitted with the value, not inferred from text. */
-body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyNegative{color:var(--kash-money-negative)!important}
+body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyNegative,
 body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyExpense{color:var(--kash-money-negative)!important}
 body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyRefund{color:var(--kash-money-refund)!important}
 body.kashModern #v#v#v#v#v :is(.kashCurrencyBalanceCard .currencyCardEstimate .approxValue,.holdingText strong,.flowText strong,.currencyEstimate strong,.monthtable td,.monthtable .val,.monthtable .realDisplay).moneyZero{color:var(--kash-money-zero)!important}

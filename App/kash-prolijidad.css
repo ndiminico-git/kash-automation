@@ -26,7 +26,7 @@ body.kashModern #v#v#v#v .monthNav{grid-template-columns:auto auto auto minmax(0
 body.kashModern #v#v#v#v .summaryHeaderWide{margin:0 0 14px!important;padding:0!important}
 body.kashModern #v#v#v#v .summaryPeriodNav{margin:0;gap:8px}
 /* Only static explanations are hidden. Dates, results, validation and statuses stay. */
-body.kashModern #v#v#v#v :is(.summarySectionSub,.settingsSummarySub,.financeCardSub,.settingsSectionHead .sub,.settingsSectionSub,.settingsPageHeader .sub,.mockPanelHeading .sub,.monthlyCreationRow .sub,.newMonthlyReminder .sub,.financeTip,.serviceDatesHint){display:none!important}
+body.kashModern #v#v#v#v :is(.summarySectionSub,.settingsSummarySub,.financeCardSub,.settingsSectionHead .sub,.settingsSectionSub,.settingsPageHeader .sub,.mockPanelHeading .sub,.monthlyCreationRow .sub,.newMonthlyReminder .sub,.financeTip,.serviceDatesHint),
 body.kashModern #v#v#v#v .kashDisplayChoices :is(.learnNote,.learnOptions small){display:none!important}
 body.kashModern #v#v#v#v .expenseSingleHint{visibility:hidden}
 body.kashModern #v#v#v#v :is(.summarySectionCard,.summarySidePanel,.quickConverter,.settingsFinanceCard,.settingsCardChoice,.mockExpenseFormPanel,.mockExpenseTablePanel,.kashDisplayChoices){border-radius:12px!important;background:var(--pn)!important;border-color:var(--ln)!important;box-shadow:0 3px 12px var(--kash-shadow),inset 0 1px 0 var(--kash-edge)!important}
@@ -165,7 +165,7 @@ body.kashModern #v#v#v#v#v#v #rw .statussel.st-pay{background:var(--kash-paid-so
 body.kashModern #v#v#v#v#v#v #rw .statussel.st-pend{background:var(--kash-reminder-pending-bg)!important;color:var(--kash-reminder-pending-ink)!important}
 body.kashModern #v#v#v#v#v#v #rw .statussel.st-off{background:var(--kash-negative-bg)!important;color:var(--kash-money-negative)!important}
 body.kashModern #v#v#v#v#v#v #rw .statussel:is(:hover,:focus-visible){appearance:auto;border-color:var(--ln)!important}
-body.kashModern #v#v#v#v#v#v #rw .recConcept{font-size:12px!important;color:var(--ink)!important}
+body.kashModern #v#v#v#v#v#v #rw .recConcept,
 body.kashModern #v#v#v#v#v#v #rw .datecell{font-size:12px!important;color:var(--ink)!important}
 @media(hover:none),(forced-colors:active){body.kashModern #v#v#v#v#v#v #rw .statussel{appearance:auto}}
 

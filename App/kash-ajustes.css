@@ -86,8 +86,8 @@ body.kashModern #v#v#v#v#v#v#v .tenAdjForm>div:last-child .btn{min-height:var(--
 body.kashModern #v#v#v#v#v#v#v .tenAdjTable{min-width:650px;table-layout:fixed}
 body.kashModern #v#v#v#v#v#v#v .kashSettingsContent .wrap{max-width:100%;min-width:0;overflow:auto}
 body.kashModern #v#v#v#v#v#v#v .kashSettingsContent .note{white-space:normal;overflow-wrap:anywhere}
-body.kashModern #v#v#v#v#v#v#v .kashSettingsShell [hidden]{display:none!important}
-body.kashNoVariation #v .holdingVariation{display:none!important}
+body.kashModern #v#v#v#v#v#v#v .kashSettingsShell [hidden],
+body.kashNoVariation #v .holdingVariation,
 #nav#nav .kashOptionalHidden{display:none!important}
 @media(max-width:1100px){body.kashModern #v#v#v#v#v#v#v .kashSettingsShell{grid-template-columns:190px minmax(0,1fr);gap:18px}body.kashModern #v#v#v#v#v#v#v .kashSettingsWorkspace{padding:20px}}
 @media(max-width:720px){body.kashModern #v#v#v#v#v#v#v .kashSettingsShell{grid-template-columns:minmax(0,1fr)}body.kashModern #v#v#v#v#v#v#v .kashSettingsNav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:static}body.kashModern #v#v#v#v#v#v#v .kashSettingsNav button{font-size:15px!important}}

@@ -1,34 +1,24 @@
-KA$H v0.690 — Verificación del portable Windows x64
+KA$H v0.691 — Validación de publicación, 19/10/2026
 
-Compilado desde los 44 archivos aprobados de la fuente v0.690, verificados
-por SHA256. Ejecutable único con .NET 8.0.32 incluido; interfaz en App.
-Versión del ejecutable 0.690.0.0 / producto 0.690.
+El usuario confirmó 213/213 TC aprobados en Visual Studio después de la
+tanda 4. La interfaz del portable conserva esos 32 recursos; solo index.html
+cambia el identificador de versión de 0.690 a 0.691. Los otros cambios de
+versión están en los metadatos del proyecto y dos textos nativos.
 
-CORRECCIONES
-- Configuración vacía de recordatorios respetada al abrir y recargar.
-- Foco contenido y restaurado en detalle de movimientos.
-- Nombres accesibles del menú contraído.
-- Referencia temporal actualizada al cambiar de mes con la app abierta.
-- Histórico de monedas inactivas visible en Chromium 127.
+Verificación de este paquete:
+- Compilación Release win-x64, single-file y .NET 8.0.32 incluido.
+- Ejecución nativa con perfil nuevo y sin búsqueda del runtime instalado.
+- Actualización real desde el portable v0.690 en una copia aislada.
+- Proyecto, configuración vacía de recordatorios y preferencias conservados.
+- Guardado completo, dos copias de respaldo nuevas y reapertura correcta.
+- Foco y nombres accesibles; diálogos CSV y resumen imprimible.
+- Recursos servidos por WebView2 coinciden con los 32 archivos finales.
+- Archivos personales ficticios y restos de la estructura antigua preservados.
+- Saldo conocido de prueba: 975, idéntico al esperado.
+- Dos TC existentes aprobados apuntando a App del portable, con control CSS.
+- Referencia CSS: 2358 important y 728 repeticiones de ID, sin alertas.
+- ZIP revisado por CRC y SHA256, sin datos, perfiles ni herramientas de prueba.
 
-BASE DE VERIFICACIÓN
-Los nueve casos del informe pasaron en Chromium 127 y Edge: 18 aprobados.
-Matriz adicional ES/EN claro/oscuro, fechas y conservación de datos aprobado.
-Guardado/reapertura de la fuente en WebView2 real aprobados.
-
-PRUEBA DEL PAQUETE
-- Arranque nuevo con perfil local y .NET incluido, sin KASH_PORTABLE_ROOT
-  y con DOTNET_ROOT apuntando a una carpeta inexistente.
-- Los 32 recursos servidos coinciden con la fuente aprobada por SHA256.
-- Actualización real desde v0.689: proyecto, preferencias y configuración
-  vacía de recordatorios conservados. Foco y nombres accesibles revisados.
-- Rechazo de rubro vacío seguido de nota válida con Enter.
-- Guardados completos y dos copias nuevas, conservando copias anteriores.
-- Diálogos CSV/informe mensual y reapertura sin argumentos.
-- Archivos personales ficticios, Proyectos, .actualizaciones y archivos
-  anteriores de estructura plana conservados en la prueba.
-- ZIP: 37 archivos, CRC y SHA256 por archivo comprobados.
-
-Las pruebas se realizaron con proyectos y perfiles ficticios aislados.
-La suite completa del portable integrado en VS/Git sigue pendiente.
-No incluye proyectos, Data ni perfiles personales. WebView2 sigue requerido.
+No se repitieron aquí los 213 casos completos contra el ejecutable final.
+Su aprobación completa corresponde a la integración del usuario; se añaden
+los controles de publicación anteriores. Solo se usaron proyectos ficticios.

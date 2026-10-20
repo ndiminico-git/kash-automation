@@ -3,6 +3,8 @@ const path = require('node:path');
 
 module.exports = defineConfig({
   testDir: './tests',
+  // Revisar el crecimiento de CSS antes de ejecutar los casos.
+  globalSetup: require.resolve('./tools/css-check.cjs'),
   fullyParallel: false, // Primero los leemos y ejecutamos en el orden del archivo.
   workers: 1,
   retries: 0, // Un fallo queda visible; no lo ocultamos con reintentos.

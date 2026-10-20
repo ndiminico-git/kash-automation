@@ -1,37 +1,34 @@
-KA$H v0.690 — Portable para Windows 64 bits
+KA$H v0.691 — Portable para Windows de 64 bits
 
-ABRIR
-Extraer el ZIP completo. Abrir KASH.App.exe.
+Extraer el ZIP completo y abrir KASH.App.exe.
 Conservar App y .kash-portable junto al ejecutable.
-.NET está incluido. Requiere Microsoft Edge WebView2 Runtime, como antes.
-No requiere PowerShell, Visual Studio ni el SDK .NET para ejecutar.
+.NET está incluido. Se utiliza Edge WebView2 Runtime, como en v0.690.
+No hace falta PowerShell, Visual Studio ni el SDK .NET para ejecutarlo.
 
-ACTUALIZAR EL PORTABLE ANTERIOR
+ACTUALIZAR LA CARPETA HABITUAL
 1. Cerrar KA$H.
-2. Extraer este ZIP en otra carpeta.
-3. Copiar KASH.App.exe, App y .kash-portable a la carpeta habitual de KA$H.
-4. Aceptar reemplazar los archivos de la aplicación; abrir el mismo EXE.
-Conservar Data, Proyectos, .actualizaciones y los archivos .kash personales.
-El paquete no incluye ni reemplaza esas carpetas ni tus proyectos.
-Los accesos directos al mismo KASH.App.exe siguen siendo válidos.
+2. Extraer el ZIP en otra carpeta.
+3. Copiar KASH.App.exe, App y .kash-portable a la carpeta habitual.
+4. Reemplazar solo los archivos de aplicación y abrir el mismo EXE.
+Conservar Data, Proyectos, .actualizaciones y todos los .kash personales.
+El ZIP no contiene datos ni perfiles de prueba. Los accesos directos al
+mismo ejecutable siguen siendo válidos.
 
-SI VENÍAS PROBANDO LA FUENTE EN POWERSHELL
-Guardar el proyecto en un archivo .kash y abrirlo desde el portable.
-La sesión .kash-prueba de aquella carpeta no se importa automáticamente.
-Conservarla hasta comprobar que el proyecto guardado tiene tus últimos cambios.
+Desde una prueba de fuente en PowerShell: guardar el proyecto .kash y abrirlo
+en el portable. La sesión de .kash-prueba es independiente; conservarla hasta
+comprobar que el archivo del proyecto contiene los últimos cambios.
 
 ESTRUCTURA
 KASH.App.exe        Aplicación.
-App                 Interfaz y documentación; necesaria para ejecutar.
-.kash-portable      Mantiene el perfil junto al ejecutable.
-Data                Se crea al abrir: sesión, preferencias y copias.
-Proyectos           Carpeta sugerida para proyectos, creada al abrir.
-Archivos conocidos de portables antiguos con estructura plana pueden quedar
-respaldados en App/Archivos_anteriores. No se mueven las carpetas personales.
+App                Interfaz y documentación; necesaria para ejecutar.
+.kash-portable     Mantiene el perfil junto al ejecutable.
+Data               Se crea al abrir: sesión, preferencias y copias.
+Proyectos          Carpeta sugerida, creada al abrir.
+
+Las herramientas de control CSS pertenecen al proyecto de automatización;
+no se copian dentro del portable.
 
 UPDATE (ENGLISH)
-Close KA$H, extract elsewhere and copy the executable, App and .kash-portable
-into the existing app directory. Keep Data, Proyectos, .actualizaciones and
-your .kash projects. The .NET runtime is included; Edge WebView2 is required.
-The PowerShell test profile (.kash-prueba) is separate: save and open your
-project file rather than assuming its unsaved session was transferred.
+Close KA$H, extract elsewhere and replace the executable, App and
+.kash-portable in the existing app directory. Keep Data, Proyectos,
+.actualizaciones and your .kash projects. .NET is included; WebView2 is used.

@@ -2,11 +2,8 @@
 #v > div.summaryDashboard > div.summaryMainCol > section.summarySectionCard.holdingsCard:nth-of-type(1) > div.holdingsShell:nth-of-type(2) > div.holdingsApproxBox.approxTile:nth-of-type(2) > div.approxText:nth-of-type(2) > small {
   display: none !important;
 }
-#v > div.summaryDashboard > div.summaryMainCol > section.summarySectionCard.holdingsCard:nth-of-type(1) > div.holdingsShell:nth-of-type(2) > div.holdingsApproxBox.approxTile:nth-of-type(2) > div.summarySectionIconBox:nth-of-type(1) > svg.sectionGlyph > path {
-  width: 35px !important;
-  height: 33px !important;
-}
-#v > div.summaryDashboard > div.summaryMainCol > section.summarySectionCard.holdingsCard:nth-of-type(1) > div.holdingsShell:nth-of-type(2) > div.holdingsApproxBox.approxTile:nth-of-type(2) > div.summarySectionIconBox:nth-of-type(1) > svg.sectionGlyph {
+#v > div.summaryDashboard > div.summaryMainCol > section.summarySectionCard.holdingsCard:nth-of-type(1) > div.holdingsShell:nth-of-type(2) > div.holdingsApproxBox.approxTile:nth-of-type(2) > div.summarySectionIconBox:nth-of-type(1) > svg.sectionGlyph > path,
+#v > div.summaryDashboard > div.summaryMainCol > section.summarySectionCard.holdingsCard:nth-of-type(1) > div.holdingsShell:nth-of-type(2) > div.holdingsApproxBox.approxTile:nth-of-type(2) > div.summarySectionIconBox:nth-of-type(1) > svg.sectionGlyph{
   width: 35px !important;
   height: 33px !important;
 }
@@ -39,16 +36,10 @@
   width: 75px !important;
   height: 27px !important;
 }
-#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.usd:nth-of-type(1) > span.tickerPair:nth-of-type(3) {
-  font-weight: 700 !important;
-}
-#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.usd:nth-of-type(1) > span.tickerPair:nth-of-type(2) {
-  font-weight: 700 !important;
-}
-#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.eur:nth-of-type(2) > span.tickerPair:nth-of-type(2) {
-  font-weight: 700 !important;
-}
-#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.eur:nth-of-type(2) > span.tickerPair:nth-of-type(3) {
+#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.usd:nth-of-type(1) > span.tickerPair:nth-of-type(3),
+#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.usd:nth-of-type(1) > span.tickerPair:nth-of-type(2),
+#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.eur:nth-of-type(2) > span.tickerPair:nth-of-type(2),
+#v > div.monthNav:nth-of-type(2) > div.marketTicker:nth-of-type(2) > div.tickerGroup.eur:nth-of-type(2) > span.tickerPair:nth-of-type(3){
   font-weight: 700 !important;
 }
 #nav > div.navPrimary:nth-of-type(2) > button:nth-of-type(5) > span.lbl:nth-of-type(2) {
